@@ -24,6 +24,23 @@ Oddities in Verovio and MEI found while encoding this edition, collected so they
 - **Status:** to recheck, probably limited to one case. Verovio 6.3.0 does draw a cross-staff `beamSpan` across a barline: movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) renders correctly once the stem directions are right. The case noted earlier is the one-note cross-staff beam in movement II, bars 2–3; find out whether that encoding is what Verovio skips before filing.
 - **Side note:** `beamSpan/@staff="1 2"` makes Verovio 6.3.0 draw the beam twice (once per staff). Give the staff of the first note only.
 
+### 2a. `beamSpan` with opposite stem directions loses a secondary beam
+
+- **Status:** confirmed in Verovio 6.3.0 (rendered). Not found among the `beamSpan` issues on GitHub (search of 2026-10-11; #2893 was about cross-staff `beamSpan`s not working at all).
+- **Where:** movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`): 32nds B♭ (lower staff, stem up), E (upper staff, stem down), B♮ (lower staff, stem up), one beam between the staves. The print has three strokes throughout.
+- **What happens:** between the first note and the stem-down note, Verovio draws two strokes instead of three; from the stem-down note on it draws three. The same notes in a `<beam>`, with the E made cross-staff by `note/@staff="1"`, get three strokes throughout. It happens with the `beamSpan` inside one bar and across a barline. `beamSpan/@place="mixed"` changes nothing.
+- **Minimal example** (one bar of 3/32; replace the `beamSpan` by a `<beam>` around three notes in staff 2's layer, with `staff="1"` on the E, to see the correct result):
+
+  ```xml
+  <measure n="1">
+    <staff n="1"><layer n="1"><space dur="32"/><note xml:id="e" dur="32" pname="e" oct="3" stem.dir="down"/><space dur="32"/></layer></staff>
+    <staff n="2"><layer n="1"><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><space dur="32"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></layer></staff>
+    <beamSpan staff="2" plist="#bb #e #bn" startid="#bb" endid="#bn"/>
+  </measure>
+  ```
+
+- **Expected:** three strokes from the first to the last note, as with `<beam>`.
+
 ### 3. No page heading from `meiHead` (to recheck)
 
 - **Status:** to recheck. With Verovio 6.3, the edition headers draw no title or composer, so each movement repeats the printed head in a `pgHead`. Check which header fields Verovio reads for its automatic heading before filing.
