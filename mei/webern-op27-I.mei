@@ -131,6 +131,11 @@
       <revisionDesc>
          <change isodate="2026-10-11" resp="#resp.editor">
             <changeDesc>
+               <p>The sb elements no longer carry @type="z", the name of the Humdrum layout group (!!LO:LB:g=z) that the Kern conversion copied into @type; the breaks follow the UE print (scripts/set_breaks.py).</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
                <p>Edition header: MEI 5.1 CMN declarations, responsibility, edition, source and work metadata, editorial declaration and this revision history. It replaces the metadata written by Verovio's Humdrum import and the study's project note. The page head in the score (pgHead) now shows the printed head instead of the import's composer line and life dates.</p>
             </changeDesc>
          </change>
@@ -381,7 +386,7 @@
                      </staff>
                      <slur xml:id="ue1937-I-slur-L30F2-L31F2" staff="1" startid="#ue1937-I-chord-L30F2" endid="#ue1937-I-note-L31F2" />
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m006" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m006" />
                   <measure xml:id="ue1937-I-m006" n="6" facs="#zone-ue1937-I-m006">
                      <staff xml:id="ue1937-I-staff-L33F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L33F2N1" n="1">
@@ -542,7 +547,7 @@
                      <slur xml:id="ue1937-I-slur-L50F1-L51F1" staff="2" startid="#ue1937-I-note-L50F1" endid="#ue1937-I-chord-L51F1" />
                      <hairpin xml:id="ue1937-I-hairpin-m010-dim" staff="1" tstamp="1" tstamp2="0m+3.2" form="dim" place="below" />
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m011" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m011" />
                   <measure xml:id="ue1937-I-m011" n="11" facs="#zone-ue1937-I-m011">
                      <staff xml:id="ue1937-I-staff-L53F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L53F2N1" n="1">
@@ -681,7 +686,7 @@
                      <slur xml:id="ue1937-I-slur-L67F2-L68F2" staff="1" startid="#ue1937-I-note-L67F2" endid="#ue1937-I-chord-L68F2" />
                      <slur xml:id="ue1937-I-slur-L68F1-L70F1" staff="2" startid="#ue1937-I-chord-L68F1" endid="#ue1937-I-note-L70F1" />
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m015" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m015" />
                   <measure xml:id="ue1937-I-m015" n="15" facs="#zone-ue1937-I-m015">
                      <staff xml:id="ue1937-I-staff-L69F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L69F2N1" n="1">
@@ -904,7 +909,7 @@
                      <tie xml:id="ue1937-I-tie-L107F2S1-L109F2S1" startid="#ue1937-I-note-L107F2S1" endid="#ue1937-I-note-L109F2S1" />
                      <tie xml:id="ue1937-I-tie-L107F2S2-L109F2S2" startid="#ue1937-I-note-L107F2S2" endid="#ue1937-I-note-L109F2S2" />
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m022" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m022" />
                   <measure xml:id="ue1937-I-m022" n="22" facs="#zone-ue1937-I-m022">
                      <staff xml:id="ue1937-I-staff-L108F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L108F2N1" n="1">
@@ -1010,7 +1015,7 @@
                      </staff>
                      <tie xml:id="ue1937-I-tie-L125F1-L127F1" startid="#ue1937-I-note-L125F1" endid="#ue1937-I-note-L127F1" />
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m025" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m025" />
                   <measure xml:id="ue1937-I-m025" n="25" facs="#zone-ue1937-I-m025">
                      <staff xml:id="ue1937-I-staff-L126F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L126F2N1" n="1">
@@ -1117,7 +1122,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m028" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m028" />
                   <measure xml:id="ue1937-I-m028" n="28" facs="#zone-ue1937-I-m028">
                      <staff xml:id="ue1937-I-staff-L145F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L145F2N1" n="1">
@@ -1214,7 +1219,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m031" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m031" />
                   <measure xml:id="ue1937-I-m031" n="31" facs="#zone-ue1937-I-m031">
                      <staff xml:id="ue1937-I-staff-L163F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L163F2N1" n="1">
@@ -1458,7 +1463,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m037" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m037" />
                   <measure xml:id="ue1937-I-m037" n="37" facs="#zone-ue1937-I-m037">
                      <staff xml:id="ue1937-I-staff-L205F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L205F2N1" n="1">
@@ -1578,7 +1583,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m042" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m042" />
                   <measure xml:id="ue1937-I-m042" n="42" facs="#zone-ue1937-I-m042">
                      <staff xml:id="ue1937-I-staff-L225F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L225F2N1" n="1">
@@ -1714,7 +1719,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m047" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m047" />
                   <measure xml:id="ue1937-I-m047" n="47" facs="#zone-ue1937-I-m047">
                      <staff xml:id="ue1937-I-staff-L245F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L245F2N1" n="1">
@@ -1833,7 +1838,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="ue1937-I-sb-before-m051" type="z" />
+                  <sb xml:id="ue1937-I-sb-before-m051" />
                   <measure xml:id="ue1937-I-m051" n="51" facs="#zone-ue1937-I-m051">
                      <staff xml:id="ue1937-I-staff-L261F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L261F2N1" n="1">

@@ -130,6 +130,11 @@
       <revisionDesc>
          <change isodate="2026-10-11" resp="#resp.editor">
             <changeDesc>
+               <p>The sb elements no longer carry @type="z", the name of the Humdrum layout group (!!LO:LB:g=z) that the Kern conversion copied into @type; the breaks follow the UE print (scripts/set_breaks.py).</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
                <p>Page and system breaks written from facsimiles/ue1937/pages.json by scripts/set_breaks.py, in the form of movement I: a pb with the printed page number (@n) and the page surface (@facs) before the first bar of each page, an sb before the first bar of every other system. The breaks of the Kern conversion stood at the same bars; its pb had no @n or @facs.</p>
             </changeDesc>
          </change>
@@ -363,7 +368,7 @@
                         </dynam>
                         <slur xml:id="ue1937-II-slur-L50F2-L51F2" staff="2" startid="#ue1937-II-note-L50F2" endid="#ue1937-II-note-L51F2" />
                      </measure>
-                     <sb xml:id="ue1937-II-sb-before-m005" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m005" />
                      <measure xml:id="ue1937-II-m005" n="5" facs="#zone-ue1937-II-m005">
                         <staff xml:id="ue1937-II-staff-L53F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L53F2N1" n="1">
@@ -523,7 +528,7 @@
                         </staff>
                         <dynam xml:id="ue1937-II-dynam-L85F3" place="between" staff="1 2" tstamp="2">p</dynam>
                      </measure>
-                     <sb xml:id="ue1937-II-sb-before-m010" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m010" />
                      <measure xml:id="ue1937-II-m010" n="10" facs="#zone-ue1937-II-m010">
                         <staff xml:id="ue1937-II-staff-L88F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L88F2N1" n="1">
@@ -658,7 +663,7 @@
                         </staff>
                         <dynam xml:id="ue1937-II-dynam-L118F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
                      </measure>
-                     <sb xml:id="ue1937-II-sb-before-m015" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m015" />
                      <measure xml:id="ue1937-II-m015" n="15" facs="#zone-ue1937-II-m015">
                         <staff xml:id="ue1937-II-staff-L123F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L123F2N1" n="1">
@@ -784,7 +789,7 @@
                         <dynam xml:id="ue1937-II-dynam-L145F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
                         <slur xml:id="ue1937-II-slur-L146F2-L147F2" type="placed" staff="1" startid="#ue1937-II-note-L146F2" endid="#ue1937-II-note-L147F2" curvedir="above" />
                      </measure>
-                     <sb xml:id="ue1937-II-sb-before-m019" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m019" />
                      <measure xml:id="ue1937-II-m019" n="19" facs="#zone-ue1937-II-m019">
                         <staff xml:id="ue1937-II-staff-L151F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L151F2N1" n="1">

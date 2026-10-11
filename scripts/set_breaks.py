@@ -6,7 +6,9 @@ the first bar of each printed system, in the form movement I was hand-edited
 in:
 
   <pb xml:id="ue1937-<mvt>-pb-before-m<NNN>" facs="#surface-ue1937-p<NNNN>" n="<printed page>" />
-  <sb xml:id="ue1937-<mvt>-sb-before-m<NNN>" type="z" />
+  <sb xml:id="ue1937-<mvt>-sb-before-m<NNN>" />
+
+The Kern conversion's sb/@type="z" (the Humdrum layout group name) is not kept.
 
 A break stands in the section of the bar it precedes, before any scoreDef
 that directly precedes that bar, so a clef change applies to the new system.
@@ -85,7 +87,7 @@ def expected_breaks(path: Path, mvt: str, pages: list[dict]) -> dict[int, list[s
             if i == 0:
                 line = f'<pb xml:id="ue1937-{mvt}-pb-{ident}" facs="#{surface_id}" n="{page["printed_page"]}" />'
             else:
-                line = f'<sb xml:id="ue1937-{mvt}-sb-{ident}" type="z" />'
+                line = f'<sb xml:id="ue1937-{mvt}-sb-{ident}" />'
             inserts.setdefault(anchor.sourceline - 1, []).append(line)
     return inserts
 
