@@ -1,0 +1,189 @@
+{
+  "created_at": "2026-10-10T23:58:52+00:00",
+  "work": "Anton Webern, Variations for Piano, Op. 27",
+  "policy": "Sources are cited by URL and SHA-256; neither the PDF nor the Kern files are committed.",
+  "sources": [
+    {
+      "requested_url": "https://imslp.eu/files/imglnks/euimg/4/4d/IMSLP28271-PMLP04634-Webern_-_Variations,_Op._27.pdf",
+      "download_url": "https://imslp.eu/files/imglnks/euimg/4/4d/IMSLP28271-PMLP04634-Webern_-_Variations,_Op._27.pdf",
+      "retrieved_at": "2026-09-26T12:48:03.868028+00:00",
+      "bytes": 369001,
+      "sha256": "d604c08ab797818f414a83fa4047eb2eb3c52ba6c74a47ce966e0a9c273ab330",
+      "id": "imslp-28271-universal-1937",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "PDF",
+      "imslp_id": "28271",
+      "edition": "Vienna: Universal Edition, 1937; plate U.E. 10881",
+      "scope": "complete_score",
+      "page_count": 9,
+      "source_page": "https://imslp.org/wiki/Variations_for_Piano,_Op.27_(Webern,_Anton)",
+      "source_revision": "4585412",
+      "catalogue_url": "https://imslp.org/wiki/Special:ImagefromIndex/28271",
+      "scan_credit": "Unknown",
+      "upload_credit": "JacopoTore",
+      "upload_date_as_listed": "2017-08-07",
+      "rights_as_stated": "Public Domain - Non-PD US",
+      "movements": [
+        1,
+        2,
+        3
+      ],
+      "scope_evidence": "IMSLP catalogue label; no page-by-page editorial verification",
+      "notes": [
+        "First PDF page is printed page 3, movement I bars 1–18.",
+        "Scan also displays Copyright renewed 1965; catalogue identifies the 1937 edition."
+      ],
+      "role": "base source (all printed detail)",
+      "redistributed": false
+    },
+    {
+      "requested_url": "https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n1.krn&l=users/craig/classical/webern&format=kern",
+      "canonical_url": "https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n1.krn&l=users/craig/classical/webern&format=kern",
+      "download_url": "https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n1.krn&l=users/craig/classical/webern&format=kern",
+      "retrieved_at": "2026-09-26T12:53:51.111043+00:00",
+      "bytes": 3304,
+      "sha256": "5d53373697aacdd4b752dbf2339d030a63b7074100005f2901e57f1d22906437",
+      "id": "webern-op27n1",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "Humdrum **kern",
+      "scope": "movement",
+      "movements": [
+        1
+      ],
+      "source_page": "https://kern.ccarh.org/cgi-bin/browse?l=users/craig/classical/webern",
+      "encoding_credit": "Craig Stuart Sapp",
+      "reference_records": [
+        "!!!COM: Webern, Anton",
+        "!!!CDT: 1883-1945",
+        "!!!CNT: Austrian",
+        "!!!OPR: Variations for Piano",
+        "!!!OTL: I",
+        "!!!OPS: 27",
+        "!!!OMV: 1",
+        "!!!ODT: 1934-1935",
+        "!!!PDT: 1936",
+        "!!!OMD: Sehr m&auml;&szlig;ig [eighth-dot] = ca 40",
+        "!!!RDF**kern: > = above",
+        "!!!RDF**kern: < = below",
+        "!!!AIN: piano",
+        "!!!END: Craig Stuart Sapp",
+        "!!!END: 2008/12/17",
+        "!!!EED: Craig Stuart Sapp",
+        "!!!EEV: 2020/11/23",
+        "!!!EST: no beams, dynamics, slurs, articulations",
+        "!!!title: Op. 27, I"
+      ],
+      "encoding_limitations": [
+        "no beams, dynamics, slurs, articulations"
+      ],
+      "rights_as_stated": "No explicit redistribution license found in retrieved file reference records or collection page.",
+      "notes": [
+        "Retrieved through kern.ccarh.org because kern.humdrum.org returned HTTP 503.",
+        "Header composition/publication dates are preserved as source assertions; they differ from the IMSLP catalogue."
+      ],
+      "role": "base encoding (notes, rhythms); enriched by hand",
+      "redistributed": false
+    },
+    {
+      "requested_url": "https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n2.krn&l=users/craig/classical/webern&format=kern",
+      "canonical_url": "https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n2.krn&l=users/craig/classical/webern&format=kern",
+      "download_url": "https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n2.krn&l=users/craig/classical/webern&format=kern",
+      "retrieved_at": "2026-09-26T12:53:51.652977+00:00",
+      "bytes": 2632,
+      "sha256": "79fb9a2c859e97eac5a959c28e21d177dc471d7d2c90312359a4201a644a5d1a",
+      "id": "webern-op27n2",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "Humdrum **kern",
+      "scope": "movement",
+      "movements": [
+        2
+      ],
+      "source_page": "https://kern.ccarh.org/cgi-bin/browse?l=users/craig/classical/webern",
+      "encoding_credit": "Craig Stuart Sapp",
+      "reference_records": [
+        "!!!COM: Webern, Anton",
+        "!!!CDT: 1883-1945",
+        "!!!CNT: Austrian",
+        "!!!OPR: Variations for Piano",
+        "!!!OTL: II",
+        "!!!OPS: 27",
+        "!!!OMV: 2",
+        "!!!ODT: 1934-1935",
+        "!!!PDT: 1936",
+        "!!!OMD: Sehr schnell [quarter] = ca 160",
+        "!!!RDF**kern: > = above",
+        "!!!RDF**kern: < = below",
+        "!!!AIN: piano",
+        "!!!END: Craig Stuart Sapp",
+        "!!!END: 2008/12/17",
+        "!!!EED: Craig Stuart Sapp",
+        "!!!EEV: 2020/11/23",
+        "!!!EST: encoding not finished",
+        "!!!title: Op. 27, II"
+      ],
+      "encoding_limitations": [
+        "encoding not finished"
+      ],
+      "rights_as_stated": "No explicit redistribution license found in retrieved file reference records or collection page.",
+      "notes": [
+        "Retrieved through kern.ccarh.org because kern.humdrum.org returned HTTP 503.",
+        "Header composition/publication dates are preserved as source assertions; they differ from the IMSLP catalogue."
+      ],
+      "role": "base encoding (notes, rhythms); enriched by hand",
+      "redistributed": false
+    },
+    {
+      "requested_url": "https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n3.krn&l=users/craig/classical/webern&format=kern",
+      "canonical_url": "https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n3.krn&l=users/craig/classical/webern&format=kern",
+      "download_url": "https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n3.krn&l=users/craig/classical/webern&format=kern",
+      "retrieved_at": "2026-09-26T12:53:52.224120+00:00",
+      "bytes": 7386,
+      "sha256": "e59686611fc3c1399d7c6aea5a17b7891c83a2c1566097c0e45b37813b94048f",
+      "id": "webern-op27n3",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "Humdrum **kern",
+      "scope": "movement",
+      "movements": [
+        3
+      ],
+      "source_page": "https://kern.ccarh.org/cgi-bin/browse?l=users/craig/classical/webern",
+      "encoding_credit": "Craig Stuart Sapp",
+      "reference_records": [
+        "!!!COM: Webern, Anton",
+        "!!!CDT: 1883-1945",
+        "!!!CNT: Austrian",
+        "!!!OPR: Variations for Piano",
+        "!!!OTL: III",
+        "!!!OPS: 27",
+        "!!!OMV: 3",
+        "!!!ODT: 1934-1935",
+        "!!!PDT: 1936",
+        "!!!OMD: Ruhig flie&szlig;end [half] = ca 80",
+        "!!!RDF**kern: > = above",
+        "!!!RDF**kern: < = below",
+        "!!!RDF**kern: N = linked",
+        "!!!AIN: piano",
+        "!!!END: Craig Stuart Sapp",
+        "!!!END: 2008/12/17",
+        "!!!EED: Craig Stuart Sapp",
+        "!!!EEV: 2020/11/23",
+        "!!!EST: tempo changes not yet encoded",
+        "!!!title: Op. 27, III"
+      ],
+      "encoding_limitations": [
+        "tempo changes not yet encoded"
+      ],
+      "rights_as_stated": "No explicit redistribution license found in retrieved file reference records or collection page.",
+      "notes": [
+        "Retrieved through kern.ccarh.org because kern.humdrum.org returned HTTP 503.",
+        "Header composition/publication dates are preserved as source assertions; they differ from the IMSLP catalogue."
+      ],
+      "role": "base encoding (notes, rhythms); enriched by hand",
+      "redistributed": false
+    }
+  ]
+}

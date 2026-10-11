@@ -1,0 +1,21 @@
+# Local settings, environments and Python/Jupyter caches.
+.codex/
+.agents/
+.env
+.env.*
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Facsimile images and the source PDF stay local; pages.json records their hashes.
+/facsimiles/**/*.png
+/facsimiles/**/*.pdf
+
+# Unlicensed source encodings (KernScores) are cited by URL + SHA-256, never committed.
+/sources/kern/
+
+# Validation run outputs.
+/validation/runs/

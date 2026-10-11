@@ -1,0 +1,2663 @@
+{
+ "added": [
+  {
+   "id": "ue1937-I-keysig-staff1",
+   "tag": "keySig",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "sig": "0"
+   },
+   "text": "",
+   "parent": "staffDef:ue1937-I-staffdef-L11F2"
+  },
+  {
+   "id": "ue1937-I-keysig-staff2",
+   "tag": "keySig",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "sig": "0"
+   },
+   "text": "",
+   "parent": "staffDef:ue1937-I-staffdef-L11F1"
+  },
+  {
+   "id": "ue1937-I-pb-before-m001",
+   "tag": "pb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-pb-before-m019",
+   "tag": "pb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-pb-before-m034",
+   "tag": "pb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m006",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m011",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m015",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m022",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m025",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m028",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m031",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m037",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m042",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m047",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-sb-before-m051",
+   "tag": "sb",
+   "measure": null,
+   "staff": null,
+   "attrs": {
+    "type": "z"
+   },
+   "text": "",
+   "parent": "section:ue1937-I-section-L11F1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L15F2-L19F2",
+   "tag": "beamSpan",
+   "measure": "1",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "plist": "#ue1937-I-chord-L15F2 #ue1937-I-note-L19F2",
+    "startid": "#ue1937-I-chord-L15F2",
+    "endid": "#ue1937-I-note-L19F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m001"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L16F1-L18F1",
+   "tag": "beamSpan",
+   "measure": "1",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-note-L16F1 #ue1937-I-chord-L18F1",
+    "startid": "#ue1937-I-note-L16F1",
+    "endid": "#ue1937-I-chord-L18F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m001"
+  },
+  {
+   "id": "ue1937-I-dynam-L15F2",
+   "tag": "dynam",
+   "measure": "1",
+   "staff": "1",
+   "attrs": {
+    "place": "below",
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L15F2"
+   },
+   "text": "pp",
+   "parent": "measure:ue1937-I-m001"
+  },
+  {
+   "id": "ue1937-I-slur-L15F2-L19F2",
+   "tag": "slur",
+   "measure": "1",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L15F2",
+    "endid": "#ue1937-I-note-L19F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m001"
+  },
+  {
+   "id": "ue1937-I-slur-L16F1-L18F1",
+   "tag": "slur",
+   "measure": "1",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-note-L16F1",
+    "endid": "#ue1937-I-chord-L18F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m001"
+  },
+  {
+   "id": "ue1937-I-tempo-spacer",
+   "tag": "rend",
+   "measure": "1",
+   "staff": null,
+   "attrs": {},
+   "text": "",
+   "parent": "tempo:ue1937-I-tempo-L10F1"
+  },
+  {
+   "id": "ue1937-I-beam-L23F2-L24F2",
+   "tag": "beam",
+   "measure": "3",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L21F2N1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L22F1-L26F1",
+   "tag": "beamSpan",
+   "measure": "3",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-chord-L22F1 #ue1937-I-note-L26F1",
+    "startid": "#ue1937-I-chord-L22F1",
+    "endid": "#ue1937-I-note-L26F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m003"
+  },
+  {
+   "id": "ue1937-I-clef-m003-s2-1",
+   "tag": "clef",
+   "measure": "3",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L21F1N1"
+  },
+  {
+   "id": "ue1937-I-slur-L22F1-L26F1",
+   "tag": "slur",
+   "measure": "3",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L22F1",
+    "endid": "#ue1937-I-note-L26F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m003"
+  },
+  {
+   "id": "ue1937-I-slur-L23F2-L24F2",
+   "tag": "slur",
+   "measure": "3",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-note-L23F2",
+    "endid": "#ue1937-I-chord-L24F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m003"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L28F1-L30F1-L32F1",
+   "tag": "beamSpan",
+   "measure": "4",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-note-L28F1 #ue1937-I-note-L30F1 #ue1937-I-rest-L31F1 #ue1937-I-chord-L32F1",
+    "startid": "#ue1937-I-note-L28F1",
+    "endid": "#ue1937-I-chord-L32F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m004"
+  },
+  {
+   "id": "ue1937-I-slur-L28F1-L32F1",
+   "tag": "slur",
+   "measure": "4",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-note-L28F1",
+    "endid": "#ue1937-I-chord-L32F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m004"
+  },
+  {
+   "id": "ue1937-I-beam-L30F2-L31F2",
+   "tag": "beam",
+   "measure": "5",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L29F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m005-s2-2",
+   "tag": "clef",
+   "measure": "5",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L29F1N1"
+  },
+  {
+   "id": "ue1937-I-slur-L30F2-L31F2",
+   "tag": "slur",
+   "measure": "5",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L30F2",
+    "endid": "#ue1937-I-note-L31F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m005"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L35F2-L39F2",
+   "tag": "beamSpan",
+   "measure": "6",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "plist": "#ue1937-I-note-L35F2 #ue1937-I-chord-L39F2",
+    "startid": "#ue1937-I-note-L35F2",
+    "endid": "#ue1937-I-chord-L39F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m006"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L36F1-L38F1",
+   "tag": "beamSpan",
+   "measure": "6",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-chord-L36F1 #ue1937-I-note-L38F1",
+    "startid": "#ue1937-I-chord-L36F1",
+    "endid": "#ue1937-I-note-L38F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m006"
+  },
+  {
+   "id": "ue1937-I-slur-L35F2-L39F2",
+   "tag": "slur",
+   "measure": "6",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-note-L35F2",
+    "endid": "#ue1937-I-chord-L39F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m006"
+  },
+  {
+   "id": "ue1937-I-slur-L36F1-L38F1",
+   "tag": "slur",
+   "measure": "6",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L36F1",
+    "endid": "#ue1937-I-note-L38F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m006"
+  },
+  {
+   "id": "ue1937-I-beam-L42F2-L43F2",
+   "tag": "beam",
+   "measure": "8",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L41F2N1"
+  },
+  {
+   "id": "ue1937-I-beam-L43F1-L44F1",
+   "tag": "beam",
+   "measure": "8",
+   "staff": "2",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L41F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m008-s2-3",
+   "tag": "clef",
+   "measure": "8",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L41F1N1"
+  },
+  {
+   "id": "ue1937-I-slur-L42F2-L43F2",
+   "tag": "slur",
+   "measure": "8",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L42F2",
+    "endid": "#ue1937-I-note-L43F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m008"
+  },
+  {
+   "id": "ue1937-I-slur-L43F1-L44F1",
+   "tag": "slur",
+   "measure": "8",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L43F1",
+    "endid": "#ue1937-I-note-L44F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m008"
+  },
+  {
+   "id": "ue1937-I-beam-L46F2-L47F2",
+   "tag": "beam",
+   "measure": "9",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L45F2N1"
+  },
+  {
+   "id": "ue1937-I-beam-L47F1-L48F1",
+   "tag": "beam",
+   "measure": "9",
+   "staff": "2",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L45F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m009-s2-4",
+   "tag": "clef",
+   "measure": "9",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L45F1N1"
+  },
+  {
+   "id": "ue1937-I-slur-L46F2-L47F2",
+   "tag": "slur",
+   "measure": "9",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L46F2",
+    "endid": "#ue1937-I-note-L47F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m009"
+  },
+  {
+   "id": "ue1937-I-slur-L47F1-L48F1",
+   "tag": "slur",
+   "measure": "9",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L47F1",
+    "endid": "#ue1937-I-note-L48F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m009"
+  },
+  {
+   "id": "ue1937-I-beam-L50F1-L51F1",
+   "tag": "beam",
+   "measure": "10",
+   "staff": "2",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L49F1N1"
+  },
+  {
+   "id": "ue1937-I-beam-L51F2-L52F2",
+   "tag": "beam",
+   "measure": "10",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L49F2N1"
+  },
+  {
+   "id": "ue1937-I-hairpin-m010-dim",
+   "tag": "hairpin",
+   "measure": "10",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "tstamp": "1",
+    "tstamp2": "0m+4",
+    "form": "dim",
+    "place": "below"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m010"
+  },
+  {
+   "id": "ue1937-I-slur-L50F1-L51F1",
+   "tag": "slur",
+   "measure": "10",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-note-L50F1",
+    "endid": "#ue1937-I-chord-L51F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m010"
+  },
+  {
+   "id": "ue1937-I-slur-L51F2-L52F2",
+   "tag": "slur",
+   "measure": "10",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-note-L51F2",
+    "endid": "#ue1937-I-chord-L52F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m010"
+  },
+  {
+   "id": "ue1937-I-beam-L55F2-L56F2",
+   "tag": "beam",
+   "measure": "11",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L53F2N1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L56F1-L58F1",
+   "tag": "beamSpan",
+   "measure": "11",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-chord-L56F1 #ue1937-I-note-L58F1",
+    "startid": "#ue1937-I-chord-L56F1",
+    "endid": "#ue1937-I-note-L58F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m011"
+  },
+  {
+   "id": "ue1937-I-dynam-L55F2",
+   "tag": "dynam",
+   "measure": "11",
+   "staff": "1",
+   "attrs": {
+    "place": "below",
+    "staff": "1",
+    "startid": "#ue1937-I-note-L55F2"
+   },
+   "text": "f",
+   "parent": "measure:ue1937-I-m011"
+  },
+  {
+   "id": "ue1937-I-slur-L55F2-L56F2",
+   "tag": "slur",
+   "measure": "11",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-note-L55F2",
+    "endid": "#ue1937-I-chord-L56F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m011"
+  },
+  {
+   "id": "ue1937-I-slur-L56F1-L58F1",
+   "tag": "slur",
+   "measure": "11",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L56F1",
+    "endid": "#ue1937-I-note-L58F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m011"
+  },
+  {
+   "id": "ue1937-I-beam-L59F2-L60F2",
+   "tag": "beam",
+   "measure": "12",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L57F2N1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L60F1-L62F1",
+   "tag": "beamSpan",
+   "measure": "12",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-note-L60F1 #ue1937-I-chord-L62F1",
+    "startid": "#ue1937-I-note-L60F1",
+    "endid": "#ue1937-I-chord-L62F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m012"
+  },
+  {
+   "id": "ue1937-I-clef-m012-s2-5",
+   "tag": "clef",
+   "measure": "12",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L57F1N1"
+  },
+  {
+   "id": "ue1937-I-slur-L59F2-L60F2",
+   "tag": "slur",
+   "measure": "12",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L59F2",
+    "endid": "#ue1937-I-note-L60F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m012"
+  },
+  {
+   "id": "ue1937-I-slur-L60F1-L62F1",
+   "tag": "slur",
+   "measure": "12",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-note-L60F1",
+    "endid": "#ue1937-I-chord-L62F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m012"
+  },
+  {
+   "id": "ue1937-I-beam-L63F2-L64F2",
+   "tag": "beam",
+   "measure": "13",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L61F2N1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L64F1-L66F1",
+   "tag": "beamSpan",
+   "measure": "13",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-note-L64F1 #ue1937-I-chord-L66F1",
+    "startid": "#ue1937-I-note-L64F1",
+    "endid": "#ue1937-I-chord-L66F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m013"
+  },
+  {
+   "id": "ue1937-I-dir-dim-L63F2",
+   "tag": "dir",
+   "measure": "13",
+   "staff": "1",
+   "attrs": {
+    "place": "below",
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L63F2"
+   },
+   "text": "dim.",
+   "parent": "measure:ue1937-I-m013"
+  },
+  {
+   "id": "ue1937-I-slur-L63F2-L64F2",
+   "tag": "slur",
+   "measure": "13",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L63F2",
+    "endid": "#ue1937-I-note-L64F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m013"
+  },
+  {
+   "id": "ue1937-I-slur-L64F1-L66F1",
+   "tag": "slur",
+   "measure": "13",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-note-L64F1",
+    "endid": "#ue1937-I-chord-L66F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m013"
+  },
+  {
+   "id": "ue1937-I-beam-L67F2-L68F2",
+   "tag": "beam",
+   "measure": "14",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L65F2N1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L68F1-L70F1",
+   "tag": "beamSpan",
+   "measure": "14",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-chord-L68F1 #ue1937-I-note-L70F1",
+    "startid": "#ue1937-I-chord-L68F1",
+    "endid": "#ue1937-I-note-L70F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m014"
+  },
+  {
+   "id": "ue1937-I-clef-m014-s2-6",
+   "tag": "clef",
+   "measure": "14",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L65F1N1"
+  },
+  {
+   "id": "ue1937-I-slur-L67F2-L68F2",
+   "tag": "slur",
+   "measure": "14",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-note-L67F2",
+    "endid": "#ue1937-I-chord-L68F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m014"
+  },
+  {
+   "id": "ue1937-I-slur-L68F1-L70F1",
+   "tag": "slur",
+   "measure": "14",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L68F1",
+    "endid": "#ue1937-I-note-L70F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m014"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L72F2-L74F2",
+   "tag": "beamSpan",
+   "measure": "15",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "plist": "#ue1937-I-chord-L72F2 #ue1937-I-note-L74F2",
+    "startid": "#ue1937-I-chord-L72F2",
+    "endid": "#ue1937-I-note-L74F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m015"
+  },
+  {
+   "id": "ue1937-I-dynam-L72F2",
+   "tag": "dynam",
+   "measure": "15",
+   "staff": "1",
+   "attrs": {
+    "place": "below",
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L72F2"
+   },
+   "text": "p",
+   "parent": "measure:ue1937-I-m015"
+  },
+  {
+   "id": "ue1937-I-slur-L72F2-L74F2",
+   "tag": "slur",
+   "measure": "15",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L72F2",
+    "endid": "#ue1937-I-note-L74F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m015"
+  },
+  {
+   "id": "ue1937-I-beam-L74F1-L75F1",
+   "tag": "beam",
+   "measure": "16",
+   "staff": "2",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L73F1N1"
+  },
+  {
+   "id": "ue1937-I-beam-L75F2-L76F2",
+   "tag": "beam",
+   "measure": "16",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L73F2N1"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L76F1-L78F1",
+   "tag": "beamSpan",
+   "measure": "16",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-chord-L76F1 #ue1937-I-note-L78F1",
+    "startid": "#ue1937-I-chord-L76F1",
+    "endid": "#ue1937-I-note-L78F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m016"
+  },
+  {
+   "id": "ue1937-I-clef-m016-s2-7",
+   "tag": "clef",
+   "measure": "16",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L73F1N1"
+  },
+  {
+   "id": "ue1937-I-hairpin-L75F2-L76F2-dim",
+   "tag": "hairpin",
+   "measure": "16",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "form": "dim",
+    "place": "below",
+    "startid": "#ue1937-I-chord-L75F2",
+    "endid": "#ue1937-I-note-L76F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m016"
+  },
+  {
+   "id": "ue1937-I-slur-L74F1-L75F1",
+   "tag": "slur",
+   "measure": "16",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L74F1",
+    "endid": "#ue1937-I-note-L75F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m016"
+  },
+  {
+   "id": "ue1937-I-slur-L75F2-L76F2",
+   "tag": "slur",
+   "measure": "16",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-chord-L75F2",
+    "endid": "#ue1937-I-note-L76F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m016"
+  },
+  {
+   "id": "ue1937-I-slur-L76F1-L78F1",
+   "tag": "slur",
+   "measure": "16",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-chord-L76F1",
+    "endid": "#ue1937-I-note-L78F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m016"
+  },
+  {
+   "id": "ue1937-I-beamSpan-L80F1-L82F1",
+   "tag": "beamSpan",
+   "measure": "17",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "plist": "#ue1937-I-note-L80F1 #ue1937-I-chord-L82F1",
+    "startid": "#ue1937-I-note-L80F1",
+    "endid": "#ue1937-I-chord-L82F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m017"
+  },
+  {
+   "id": "ue1937-I-clef-m017-s2-8",
+   "tag": "clef",
+   "measure": "17",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L77F1N1"
+  },
+  {
+   "id": "ue1937-I-dir-rit-m017",
+   "tag": "dir",
+   "measure": "17",
+   "staff": "1",
+   "attrs": {
+    "place": "above",
+    "staff": "1",
+    "tstamp": "1",
+    "tstamp2": "1m+4",
+    "extender": "true",
+    "lform": "dashed",
+    "lsegs": "5",
+    "vgrp": "2400",
+    "vo": "2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m017"
+  },
+  {
+   "id": "ue1937-I-dynam-L80F1",
+   "tag": "dynam",
+   "measure": "17",
+   "staff": "2",
+   "attrs": {
+    "place": "above",
+    "staff": "2",
+    "startid": "#ue1937-I-note-L80F1"
+   },
+   "text": "pp",
+   "parent": "measure:ue1937-I-m017"
+  },
+  {
+   "id": "ue1937-I-rend-rit-m017",
+   "tag": "rend",
+   "measure": "17",
+   "staff": null,
+   "attrs": {
+    "fontstyle": "normal"
+   },
+   "text": "rit.",
+   "parent": "dir:ue1937-I-dir-rit-m017"
+  },
+  {
+   "id": "ue1937-I-slur-L80F1-L82F1",
+   "tag": "slur",
+   "measure": "17",
+   "staff": "2",
+   "attrs": {
+    "staff": "2",
+    "startid": "#ue1937-I-note-L80F1",
+    "endid": "#ue1937-I-chord-L82F1"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m017"
+  },
+  {
+   "id": "ue1937-I-beam-L82F2-L83F2",
+   "tag": "beam",
+   "measure": "18",
+   "staff": "1",
+   "attrs": {},
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L81F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m018-s1-9",
+   "tag": "clef",
+   "measure": "18",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L81F2N1"
+  },
+  {
+   "id": "ue1937-I-slur-L82F2-L83F2",
+   "tag": "slur",
+   "measure": "18",
+   "staff": "1",
+   "attrs": {
+    "staff": "1",
+    "startid": "#ue1937-I-note-L82F2",
+    "endid": "#ue1937-I-chord-L83F2"
+   },
+   "text": "",
+   "parent": "measure:ue1937-I-m018"
+  },
+  {
+   "id": "ue1937-I-clef-m019-s1-10",
+   "tag": "clef",
+   "measure": "19",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L85F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m019-s2-11",
+   "tag": "clef",
+   "measure": "19",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L85F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m020-s1-12",
+   "tag": "clef",
+   "measure": "20",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L93F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m021-s1-13",
+   "tag": "clef",
+   "measure": "21",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L100F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m022-s1-14",
+   "tag": "clef",
+   "measure": "22",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L108F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m022-s2-15",
+   "tag": "clef",
+   "measure": "22",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L108F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m022-s2-16",
+   "tag": "clef",
+   "measure": "22",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L108F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m023-s1-17",
+   "tag": "clef",
+   "measure": "23",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L115F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m023-s1-18",
+   "tag": "clef",
+   "measure": "23",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L115F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m023-s2-19",
+   "tag": "clef",
+   "measure": "23",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L115F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m024-s1-20",
+   "tag": "clef",
+   "measure": "24",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L121F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m024-s2-21",
+   "tag": "clef",
+   "measure": "24",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L121F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m025-s2-22",
+   "tag": "clef",
+   "measure": "25",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L126F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m026-s1-23",
+   "tag": "clef",
+   "measure": "26",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L132F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m026-s2-24",
+   "tag": "clef",
+   "measure": "26",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L132F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m027-s1-25",
+   "tag": "clef",
+   "measure": "27",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L139F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m027-s1-26",
+   "tag": "clef",
+   "measure": "27",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L139F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m027-s2-27",
+   "tag": "clef",
+   "measure": "27",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L139F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m027-s2-28",
+   "tag": "clef",
+   "measure": "27",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L139F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m028-s1-29",
+   "tag": "clef",
+   "measure": "28",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L145F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m028-s2-30",
+   "tag": "clef",
+   "measure": "28",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L145F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m028-s2-31",
+   "tag": "clef",
+   "measure": "28",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L145F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m029-s1-32",
+   "tag": "clef",
+   "measure": "29",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L150F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m029-s1-33",
+   "tag": "clef",
+   "measure": "29",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L150F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m029-s2-34",
+   "tag": "clef",
+   "measure": "29",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L150F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m030-s1-35",
+   "tag": "clef",
+   "measure": "30",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L156F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m030-s1-36",
+   "tag": "clef",
+   "measure": "30",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L156F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m030-s2-37",
+   "tag": "clef",
+   "measure": "30",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L156F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m030-s2-38",
+   "tag": "clef",
+   "measure": "30",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L156F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m031-s1-39",
+   "tag": "clef",
+   "measure": "31",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L163F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m031-s2-40",
+   "tag": "clef",
+   "measure": "31",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L163F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m031-s2-41",
+   "tag": "clef",
+   "measure": "31",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L163F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m032-s1-42",
+   "tag": "clef",
+   "measure": "32",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L170F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m032-s2-43",
+   "tag": "clef",
+   "measure": "32",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L170F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m032-s2-44",
+   "tag": "clef",
+   "measure": "32",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L170F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m033-s1-45",
+   "tag": "clef",
+   "measure": "33",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L177F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m033-s1-46",
+   "tag": "clef",
+   "measure": "33",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L177F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m033-s2-47",
+   "tag": "clef",
+   "measure": "33",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L177F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m034-s2-48",
+   "tag": "clef",
+   "measure": "34",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L184F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m035-s1-49",
+   "tag": "clef",
+   "measure": "35",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L191F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m035-s2-50",
+   "tag": "clef",
+   "measure": "35",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L191F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m036-s1-51",
+   "tag": "clef",
+   "measure": "36",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L198F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m039-s2-52",
+   "tag": "clef",
+   "measure": "39",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L213F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m041-s2-53",
+   "tag": "clef",
+   "measure": "41",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L221F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m043-s2-54",
+   "tag": "clef",
+   "measure": "43",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L229F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m046-s2-55",
+   "tag": "clef",
+   "measure": "46",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L241F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-m049-s1-56",
+   "tag": "clef",
+   "measure": "49",
+   "staff": "1",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L253F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m050-s1-57",
+   "tag": "clef",
+   "measure": "50",
+   "staff": "1",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L257F2N1"
+  },
+  {
+   "id": "ue1937-I-clef-m051-s2-58",
+   "tag": "clef",
+   "measure": "51",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L261F1N1"
+  }
+ ],
+ "removed": [
+  {
+   "id": "ue1937-I-clef-L90F1",
+   "tag": "clef",
+   "measure": "19",
+   "staff": "2",
+   "attrs": {
+    "shape": "G",
+    "line": "2"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L85F1N1"
+  },
+  {
+   "id": "ue1937-I-clef-L104F1",
+   "tag": "clef",
+   "measure": "21",
+   "staff": "2",
+   "attrs": {
+    "shape": "F",
+    "line": "4"
+   },
+   "text": "",
+   "parent": "layer:ue1937-I-layer-L100F1N1"
+  }
+ ],
+ "changed": [
+  {
+   "id": "ue1937-I-oofnv02",
+   "tag": "clef",
+   "measure": null,
+   "staff": null,
+   "diff": {
+    "line": [
+     "2",
+     "4"
+    ],
+    "shape": [
+     "G",
+     "F"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-t94houq",
+   "tag": "scoreDef",
+   "measure": null,
+   "staff": null,
+   "diff": {
+    "spacing.staff": [
+     null,
+     "14"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L15F2",
+   "tag": "chord",
+   "measure": "1",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L16F1",
+   "tag": "note",
+   "measure": "1",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-tempo-L10F1",
+   "tag": "tempo",
+   "measure": "1",
+   "staff": "1",
+   "diff": {
+    "place": [
+     null,
+     "above"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L18F1",
+   "tag": "chord",
+   "measure": "2",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L19F2",
+   "tag": "note",
+   "measure": "2",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L22F1",
+   "tag": "chord",
+   "measure": "3",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L24F2",
+   "tag": "chord",
+   "measure": "3",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L23F2",
+   "tag": "note",
+   "measure": "3",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L26F1",
+   "tag": "note",
+   "measure": "4",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L28F1",
+   "tag": "note",
+   "measure": "4",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ],
+    "accid": [
+     null,
+     "s"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L30F2",
+   "tag": "chord",
+   "measure": "5",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L32F1",
+   "tag": "chord",
+   "measure": "5",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L30F1",
+   "tag": "note",
+   "measure": "5",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ],
+    "breaksec": [
+     null,
+     "1"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L31F2",
+   "tag": "note",
+   "measure": "5",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L36F1",
+   "tag": "chord",
+   "measure": "6",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L35F2",
+   "tag": "note",
+   "measure": "6",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L39F2",
+   "tag": "chord",
+   "measure": "7",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L38F1",
+   "tag": "note",
+   "measure": "7",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L42F2",
+   "tag": "chord",
+   "measure": "8",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L43F1",
+   "tag": "chord",
+   "measure": "8",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L43F2",
+   "tag": "note",
+   "measure": "8",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L44F1",
+   "tag": "note",
+   "measure": "8",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L46F2",
+   "tag": "chord",
+   "measure": "9",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L47F1",
+   "tag": "chord",
+   "measure": "9",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L47F2",
+   "tag": "note",
+   "measure": "9",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L48F1",
+   "tag": "note",
+   "measure": "9",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L51F1",
+   "tag": "chord",
+   "measure": "10",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L52F2",
+   "tag": "chord",
+   "measure": "10",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L50F1",
+   "tag": "note",
+   "measure": "10",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L51F2",
+   "tag": "note",
+   "measure": "10",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L56F1",
+   "tag": "chord",
+   "measure": "11",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L56F2",
+   "tag": "chord",
+   "measure": "11",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L55F2",
+   "tag": "note",
+   "measure": "11",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L59F2",
+   "tag": "chord",
+   "measure": "12",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L58F1",
+   "tag": "note",
+   "measure": "12",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L60F1",
+   "tag": "note",
+   "measure": "12",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L60F2",
+   "tag": "note",
+   "measure": "12",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L62F1",
+   "tag": "chord",
+   "measure": "13",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L63F2",
+   "tag": "chord",
+   "measure": "13",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L64F1",
+   "tag": "note",
+   "measure": "13",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L64F2",
+   "tag": "note",
+   "measure": "13",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L66F1",
+   "tag": "chord",
+   "measure": "14",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L68F1",
+   "tag": "chord",
+   "measure": "14",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L68F2",
+   "tag": "chord",
+   "measure": "14",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L67F2",
+   "tag": "note",
+   "measure": "14",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L72F2",
+   "tag": "chord",
+   "measure": "15",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L70F1",
+   "tag": "note",
+   "measure": "15",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L74F1",
+   "tag": "chord",
+   "measure": "16",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L75F2",
+   "tag": "chord",
+   "measure": "16",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L76F1",
+   "tag": "chord",
+   "measure": "16",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L74F2",
+   "tag": "note",
+   "measure": "16",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L75F1",
+   "tag": "note",
+   "measure": "16",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L76F2",
+   "tag": "note",
+   "measure": "16",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L78F1",
+   "tag": "note",
+   "measure": "17",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "up"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L80F1",
+   "tag": "note",
+   "measure": "17",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L82F1",
+   "tag": "chord",
+   "measure": "18",
+   "staff": "2",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-chord-L83F2",
+   "tag": "chord",
+   "measure": "18",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  },
+  {
+   "id": "ue1937-I-note-L82F2",
+   "tag": "note",
+   "measure": "18",
+   "staff": "1",
+   "diff": {
+    "stem.dir": [
+     null,
+     "down"
+    ]
+   }
+  }
+ ],
+ "moved": [
+  {
+   "id": "ue1937-I-chord-L24F2",
+   "tag": "chord",
+   "measure": "3",
+   "from": "layer:ue1937-I-layer-L21F2N1",
+   "to": "beam:ue1937-I-beam-L23F2-L24F2"
+  },
+  {
+   "id": "ue1937-I-note-L23F2",
+   "tag": "note",
+   "measure": "3",
+   "from": "layer:ue1937-I-layer-L21F2N1",
+   "to": "beam:ue1937-I-beam-L23F2-L24F2"
+  },
+  {
+   "id": "ue1937-I-chord-L30F2",
+   "tag": "chord",
+   "measure": "5",
+   "from": "layer:ue1937-I-layer-L29F2N1",
+   "to": "beam:ue1937-I-beam-L30F2-L31F2"
+  },
+  {
+   "id": "ue1937-I-note-L31F2",
+   "tag": "note",
+   "measure": "5",
+   "from": "layer:ue1937-I-layer-L29F2N1",
+   "to": "beam:ue1937-I-beam-L30F2-L31F2"
+  },
+  {
+   "id": "ue1937-I-chord-L42F2",
+   "tag": "chord",
+   "measure": "8",
+   "from": "layer:ue1937-I-layer-L41F2N1",
+   "to": "beam:ue1937-I-beam-L42F2-L43F2"
+  },
+  {
+   "id": "ue1937-I-chord-L43F1",
+   "tag": "chord",
+   "measure": "8",
+   "from": "layer:ue1937-I-layer-L41F1N1",
+   "to": "beam:ue1937-I-beam-L43F1-L44F1"
+  },
+  {
+   "id": "ue1937-I-note-L43F2",
+   "tag": "note",
+   "measure": "8",
+   "from": "layer:ue1937-I-layer-L41F2N1",
+   "to": "beam:ue1937-I-beam-L42F2-L43F2"
+  },
+  {
+   "id": "ue1937-I-note-L44F1",
+   "tag": "note",
+   "measure": "8",
+   "from": "layer:ue1937-I-layer-L41F1N1",
+   "to": "beam:ue1937-I-beam-L43F1-L44F1"
+  },
+  {
+   "id": "ue1937-I-chord-L46F2",
+   "tag": "chord",
+   "measure": "9",
+   "from": "layer:ue1937-I-layer-L45F2N1",
+   "to": "beam:ue1937-I-beam-L46F2-L47F2"
+  },
+  {
+   "id": "ue1937-I-chord-L47F1",
+   "tag": "chord",
+   "measure": "9",
+   "from": "layer:ue1937-I-layer-L45F1N1",
+   "to": "beam:ue1937-I-beam-L47F1-L48F1"
+  },
+  {
+   "id": "ue1937-I-note-L47F2",
+   "tag": "note",
+   "measure": "9",
+   "from": "layer:ue1937-I-layer-L45F2N1",
+   "to": "beam:ue1937-I-beam-L46F2-L47F2"
+  },
+  {
+   "id": "ue1937-I-note-L48F1",
+   "tag": "note",
+   "measure": "9",
+   "from": "layer:ue1937-I-layer-L45F1N1",
+   "to": "beam:ue1937-I-beam-L47F1-L48F1"
+  },
+  {
+   "id": "ue1937-I-chord-L51F1",
+   "tag": "chord",
+   "measure": "10",
+   "from": "layer:ue1937-I-layer-L49F1N1",
+   "to": "beam:ue1937-I-beam-L50F1-L51F1"
+  },
+  {
+   "id": "ue1937-I-chord-L52F2",
+   "tag": "chord",
+   "measure": "10",
+   "from": "layer:ue1937-I-layer-L49F2N1",
+   "to": "beam:ue1937-I-beam-L51F2-L52F2"
+  },
+  {
+   "id": "ue1937-I-note-L50F1",
+   "tag": "note",
+   "measure": "10",
+   "from": "layer:ue1937-I-layer-L49F1N1",
+   "to": "beam:ue1937-I-beam-L50F1-L51F1"
+  },
+  {
+   "id": "ue1937-I-note-L51F2",
+   "tag": "note",
+   "measure": "10",
+   "from": "layer:ue1937-I-layer-L49F2N1",
+   "to": "beam:ue1937-I-beam-L51F2-L52F2"
+  },
+  {
+   "id": "ue1937-I-chord-L56F2",
+   "tag": "chord",
+   "measure": "11",
+   "from": "layer:ue1937-I-layer-L53F2N1",
+   "to": "beam:ue1937-I-beam-L55F2-L56F2"
+  },
+  {
+   "id": "ue1937-I-note-L55F2",
+   "tag": "note",
+   "measure": "11",
+   "from": "layer:ue1937-I-layer-L53F2N1",
+   "to": "beam:ue1937-I-beam-L55F2-L56F2"
+  },
+  {
+   "id": "ue1937-I-chord-L59F2",
+   "tag": "chord",
+   "measure": "12",
+   "from": "layer:ue1937-I-layer-L57F2N1",
+   "to": "beam:ue1937-I-beam-L59F2-L60F2"
+  },
+  {
+   "id": "ue1937-I-note-L60F2",
+   "tag": "note",
+   "measure": "12",
+   "from": "layer:ue1937-I-layer-L57F2N1",
+   "to": "beam:ue1937-I-beam-L59F2-L60F2"
+  },
+  {
+   "id": "ue1937-I-chord-L63F2",
+   "tag": "chord",
+   "measure": "13",
+   "from": "layer:ue1937-I-layer-L61F2N1",
+   "to": "beam:ue1937-I-beam-L63F2-L64F2"
+  },
+  {
+   "id": "ue1937-I-note-L64F2",
+   "tag": "note",
+   "measure": "13",
+   "from": "layer:ue1937-I-layer-L61F2N1",
+   "to": "beam:ue1937-I-beam-L63F2-L64F2"
+  },
+  {
+   "id": "ue1937-I-chord-L68F2",
+   "tag": "chord",
+   "measure": "14",
+   "from": "layer:ue1937-I-layer-L65F2N1",
+   "to": "beam:ue1937-I-beam-L67F2-L68F2"
+  },
+  {
+   "id": "ue1937-I-note-L67F2",
+   "tag": "note",
+   "measure": "14",
+   "from": "layer:ue1937-I-layer-L65F2N1",
+   "to": "beam:ue1937-I-beam-L67F2-L68F2"
+  },
+  {
+   "id": "ue1937-I-chord-L74F1",
+   "tag": "chord",
+   "measure": "16",
+   "from": "layer:ue1937-I-layer-L73F1N1",
+   "to": "beam:ue1937-I-beam-L74F1-L75F1"
+  },
+  {
+   "id": "ue1937-I-chord-L75F2",
+   "tag": "chord",
+   "measure": "16",
+   "from": "layer:ue1937-I-layer-L73F2N1",
+   "to": "beam:ue1937-I-beam-L75F2-L76F2"
+  },
+  {
+   "id": "ue1937-I-note-L75F1",
+   "tag": "note",
+   "measure": "16",
+   "from": "layer:ue1937-I-layer-L73F1N1",
+   "to": "beam:ue1937-I-beam-L74F1-L75F1"
+  },
+  {
+   "id": "ue1937-I-note-L76F2",
+   "tag": "note",
+   "measure": "16",
+   "from": "layer:ue1937-I-layer-L73F2N1",
+   "to": "beam:ue1937-I-beam-L75F2-L76F2"
+  },
+  {
+   "id": "ue1937-I-chord-L83F2",
+   "tag": "chord",
+   "measure": "18",
+   "from": "layer:ue1937-I-layer-L81F2N1",
+   "to": "beam:ue1937-I-beam-L82F2-L83F2"
+  },
+  {
+   "id": "ue1937-I-note-L82F2",
+   "tag": "note",
+   "measure": "18",
+   "from": "layer:ue1937-I-layer-L81F2N1",
+   "to": "beam:ue1937-I-beam-L82F2-L83F2"
+  }
+ ]
+}

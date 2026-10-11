@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mei xmlns="http://www.music-encoding.org/ns/mei">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title />
+      </titleStmt>
+      <pubStmt />
+    </fileDesc>
+    <encodingDesc>
+      <appInfo>
+        <application isodate="2026-09-27T11:22:55+00:00" version="api-upload">
+          <name>Deep Optical Measure Detector</name>
+          <p>Measures detected with Deep Optical Measure Detector</p>
+        </application>
+      </appInfo>
+    </encodingDesc>
+  </meiHead>
+  <music>
+    <facsimile>
+      <surface xml:id="surface_acb8c8569754" n="1" ulx="0" uly="0" lrx="2396" lry="3300">
+        <graphic xml:id="graphic_acb8c8569754" target="page-0003.png" width="2397" height="3301" />
+        <zone xml:id="zone_cacb379611a34908a9" type="measure" ulx="101" uly="214" lrx="922" lry="791" />
+        <zone xml:id="zone_cf2dff3089cb40e58c" type="measure" ulx="876" uly="205" lrx="1602" lry="790" />
+        <zone xml:id="zone_76d71a46d444464ca7" type="measure" ulx="1542" uly="197" lrx="2267" lry="790" />
+        <zone xml:id="zone_11131136bfec490f94" type="measure" ulx="105" uly="768" lrx="653" lry="1356" />
+        <zone xml:id="zone_2a08c50c5c9d4e419a" type="measure" ulx="607" uly="754" lrx="1062" lry="1362" />
+        <zone xml:id="zone_8c7171e942a342e7a6" type="measure" ulx="1021" uly="754" lrx="1469" lry="1355" />
+        <zone xml:id="zone_11a0ede58acf493990" type="measure" ulx="1426" uly="753" lrx="1881" lry="1368" />
+        <zone xml:id="zone_2382ede4c59b4b62b6" type="measure" ulx="1829" uly="752" lrx="2275" lry="1358" />
+        <zone xml:id="zone_f63d0da406854767b7" type="measure" ulx="110" uly="1344" lrx="659" lry="1932" />
+        <zone xml:id="zone_bbc23daff2484b0f99" type="measure" ulx="603" uly="1330" lrx="1065" lry="1935" />
+        <zone xml:id="zone_7e911aec3f0749caab" type="measure" ulx="1023" uly="1331" lrx="1476" lry="1927" />
+        <zone xml:id="zone_56511314493b46c1a9" type="measure" ulx="1427" uly="1343" lrx="1884" lry="1927" />
+        <zone xml:id="zone_803f92c62e074400a3" type="measure" ulx="1834" uly="1340" lrx="2283" lry="1923" />
+        <zone xml:id="zone_f008d575ba7a4b909a" type="measure" ulx="112" uly="1922" lrx="751" lry="2519" />
+        <zone xml:id="zone_7d04b24922ed4e35b8" type="measure" ulx="699" uly="1906" lrx="1262" lry="2506" />
+        <zone xml:id="zone_ce59e5244b5442c391" type="measure" ulx="1209" uly="1914" lrx="1763" lry="2515" />
+        <zone xml:id="zone_b152299789cc4e26a4" type="measure" ulx="1713" uly="1909" lrx="2297" lry="2530" />
+        <zone xml:id="zone_7fd0072157f842ddaa" type="measure" ulx="115" uly="2497" lrx="766" lry="3088" />
+        <zone xml:id="zone_b2048ab3f9de469fbb" type="measure" ulx="704" uly="2481" lrx="1261" lry="3076" />
+        <zone xml:id="zone_fc069847916f48498a" type="measure" ulx="1209" uly="2481" lrx="1758" lry="3064" />
+        <zone xml:id="zone_18092efb601546649e" type="measure" ulx="1699" uly="2482" lrx="2284" lry="3078" />
+      </surface>
+    </facsimile>
+    <body>
+      <mdiv xml:id="mdiv_acb8c8569754" n="1" label="">
+        <score>
+          <scoreDef />
+          <section>
+            <pb />
+            <measure xml:id="measure_9a95f6ed420f492695" n="1" label="1" facs="#zone_cacb379611a34908a9" />
+            <measure xml:id="measure_045538cce0e14559b4" n="2" label="2" facs="#zone_cf2dff3089cb40e58c" />
+            <measure xml:id="measure_93eeaff0bbd2402f85" n="3" label="3" facs="#zone_76d71a46d444464ca7" />
+            <measure xml:id="measure_bb61ab3f30164fc1b1" n="4" label="4" facs="#zone_11131136bfec490f94" />
+            <measure xml:id="measure_d045b2a787c749fba1" n="5" label="5" facs="#zone_2a08c50c5c9d4e419a" />
+            <measure xml:id="measure_5485d174f3c04e7ebc" n="6" label="6" facs="#zone_8c7171e942a342e7a6" />
+            <measure xml:id="measure_5feeb4fb93f34afe96" n="7" label="7" facs="#zone_11a0ede58acf493990" />
+            <measure xml:id="measure_676fe3e1d8414b38b6" n="8" label="8" facs="#zone_2382ede4c59b4b62b6" />
+            <measure xml:id="measure_e3f4726ead614f3bba" n="9" label="9" facs="#zone_f63d0da406854767b7" />
+            <measure xml:id="measure_b903b460c61f4c52ab" n="10" label="10" facs="#zone_bbc23daff2484b0f99" />
+            <measure xml:id="measure_99cbf8bb9abe47ecaf" n="11" label="11" facs="#zone_7e911aec3f0749caab" />
+            <measure xml:id="measure_f9d942ea14c54cacbf" n="12" label="12" facs="#zone_56511314493b46c1a9" />
+            <measure xml:id="measure_df22969358bb4d30bb" n="13" label="13" facs="#zone_803f92c62e074400a3" />
+            <measure xml:id="measure_b412d153b2d646cf8f" n="14" label="14" facs="#zone_f008d575ba7a4b909a" />
+            <measure xml:id="measure_89595f7e583b414086" n="15" label="15" facs="#zone_7d04b24922ed4e35b8" />
+            <measure xml:id="measure_771d796aa69c40f38f" n="16" label="16" facs="#zone_ce59e5244b5442c391" />
+            <measure xml:id="measure_25f817bfb1e341efbb" n="17" label="17" facs="#zone_b152299789cc4e26a4" />
+            <measure xml:id="measure_612a0808128b4322bc" n="18" label="18" facs="#zone_7fd0072157f842ddaa" />
+            <measure xml:id="measure_bc2e8d8dbdc34c798b" n="19" label="19" facs="#zone_b2048ab3f9de469fbb" />
+            <measure xml:id="measure_cb679016d14a4cbc94" n="20" label="20" facs="#zone_fc069847916f48498a" />
+            <measure xml:id="measure_87ba39a8009e4b8981" n="21" label="21" facs="#zone_18092efb601546649e" />
+            <pb />
+          </section>
+        </score>
+      </mdiv>
+    </body>
+  </music>
+</mei>

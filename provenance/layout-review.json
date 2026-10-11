@@ -1,0 +1,71 @@
+{
+  "reviewer": "Codex assistant",
+  "reviewed_at": "2026-09-27T11:26:42.404707+00:00",
+  "scope": "All nine page overlays inspected against visible printed measure numbers and system boundaries. Not a human musical collation or exact boundary certification.",
+  "human_editorial_review": "pending",
+  "pages": {
+    "1": {
+      "image_sha256": "f3a8c3debd43f1de39c09540310d2eb336e30bf8a1c300f5a01c1ff03a3f75a9",
+      "response_sha256": "335e861f2717b56ca2bfadd888efc29664b0d94e5f5e77c85481496dee429d51",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "2": {
+      "image_sha256": "513e15133ea5e834061d9d336bf4e7bdd52b6a361226753e2892d63ad8bcb0d1",
+      "response_sha256": "f78191bee42bd2907a98e0947b0c119be2e345a1b42b5932e80e1e3415285f7b",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "3": {
+      "image_sha256": "36c7ce3da104cda5e99205498bd129725028e9d1f33a6dcd5adee3978b039816",
+      "response_sha256": "41ba6ac65fe71ca0df6b550560f42daa87a49a1c615da8fcdf52aebbbe3c599c",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "4": {
+      "image_sha256": "97c1d887a3342768fea4f64abd7311bd19edbbee2a3cac8a9115164e127b63fb",
+      "response_sha256": "150a6131afb72dd2ca91b882dd1f57c0b058e9c45e6c5cbbc0c83506de15b30a",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "5": {
+      "image_sha256": "403d9cfac2a74a2fb40ee8bed27b39fa3fe14b066bbc760e31db3c70cc0f2517",
+      "response_sha256": "2363808a730294a2e4f2bcaa73bac935d5f36d271cbbdff3af63efd6fc9c7266",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "6": {
+      "image_sha256": "1e1e147ddad28fcefc6f8dd1912e4a36b970013868de4cf17c7520783f48bd9e",
+      "response_sha256": "0bf44f8596c7c0bd79a181935494f48b02edb92f8b2729840f699378c8431dbb",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "7": {
+      "image_sha256": "74568c149de23d6b66c103fa4389849553b1bd344c571bee3b25f00b8ee8d754",
+      "response_sha256": "f8d736d338e469ae34e1fd6f58ed2a41adcfa896a6c50bc87198a499b59e79ff",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "8": {
+      "image_sha256": "b853915a06e51d15cc75ac5036cf958d86d23ff8a6a4354daf907704233631a4",
+      "response_sha256": "5b92b6dbdf7ce7d8e47807903647289ff94e3e3cd7adf089b762db69e893b6ad",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    },
+    "9": {
+      "image_sha256": "c72eec602a1eff4a87bda0219a6008eaa0b381f5591b2ca2c5bf5d55026606fa",
+      "response_sha256": "512c21ad0c56826d3791131efff59f4659b7ac324573d8c1fef1d963f050f659",
+      "status": "assistant inspected page/system/measure order",
+      "corrections": [],
+      "notes": "Padded DOMD boxes overlap adjacent boxes slightly; original geometry retained."
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-09-27T11:22:58.102290+00:00",
+  "input": "facsimile/input/pages/page-0007.png",
+  "input_sha256": "74568c149de23d6b66c103fa4389849553b1bd344c571bee3b25f00b8ee8d754",
+  "endpoint": "https://measure-detector.edirom.de/upload",
+  "timeout_seconds": 90,
+  "retries": 1,
+  "page": 7,
+  "movement": "III",
+  "camat_uploader_sha256": "34ba12bf9ac79d2ba935136dd3fcb0d9d8b12e0aad7465fbfc8ef56da4f59705",
+  "status": "ok",
+  "response_sha256": "f8d736d338e469ae34e1fd6f58ed2a41adcfa896a6c50bc87198a499b59e79ff",
+  "detected_measures": 15,
+  "elapsed_seconds": 0.987
+}
