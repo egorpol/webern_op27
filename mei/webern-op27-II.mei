@@ -316,7 +316,7 @@
                   <expansion plist="#ue1937-II-label-I #ue1937-II-label-A #ue1937-II-label-A #ue1937-II-label-B #ue1937-II-label-B" xml:id="ue1937-II-expansion-L13F1" />
                   <pb xml:id="ue1937-II-o1spp9dm" />
                   <section xml:id="ue1937-II-label-I">
-                     <measure xml:id="ue1937-II-m000" n="0" facs="#zone-ue1937-II-m000">
+                     <measure xml:id="ue1937-II-m000" n="0" metcon="false" facs="#zone-ue1937-II-m000">
                         <staff xml:id="ue1937-II-staff-L11F2" n="1">
                            <layer xml:id="ue1937-II-layer-L1F2N1" n="1">
                               <clef xml:id="ue1937-II-clef-L20F2" shape="F" line="4" />
@@ -399,17 +399,16 @@
                         <dynam xml:id="ue1937-II-dynam-L33F3" place="between" staff="1 2" tstamp="1">f</dynam>
                         <dynam xml:id="ue1937-II-dynam-L37F3" place="between" staff="1 2" tstamp="2.5">p</dynam>
                         <slur xml:id="ue1937-II-slur-L36F1-L37F1" staff="2" startid="#ue1937-II-note-L36F1" endid="#ue1937-II-note-L37F1" />
+                        <beamSpan xml:id="ue1937-II-beamSpan-L37F1-L40F2" staff="2" plist="#ue1937-II-note-L37F1 #ue1937-II-note-L40F2" startid="#ue1937-II-note-L37F1" endid="#ue1937-II-note-L40F2" />
                      </measure>
                      <measure xml:id="ue1937-II-m003" n="3" facs="#zone-ue1937-II-m003">
                         <staff xml:id="ue1937-II-staff-L38F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L38F2N1" n="1">
-                              <note xml:id="ue1937-II-note-L39F2" type="placed" dur="8" oct="6" pname="g" grace="unacc" stem.dir="down" accid="f" />
-                              <beam xml:id="ue1937-II-beam-L40F2">
-                                 <note xml:id="ue1937-II-note-L40F2" dur="8" oct="6" pname="e">
-                                    <accid xml:id="ue1937-II-accid-L40F2" type="caution" accid="n" func="caution" />
-                                    <artic xml:id="ue1937-II-artic-L40F2" artic="stacc" />
-                                 </note>
-                              </beam>
+                              <note xml:id="ue1937-II-note-L39F2" type="placed" dur="8" oct="6" pname="g" grace="unacc" stem.dir="down" accid="n" />
+                              <note xml:id="ue1937-II-note-L40F2" dur="8" oct="6" pname="e" stem.dir="down">
+                                 <accid xml:id="ue1937-II-accid-L40F2" type="caution" accid="n" func="caution" />
+                                 <artic xml:id="ue1937-II-artic-L40F2" artic="stacc" />
+                              </note>
                               <rest xml:id="ue1937-II-rest-L41F2" dur="8" />
                               <rest xml:id="ue1937-II-rest-L42F2" dur="4" />
                            </layer>

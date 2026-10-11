@@ -846,7 +846,7 @@
                               <rest xml:id="ue1937-III-rest-L132F1" dur="2" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-III-dynam-L135F2" place="below" staff="1" startid="note-L135F2">sf</dynam>
+                        <dynam xml:id="ue1937-III-dynam-L135F2" place="below" staff="1" startid="#ue1937-III-note-L135F2">sf</dynam>
                      </measure>
                      <measure xml:id="ue1937-III-m017" n="17" facs="#zone-ue1937-III-m017">
                         <staff xml:id="ue1937-III-staff-L136F2N1" n="1">
@@ -1259,7 +1259,7 @@
                               </note>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-III-dynam-L213F2" place="between" staff="1" startid="note-L213F2">sf</dynam>
+                        <dynam xml:id="ue1937-III-dynam-L213F2" place="between" staff="1" startid="#ue1937-III-note-L213F2">sf</dynam>
                         <dynam xml:id="ue1937-III-dynam-L214F3" place="between" staff="1 2" tstamp="2">p</dynam>
                         <hairpin xml:id="ue1937-III-hairpin-L214F3" staff="1 2" tstamp="2" tstamp2="0m+3.5" form="dim" place="between" vgrp="100" />
                         <dynam xml:id="ue1937-III-dynam-L218F3" place="between" staff="1 2" tstamp="3.5">pp</dynam>
@@ -1376,7 +1376,7 @@
                            </layer>
                         </staff>
                         <hairpin xml:id="ue1937-III-hairpin-L237F3" staff="1 2" tstamp="1.5" tstamp2="0m+2.5" form="dim" place="between" vgrp="100" />
-                        <dynam xml:id="ue1937-III-dynam-L242F2" place="between" staff="1" startid="note-L242F2">sf</dynam>
+                        <dynam xml:id="ue1937-III-dynam-L242F2" place="between" staff="1" startid="#ue1937-III-note-L242F2">sf</dynam>
                      </measure>
                      <measure xml:id="ue1937-III-m030" n="30" facs="#zone-ue1937-III-m030">
                         <staff xml:id="ue1937-III-staff-L243F2N1" n="1">
@@ -1408,7 +1408,7 @@
                            </layer>
                         </staff>
                         <dynam xml:id="ue1937-III-dynam-L247F3" place="between" staff="1 2" tstamp="2.5">p</dynam>
-                        <dynam xml:id="ue1937-III-dynam-L245F1" staff="2" startid="note-L245F1">sf</dynam>
+                        <dynam xml:id="ue1937-III-dynam-L245F1" staff="2" startid="#ue1937-III-note-L245F1">sf</dynam>
                      </measure>
                      <sb xml:id="ue1937-III-sb-L251F1" type="z" />
                      <measure xml:id="ue1937-III-m031" n="31" facs="#zone-ue1937-III-m031">
@@ -1869,7 +1869,7 @@
                            </layer>
                         </staff>
                         <slur xml:id="ue1937-III-slur-L360F2-L361F2" type="placed" staff="1" startid="#ue1937-III-note-L360F2" endid="#ue1937-III-note-L361F2" curvedir="above" />
-                        <dynam xml:id="ue1937-III-dynam-L361F2" place="between" staff="1" startid="note-L361F2">sf</dynam>
+                        <dynam xml:id="ue1937-III-dynam-L361F2" place="between" staff="1" startid="#ue1937-III-note-L361F2">sf</dynam>
                         <slur xml:id="ue1937-III-slur-L357F1-L358F1" staff="2" startid="#ue1937-III-note-L357F1" endid="#ue1937-III-note-L358F1" />
                      </measure>
                      <sb xml:id="ue1937-III-sb-L365F1" type="z" />
