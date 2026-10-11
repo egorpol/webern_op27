@@ -22,7 +22,8 @@ The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were 
 - `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), layout review, the bar-to-zone alignment, and a record of the hand edits to movement I.
 - `schemas/` — the MEI CMN 5.1 schema used for validation.
 - `scripts/` — maintenance scripts (MIT).
-- `docs/` — editorial policy, encoding profile and proofreading checklist (to follow).
+- `docs/` — [editorial policy](docs/editorial-policy.md), [MEI encoding profile](docs/mei-encoding-profile.md) and [proofreading checklist](docs/proofreading-checklist.md).
+- `proofreading/` — progress by system and layer (`progress.csv`) and the log of differences found (`log.csv`).
 
 ## Facsimile images
 
