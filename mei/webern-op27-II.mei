@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" xmlns:ns1="http://www.loc.gov/mads/v2" xmlns:ns3="http://www.humdrum.org/ns/humxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" meiversion="6.0-dev">
+<mei xmlns="http://www.music-encoding.org/ns/mei" xmlns:ns1="http://www.loc.gov/mads/v2" xmlns:ns3="http://www.humdrum.org/ns/humxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" meiversion="5.1">
    <meiHead>
       <fileDesc>
          <titleStmt>
@@ -313,14 +313,7 @@
                   </staffGrp>
                </scoreDef>
                <section xml:id="ue1937-II-section-L11F1">
-                  <choice xml:id="ue1937-II-j1n670ub">
-                     <orig xml:id="ue1937-II-k1t10dmj">
-                        <expansion plist="#ue1937-II-label-I #ue1937-II-label-A #ue1937-II-label-A #ue1937-II-label-B #ue1937-II-label-B" xml:id="ue1937-II-expansion-L13F1" />
-                     </orig>
-                     <reg xml:id="ue1937-II-m18ueap8" type="norep">
-                        <expansion plist="#ue1937-II-label-I #ue1937-II-label-A #ue1937-II-label-B" xml:id="ue1937-II-expansion-L14F1" type="norep" />
-                     </reg>
-                  </choice>
+                  <expansion plist="#ue1937-II-label-I #ue1937-II-label-A #ue1937-II-label-A #ue1937-II-label-B #ue1937-II-label-B" xml:id="ue1937-II-expansion-L13F1" />
                   <pb xml:id="ue1937-II-o1spp9dm" />
                   <section xml:id="ue1937-II-label-I">
                      <measure xml:id="ue1937-II-m000" n="0" facs="#zone-ue1937-II-m000">
@@ -652,7 +645,7 @@
                         </staff>
                         <staff xml:id="ue1937-II-staff-L88F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L88F1N1" n="1">
-                              <mRest xml:id="ue1937-II-mrest-L89F1" visible="false" />
+                              <mSpace xml:id="ue1937-II-mrest-L89F1" />
                            </layer>
                         </staff>
                         <dynam xml:id="ue1937-II-dynam-L90F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
@@ -774,7 +767,7 @@
                      <measure xml:id="ue1937-II-m015" n="15" facs="#zone-ue1937-II-m015">
                         <staff xml:id="ue1937-II-staff-L123F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L123F2N1" n="1">
-                              <mRest xml:id="ue1937-II-mrest-L124F2" visible="false" />
+                              <mSpace xml:id="ue1937-II-mrest-L124F2" />
                            </layer>
                         </staff>
                         <staff xml:id="ue1937-II-staff-L123F1N1" n="2">
@@ -815,7 +808,7 @@
                      <measure xml:id="ue1937-II-m016" n="16" facs="#zone-ue1937-II-m016">
                         <staff xml:id="ue1937-II-staff-L129F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L129F2N1" n="1">
-                              <mRest xml:id="ue1937-II-mrest-L130F2" visible="false" />
+                              <mSpace xml:id="ue1937-II-mrest-L130F2" />
                            </layer>
                         </staff>
                         <staff xml:id="ue1937-II-staff-L129F1N1" n="2">

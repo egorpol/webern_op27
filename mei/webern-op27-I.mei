@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" xmlns:ns1="http://www.loc.gov/mads/v2" xmlns:ns3="http://www.humdrum.org/ns/humxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" meiversion="6.0-dev">
+<mei xmlns="http://www.music-encoding.org/ns/mei" xmlns:ns1="http://www.loc.gov/mads/v2" xmlns:ns3="http://www.humdrum.org/ns/humxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" meiversion="5.1">
    <meiHead>
       <fileDesc>
          <titleStmt>

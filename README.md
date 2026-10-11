@@ -12,7 +12,7 @@ Work in progress; not yet proofread.
 | II — Sehr schnell | pickup + 22 | 6 | Kern base (unfinished in the source encoding) | 23 zones |
 | III — Ruhig fließend | 66 | 7–11 | Kern base (no tempo changes) | 66 zones |
 
-The files are still Verovio's MEI 6.0-dev output. They will be converted to MEI 5.1 and validated against `schemas/mei-CMN-5.1.rng` before proofreading starts.
+The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`; the headers are not yet edition headers.
 
 ## Layout
 
@@ -21,6 +21,7 @@ The files are still Verovio's MEI 6.0-dev output. They will be converted to MEI 
 - `sources/sources.json` — source records (URLs, SHA-256, credits, stated rights).
 - `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), layout review, the bar-to-zone alignment, and a record of the hand edits to movement I.
 - `schemas/` — the MEI CMN 5.1 schema used for validation.
+- `scripts/` — maintenance scripts (MIT).
 - `docs/` — editorial policy, encoding profile and proofreading checklist (to follow).
 
 ## Facsimile images
