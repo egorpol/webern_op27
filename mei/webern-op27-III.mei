@@ -1,51 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" xmlns:ns1="http://www.loc.gov/mads/v2" xmlns:ns3="http://www.humdrum.org/ns/humxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" meiversion="5.1">
-   <meiHead>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+   <meiHead xml:lang="en">
       <fileDesc>
          <titleStmt>
-            <title>Webern Op. 27 / III - kern reference with Universal Edition facsimile</title>
+            <title type="main">Variations for Piano, Op. 27</title>
+            <title type="subordinate">III</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118629786" codedval="118629786">Anton Webern</persName>
+            </composer>
+            <respStmt xml:id="resp.editor">
+               <resp>Editor: encoding, correction against the print, metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
          </titleStmt>
+         <editionStmt>
+            <edition n="0.1.0">Working digital edition, not yet proofread</edition>
+         </editionStmt>
          <pubStmt>
-            <unpub>This MEI file was created by Verovio's Humdrum converter. When published, this unpub element should be removed, and the enclosing pubStmt element should be properly filled out.</unpub>
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-10-11">2026-10-11</date>
+            <availability>
+               <useRestrict>MEI data released under <ref target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</ref>. The licence covers this edition's encoding and metadata, not the musical work or the printed source.</useRestrict>
+            </availability>
          </pubStmt>
          <sourceDesc>
-            <source type="digital">
-               <bibl xml:id="ue1937-III-source0_digital">
-                  <title>III, Ruhig fließend [half] = ca 80</title>
-                  <composer>
-                     <persName>Webern, Anton</persName>
-                  </composer>
-                  <editor analog="humdrum:EED">Craig Stuart Sapp</editor>
-                  <edition type="version" analog="humdrum:EEV">2020/11/23</edition>
-                  <imprint>
-                     <date type="encodingDate" analog="humdrum:END">Craig Stuart Sapp</date>
-                     <date type="encodingDate" analog="humdrum:END" isodate="2008-12-17">2008/12/17</date>
-                  </imprint>
-                  <relatedItem rel="otherFormat" target="#ue1937-III-source1_printed" />
-               </bibl>
-            </source>
-            <source type="printed">
-               <bibl xml:id="ue1937-III-source1_printed">
-                  <title>III, Ruhig fließend [half] = ca 80</title>
-                  <composer>
-                     <persName>Webern, Anton</persName>
-                  </composer>
-                  <imprint>
-                     <date type="datePublished" analog="humdrum:PDT" isodate="1936">1936</date>
-                  </imprint>
-                  <relatedItem rel="otherFormat" target="#ue1937-III-source0_digital" />
-               </bibl>
-            </source>
-            <source>
+            <source xml:id="src.ue1937" type="printed-edition">
                <bibl>
-                  <title>Vienna: Universal Edition, 1937; plate U.E. 10881</title>
-                  <ptr target="https://imslp.eu/files/imglnks/euimg/4/4d/IMSLP28271-PMLP04634-Webern_-_Variations,_Op._27.pdf" />
+                  <title>Variationen</title>
+                  <composer>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/118629786" codedval="118629786">Anton Webern</persName>
+                  </composer>
+                  <edition>First edition (1937); the copy used was printed from the original plates in 1965 or later</edition>
+                  <imprint>
+                     <pubPlace>Wien</pubPlace>
+                     <publisher>Universal Edition</publisher>
+                     <date isodate="1937">1937</date>
+                  </imprint>
+                  <identifier type="plate">U.E. 10881</identifier>
+                  <biblScope unit="page" from="7" to="11">pp. 7–11</biblScope>
+                  <ref type="digital-facsimile" target="https://imslp.org/wiki/Special:ImagefromIndex/28271">IMSLP file 28271</ref>
+                  <annot type="copy">
+                     <p>The copy used is the scan in IMSLP file 28271 (PDF of printed pages 3–11, SHA-256 d604c08ab797818f414a83fa4047eb2eb3c52ba6c74a47ce966e0a9c273ab330). Its first page carries the 1965 copyright renewal, so it was printed in 1965 or later; a first-issue copy of 1937 has not been compared.</p>
+                  </annot>
+                  <annot type="paratext">
+                     <p>p. 7, head: page number "7"; movement numeral "III".</p>
+                     <p>pp. 8–11: page numbers "8" to "11".</p>
+                     <p>pp. 7–11, foot: "U.E. 10881"; p. 11, foot, right: "Waldheim-Eberle, Wien VII." (printer).</p>
+                  </annot>
+                  <availability>
+                     <useRestrict>Scan uploaded to IMSLP by JacopoTore (2017); scanner unknown. IMSLP lists the file as “Public Domain - Non-PD US”. The page images are not redistributed with this edition; the facsimile links point to local renderings of the PDF.</useRestrict>
+                  </availability>
                </bibl>
             </source>
-            <source>
+            <source xml:id="src.kern.sapp" type="digital-encoding">
                <bibl>
-                  <title>KernScores transcription by Craig Stuart Sapp</title>
-                  <ptr target="https://kern.ccarh.org/cgi-bin/ksdata?file=webern-op27n3.krn&amp;l=users/craig/classical/webern&amp;format=kern" />
+                  <title>Op. 27, III</title>
+                  <editor>Craig Stuart Sapp</editor>
+                  <edition n="2020-11-23">Revised 2020-11-23; encoded 2008-12-17</edition>
+                  <imprint>
+                     <publisher>KernScores</publisher>
+                     <date isodate="2020-11-23">2020-11-23</date>
+                  </imprint>
+                  <identifier type="file">webern-op27n3.krn</identifier>
+                  <identifier type="SHA-256">e59686611fc3c1399d7c6aea5a17b7891c83a2c1566097c0e45b37813b94048f</identifier>
+                  <ref target="https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n3.krn&amp;l=users/craig/classical/webern&amp;format=kern">KernScores</ref>
+                  <annot>
+                     <p>Base encoding for notes and rhythms, converted with Verovio; a starting point, not a witness. Its header notes: “tempo changes not yet encoded”. Retrieved 2026-09-26 through kern.ccarh.org; not redistributed.</p>
+                  </annot>
                </bibl>
             </source>
          </sourceDesc>
@@ -54,218 +77,81 @@
          <appInfo>
             <application isodate="2026-09-27T13:26:44" version="6.3.0-425dd7b">
                <name>Verovio</name>
-               <p>Transcoded from Humdrum</p>
+               <p>Converted the Kern encoding to MEI.</p>
+            </application>
+            <application isodate="2026-09-27">
+               <name>Edirom Deep Optical Measure Detector</name>
+               <p>Detected the bar regions on the page images (<ref target="https://measure-detector.edirom.de/">measure-detector.edirom.de</ref>); the facsimile zones come from its output.</p>
+            </application>
+            <application isodate="2026-10-11">
+               <name>scripts/migrate_mei51.py</name>
+               <p>Converted Verovio's MEI 6.0-dev output to MEI 5.1 by targeted text edits.</p>
+            </application>
+            <application startdate="2026-09-26" enddate="2026-10-11">
+               <name>Claude Code</name>
+               <p>Anthropic's AI coding assistant, used under the editor's direction for the facsimile linking, the MEI 5.1 migration, validation repairs and the draft of this header. Editorial decisions and responsibility rest with the editor.</p>
             </application>
          </appInfo>
+         <editorialDecl>
+            <p>This edition encodes the music as printed by Universal Edition, plate U.E. 10881 (src.ue1937), including stems, beams, clefs, the placement of marks, and page and system breaks. The Kern encoding (src.kern.sapp) supplied notes and rhythms as a starting point; it has no authority where it differs from the print.</p>
+            <p>The print is not corrected. A suspected engraving error is kept and documented in an annot with type="editorial" and label "source-reading"; uncertain readings are labelled "unresolved-reading", and notes on the representation "encoding-note". Repairs that bring the encoding into agreement with the print are recorded in the repository's proofreading log.</p>
+            <p>Every printed accidental is encoded as a written accidental (@accid); an alteration without a printed sign is encoded with @accid.ges. The values func="caution" and type="caution" left by the Kern conversion carry no editorial claim.</p>
+            <p>Measure/@n is the printed bar number; the pickup of movement II is bar 0. Each measure points to its zone on the facsimile page; pb/@n is the printed page number. This movement still carries the page and system breaks of the Kern conversion. Page paratext is transcribed in sourceDesc; the pgHead repeats the printed head of the movement's first page for display only.</p>
+            <p>The extent of proofreading is recorded in revisionDesc and in the repository's proofreading/progress.csv.</p>
+         </editorialDecl>
          <projectDesc>
-            <p>Study derivative: notation comes from the retained kern encoding; page geometry comes from Edirom DOMD. Movement-scoped IDs and opening measure labels normalized; pitches, durations and repeat structure retained. Layout was inspected by the assistant; human musical and geometry review remains pending. See ../alignment.json and ../input/manifest.json for hashes and provenance.</p>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
          </projectDesc>
       </encodingDesc>
       <workList>
-         <work xml:id="ue1937-III-work0_parent" type="parent">
-            <title analog="humdrum:OPR">Variations for Piano</title>
-         </work>
-         <work xml:id="ue1937-III-work1_encoded" type="encoded">
-            <identifier analog="humdrum:OPS">27</identifier>
-            <title type="uniform">
-               <titlePart type="main" analog="humdrum:OTL">III</titlePart>
-               <titlePart type="movementName" analog="humdrum:OMD">Ruhig fließend [half] = ca 80</titlePart>
-               <titlePart type="movementNumber" analog="humdrum:OMV">3</titlePart>
-               <titlePart type="opusNumber" analog="humdrum:OPS">27</titlePart>
-            </title>
+         <work xml:id="work.op27">
+            <identifier type="opus">Op. 27</identifier>
+            <title xml:lang="de">Variationen für Klavier</title>
+            <title type="translated">Variations for Piano</title>
             <composer>
-               <persName analog="humdrum:COM" auth.uri="#ue1937-III-mads0">Webern, Anton</persName>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118629786" codedval="118629786">Anton Webern</persName>
             </composer>
             <creation>
-               <date analog="humdrum:ODT" startdate="1934" enddate="1935">1934-1935</date>
+               <date notbefore="1935" notafter="1936">1935–1936</date>
             </creation>
-            <relationList>
-               <relation rel="isPartOf" type="isChildOfParent" target="#ue1937-III-work0_parent" />
-            </relationList>
-            <extMeta>
-               <ns1:madsCollection xsi:schemaLocation="http://www.loc.gov/mads/v2 https://www.loc.gov/standards/mads/mads-2-1.xsd">
-                  <ns1:mads ID="ue1937-III-mads0">
-                     <ns1:authority>
-                        <ns1:name>
-                           <ns1:namePart>Webern, Anton</ns1:namePart>
-                        </ns1:name>
-                     </ns1:authority>
-                     <ns1:personInfo>
-                        <ns1:birthDate encoding="edtf">1883</ns1:birthDate>
-                        <ns1:deathDate encoding="edtf">1945</ns1:deathDate>
-                        <ns1:nationality>Austrian</ns1:nationality>
-                     </ns1:personInfo>
-                  </ns1:mads>
-               </ns1:madsCollection>
-            </extMeta>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Piano</perfRes>
+               </perfResList>
+            </perfMedium>
+            <componentList>
+               <work xml:id="work.op27.III">
+                  <title>III</title>
+                  <meter count="3" unit="2" />
+                  <tempo>Ruhig fließend</tempo>
+               </work>
+            </componentList>
          </work>
       </workList>
-      <extMeta>
-         <ns3:frames>
-            <ns3:metaFrame n="0" token="!!!COM: Webern, Anton" xml:id="ue1937-III-L1">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>COM</ns3:referenceKey>
-                  <ns3:referenceValue>Webern, Anton</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="1" token="!!!CDT: 1883-1945" xml:id="ue1937-III-L2">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>CDT</ns3:referenceKey>
-                  <ns3:referenceValue>1883-1945</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="2" token="!!!CNT: Austrian" xml:id="ue1937-III-L3">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>CNT</ns3:referenceKey>
-                  <ns3:referenceValue>Austrian</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="3" token="!!!OPR: Variations for Piano" xml:id="ue1937-III-L4">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>OPR</ns3:referenceKey>
-                  <ns3:referenceValue>Variations for Piano</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="4" token="!!!OTL: III" xml:id="ue1937-III-L5">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>OTL</ns3:referenceKey>
-                  <ns3:referenceValue>III</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="5" token="!!!OPS: 27" xml:id="ue1937-III-L6">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>OPS</ns3:referenceKey>
-                  <ns3:referenceValue>27</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="6" token="!!!OMV: 3" xml:id="ue1937-III-L7">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>OMV</ns3:referenceKey>
-                  <ns3:referenceValue>3</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="7" token="!!!ODT: 1934-1935" xml:id="ue1937-III-L8">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>ODT</ns3:referenceKey>
-                  <ns3:referenceValue>1934-1935</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="8" token="!!!PDT: 1936" xml:id="ue1937-III-L9">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>PDT</ns3:referenceKey>
-                  <ns3:referenceValue>1936</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="9" token="!!!OMD: Ruhig flie&amp;szlig;end [half] = ca 80" xml:id="ue1937-III-L10">
-               <ns3:frameInfo>
-                  <ns3:startTime float="0" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>OMD</ns3:referenceKey>
-                  <ns3:referenceValue>Ruhig flie&amp;szlig;end [half] = ca 80</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="623" token="!!!RDF**kern: &gt; = above" xml:id="ue1937-III-L624">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>RDF**kern</ns3:referenceKey>
-                  <ns3:referenceValue>&gt; = above</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="624" token="!!!RDF**kern: &lt; = below" xml:id="ue1937-III-L625">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>RDF**kern</ns3:referenceKey>
-                  <ns3:referenceValue>&lt; = below</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="625" token="!!!RDF**kern: N = linked" xml:id="ue1937-III-L626">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>RDF**kern</ns3:referenceKey>
-                  <ns3:referenceValue>N = linked</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="626" token="!!!AIN: piano" xml:id="ue1937-III-L627">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>AIN</ns3:referenceKey>
-                  <ns3:referenceValue>piano</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="627" token="!!!END: Craig Stuart Sapp" xml:id="ue1937-III-L628">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>END</ns3:referenceKey>
-                  <ns3:referenceValue>Craig Stuart Sapp</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="628" token="!!!END: 2008/12/17" xml:id="ue1937-III-L629">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>END</ns3:referenceKey>
-                  <ns3:referenceValue>2008/12/17</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="629" token="!!!EED: Craig Stuart Sapp" xml:id="ue1937-III-L630">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>EED</ns3:referenceKey>
-                  <ns3:referenceValue>Craig Stuart Sapp</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="630" token="!!!EEV: 2020/11/23" xml:id="ue1937-III-L631">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>EEV</ns3:referenceKey>
-                  <ns3:referenceValue>2020/11/23</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="631" token="!!!EST: tempo changes not yet encoded" xml:id="ue1937-III-L632">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>EST</ns3:referenceKey>
-                  <ns3:referenceValue>tempo changes not yet encoded</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-            <ns3:metaFrame n="632" token="!!!title: Op. 27, III" xml:id="ue1937-III-L633">
-               <ns3:frameInfo>
-                  <ns3:startTime float="396" />
-                  <ns3:frameType>reference</ns3:frameType>
-                  <ns3:referenceKey>title</ns3:referenceKey>
-                  <ns3:referenceValue>Op. 27, III</ns3:referenceValue>
-               </ns3:frameInfo>
-            </ns3:metaFrame>
-         </ns3:frames>
-      </extMeta>
+      <revisionDesc>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
+               <p>Edition header: MEI 5.1 CMN declarations, responsibility, edition, source and work metadata, editorial declaration and this revision history. It replaces the metadata written by Verovio's Humdrum import and the study's project note. The page head in the score (pgHead) now shows the printed head instead of the import's composer line and life dates.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
+               <p>Validation repairs (commit 54e2992): five dynamics re-attached to their notes; the conversion had left broken @startid references.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
+               <p>Converted from MEI 6.0-dev to MEI 5.1 by scripts/migrate_mei51.py (commit 9572be9).</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-09-27" resp="#resp.editor">
+            <changeDesc>
+               <p>Study (CAMAT PDF-facsimile workflow): converted the Kern encoding with Verovio, gave all IDs the movement prefix and linked each bar to its zone on the UE page images. Provenance: provenance/ in the repository.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
    </meiHead>
-   <music decls="#ue1937-III-work1_encoded">
+   <music>
       <facsimile>
          <surface xml:id="surface-ue1937-p0005" n="7" ulx="0" uly="0" lrx="2399" lry="3304">
             <graphic xml:id="graphic-ue1937-p0005" target="../facsimiles/ue1937/page-0005.png" width="2400" height="3305" />
@@ -350,7 +236,7 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="ue1937-III-i1kfb0kr" n="3" label="Webern Op. 27 / III">
+         <mdiv xml:id="ue1937-III-i1kfb0kr" n="3" label="Webern Op. 27 / III" decls="#work.op27.III">
             <score xml:id="ue1937-III-jfg5ryj">
                <scoreDef xml:id="ue1937-III-kmf91i8" midi.bpm="160" tempo.dist="3vu">
                   <pgHead xml:id="ue1937-III-v1nfal77" func="first">
@@ -359,8 +245,6 @@
                         <lb xml:id="ue1937-III-zs2klj" />
                         <lb xml:id="ue1937-III-b15oq5zv" />
                      </rend>
-                     <rend xml:id="ue1937-III-dfpq1lh" halign="right" valign="bottom" fontsize="small">Anton Webern</rend>
-                     <rend xml:id="ue1937-III-fgvwtyc" halign="right" valign="bottom" fontsize="small">1883–1945</rend>
                   </pgHead>
                   <staffGrp xml:id="ue1937-III-k1j45rlj" bar.thru="true" symbol="brace">
                      <staffDef xml:id="ue1937-III-staffdef-L11F2" n="1" lines="5">

@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this edition, please cite it as below."
+type: dataset
+title: "Anton Webern, Variations for Piano, Op. 27: MEI edition after Universal Edition (U.E. 10881)"
+version: 0.1.0
+authors:
+  - family-names: Polyakov
+    given-names: Egor
+license: CC-BY-4.0
+abstract: >-
+  An MEI 5.1 (CMN) encoding of Webern's Variations for Piano, Op. 27, after the
+  Universal Edition print (plate U.E. 10881, first edition 1937), with every bar
+  linked to its region on the printed page. Working edition, not yet proofread.
+keywords:
+  - MEI
+  - music encoding
+  - digital edition
+  - Anton Webern
+  - CAMAT
+references:
+  - type: music
+    title: "Variationen [für Klavier, Op. 27]"
+    authors:
+      - family-names: Webern
+        given-names: Anton
+    publisher:
+      name: Universal Edition
+    year: 1937
+    notes: "Plate U.E. 10881. Copy used: IMSLP file 28271, printed in 1965 or later."
+    url: "https://imslp.org/wiki/Special:ImagefromIndex/28271"
+  - type: data
+    title: "Webern, Op. 27 (KernScores, webern-op27n1–3.krn)"
+    authors:
+      - family-names: Sapp
+        given-names: Craig Stuart
+    date-published: 2020-11-23
+    notes: "Base encoding of notes and rhythms."
+    url: "https://kern.ccarh.org/cgi-bin/browse?l=users/craig/classical/webern"

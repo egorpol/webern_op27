@@ -1,6 +1,6 @@
 # Webern, Variations for Piano, Op. 27 — MEI edition after Universal Edition 1937
 
-An MEI 5.1 (CMN) encoding of Anton Webern's Variations for Piano, Op. 27, based on the first edition: Vienna, Universal Edition, 1937, plate U.E. 10881 (IMSLP file 28271). The aim is to encode all printed detail, including notes, stems and beams, slurs, articulations, dynamics, tempo and text, and to link every bar to its region on the printed page. The edition is built for [CAMAT](https://github.com/egorpol/camat_v2).
+An MEI 5.1 (CMN) encoding of Anton Webern's Variations for Piano, Op. 27, based on the Universal Edition print, plate U.E. 10881 (first edition Vienna, 1937), in the copy scanned as IMSLP file 28271, which was printed in 1965 or later. The aim is to encode all printed detail, including notes, stems and beams, slurs, articulations, dynamics, tempo and text, and to link every bar to its region on the printed page. The edition is built for [CAMAT](https://github.com/egorpol/camat_v2).
 
 ## Status
 
@@ -12,7 +12,7 @@ Work in progress; not yet proofread.
 | II — Sehr schnell | pickup + 22 | 6 | Kern base (unfinished in the source encoding) | 23 zones |
 | III — Ruhig fließend | 66 | 7–11 | Kern base (no tempo changes) | 66 zones |
 
-The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`; the headers are not yet edition headers.
+The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`. Each file has an edition header (version 0.1.0): sources, transcribed page paratext, editorial declaration and revision history.
 
 ## Layout
 
@@ -44,4 +44,4 @@ The encodings work without the images; only the facsimile view needs them.
 
 ## License
 
-Encodings and documentation are licensed under CC BY 4.0; scripts under MIT. Third-party sources are not included. See [LICENSE.md](LICENSE.md).
+Encodings and documentation are licensed under CC BY 4.0; scripts under MIT. Third-party sources are not included. See [LICENSE.md](LICENSE.md). To cite the edition, use [CITATION.cff](CITATION.cff).

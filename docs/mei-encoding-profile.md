@@ -12,16 +12,15 @@ The files use MEI 5.1 with the Common Music Notation customization. The pinned s
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
 ```
 
-The files currently say `meiversion="5.1"` without the declarations; both are added with the edition header.
-
 Verovio 6.3 writes MEI 6.0-dev and has no 5.x writer. Its MEI Basic output drops the facsimile, most of the header and many IDs. The MEI files are therefore the master copy, edited by hand. Verovio is used only for rendering; do not round-trip the files through it.
 
 ## Files and identifiers
 
 - One file per movement: `mei/webern-op27-I.mei`, `-II.mei`, `-III.mei`, each with one `mdiv`.
-- Every ID in a movement file starts with `ue1937-<mvt>-`: measures are `ue1937-<mvt>-m<NNN>` (the pickup of II is `m000`). Facsimile IDs are `zone-ue1937-<mvt>-m<NNN>`, `surface-ue1937-p<NNNN>` and `graphic-ue1937-p<NNNN>`, numbered by PDF page.
+- Every ID in the music of a movement file starts with `ue1937-<mvt>-`: measures are `ue1937-<mvt>-m<NNN>` (the pickup of II is `m000`). Facsimile IDs are `zone-ue1937-<mvt>-m<NNN>`, `surface-ue1937-p<NNNN>` and `graphic-ue1937-p<NNNN>`, numbered by PDF page.
 - Keep existing IDs through correction and reformatting; external annotations and CAMAT selections point at them. New elements get an ID with the movement prefix and a readable rest, for example `ue1937-II-beamSpan-L37F1-L40F2`.
 - Notes, chords, rests, spaces, measures, staves, layers and all control events (`slur`, `tie`, `beamSpan`, `dynam`, `hairpin`, `dir`, `tempo`, `fermata`, `annot`) must have an ID.
+- Header IDs are the same in every file, so that annotations can use them unchanged: `resp.editor`, `src.ue1937`, `src.kern.sapp`, `work.op27`, and `work.op27.<mvt>` for the movement.
 - References are local (`#id`) and must resolve in the same file.
 
 ## Header
@@ -35,10 +34,10 @@ The header follows the [MEI metadata guidelines](https://music-encoding.org/guid
 | `fileDesc/pubStmt` | Publisher, date, URI and `availability` with the CC BY 4.0 licence for the MEI data |
 | `fileDesc/sourceDesc` | `src.ue1937`: the copy actually used (IMSLP 28271, a reprint from 1965 or later of U.E. 10881), printed page range, transcribed paratext, image rights. `src.kern.sapp`: the base encoding, with URL, version and SHA-256 |
 | `encodingDesc` | `appInfo` (Verovio Humdrum import, the scripts used), `editorialDecl` summarising the editorial policy |
-| `workList/work` | Webern, Variations for Piano, Op. 27, the movement, with `mdiv/@decls` pointing to it |
+| `workList/work` | `work.op27`: Webern, Variations for Piano, Op. 27; the movement as `work.op27.<mvt>` in its `componentList`, with meter and tempo heading. `mdiv/@decls` points to the movement |
 | `revisionDesc` | Significant events, newest first, each `change/@resp` pointing to a `respStmt` |
 
-The current headers still carry the study's `projectDesc`, Verovio's `unpub` notice, and Humdrum reference records in `extMeta`. They are all replaced when the header is written.
+`sourceDesc` transcribes the page paratext of the movement's pages (page numbers, title, movement numeral, composer line, copyright lines, plate number, printer). `encodingDesc/projectDesc` names the DFG grant (PF 669/18-1) that funds the CAMAT corpus. `appInfo` also lists Claude Code, the AI assistant used under the editor's direction; responsibility stays with `resp.editor`. Add a `revisionDesc/change` for every significant change to a file, such as a proofreading pass over a page, newest first.
 
 ## Score structure
 
@@ -47,6 +46,7 @@ The current headers still carry the study's `projectDesc`, Verovio's `unpub` not
 - Repeats are encoded as printed with `@left="rptstart"` and `@right="rptend"`. Movement II's sections are `section` elements with one `expansion` giving the printed repeat order (I A A B B); CAMAT skips `expansion` when it flattens sections.
 - A staff with no printed content in a bar holds an `mSpace` (not an invisible rest).
 - Meter signatures and clefs go where they are printed, including mid-bar clefs (`clef` inside the layer).
+- The `pgHead` of the first `scoreDef` repeats the printed head of the movement's first page for display: "VARIATIONEN", "I" and "Anton Webern, Op. 27" in movement I; only the numeral in II and III. Verovio 6.3 shows no heading without it. The header's `sourceDesc` holds the transcription of all paratext.
 
 ## Notation conventions
 
