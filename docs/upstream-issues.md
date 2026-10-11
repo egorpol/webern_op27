@@ -21,7 +21,8 @@ Oddities in Verovio and MEI found while encoding this edition, collected so they
 
 ### 2. `beamSpan` not drawn (to recheck)
 
-- **Status:** to recheck. Noted with Verovio 6.3 when the cross-staff one-note beam in movement II, bars 2–3, became a `beamSpan`. `develop` has `View::DrawBeamSpan`, so first find out whether this encoding (cross-staff, one note per bar, with `@plist`) is the case that is skipped.
+- **Status:** to recheck, probably limited to one case. Verovio 6.3.0 does draw a cross-staff `beamSpan` across a barline: movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) renders correctly once the stem directions are right. The case noted earlier is the one-note cross-staff beam in movement II, bars 2–3; find out whether that encoding is what Verovio skips before filing.
+- **Side note:** `beamSpan/@staff="1 2"` makes Verovio 6.3.0 draw the beam twice (once per staff). Give the staff of the first note only.
 
 ### 3. No page heading from `meiHead` (to recheck)
 
