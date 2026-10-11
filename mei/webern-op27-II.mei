@@ -95,7 +95,7 @@
             <p>This edition encodes the music as printed by Universal Edition, plate U.E. 10881 (src.ue1937), including stems, beams, clefs, the placement of marks, and page and system breaks. The Kern encoding (src.kern.sapp) supplied notes and rhythms as a starting point; it has no authority where it differs from the print.</p>
             <p>The print is not corrected. A suspected engraving error is kept and documented in an annot with type="editorial" and label "source-reading"; uncertain readings are labelled "unresolved-reading", and notes on the representation "encoding-note". Repairs that bring the encoding into agreement with the print are recorded in the repository's proofreading log.</p>
             <p>Every printed accidental is encoded as a written accidental (@accid); an alteration without a printed sign is encoded with @accid.ges. The values func="caution" and type="caution" left by the Kern conversion carry no editorial claim.</p>
-            <p>Measure/@n is the printed bar number; the pickup of movement II is bar 0. Each measure points to its zone on the facsimile page; pb/@n is the printed page number. This movement still carries the page and system breaks of the Kern conversion. Page paratext is transcribed in sourceDesc; the pgHead repeats the printed head of the movement's first page for display only.</p>
+            <p>Measure/@n is the printed bar number; the pickup of movement II is bar 0. Each measure points to its zone on the facsimile page; pb/@n is the printed page number. Page paratext is transcribed in sourceDesc; the pgHead repeats the printed head of the movement's first page for display only.</p>
             <p>The extent of proofreading is recorded in revisionDesc and in the repository's proofreading/progress.csv.</p>
          </editorialDecl>
          <projectDesc>
@@ -128,6 +128,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
+               <p>Page and system breaks written from facsimiles/ue1937/pages.json by scripts/set_breaks.py, in the form of movement I: a pb with the printed page number (@n) and the page surface (@facs) before the first bar of each page, an sb before the first bar of every other system. The breaks of the Kern conversion stood at the same bars; its pb had no @n or @facs.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-11" resp="#resp.editor">
             <changeDesc>
                <p>Edition header: MEI 5.1 CMN declarations, responsibility, edition, source and work metadata, editorial declaration and this revision history. It replaces the metadata written by Verovio's Humdrum import and the study's project note. The page head in the score (pgHead) now shows the printed head instead of the import's composer line and life dates.</p>
@@ -205,8 +210,8 @@
                </scoreDef>
                <section xml:id="ue1937-II-section-L11F1">
                   <expansion plist="#ue1937-II-label-I #ue1937-II-label-A #ue1937-II-label-A #ue1937-II-label-B #ue1937-II-label-B" xml:id="ue1937-II-expansion-L13F1" />
-                  <pb xml:id="ue1937-II-o1spp9dm" />
                   <section xml:id="ue1937-II-label-I">
+                     <pb xml:id="ue1937-II-pb-before-m000" facs="#surface-ue1937-p0004" n="6" />
                      <measure xml:id="ue1937-II-m000" n="0" metcon="false" facs="#zone-ue1937-II-m000">
                         <staff xml:id="ue1937-II-staff-L11F2" n="1">
                            <layer xml:id="ue1937-II-layer-L1F2N1" n="1">
@@ -358,7 +363,7 @@
                         </dynam>
                         <slur xml:id="ue1937-II-slur-L50F2-L51F2" staff="2" startid="#ue1937-II-note-L50F2" endid="#ue1937-II-note-L51F2" />
                      </measure>
-                     <sb xml:id="ue1937-II-sb-L53F1" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m005" type="z" />
                      <measure xml:id="ue1937-II-m005" n="5" facs="#zone-ue1937-II-m005">
                         <staff xml:id="ue1937-II-staff-L53F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L53F2N1" n="1">
@@ -518,7 +523,7 @@
                         </staff>
                         <dynam xml:id="ue1937-II-dynam-L85F3" place="between" staff="1 2" tstamp="2">p</dynam>
                      </measure>
-                     <sb xml:id="ue1937-II-sb-L88F1" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m010" type="z" />
                      <measure xml:id="ue1937-II-m010" n="10" facs="#zone-ue1937-II-m010">
                         <staff xml:id="ue1937-II-staff-L88F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L88F2N1" n="1">
@@ -653,7 +658,7 @@
                         </staff>
                         <dynam xml:id="ue1937-II-dynam-L118F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
                      </measure>
-                     <sb xml:id="ue1937-II-sb-L123F1" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m015" type="z" />
                      <measure xml:id="ue1937-II-m015" n="15" facs="#zone-ue1937-II-m015">
                         <staff xml:id="ue1937-II-staff-L123F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L123F2N1" n="1">
@@ -779,7 +784,7 @@
                         <dynam xml:id="ue1937-II-dynam-L145F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
                         <slur xml:id="ue1937-II-slur-L146F2-L147F2" type="placed" staff="1" startid="#ue1937-II-note-L146F2" endid="#ue1937-II-note-L147F2" curvedir="above" />
                      </measure>
-                     <sb xml:id="ue1937-II-sb-L151F1" type="z" />
+                     <sb xml:id="ue1937-II-sb-before-m019" type="z" />
                      <measure xml:id="ue1937-II-m019" n="19" facs="#zone-ue1937-II-m019">
                         <staff xml:id="ue1937-II-staff-L151F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L151F2N1" n="1">

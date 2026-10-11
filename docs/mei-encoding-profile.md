@@ -71,7 +71,7 @@ The header follows the [MEI metadata guidelines](https://music-encoding.org/guid
 - One `facsimile` per file, with one `surface` per printed page the movement occupies. `surface/@n` is the printed page number; `graphic/@target` is the relative path `../facsimiles/ue1937/page-<NNNN>.png`, with pixel `@width` and `@height`.
 - Every measure points to exactly one `zone` on its page through `measure/@facs`.
 - `pb` stands before the first bar of each printed page, with `@n` set to the printed page number and `@facs` pointing to the surface. `sb` stands before the first bar of every other system. `facsimiles/ue1937/pages.json` lists the bars on each system.
-- Movement I follows this. Movements II and III still carry the page and system breaks of the Kern conversion; they are replaced from `pages.json`.
+- Movement I was edited by hand in this form; `scripts/set_breaks.py` writes the breaks of II and III from `pages.json` and leaves I unchanged. A break stands in the section of the bar it precedes, before a `scoreDef` that directly precedes that bar.
 
 ## Validation
 

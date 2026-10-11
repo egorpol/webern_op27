@@ -43,7 +43,6 @@ The page and system breaks are checked once per page: `pb` before the first bar 
 - **I, bars 3–51:** clef changes were aligned "via the DCMLab reference", an export of a MuseScore score that may not be reused. Check every clef against the scan and keep only what the print shows.
 - **I, bar 1:** the tempo mark lacks `@mm`, `@mm.unit` and `@mm.dots`.
 - **II:** the Kern source is unfinished; expect gaps in every layer. Bars 10, 15 and 16 have one staff that holds only an `mSpace`.
-- **II and III:** page and system breaks come from the Kern conversion; replace them from `pages.json`.
 - **III:** tempo changes are missing.
 
 ## The log
