@@ -21,6 +21,7 @@
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2026-10-11">2026-10-11</date>
+            <identifier type="URI">https://github.com/egorpol/webern_op27</identifier>
             <availability>
                <useRestrict>MEI data released under <ref target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</ref>. The licence covers this edition's encoding and metadata, not the musical work or the printed source.</useRestrict>
             </availability>
