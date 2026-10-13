@@ -4,7 +4,7 @@ Proofreading compares the encoding with the scan of the print, one sign at a tim
 
 ## Setup
 
-1. Reproduce the page images as described in the README and check their hashes.
+1. Fetch the sources and make the page images: `python scripts/fetch_sources.py --download --pages` (see the README) checks every hash. The Kern files land in `sources/kern/`, the cross-check encodings in `sources/crosscheck/`.
 2. Open the movement in a viewer that shows the rendering next to the measure zone: CAMAT's facsimile viewer, or mei-friend with the facsimile. `python scripts/render_page.py <mei> -o <dir> --scan` sets each printed page beside its rendering with the encoded breaks.
 3. Keep the movement's zones at hand: `facsimiles/ue1937/pages.json` lists the bars on each system.
 

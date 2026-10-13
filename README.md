@@ -18,21 +18,27 @@ The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were 
 
 - `mei/` — one MEI file per movement. Measure IDs are `ue1937-<movement>-m<NNN>`; the pickup in II is bar 0.
 - `facsimiles/ue1937/pages.json` — the nine scan pages: hashes, size, printed page numbers and the bars on each system. The images themselves are not in the repository (see below).
-- `sources/sources.json` — source records (URLs, SHA-256, credits, stated rights).
+- `sources/sources.json` — source records (URLs, SHA-256, credits, stated rights) for the print, the Kern base encoding and the two cross-check encodings. None of these files is in the repository; `local_path` names the git-ignored place of a local copy.
 - `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), layout review, the bar-to-zone alignment, and a record of the hand edits to movement I.
 - `schemas/` — the MEI CMN 5.1 schema used for validation.
-- `scripts/` — maintenance scripts (MIT): `validate.py` runs the validation gate; `check_movement.py` sweeps a movement for consistency; `render_page.py` renders the printed pages as encoded, optionally beside the scan; `render_variants.py` compares alternative encodings of a few bars; `count_dashes.py` counts the printed dashes of each extender against `@lsegs`; `set_breaks.py` and `migrate_mei51.py` made the breaks and the 5.1 files.
+- `scripts/` — maintenance scripts (MIT): `fetch_sources.py` downloads the sources and makes the page images, checking every hash; `validate.py` runs the validation gate; `check_movement.py` sweeps a movement for consistency; `render_page.py` renders the printed pages as encoded, optionally beside the scan; `render_variants.py` compares alternative encodings of a few bars; `count_dashes.py` counts the printed dashes of each extender against `@lsegs`; `set_breaks.py` and `migrate_mei51.py` made the breaks and the 5.1 files.
 - `docs/` — [editorial policy](docs/editorial-policy.md), [MEI encoding profile](docs/mei-encoding-profile.md) and [proofreading checklist](docs/proofreading-checklist.md).
 - `proofreading/` — progress by system and layer (`progress.csv`) and the log of differences found (`log.csv`).
 
 ## Facsimile images
 
-The MEI files point to `../facsimiles/ue1937/page-0001.png` … `page-0009.png`. To view the facsimile:
+The MEI files point to `../facsimiles/ue1937/page-0001.png` … `page-0009.png`. To make them, run
+
+```
+python scripts/fetch_sources.py --download --pages imslp-28271-universal-1937
+```
+
+Without the source id it also fetches the Kern and cross-check encodings; if a host is down, `--from DIR` copies earlier downloads instead. By hand, the script's steps are:
 
 1. Download the PDF from [IMSLP 28271](https://imslp.org/wiki/Special:ImagefromIndex/28271) into `facsimiles/ue1937/`.
 2. Check its SHA-256 against `pdf_sha256` in `facsimiles/ue1937/pages.json`.
 3. Rasterize it at 300 dpi: `pdftoppm -r 300 -png imslp-28271-universal-1937.pdf page`, then rename the pages to `page-0001.png` … `page-0009.png`.
-4. Check each page hash against `pages.json`. The hashes come from Poppler 26.08.0; another version may give different pixels. The zones stay valid as long as the page sizes match.
+4. Check each page hash against `pages.json`. The hashes come from Poppler 26.08.0; another version may give different pixels (the script then warns). The zones stay valid as long as the page sizes match.
 
 The encodings work without the images; only the facsimile view needs them.
 
@@ -40,6 +46,7 @@ The encodings work without the images; only the facsimile view needs them.
 
 - **Base source:** Universal Edition, Vienna 1937, plate U.E. 10881. Scan from IMSLP, uploaded by JacopoTore; scanner unknown.
 - **Base encoding:** Craig Stuart Sapp, KernScores, `webern-op27n1–3.krn` (encoded 2008, revised 2020-11-23). Converted to MEI with Verovio and enriched from the print.
+- **Cross-check encodings:** Maja Hartwig's MEI of movement II, pickup and bars 1–11 (MEI Sample Collection, 2011), and Wendy Czajkowsky's Kern of movement III (1995). They only point to places to re-read in the print; see the [editorial policy](docs/editorial-policy.md).
 - **Measure regions:** Edirom [Deep Optical Measure Detector](https://measure-detector.edirom.de/).
 
 ## License

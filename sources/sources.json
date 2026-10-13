@@ -1,7 +1,7 @@
 {
   "created_at": "2026-10-10T23:58:52+00:00",
   "work": "Anton Webern, Variations for Piano, Op. 27",
-  "policy": "Sources are cited by URL and SHA-256; neither the PDF nor the Kern files are committed.",
+  "policy": "Sources are cited by URL and SHA-256; no source file (the PDF, the Kern files or the cross-check encodings) is committed. local_path names the git-ignored place where scripts/fetch_sources.py keeps a local copy.",
   "sources": [
     {
       "requested_url": "https://imslp.eu/files/imglnks/euimg/4/4d/IMSLP28271-PMLP04634-Webern_-_Variations,_Op._27.pdf",
@@ -9,6 +9,7 @@
       "retrieved_at": "2026-09-26T12:48:03.868028+00:00",
       "bytes": 369001,
       "sha256": "d604c08ab797818f414a83fa4047eb2eb3c52ba6c74a47ce966e0a9c273ab330",
+      "local_path": "facsimiles/ue1937/imslp-28271-universal-1937.pdf",
       "id": "imslp-28271-universal-1937",
       "composer": "Anton Webern",
       "work": "Variations for Piano, Op. 27",
@@ -44,6 +45,7 @@
       "retrieved_at": "2026-09-26T12:53:51.111043+00:00",
       "bytes": 3304,
       "sha256": "5d53373697aacdd4b752dbf2339d030a63b7074100005f2901e57f1d22906437",
+      "local_path": "sources/kern/webern-op27n1.krn",
       "id": "webern-op27n1",
       "composer": "Anton Webern",
       "work": "Variations for Piano, Op. 27",
@@ -93,6 +95,7 @@
       "retrieved_at": "2026-09-26T12:53:51.652977+00:00",
       "bytes": 2632,
       "sha256": "79fb9a2c859e97eac5a959c28e21d177dc471d7d2c90312359a4201a644a5d1a",
+      "local_path": "sources/kern/webern-op27n2.krn",
       "id": "webern-op27n2",
       "composer": "Anton Webern",
       "work": "Variations for Piano, Op. 27",
@@ -142,6 +145,7 @@
       "retrieved_at": "2026-09-26T12:53:52.224120+00:00",
       "bytes": 7386,
       "sha256": "e59686611fc3c1399d7c6aea5a17b7891c83a2c1566097c0e45b37813b94048f",
+      "local_path": "sources/kern/webern-op27n3.krn",
       "id": "webern-op27n3",
       "composer": "Anton Webern",
       "work": "Variations for Piano, Op. 27",
@@ -183,6 +187,88 @@
         "Header composition/publication dates are preserved as source assertions; they differ from the IMSLP catalogue."
       ],
       "role": "base encoding (notes, rhythms); enriched by hand",
+      "redistributed": false
+    },
+    {
+      "requested_url": "https://raw.githubusercontent.com/music-encoding/sample-encodings/f3f1baba02e32279b25dad660b82c834bac034b4/MEI_5.1/Music/Complete_examples/Webern_Variations_for_Piano_Op27_No2.mei",
+      "download_url": "https://raw.githubusercontent.com/music-encoding/sample-encodings/f3f1baba02e32279b25dad660b82c834bac034b4/MEI_5.1/Music/Complete_examples/Webern_Variations_for_Piano_Op27_No2.mei",
+      "retrieved_at": "2026-10-13T10:07:18.117874+00:00",
+      "bytes": 26411,
+      "sha256": "67e6c2bf7db26f4ce6f5bc791340d565095a902b7e73bdadb3066b948671b479",
+      "local_path": "sources/crosscheck/Webern_Variations_for_Piano_Op27_No2.mei",
+      "id": "hartwig-2011-op27-ii",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "MEI 5.1 (declares mei-all.rng)",
+      "scope": "movement excerpt",
+      "movements": [
+        2
+      ],
+      "bars_as_encoded": "pickup and bars 1–11 (up to the first repeat sign), plus a metadata incipit",
+      "source_page": "https://github.com/music-encoding/sample-encodings/blob/f3f1baba02e32279b25dad660b82c834bac034b4/MEI_5.1/Music/Complete_examples/Webern_Variations_for_Piano_Op27_No2.mei",
+      "repository": "https://github.com/music-encoding/sample-encodings",
+      "upstream_commit": "f3f1baba02e32279b25dad660b82c834bac034b4",
+      "encoding_credit": "Maja Hartwig",
+      "header_as_stated": {
+        "publisher": "Musikwissenschaftliches Seminar, Detmold",
+        "date": "2011",
+        "series": "MEI Sample Collection",
+        "source_imprint": "Universal Edition, 1936",
+        "revision_responsibility": [
+          "Maja Hartwig: encoded the file by hand",
+          "Kristina Richts: metadata",
+          "Klaus Rettinghaus: corrected encoding errors",
+          "Benjamin W. Bohl, Stefan Münnich: header and schema updates"
+        ]
+      },
+      "content_counts": {
+        "dynam": 14,
+        "slur": 9,
+        "beamSpan": 14,
+        "articulations": 24
+      },
+      "rights_as_stated": "useRestrict: \"This encoding is in the public domain. However, the sources used to create it may be under copyright. […]\" Repository license: ECL-2.0.",
+      "notes": [
+        "Migrated by the collection from MEI 2012 through 2013, 3.0, 4.0 and 5.0 to 5.1 (revisionDesc).",
+        "Same encoding as camat_v2 test_corpus/validation_baseline/Webern_Variations_for_Piano_Op27_No2.mei (same SHA-256).",
+        "The header's source imprint date 1936 is preserved as stated; it differs from the 1937 edition used here."
+      ],
+      "role": "cross-check encoding: a difference prompts re-reading the print; never evidence for a reading",
+      "redistributed": false
+    },
+    {
+      "requested_url": "https://raw.githubusercontent.com/shanahdt/corpus-studies-class/623de96416ad336b445844639a079b77e2af9f9a/data/humdrum_scores/Webern/opus27c.krn",
+      "download_url": "https://raw.githubusercontent.com/shanahdt/corpus-studies-class/623de96416ad336b445844639a079b77e2af9f9a/data/humdrum_scores/Webern/opus27c.krn",
+      "retrieved_at": "2026-10-13T10:07:18.117874+00:00",
+      "bytes": 4878,
+      "sha256": "aa7f5801ed0b590ebc71b9e5ee437a1f677b86615a595df98ab65170295044ab",
+      "local_path": "sources/crosscheck/opus27c.krn",
+      "id": "czajkowsky-1995-op27-iii",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "Humdrum **kern",
+      "scope": "movement",
+      "movements": [
+        3
+      ],
+      "bars_as_encoded": "1–66",
+      "source_page": "https://github.com/shanahdt/corpus-studies-class/blob/623de96416ad336b445844639a079b77e2af9f9a/data/humdrum_scores/Webern/opus27c.krn",
+      "repository": "https://github.com/shanahdt/corpus-studies-class",
+      "upstream_commit": "623de96416ad336b445844639a079b77e2af9f9a",
+      "encoding_credit": "Wendy Czajkowsky",
+      "reference_records": [
+        "!! Webern, Anton",
+        "!! Variation for Piano, Op. 27",
+        "!! Third Movement",
+        "!! \"Ruhig flieBend\"",
+        "!! encoded by Wendy Czajkowsky, 6/2/95"
+      ],
+      "rights_as_stated": "No license in the repository and no rights statement in the file.",
+      "notes": [
+        "The file arrived in the repository with its initial commit (2025-12-02); where it was first distributed is not known.",
+        "\"6/2/95\" in the header is preserved as stated; the day/month order is not given."
+      ],
+      "role": "cross-check encoding: a difference prompts re-reading the print; never evidence for a reading",
       "redistributed": false
     }
   ]

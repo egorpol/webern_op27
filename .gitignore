@@ -14,8 +14,9 @@ __pycache__/
 /facsimiles/**/*.png
 /facsimiles/**/*.pdf
 
-# Unlicensed source encodings (KernScores) are cited by URL + SHA-256, never committed.
+# Source encodings (KernScores, cross-check encodings) are cited by URL + SHA-256, never committed.
 /sources/kern/
+/sources/crosscheck/
 
 # Validation run outputs.
 /validation/runs/
