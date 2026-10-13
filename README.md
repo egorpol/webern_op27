@@ -8,7 +8,7 @@ Work in progress; not yet proofread.
 
 | Movement | Bars | Printed pages | Notation | Facsimile links |
 | --- | --- | --- | --- | --- |
-| I — Sehr mäßig | 54 | 3–5 | Kern base; bars 1–18 enriched by hand (stems, beams, slurs, dynamics, hairpins, text); clefs and layout for the whole movement | 54 zones |
+| I — Sehr mäßig | 54 | 3–5 | Kern base, enriched from the print by hand in all bars (stems, beams, slurs, dynamics, hairpins, text); clefs checked against the print | 54 zones |
 | II — Sehr schnell | pickup + 22 | 6 | Kern base (unfinished in the source encoding) | 23 zones |
 | III — Ruhig fließend | 66 | 7–11 | Kern base (no tempo changes) | 66 zones |
 
@@ -21,7 +21,7 @@ The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were 
 - `sources/sources.json` — source records (URLs, SHA-256, credits, stated rights).
 - `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), layout review, the bar-to-zone alignment, and a record of the hand edits to movement I.
 - `schemas/` — the MEI CMN 5.1 schema used for validation.
-- `scripts/` — maintenance scripts (MIT).
+- `scripts/` — maintenance scripts (MIT): `validate.py` runs the validation gate; `check_movement.py` sweeps a movement for consistency; `render_page.py` renders the printed pages as encoded, optionally beside the scan; `render_variants.py` compares alternative encodings of a few bars; `count_dashes.py` counts the printed dashes of each extender against `@lsegs`; `set_breaks.py` and `migrate_mei51.py` made the breaks and the 5.1 files.
 - `docs/` — [editorial policy](docs/editorial-policy.md), [MEI encoding profile](docs/mei-encoding-profile.md) and [proofreading checklist](docs/proofreading-checklist.md).
 - `proofreading/` — progress by system and layer (`progress.csv`) and the log of differences found (`log.csv`).
 

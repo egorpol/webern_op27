@@ -19,9 +19,9 @@ Oddities in Verovio and MEI found while encoding this edition, collected so they
 
 - **Request:** honour `att.lineRend.base` on text extenders: `@lsegs` as the number of dashes, `@lform` (`dotted`, `solid`), `@lwidth`. Failing that, expose the dash length and gap as options, as the code comment suggests.
 
-### 2. `beamSpan` not drawn (to recheck)
+### 2. `beamSpan` not drawn (not reproduced)
 
-- **Status:** to recheck, probably limited to one case. Verovio 6.3.0 does draw a cross-staff `beamSpan` across a barline: movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) is drawn once the stem directions are right (with one beam line too few at the start, see 2a). The case noted earlier is the one-note cross-staff beam in movement II, bars 2–3; find out whether that encoding is what Verovio skips before filing.
+- **Status:** not reproduced; nothing to file. Rechecked 2026-10-13: rendered with encoded breaks, each of the 41 `beamSpan`s in the three files (I: 39, II: 1, III: 1) has beam polygons in Verovio 6.3.0's SVG. That includes movement II, bars 2–3 (`ue1937-II-beamSpan-L37F1-L40F2`), the case noted earlier, which was a one-note `beam` until the repair in `54e2992`. Movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) is drawn once the stem directions are right, with one beam line too few at the start (2a).
 - **Side note:** `beamSpan/@staff="1 2"` makes Verovio 6.3.0 draw the beam twice (once per staff). Give the staff of the first note only.
 
 ### 2a. `beamSpan` with opposite stem directions loses a secondary beam

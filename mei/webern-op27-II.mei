@@ -129,6 +129,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>The opening tempo mark (printed "Sehr schnell", quarter note = ca 160) now carries the metronome mark as mm="160" mm.unit="4" and place="above", as in movement I.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-11" resp="#resp.editor">
             <changeDesc>
                <p>The sb elements no longer carry @type="z", the name of the Humdrum layout group (!!LO:LB:g=z) that the Kern conversion copied into @type; the breaks follow the UE print (scripts/set_breaks.py).</p>
@@ -234,7 +239,7 @@
                               </beam>
                            </layer>
                         </staff>
-                        <tempo xml:id="ue1937-II-tempo-L10F1" staff="1" tstamp="1">
+                        <tempo xml:id="ue1937-II-tempo-L10F1" place="above" staff="1" tstamp="1" mm="160" mm.unit="4">
                            <rend xml:id="ue1937-II-cpakwbu">Sehr schnell </rend>
                            <symbol xml:id="ue1937-II-d1efc9oq" glyph.auth="smufl" glyph.name="metNoteQuarterUp" fontsize="70%" /> = ca 160</tempo>
                         <dynam xml:id="ue1937-II-dynam-L22F3" place="between" staff="1 2" tstamp="1">

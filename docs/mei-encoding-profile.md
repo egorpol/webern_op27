@@ -75,12 +75,16 @@ The header follows the [MEI metadata guidelines](https://music-encoding.org/guid
 
 ## Validation
 
-The validation gate is CAMAT's general validator (`camat-validate-mei`, `camat/mei_validation.py`), run on all three files:
+The validation gate is CAMAT's general validator (`camat-validate-mei`, `camat/mei_validation.py`), run on all three files. `scripts/validate.py` runs it with the settings below, in a Python environment with CAMAT and `saxonche`, and writes to `validation/runs/<UTC timestamp>/`:
 
 ```sh
+python scripts/validate.py
+# the same as
 python -m camat.mei_validation --output-dir validation/runs/<run> \
   --schema schemas/mei-CMN-5.1.rng --verovio --camat-parse mei/webern-op27-*.mei
 ```
+
+The script exits with 0 only if the required checks and both consumer checks pass, and it stops before running if `saxonche` is missing.
 
 It must pass the required checks (XML references, RELAX NG, the embedded Schematron, image resources, input hashes), Verovio rendering and the CAMAT parse. Schematron needs CAMAT's `validation` extra (`saxonche`); a run where it is skipped is not a pass. Run outputs go to `validation/runs/`, which is not committed. `run.json` records the tool versions and input hashes.
 

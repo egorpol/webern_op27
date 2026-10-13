@@ -24,7 +24,7 @@ The page paratext belongs in the MEI header, not the musical text: page numbers,
 
 1. **Encoding repair.** The encoding is brought into agreement with the print, whatever caused the difference (Kern, conversion, or an earlier hand edit). Record it in the proofreading log and the commit message; it needs no annotation.
 2. **Retained source reading** (`label="source-reading"`). The print is kept, although it looks wrong: a pitch that contradicts the row, a missing accidental, an inconsistent duration. Annotate the printed reading, the reading that seems intended, and the reasoning. An argument from the row may motivate the note but does not change the encoding.
-3. **Encoding note** (`label="encoding-note"`). The reading is certain, but its representation needs explaining or has a known renderer limitation. Example: cross-barline beams are `beamSpan`s, which Verovio 6.3 keeps but does not draw.
+3. **Encoding note** (`label="encoding-note"`). The reading is certain, but its representation needs explaining or has a known renderer limitation. Example: a cross-staff `beamSpan` with opposite stem directions, which Verovio 6.3 draws with a secondary beam missing.
 4. **Unresolved reading** (`label="unresolved-reading"`). The print cannot be read with confidence: a broken or blurred sign, or an accidental that is hard to make out. Encode the likeliest reading, annotate the alternatives and the zone, and mark the uncertainty. Release review must address each one.
 
 There is no emendation category. Moving to emendations, or to `choice/sic/corr`, needs an explicit policy change recorded here.

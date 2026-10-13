@@ -5,10 +5,10 @@ Proofreading compares the encoding with the scan of the print, one sign at a tim
 ## Setup
 
 1. Reproduce the page images as described in the README and check their hashes.
-2. Open the movement in a viewer that shows the rendering next to the measure zone: CAMAT's facsimile viewer, or mei-friend with the facsimile.
+2. Open the movement in a viewer that shows the rendering next to the measure zone: CAMAT's facsimile viewer, or mei-friend with the facsimile. `python scripts/render_page.py <mei> -o <dir> --scan` sets each printed page beside its rendering with the encoded breaks.
 3. Keep the movement's zones at hand: `facsimiles/ue1937/pages.json` lists the bars on each system.
 
-Verovio does not draw `beamSpan`, so beams that cross a barline show as flags. Check those in the MEI text.
+Verovio 6.3 draws `beamSpan`, but with opposite stem directions it drops a secondary beam ([upstream notes](upstream-issues.md), 2a). Check those beams in the MEI text.
 
 ## Unit of work
 
@@ -17,9 +17,11 @@ Work one system at a time. Within a system, make one pass per layer, in the orde
 After each system:
 
 1. Record each difference in `proofreading/log.csv` and fix or annotate it.
-2. Run the validation (see the encoding profile) and fix what it reports.
+2. Run the validation (`python scripts/validate.py`; see the encoding profile) and fix what it reports.
 3. Fill in the system's row in `proofreading/progress.csv`: the date and the editor's initials under each layer done.
 4. Commit, naming the movement, page and system.
+
+After the last system of a movement, run the consistency sweep, `python scripts/check_movement.py <mei> --baseline 98812bc`. It lists bars whose layers do not fill the meter, control events without `@staff` or `@place` or anchored by `@tstamp`, hairpins that end just before a dynamic without being joined to it, extenders without `@lsegs`, notes without `@stem.dir`, how accidentals are encoded, and every pitch or duration changed since the first commit (`98812bc`). `python scripts/count_dashes.py <mei> --out <dir>` counts the printed dashes of each extender above the staff against `@lsegs`; check its strips by eye.
 
 ## Layers
 
@@ -44,6 +46,8 @@ The page and system breaks are checked once per page: `pb` before the first bar 
 - **I, bar 1:** the tempo mark lacks `@mm`, `@mm.unit` and `@mm.dots`. Done 2026-10-13: `mm="40" mm.unit="8" mm.dots="1"`.
 - **II:** the Kern source is unfinished; expect gaps in every layer. Bars 10, 15 and 16 have one staff that holds only an `mSpace`.
 - **III:** tempo changes are missing.
+- **II, III, first bar:** the tempo marks lack `@mm` and `@mm.unit`. Done 2026-10-13: II `mm="160" mm.unit="4"`, III `mm="80" mm.unit="2"`.
+- **II, III:** the Kern conversion anchors dynamics and other control events by `@tstamp`; the profile asks for `@startid` wherever a note is printed at that point: in II 31 dynamics; in III 62 dynamics, 17 hairpins, 3 `dir`s and 2 fermatas (count of 2026-10-13). `scripts/check_movement.py` lists them.
 
 ## The log
 

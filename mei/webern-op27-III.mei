@@ -130,6 +130,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>The opening tempo mark (printed "Ruhig fließend", half note = ca 80) now carries the metronome mark as mm="80" mm.unit="2" and place="above", as in movement I.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-11" resp="#resp.editor">
             <changeDesc>
                <p>The sb elements no longer carry @type="z", the name of the Humdrum layout group (!!LO:LB:g=z) that the Kern conversion copied into @type; the breaks follow the UE print (scripts/set_breaks.py).</p>
@@ -294,7 +299,7 @@
                               <note xml:id="ue1937-III-note-L24F1" type="placed" dur="4" oct="4" pname="b" stem.dir="up" accid="f" />
                            </layer>
                         </staff>
-                        <tempo xml:id="ue1937-III-tempo-L10F1" staff="1" tstamp="1">
+                        <tempo xml:id="ue1937-III-tempo-L10F1" place="above" staff="1" tstamp="1" mm="80" mm.unit="2">
                            <rend xml:id="ue1937-III-aiebwx0">Ruhig fließend </rend>
                            <symbol xml:id="ue1937-III-b1wksa2i" glyph.auth="smufl" glyph.name="metNoteHalfUp" fontsize="70%" /> = ca 80</tempo>
                         <dynam xml:id="ue1937-III-dynam-L20F3" place="between" staff="1 2" tstamp="1.5">p</dynam>
