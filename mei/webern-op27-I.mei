@@ -130,6 +130,26 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>Every clef checked against UE 10881; all match the print. This completes the check left pending in the entry on the study's hand edits.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>Bars 19–27 (printed p. 4, systems 1–3), not logged when made: UE performance-marking enrichment (stems, beams and cross-staff beamSpans, slurs, dynamics, hairpins, tenuto, rit./tempo dirs); hidden rests as space (L86F1, L134F1, L135F1); the E in bar 22 moved to the upper staff as the cross-staff note L114F2 (was L114F1), with spaces filling both layers; accidentals on the tied notes L109F2 and L127F1 as printed. Consistency pass over the movement: rit. @lsegs set to the printed dash count (bars 17, 25, 29, 35, 50, 53); all rit. and tempo dirs share @vgrp="1", one line per system as printed; the bar 17 rit. anchored by @startid/@endid instead of @tstamp; f in bars 19 and 26 and pp in bar 36 placed between the staves; the hairpins in bars 21, 25 and 36 end on the following dynamic's anchor, their IDs renamed to match; the E♭ in bar 37 (L208F2) stem up as printed; @staff on the ties; @mm on the opening tempo; xml-model declarations restored.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-12" resp="#resp.editor">
+            <changeDesc>
+               <p>UE performance-marking enrichment for bars 34–54 (printed p. 5): stems, beams, slurs, dynamics, hairpins, staccato/tenuto, rit./tempo dirs.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-11" resp="#resp.editor">
+            <changeDesc>
+               <p>UE performance-marking enrichment for bars 28–33 (rest of printed p. 4): stems, beams/beamSpans, slurs, dynamics, hairpins, portamento as artic="ten", staccato, rit./tempo dirs, one hidden rest as space, cross-staff @staff on L159F1, accid.ges on L168F1/L168F2; renamed beamSpan ue1937-I-bcqis8g.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-11" resp="#resp.editor">
             <changeDesc>
                <p>The sb elements no longer carry @type="z", the name of the Humdrum layout group (!!LO:LB:g=z) that the Kern conversion copied into @type; the breaks follow the UE print (scripts/set_breaks.py).</p>
@@ -275,9 +295,8 @@
                            </note>
                         </layer>
                      </staff>
-                     <tempo xml:id="ue1937-I-tempo-L10F1" place="above" staff="1" tstamp="1">
-                        <rend xml:id="ue1937-I-fszmwo8">Sehr mäßig</rend>
-                        <rend xml:id="ue1937-I-tempo-spacer">    </rend>
+                     <tempo xml:id="ue1937-I-tempo-L10F1" place="above" staff="1" tstamp="1" mm="40" mm.unit="8" mm.dots="1">
+                        <rend xml:id="ue1937-I-fszmwo8">Sehr mäßig </rend>
                         <symbol xml:id="ue1937-I-g14kx1am" glyph.auth="smufl" glyph.name="metNote8thUp" fontsize="70%" />
                         <symbol xml:id="ue1937-I-iq1k6p8" glyph.auth="smufl" glyph.name="metAugmentationDot" fontsize="70%" /> = ca 40</tempo>
                      <dynam xml:id="ue1937-I-dynam-L15F2" place="below" staff="1" startid="#ue1937-I-chord-L15F2">pp</dynam>
@@ -351,7 +370,7 @@
                            <note xml:id="ue1937-I-note-L28F1" dur="16" oct="4" pname="g" stem.dir="down" accid="s" />
                         </layer>
                      </staff>
-                     <tie xml:id="ue1937-I-tie-L28F1-L30F1" startid="#ue1937-I-note-L28F1" endid="#ue1937-I-note-L30F1" />
+                     <tie xml:id="ue1937-I-tie-L28F1-L30F1" staff="2" startid="#ue1937-I-note-L28F1" endid="#ue1937-I-note-L30F1" />
                      <beamSpan xml:id="ue1937-I-beamSpan-L28F1-L30F1-L32F1" staff="2" plist="#ue1937-I-note-L28F1 #ue1937-I-note-L30F1 #ue1937-I-rest-L31F1 #ue1937-I-chord-L32F1" startid="#ue1937-I-note-L28F1" endid="#ue1937-I-chord-L32F1" />
                      <slur xml:id="ue1937-I-slur-L28F1-L32F1" staff="2" startid="#ue1937-I-note-L28F1" endid="#ue1937-I-chord-L32F1" />
                   </measure>
@@ -782,7 +801,7 @@
                      <beamSpan xml:id="ue1937-I-beamSpan-L80F1-L82F1" staff="2" plist="#ue1937-I-note-L80F1 #ue1937-I-chord-L82F1" startid="#ue1937-I-note-L80F1" endid="#ue1937-I-chord-L82F1" />
                      <slur xml:id="ue1937-I-slur-L80F1-L82F1" staff="2" startid="#ue1937-I-note-L80F1" endid="#ue1937-I-chord-L82F1" />
                      <dynam xml:id="ue1937-I-dynam-L80F1" place="above" staff="2" startid="#ue1937-I-note-L80F1">pp</dynam>
-                     <dir xml:id="ue1937-I-dir-rit-m017" place="above" staff="1" tstamp="1" tstamp2="1m+4" extender="true" lform="dashed" lsegs="5" vgrp="2400" vo="2">
+                     <dir xml:id="ue1937-I-dir-rit-m017" place="above" staff="1" startid="#ue1937-I-mrest-L78F2" endid="#ue1937-I-rest-L84F2" extender="true" lform="dashed" lsegs="11" vgrp="1">
                         <rend xml:id="ue1937-I-rend-rit-m017" fontstyle="normal">rit.</rend>
                      </dir>
                   </measure>
@@ -823,35 +842,51 @@
                      <staff xml:id="ue1937-I-staff-L85F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L85F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L86F2" dur="32" />
-                           <note xml:id="ue1937-I-note-L87F2" dur="32" oct="2" pname="b">
-                              <accid xml:id="ue1937-I-accid-L87F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L88F2" dur="32" oct="3" pname="e">
-                              <accid xml:id="ue1937-I-accid-L88F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L89F2" dur="32" oct="3" pname="b" accid="f" />
+                           <beam xml:id="ue1937-I-beam-L87F2-L89F2">
+                              <note xml:id="ue1937-I-note-L87F2" dur="32" oct="2" pname="b" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L87F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L88F2" dur="32" oct="3" pname="e" staff="2" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L88F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L89F2" dur="32" oct="3" pname="b" accid="f" stem.dir="down" />
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L91F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m019-s1-10" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L92F2" dur="32" oct="5" pname="d">
+                           <note xml:id="ue1937-I-note-L92F2" dur="32" oct="5" pname="d" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L92F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L85F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L85F1N1" n="1">
-                           <rest xml:id="ue1937-I-rest-L86F1" dur="8" />
+                           <space xml:id="ue1937-I-space-L86F1" dur="8" />
                            <clef xml:id="ue1937-I-clef-m019-s2-11" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L91F1" dur="32" oct="4" pname="g" accid="s" />
-                           <note xml:id="ue1937-I-note-L92F1" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L92F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L91F1-L92F1">
+                              <note xml:id="ue1937-I-note-L91F1" dur="32" oct="4" pname="g" accid="s" stem.dir="up" />
+                              <note xml:id="ue1937-I-note-L92F1" dur="32" oct="3" pname="a" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L92F1" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L87F2-L89F2" staff="1" startid="#ue1937-I-note-L87F2" endid="#ue1937-I-note-L89F2" />
+                     <dynam xml:id="ue1937-I-dynam-L87F2" place="between" staff="1 2" startid="#ue1937-I-note-L87F2" ho="-3">f</dynam>
+                     <dir xml:id="ue1937-I-dir-tempo-m019" place="above" staff="1" startid="#ue1937-I-rest-L86F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-m019" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <beamSpan xml:id="ue1937-I-beamSpan-L92F2-L94F2" staff="1" plist="#ue1937-I-note-L92F2 #ue1937-I-chord-L94F2" startid="#ue1937-I-note-L92F2" endid="#ue1937-I-chord-L94F2" />
+                     <slur xml:id="ue1937-I-slur-L91F1-L92F1" staff="2" startid="#ue1937-I-note-L91F1" endid="#ue1937-I-note-L92F1" />
+                     <slur xml:id="ue1937-I-slur-L92F2-L94F2" staff="1" startid="#ue1937-I-note-L92F2" endid="#ue1937-I-chord-L94F2" />
+                     <hairpin xml:id="ue1937-I-hairpin-L91F1-L94F2-dim" staff="2" form="dim" place="above" startid="#ue1937-I-note-L91F1" endid="#ue1937-I-chord-L94F2" />
+                     <dir xml:id="ue1937-I-dir-rit-m019" place="above" staff="1" startid="#ue1937-I-note-L92F2" endid="#ue1937-I-rest-L96F2" extender="true" lform="dashed" lsegs="5" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m019" fontstyle="normal">rit.</rend>
+                     </dir>
                   </measure>
                   <measure xml:id="ue1937-I-m020" n="20" facs="#zone-ue1937-I-m020">
                      <staff xml:id="ue1937-I-staff-L93F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L93F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L94F2" dur="32">
+                           <chord xml:id="ue1937-I-chord-L94F2" dur="32" stem.dir="up">
                               <note xml:id="ue1937-I-note-L94F2S1" oct="4" pname="c">
                                  <accid xml:id="ue1937-I-accid-L94F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -860,37 +895,48 @@
                            <rest xml:id="ue1937-I-rest-L95F2" dur="32" />
                            <rest xml:id="ue1937-I-rest-L96F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m020-s1-12" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L97F2" dur="16" oct="3" pname="c" accid="s" />
+                           <note xml:id="ue1937-I-note-L97F2" dur="16" oct="3" pname="c" accid="s" stem.dir="up">
+                              <artic xml:id="ue1937-I-artic-L97F2" artic="ten" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L99F2" dur="32" />
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L93F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L93F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L94F1" dur="32" />
-                           <chord xml:id="ue1937-I-chord-L95F1" dur="16">
+                           <chord xml:id="ue1937-I-chord-L95F1" dur="16" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L95F1" artic="ten" />
                               <note xml:id="ue1937-I-note-L95F1S1" oct="4" pname="f" accid="s" />
                               <note xml:id="ue1937-I-note-L95F1S2" oct="5" pname="f">
                                  <accid xml:id="ue1937-I-accid-L95F1S2" type="caution" accid="n" func="caution" />
                               </note>
                            </chord>
                            <rest xml:id="ue1937-I-rest-L97F1" dur="32" />
-                           <note xml:id="ue1937-I-note-L98F1" dur="16" oct="5" pname="g">
+                           <note xml:id="ue1937-I-note-L98F1" dur="16" oct="5" pname="g" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L98F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
-                     <tie xml:id="ue1937-I-tie-L98F1-L101F1" startid="#ue1937-I-note-L98F1" endid="#ue1937-I-note-L101F1" />
+                     <tie xml:id="ue1937-I-tie-L98F1-L101F1" staff="2" startid="#ue1937-I-note-L98F1" endid="#ue1937-I-note-L101F1" />
+                     <dynam xml:id="ue1937-I-dynam-L95F1" place="above" staff="2" startid="#ue1937-I-chord-L95F1">p</dynam>
+                     <dynam xml:id="ue1937-I-dynam-L97F2" place="below" staff="1" startid="#ue1937-I-note-L97F2">f</dynam>
+                     <dir xml:id="ue1937-I-dir-tempo-L97F2" place="above" staff="1" startid="#ue1937-I-note-L97F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L97F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <beamSpan xml:id="ue1937-I-beamSpan-L98F1-L101F1" staff="2" plist="#ue1937-I-note-L98F1 #ue1937-I-note-L101F1" startid="#ue1937-I-note-L98F1" endid="#ue1937-I-note-L101F1" />
+                     <dynam xml:id="ue1937-I-dynam-L98F1" place="below" staff="2" startid="#ue1937-I-note-L98F1">sf</dynam>
                   </measure>
                   <measure xml:id="ue1937-I-m021" n="21" facs="#zone-ue1937-I-m021">
                      <staff xml:id="ue1937-I-staff-L100F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L100F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L101F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m021-s1-13" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L102F2" dots="1" dur="16" oct="5" pname="g">
+                           <note xml:id="ue1937-I-note-L102F2" dots="1" dur="16" oct="5" pname="g" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L102F2" artic="ten" />
                               <accid xml:id="ue1937-I-accid-L102F2" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L106F2" dur="32" />
-                           <chord xml:id="ue1937-I-chord-L107F2" dur="32">
+                           <chord xml:id="ue1937-I-chord-L107F2" dur="32" stem.dir="down">
                               <note xml:id="ue1937-I-note-L107F2S1" oct="4" pname="f" accid="s" />
                               <note xml:id="ue1937-I-note-L107F2S2" oct="5" pname="f">
                                  <accid xml:id="ue1937-I-accid-L107F2S2" type="caution" accid="n" func="caution" />
@@ -900,72 +946,101 @@
                      </staff>
                      <staff xml:id="ue1937-I-staff-L100F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L100F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L101F1" dur="32" oct="5" pname="g" />
+                           <note xml:id="ue1937-I-note-L101F1" dur="32" oct="5" pname="g" stem.dir="down" />
                            <rest xml:id="ue1937-I-rest-L102F1" dur="32" />
                            <rest xml:id="ue1937-I-rest-L103F1" dur="32" />
-                           <note xml:id="ue1937-I-note-L105F1" dur="16" oct="3" pname="c" accid="s" />
+                           <clef xml:id="ue1937-I-clef-m021-s2-bass" shape="F" line="4" />
+                           <note xml:id="ue1937-I-note-L105F1" dur="16" oct="3" pname="c" accid="s" stem.dir="up">
+                              <artic xml:id="ue1937-I-artic-L105F1" artic="ten" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L107F1" dur="32" />
                         </layer>
                      </staff>
-                     <tie xml:id="ue1937-I-tie-L107F2S1-L109F2S1" startid="#ue1937-I-note-L107F2S1" endid="#ue1937-I-note-L109F2S1" />
-                     <tie xml:id="ue1937-I-tie-L107F2S2-L109F2S2" startid="#ue1937-I-note-L107F2S2" endid="#ue1937-I-note-L109F2S2" />
+                     <tie xml:id="ue1937-I-tie-L107F2S1-L109F2S1" staff="1" startid="#ue1937-I-note-L107F2S1" endid="#ue1937-I-note-L109F2S1" />
+                     <tie xml:id="ue1937-I-tie-L107F2S2-L109F2S2" staff="1" startid="#ue1937-I-note-L107F2S2" endid="#ue1937-I-note-L109F2S2" />
+                     <dynam xml:id="ue1937-I-dynam-L102F2" place="below" staff="1" startid="#ue1937-I-note-L102F2">sf</dynam>
+                     <beamSpan xml:id="ue1937-I-beamSpan-L107F2-L109F2" staff="1" plist="#ue1937-I-chord-L107F2 #ue1937-I-chord-L109F2" startid="#ue1937-I-chord-L107F2" endid="#ue1937-I-chord-L109F2" />
+                     <dynam xml:id="ue1937-I-dynam-L107F2" place="below" staff="1" startid="#ue1937-I-chord-L107F2">p</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L105F1-L107F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-note-L105F1" endid="#ue1937-I-chord-L107F2" />
+                     <dir xml:id="ue1937-I-dir-rit-m021" place="above" staff="1" startid="#ue1937-I-note-L105F1" endid="#ue1937-I-chord-L109F2" extender="true" lform="dashed" lsegs="5" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m021" fontstyle="normal">rit.</rend>
+                     </dir>
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m022" />
                   <measure xml:id="ue1937-I-m022" n="22" facs="#zone-ue1937-I-m022">
                      <staff xml:id="ue1937-I-staff-L108F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L108F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L109F2" dur="32">
-                              <note xml:id="ue1937-I-note-L109F2S1" oct="4" pname="f" />
-                              <note xml:id="ue1937-I-note-L109F2S2" oct="5" pname="f" />
+                           <chord xml:id="ue1937-I-chord-L109F2" dur="32" stem.dir="down">
+                              <note xml:id="ue1937-I-note-L109F2S1" oct="4" pname="f" accid="s" />
+                              <note xml:id="ue1937-I-note-L109F2S2" oct="5" pname="f">
+                                 <accid xml:id="ue1937-I-accid-L109F2S2" type="caution" accid="n" func="caution" />
+                              </note>
                            </chord>
                            <rest xml:id="ue1937-I-rest-L110F2" dur="32" />
-                           <note xml:id="ue1937-I-note-L111F2" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L111F2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L111F2-L112F2">
+                              <note xml:id="ue1937-I-note-L111F2" dur="32" oct="3" pname="a" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L111F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L112F2" dur="32" oct="4" pname="g" accid="s" stem.dir="up" />
+                           </beam>
+                           <space xml:id="ue1937-I-space-L113F2" dur="32" />
+                           <clef xml:id="ue1937-I-clef-m022-s1-bass-before-L114" shape="F" line="4" />
+                           <note xml:id="ue1937-I-note-L114F2" dur="32" oct="3" pname="e" stem.dir="down">
+                              <accid xml:id="ue1937-I-accid-L114F2" type="caution" accid="n" func="caution" />
                            </note>
-                           <note xml:id="ue1937-I-note-L112F2" dur="32" oct="4" pname="g" accid="s" />
-                           <rest xml:id="ue1937-I-rest-L113F2" dur="16" />
-                           <clef xml:id="ue1937-I-clef-m022-s1-14" shape="F" line="4" />
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L108F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L108F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L109F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m022-s2-16" shape="G" line="2" />
-                           <chord xml:id="ue1937-I-chord-L110F1" dur="32">
-                              <note xml:id="ue1937-I-note-L110F1S1" oct="4" pname="c">
-                                 <accid xml:id="ue1937-I-accid-L110F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L110F1-L111F1">
+                              <chord xml:id="ue1937-I-chord-L110F1" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L110F1S1" oct="4" pname="c">
+                                    <accid xml:id="ue1937-I-accid-L110F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L110F1S2" oct="4" pname="e" accid="f" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L111F1" dur="32" oct="5" pname="d" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L111F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L110F1S2" oct="4" pname="e" accid="f" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L111F1" dur="32" oct="5" pname="d">
-                              <accid xml:id="ue1937-I-accid-L111F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L112F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m022-s2-15" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L113F1" dur="32" oct="3" pname="b" accid="f" />
-                           <note xml:id="ue1937-I-note-L114F1" dur="32" oct="3" pname="e">
-                              <accid xml:id="ue1937-I-accid-L114F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           <note xml:id="ue1937-I-note-L113F1" dur="32" oct="3" pname="b" accid="f" stem.dir="up" />
+                           <space xml:id="ue1937-I-space-after-L113F1" dur="32" />
                         </layer>
                      </staff>
+                     <dir xml:id="ue1937-I-dir-tempo-L110F2" place="above" staff="1" startid="#ue1937-I-rest-L110F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L110F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <slur xml:id="ue1937-I-slur-L110F1-L111F1" staff="2" startid="#ue1937-I-chord-L110F1" endid="#ue1937-I-note-L111F1" />
+                     <slur xml:id="ue1937-I-slur-L111F2-L112F2" staff="1" startid="#ue1937-I-note-L111F2" endid="#ue1937-I-note-L112F2" />
+                     <hairpin xml:id="ue1937-I-hairpin-L110F1-L112F2-cres" staff="1" form="cres" place="below" startid="#ue1937-I-chord-L110F1" endid="#ue1937-I-note-L112F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L113F1-L114F2-L116F1" staff="2" plist="#ue1937-I-note-L113F1 #ue1937-I-note-L114F2 #ue1937-I-note-L116F1" startid="#ue1937-I-note-L113F1" endid="#ue1937-I-note-L116F1" />
+                     <slur xml:id="ue1937-I-slur-L113F1-L116F1" staff="2" startid="#ue1937-I-note-L113F1" endid="#ue1937-I-note-L116F1" curvedir="below" />
+                     <dynam xml:id="ue1937-I-dynam-L113F1" place="above" staff="2" startid="#ue1937-I-note-L113F1">f</dynam>
                   </measure>
                   <measure xml:id="ue1937-I-m023" n="23" facs="#zone-ue1937-I-m023">
                      <staff xml:id="ue1937-I-staff-L115F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L115F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L116F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m023-s1-18" shape="G" line="2" />
-                           <chord xml:id="ue1937-I-chord-L117F2" dur="32">
-                              <note xml:id="ue1937-I-note-L117F2S1" oct="5" pname="d" accid="f" />
-                              <note xml:id="ue1937-I-note-L117F2S2" oct="5" pname="f">
-                                 <accid xml:id="ue1937-I-accid-L117F2S2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L117F2-L118F2">
+                              <chord xml:id="ue1937-I-chord-L117F2" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L117F2S1" oct="5" pname="d" accid="f" />
+                                 <note xml:id="ue1937-I-note-L117F2S2" oct="5" pname="f">
+                                    <accid xml:id="ue1937-I-accid-L117F2S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L118F2" dur="32" oct="4" pname="c" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L118F2" type="caution" accid="n" func="caution" />
                               </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L118F2" dur="32" oct="4" pname="c">
-                              <accid xml:id="ue1937-I-accid-L118F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L119F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m023-s1-17" shape="F" line="4" />
-                           <chord xml:id="ue1937-I-chord-L120F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L120F2" dur="16" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L120F2" artic="ten" />
                               <note xml:id="ue1937-I-note-L120F2S1" oct="3" pname="e">
                                  <accid xml:id="ue1937-I-accid-L120F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -975,29 +1050,39 @@
                      </staff>
                      <staff xml:id="ue1937-I-staff-L115F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L115F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L116F1" dur="32" oct="2" pname="b">
+                           <note xml:id="ue1937-I-note-L116F1" dur="32" oct="2" pname="b" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L116F1" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L117F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m023-s2-19" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L118F1" dur="32" oct="3" pname="g">
-                              <accid xml:id="ue1937-I-accid-L118F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L119F1" dur="32">
-                              <note xml:id="ue1937-I-note-L119F1S1" oct="4" pname="f" accid="s" />
-                              <note xml:id="ue1937-I-note-L119F1S2" oct="4" pname="a">
-                                 <accid xml:id="ue1937-I-accid-L119F1S2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L118F1-L119F1">
+                              <note xml:id="ue1937-I-note-L118F1" dur="32" oct="3" pname="g" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L118F1" type="caution" accid="n" func="caution" />
                               </note>
-                           </chord>
+                              <chord xml:id="ue1937-I-chord-L119F1" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L119F1S1" oct="4" pname="f" accid="s" />
+                                 <note xml:id="ue1937-I-note-L119F1S2" oct="4" pname="a">
+                                    <accid xml:id="ue1937-I-accid-L119F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L120F1" dur="16" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L117F2-L118F2" staff="1" startid="#ue1937-I-chord-L117F2" endid="#ue1937-I-note-L118F2" />
+                     <slur xml:id="ue1937-I-slur-L118F1-L119F1" staff="2" startid="#ue1937-I-note-L118F1" endid="#ue1937-I-chord-L119F1" />
+                     <hairpin xml:id="ue1937-I-hairpin-L117F2-L119F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-chord-L117F2" endid="#ue1937-I-rest-L119F2" />
+                     <dynam xml:id="ue1937-I-dynam-L120F2" place="below" staff="1" startid="#ue1937-I-chord-L120F2">p</dynam>
+                     <dir xml:id="ue1937-I-dir-rit-m023" place="above" staff="1" startid="#ue1937-I-note-L118F2" endid="#ue1937-I-chord-L120F2" extender="true" lform="dashed" lsegs="5" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m023" fontstyle="normal">rit.</rend>
+                     </dir>
                   </measure>
                   <measure xml:id="ue1937-I-m024" n="24" facs="#zone-ue1937-I-m024">
                      <staff xml:id="ue1937-I-staff-L121F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L121F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L122F2" dur="32" />
-                           <note xml:id="ue1937-I-note-L123F2" dots="1" dur="16" oct="2" pname="d">
+                           <note xml:id="ue1937-I-note-L123F2" dots="1" dur="16" oct="2" pname="d" stem.dir="up">
+                              <artic xml:id="ue1937-I-artic-L123F2" artic="ten" />
                               <accid xml:id="ue1937-I-accid-L123F2" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L125F2" dur="16" />
@@ -1006,38 +1091,54 @@
                      </staff>
                      <staff xml:id="ue1937-I-staff-L121F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L121F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L122F1" dur="16" oct="5" pname="g" accid="s" />
+                           <note xml:id="ue1937-I-note-L122F1" dur="16" oct="5" pname="g" accid="s" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L122F1" artic="ten" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L124F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m024-s2-21" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L125F1" dur="16" oct="2" pname="d">
+                           <note xml:id="ue1937-I-note-L125F1" dur="16" oct="2" pname="d" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L125F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
-                     <tie xml:id="ue1937-I-tie-L125F1-L127F1" startid="#ue1937-I-note-L125F1" endid="#ue1937-I-note-L127F1" />
+                     <tie xml:id="ue1937-I-tie-L125F1-L127F1" staff="2" startid="#ue1937-I-note-L125F1" endid="#ue1937-I-note-L127F1" />
+                     <dir xml:id="ue1937-I-dir-tempo-L122F2" place="above" staff="1" startid="#ue1937-I-rest-L122F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L122F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L122F1" place="below" staff="2" startid="#ue1937-I-note-L122F1">f</dynam>
+                     <dynam xml:id="ue1937-I-dynam-L123F2" place="below" staff="1" startid="#ue1937-I-note-L123F2">sf</dynam>
+                     <beamSpan xml:id="ue1937-I-beamSpan-L125F1-L127F1" staff="2" plist="#ue1937-I-note-L125F1 #ue1937-I-note-L127F1" startid="#ue1937-I-note-L125F1" endid="#ue1937-I-note-L127F1" />
+                     <dynam xml:id="ue1937-I-dynam-L125F1" place="below" staff="2" startid="#ue1937-I-note-L125F1">sf</dynam>
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m025" />
                   <measure xml:id="ue1937-I-m025" n="25" facs="#zone-ue1937-I-m025">
                      <staff xml:id="ue1937-I-staff-L126F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L126F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L127F2" dur="16" oct="5" pname="g" accid="s" />
-                           <rest xml:id="ue1937-I-rest-L129F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L130F2" dur="32">
-                              <note xml:id="ue1937-I-note-L130F2S1" oct="4" pname="f" accid="s" />
-                              <note xml:id="ue1937-I-note-L130F2S2" oct="4" pname="a">
-                                 <accid xml:id="ue1937-I-accid-L130F2S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L131F2" dur="32" oct="3" pname="g">
-                              <accid xml:id="ue1937-I-accid-L131F2" type="caution" accid="n" func="caution" />
+                           <note xml:id="ue1937-I-note-L127F2" dur="16" oct="5" pname="g" accid="s" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L127F2" artic="ten" />
                            </note>
+                           <rest xml:id="ue1937-I-rest-L129F2" dur="16" />
+                           <beam xml:id="ue1937-I-beam-L130F2-L131F2">
+                              <chord xml:id="ue1937-I-chord-L130F2" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L130F2S1" oct="4" pname="f" accid="s" />
+                                 <note xml:id="ue1937-I-note-L130F2S2" oct="4" pname="a">
+                                    <accid xml:id="ue1937-I-accid-L130F2S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L131F2" dur="32" oct="3" pname="g" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L131F2" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L126F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L126F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L127F1" dur="32" oct="2" pname="d" />
+                           <note xml:id="ue1937-I-note-L127F1" dur="32" oct="2" pname="d" stem.dir="up">
+                              <accid xml:id="ue1937-I-accid-L127F1" type="caution" accid="n" func="caution" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L128F1" dur="32" />
-                           <chord xml:id="ue1937-I-chord-L129F1" dur="16">
+                           <chord xml:id="ue1937-I-chord-L129F1" dur="16" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L129F1" artic="ten" />
                               <note xml:id="ue1937-I-note-L129F1S1" oct="3" pname="e">
                                  <accid xml:id="ue1937-I-accid-L129F1S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1045,61 +1146,81 @@
                            </chord>
                            <rest xml:id="ue1937-I-rest-L130F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m025-s2-22" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L131F1" dur="32" oct="4" pname="c">
+                           <note xml:id="ue1937-I-note-L131F1" dur="32" oct="4" pname="c" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L131F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L130F2-L131F2" staff="1" startid="#ue1937-I-chord-L130F2" endid="#ue1937-I-note-L131F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L131F1-L133F1" staff="2" plist="#ue1937-I-note-L131F1 #ue1937-I-chord-L133F1" startid="#ue1937-I-note-L131F1" endid="#ue1937-I-chord-L133F1" />
+                     <slur xml:id="ue1937-I-slur-L131F1-L133F1" staff="2" startid="#ue1937-I-note-L131F1" endid="#ue1937-I-chord-L133F1" curvedir="above" />
+                     <dir xml:id="ue1937-I-dir-rit-m025" place="above" staff="1" startid="#ue1937-I-note-L127F2" endid="#ue1937-I-rest-L129F2" extender="true" lform="dashed" lsegs="4" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m025" fontstyle="normal">rit.</rend>
+                     </dir>
+                     <dir xml:id="ue1937-I-dir-tempo-L130F2" place="above" staff="1" startid="#ue1937-I-chord-L130F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L130F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L129F1" place="above" staff="2" startid="#ue1937-I-chord-L129F1">p</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L127F1-L129F1-dim" staff="2" form="dim" place="above" startid="#ue1937-I-note-L127F1" endid="#ue1937-I-chord-L129F1" />
+                     <hairpin xml:id="ue1937-I-hairpin-L130F2-L133F1-cres" staff="1" form="cres" place="below" startid="#ue1937-I-chord-L130F2" endid="#ue1937-I-chord-L133F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m026" n="26" facs="#zone-ue1937-I-m026">
                      <staff xml:id="ue1937-I-staff-L132F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L132F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L133F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m026-s1-23" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L134F2" dur="32" oct="2" pname="b">
-                              <accid xml:id="ue1937-I-accid-L134F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L135F2" dur="32" oct="3" pname="e">
-                              <accid xml:id="ue1937-I-accid-L135F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L136F2" dur="32" oct="3" pname="b" accid="f" />
-                           <note xml:id="ue1937-I-note-L137F2" dur="32" oct="3" pname="e">
+                           <beam xml:id="ue1937-I-beam-L134F2-L136F2">
+                              <note xml:id="ue1937-I-note-L134F2" dur="32" oct="2" pname="b" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L134F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L135F2" dur="32" oct="3" pname="e" staff="2" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L135F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L136F2" dur="32" oct="3" pname="b" accid="f" stem.dir="down" />
+                           </beam>
+                           <note xml:id="ue1937-I-note-L137F2" dur="32" oct="3" pname="e" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L137F2" type="caution" accid="n" func="caution" />
                            </note>
-                           <note xml:id="ue1937-I-note-L138F2" dur="32" oct="3" pname="a">
+                           <note xml:id="ue1937-I-note-L138F2" dur="32" oct="3" pname="a" staff="2" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L138F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L132F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L132F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L133F1" dur="32">
+                           <chord xml:id="ue1937-I-chord-L133F1" dur="32" stem.dir="up">
                               <note xml:id="ue1937-I-note-L133F1S1" oct="5" pname="d" accid="f" />
                               <note xml:id="ue1937-I-note-L133F1S2" oct="5" pname="f">
                                  <accid xml:id="ue1937-I-accid-L133F1S2" type="caution" accid="n" func="caution" />
                               </note>
                            </chord>
-                           <rest xml:id="ue1937-I-rest-L134F1" dur="32" />
+                           <space xml:id="ue1937-I-space-L134F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m026-s2-24" shape="F" line="4" />
-                           <rest xml:id="ue1937-I-rest-L135F1" dur="8" />
+                           <space xml:id="ue1937-I-space-L135F1" dur="8" />
                         </layer>
                      </staff>
+                     <dynam xml:id="ue1937-I-dynam-L134F2" place="between" staff="1 2" startid="#ue1937-I-note-L134F2" ho="-3">f</dynam>
+                     <slur xml:id="ue1937-I-slur-L134F2-L136F2" staff="1" startid="#ue1937-I-note-L134F2" endid="#ue1937-I-note-L136F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L137F2-L138F2-L140F2" staff="1" plist="#ue1937-I-note-L137F2 #ue1937-I-note-L138F2 #ue1937-I-note-L140F2" startid="#ue1937-I-note-L137F2" endid="#ue1937-I-note-L140F2" />
+                     <slur xml:id="ue1937-I-slur-L137F2-L140F2" staff="1" startid="#ue1937-I-note-L137F2" endid="#ue1937-I-note-L140F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m027" n="27" facs="#zone-ue1937-I-m027">
                      <staff xml:id="ue1937-I-staff-L139F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L139F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L140F2" dur="32" oct="4" pname="e" accid="f" />
+                           <note xml:id="ue1937-I-note-L140F2" dur="32" oct="4" pname="e" accid="f" stem.dir="down" />
                            <rest xml:id="ue1937-I-rest-L141F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m027-s1-26" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L142F2" dur="32" oct="5" pname="g">
-                              <accid xml:id="ue1937-I-accid-L142F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L143F2" dur="32">
-                              <note xml:id="ue1937-I-note-L143F2S1" oct="4" pname="f">
-                                 <accid xml:id="ue1937-I-accid-L143F2S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L142F2-L143F2">
+                              <note xml:id="ue1937-I-note-L142F2" dur="32" oct="5" pname="g" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L142F2" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L143F2S2" oct="4" pname="a" accid="f" />
-                           </chord>
+                              <chord xml:id="ue1937-I-chord-L143F2" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L143F2S1" oct="4" pname="f">
+                                    <accid xml:id="ue1937-I-accid-L143F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L143F2S2" oct="4" pname="a" accid="f" />
+                              </chord>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L144F2" dur="16" />
                            <clef xml:id="ue1937-I-clef-m027-s1-25" shape="F" line="4" />
                         </layer>
@@ -1108,13 +1229,16 @@
                         <layer xml:id="ue1937-I-layer-L139F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L140F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m027-s2-28" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L141F1" dur="32" oct="5" pname="c" accid="s" />
-                           <note xml:id="ue1937-I-note-L142F1" dur="32" oct="4" pname="d">
-                              <accid xml:id="ue1937-I-accid-L142F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L141F1-L142F1">
+                              <note xml:id="ue1937-I-note-L141F1" dur="32" oct="5" pname="c" accid="s" stem.dir="up" />
+                              <note xml:id="ue1937-I-note-L142F1" dur="32" oct="4" pname="d" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L142F1" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L143F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m027-s2-27" shape="F" line="4" />
-                           <chord xml:id="ue1937-I-chord-L144F1" dur="16">
+                           <chord xml:id="ue1937-I-chord-L144F1" dur="16" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L144F1" artic="ten" />
                               <note xml:id="ue1937-I-note-L144F1S1" oct="2" pname="b">
                                  <accid xml:id="ue1937-I-accid-L144F1S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1122,15 +1246,24 @@
                            </chord>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L141F1-L142F1" staff="2" startid="#ue1937-I-note-L141F1" endid="#ue1937-I-note-L142F1" />
+                     <slur xml:id="ue1937-I-slur-L142F2-L143F2" staff="1" startid="#ue1937-I-note-L142F2" endid="#ue1937-I-chord-L143F2" />
+                     <hairpin xml:id="ue1937-I-hairpin-L141F1-L143F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-note-L141F1" endid="#ue1937-I-chord-L143F2" />
+                     <dynam xml:id="ue1937-I-dynam-L144F1" place="above" staff="2" startid="#ue1937-I-chord-L144F1">p</dynam>
+                     <dir xml:id="ue1937-I-dir-rit-m027" place="above" staff="1" startid="#ue1937-I-note-L142F2" endid="#ue1937-I-rest-L144F2" extender="true" lform="dashed" lsegs="5" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m027" fontstyle="normal">rit.</rend>
+                     </dir>
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m028" />
                   <measure xml:id="ue1937-I-m028" n="28" facs="#zone-ue1937-I-m028">
                      <staff xml:id="ue1937-I-staff-L145F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L145F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L146F2" dur="16" oct="2" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L146F2" dur="16" oct="2" pname="f" accid="s" stem.dir="up">
+                              <artic xml:id="ue1937-I-artic-L146F2" artic="ten" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L148F2" dur="16" />
                            <clef xml:id="ue1937-I-clef-m028-s1-29" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L149F2" dur="16" oct="6" pname="c">
+                           <note xml:id="ue1937-I-note-L149F2" dur="16" oct="6" pname="c" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L149F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
@@ -1139,22 +1272,31 @@
                         <layer xml:id="ue1937-I-layer-L145F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L146F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m028-s2-31" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L147F1" dots="1" dur="16" oct="6" pname="c">
+                           <note xml:id="ue1937-I-note-L147F1" dots="1" dur="16" oct="6" pname="c" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L147F1" artic="ten" />
                               <accid xml:id="ue1937-I-accid-L147F1" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L149F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m028-s2-30" shape="F" line="4" />
                         </layer>
                      </staff>
-                     <tie xml:id="ue1937-I-tie-L149F2-L151F2" startid="#ue1937-I-note-L149F2" endid="#ue1937-I-note-L151F2" />
+                     <tie xml:id="ue1937-I-tie-L149F2-L151F2" staff="1" startid="#ue1937-I-note-L149F2" endid="#ue1937-I-note-L151F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L149F2-L151F2" staff="1" plist="#ue1937-I-note-L149F2 #ue1937-I-note-L151F2" startid="#ue1937-I-note-L149F2" endid="#ue1937-I-note-L151F2" />
+                     <dir xml:id="ue1937-I-dir-tempo-L146F2" place="above" staff="1" startid="#ue1937-I-note-L146F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L146F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L146F2" place="below" staff="1" startid="#ue1937-I-note-L146F2">f</dynam>
+                     <dynam xml:id="ue1937-I-dynam-L147F1" place="below" staff="2" startid="#ue1937-I-note-L147F1">sf</dynam>
+                     <dynam xml:id="ue1937-I-dynam-L149F2" place="below" staff="1" startid="#ue1937-I-note-L149F2">sf</dynam>
                   </measure>
                   <measure xml:id="ue1937-I-m029" n="29" facs="#zone-ue1937-I-m029">
                      <staff xml:id="ue1937-I-staff-L150F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L150F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L151F2" dur="32" oct="6" pname="c" />
+                           <note xml:id="ue1937-I-note-L151F2" dur="32" oct="6" pname="c" stem.dir="down" />
                            <rest xml:id="ue1937-I-rest-L152F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m029-s1-33" shape="F" line="4" />
-                           <chord xml:id="ue1937-I-chord-L153F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L153F2" dur="16" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L153F2" artic="ten" />
                               <note xml:id="ue1937-I-note-L153F2S1" oct="2" pname="b">
                                  <accid xml:id="ue1937-I-accid-L153F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1162,63 +1304,88 @@
                            </chord>
                            <rest xml:id="ue1937-I-rest-L154F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m029-s1-32" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L155F2" dur="32" oct="4" pname="d">
+                           <note xml:id="ue1937-I-note-L155F2" dur="32" oct="4" pname="d" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L155F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L150F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L150F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L151F1" dur="16" oct="2" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L151F1" dur="16" oct="2" pname="f" accid="s" stem.dir="up">
+                              <artic xml:id="ue1937-I-artic-L151F1" artic="ten" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L153F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m029-s2-34" shape="G" line="2" />
-                           <chord xml:id="ue1937-I-chord-L154F1" dur="32">
-                              <note xml:id="ue1937-I-note-L154F1S1" oct="4" pname="f">
-                                 <accid xml:id="ue1937-I-accid-L154F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L154F1-L155F1">
+                              <chord xml:id="ue1937-I-chord-L154F1" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L154F1S1" oct="4" pname="f">
+                                    <accid xml:id="ue1937-I-accid-L154F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L154F1S2" oct="4" pname="a" accid="f" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L155F1" dur="32" oct="5" pname="g" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L155F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L154F1S2" oct="4" pname="a" accid="f" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L155F1" dur="32" oct="5" pname="g">
-                              <accid xml:id="ue1937-I-accid-L155F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                         </layer>
                      </staff>
-                     <beamSpan xml:id="ue1937-I-bcqis8g" plist="#ue1937-I-note-L155F2 #ue1937-I-note-L157F2" startid="#ue1937-I-note-L155F2" endid="#ue1937-I-note-L157F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L155F2-L157F2" staff="1" plist="#ue1937-I-note-L155F2 #ue1937-I-note-L157F2" startid="#ue1937-I-note-L155F2" endid="#ue1937-I-note-L157F2" />
+                     <slur xml:id="ue1937-I-slur-L155F2-L157F2" staff="1" startid="#ue1937-I-note-L155F2" endid="#ue1937-I-note-L157F2" />
+                     <slur xml:id="ue1937-I-slur-L154F1-L155F1" staff="2" startid="#ue1937-I-chord-L154F1" endid="#ue1937-I-note-L155F1" />
+                     <hairpin xml:id="ue1937-I-hairpin-L154F1-L155F1-cres" staff="2" form="cres" place="above" startid="#ue1937-I-chord-L154F1" endid="#ue1937-I-note-L155F1" />
+                     <dir xml:id="ue1937-I-dir-rit-m029" place="above" staff="1" startid="#ue1937-I-note-L151F2" endid="#ue1937-I-rest-L154F2" extender="true" lform="dashed" lsegs="4" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m029" fontstyle="normal">rit.</rend>
+                     </dir>
+                     <dir xml:id="ue1937-I-dir-tempo-L154F2" place="above" staff="1" startid="#ue1937-I-rest-L154F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L154F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L153F2" place="below" staff="1" startid="#ue1937-I-chord-L153F2">p</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L151F2-L153F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-note-L151F2" endid="#ue1937-I-chord-L153F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m030" n="30" facs="#zone-ue1937-I-m030">
                      <staff xml:id="ue1937-I-staff-L156F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L156F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L157F2" dur="32" oct="5" pname="c" accid="s" />
-                           <rest xml:id="ue1937-I-rest-L158F2" dots="1" dur="16" />
-                           <clef xml:id="ue1937-I-clef-m030-s1-36" shape="F" line="4" />
-                           <chord xml:id="ue1937-I-chord-L161F2" dur="32">
-                              <note xml:id="ue1937-I-note-L161F2S1" oct="5" pname="g" accid="f" />
-                              <note xml:id="ue1937-I-note-L161F2S2" oct="5" pname="b" accid="f" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L162F2" dur="32" oct="4" pname="f">
-                              <accid xml:id="ue1937-I-accid-L162F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <clef xml:id="ue1937-I-clef-m030-s1-35" shape="G" line="2" />
+                           <note xml:id="ue1937-I-note-L157F2" dur="32" oct="5" pname="c" accid="s" stem.dir="up" />
+                           <clef xml:id="ue1937-I-clef-m030-s1-bass-before-L159" shape="F" line="4" />
+                           <space xml:id="ue1937-I-space-L158F2" dots="1" dur="16" />
+                           <clef xml:id="ue1937-I-clef-m030-s1-treble-before-L161" shape="G" line="2" />
+                           <beam xml:id="ue1937-I-beam-L161F2-L162F2">
+                              <chord xml:id="ue1937-I-chord-L161F2" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L161F2S1" oct="5" pname="g" accid="f" />
+                                 <note xml:id="ue1937-I-note-L161F2S2" oct="5" pname="b" accid="f" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L162F2" dur="32" oct="4" pname="f" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L162F2" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L156F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L156F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L157F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m030-s2-38" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L158F1" dur="32" oct="4" pname="e" accid="f" />
-                           <note xml:id="ue1937-I-note-L159F1" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L159F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L160F1" dur="32" oct="3" pname="e">
-                              <accid xml:id="ue1937-I-accid-L160F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L158F1-L160F1">
+                              <note xml:id="ue1937-I-note-L158F1" dur="32" oct="4" pname="e" accid="f" stem.dir="up" />
+                              <note xml:id="ue1937-I-note-L159F1" dur="32" oct="3" pname="a" staff="1" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L159F1" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L160F1" dur="32" oct="3" pname="e" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L160F1" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L161F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m030-s2-37" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L162F1" dur="32" oct="4" pname="c">
+                           <note xml:id="ue1937-I-note-L162F1" dur="32" oct="4" pname="c" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L162F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L161F2-L162F2" staff="1" startid="#ue1937-I-chord-L161F2" endid="#ue1937-I-note-L162F2" />
+                     <slur xml:id="ue1937-I-slur-L158F1-L160F1" staff="2" startid="#ue1937-I-note-L158F1" endid="#ue1937-I-note-L160F1" curvedir="below" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L162F1-L164F1" staff="2" plist="#ue1937-I-note-L162F1 #ue1937-I-chord-L164F1" startid="#ue1937-I-note-L162F1" endid="#ue1937-I-chord-L164F1" />
+                     <slur xml:id="ue1937-I-slur-L162F1-L164F1" staff="2" startid="#ue1937-I-note-L162F1" endid="#ue1937-I-chord-L164F1" />
+                     <dynam xml:id="ue1937-I-dynam-L158F1" place="above" staff="2" startid="#ue1937-I-note-L158F1" ho="-3">f</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L161F2-L162F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-chord-L161F2" endid="#ue1937-I-note-L162F2" />
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m031" />
                   <measure xml:id="ue1937-I-m031" n="31" facs="#zone-ue1937-I-m031">
@@ -1226,20 +1393,24 @@
                         <layer xml:id="ue1937-I-layer-L163F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L164F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m031-s1-39" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L165F2" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L165F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L166F2" dur="32" oct="2" pname="g" accid="s" />
+                           <beam xml:id="ue1937-I-beam-L165F2-L166F2">
+                              <note xml:id="ue1937-I-note-L165F2" dur="32" oct="3" pname="a" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L165F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L166F2" dur="32" oct="2" pname="g" accid="s" stem.dir="down" />
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L167F2" dur="32" />
-                           <note xml:id="ue1937-I-note-L168F2" dur="32" oct="2" pname="g" />
-                           <note xml:id="ue1937-I-note-L169F2" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L169F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L168F2-L169F2">
+                              <note xml:id="ue1937-I-note-L168F2" dur="32" oct="2" pname="g" stem.dir="down" accid.ges="s" />
+                              <note xml:id="ue1937-I-note-L169F2" dur="32" oct="3" pname="a" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L169F2" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L163F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L163F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L164F1" dur="32">
+                           <chord xml:id="ue1937-I-chord-L164F1" dur="32" stem.dir="up">
                               <note xml:id="ue1937-I-note-L164F1S1" oct="4" pname="b">
                                  <accid xml:id="ue1937-I-accid-L164F1S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1249,220 +1420,305 @@
                            </chord>
                            <rest xml:id="ue1937-I-rest-L165F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m031-s2-41" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L166F1" dur="32" oct="3" pname="c" accid="s" />
-                           <note xml:id="ue1937-I-note-L167F1" dur="32" oct="3" pname="g">
-                              <accid xml:id="ue1937-I-accid-L167F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L168F1" dur="32" oct="3" pname="c" />
+                           <beam xml:id="ue1937-I-beam-L166F1-L168F1">
+                              <note xml:id="ue1937-I-note-L166F1" dur="32" oct="3" pname="c" accid="s" stem.dir="down">
+                                 <artic xml:id="ue1937-I-artic-L166F1" artic="stacc" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L167F1" dur="32" oct="3" pname="g" stem.dir="down">
+                                 <artic xml:id="ue1937-I-artic-L167F1" artic="stacc" />
+                                 <accid xml:id="ue1937-I-accid-L167F1" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L168F1" dur="32" oct="3" pname="c" stem.dir="down" accid.ges="s">
+                                 <artic xml:id="ue1937-I-artic-L168F1" artic="stacc" />
+                              </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L169F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m031-s2-40" shape="G" line="2" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L165F2-L166F2" staff="1" startid="#ue1937-I-note-L165F2" endid="#ue1937-I-note-L166F2" />
+                     <slur xml:id="ue1937-I-slur-L168F2-L169F2" staff="1" startid="#ue1937-I-note-L168F2" endid="#ue1937-I-note-L169F2" />
+                     <dynam xml:id="ue1937-I-dynam-L165F2" place="below" staff="1" startid="#ue1937-I-note-L165F2">p</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L166F1-L169F1-cres" staff="2" form="cres" place="above" startid="#ue1937-I-note-L166F1" endid="#ue1937-I-rest-L169F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m032" n="32" facs="#zone-ue1937-I-m032">
                      <staff xml:id="ue1937-I-staff-L170F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L170F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L171F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m032-s1-42" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L172F2" dur="32" oct="4" pname="f">
-                              <accid xml:id="ue1937-I-accid-L172F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L173F2" dur="32">
-                              <note xml:id="ue1937-I-note-L173F2S1" oct="5" pname="g" accid="f" />
-                              <note xml:id="ue1937-I-note-L173F2S2" oct="5" pname="b" accid="f" />
-                           </chord>
-                           <rest xml:id="ue1937-I-rest-L174F2" dur="32" />
-                           <note xml:id="ue1937-I-note-L175F2" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L175F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L176F2" dur="32">
-                              <note xml:id="ue1937-I-note-L176F2S1" oct="4" pname="d">
-                                 <accid xml:id="ue1937-I-accid-L176F2S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L172F2-L173F2">
+                              <note xml:id="ue1937-I-note-L172F2" dur="32" oct="4" pname="f" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L172F2" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L176F2S2" oct="4" pname="g" accid="s" />
-                           </chord>
+                              <chord xml:id="ue1937-I-chord-L173F2" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L173F2S1" oct="5" pname="g" accid="f" />
+                                 <note xml:id="ue1937-I-note-L173F2S2" oct="5" pname="b" accid="f" />
+                              </chord>
+                           </beam>
+                           <rest xml:id="ue1937-I-rest-L174F2" dur="32" />
+                           <beam xml:id="ue1937-I-beam-L175F2-L176F2">
+                              <note xml:id="ue1937-I-note-L175F2" dur="32" oct="3" pname="a" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L175F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <chord xml:id="ue1937-I-chord-L176F2" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L176F2S1" oct="4" pname="d">
+                                    <accid xml:id="ue1937-I-accid-L176F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L176F2S2" oct="4" pname="g" accid="s" />
+                              </chord>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L170F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L170F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L171F1" dur="32">
-                              <note xml:id="ue1937-I-note-L171F1S1" oct="4" pname="b">
-                                 <accid xml:id="ue1937-I-accid-L171F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L171F1-L172F1">
+                              <chord xml:id="ue1937-I-chord-L171F1" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L171F1S1" oct="4" pname="b">
+                                    <accid xml:id="ue1937-I-accid-L171F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L171F1S2" oct="5" pname="d">
+                                    <accid xml:id="ue1937-I-accid-L171F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L172F1" dur="32" oct="4" pname="c" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L172F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L171F1S2" oct="5" pname="d">
-                                 <accid xml:id="ue1937-I-accid-L171F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L172F1" dur="32" oct="4" pname="c">
-                              <accid xml:id="ue1937-I-accid-L172F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L173F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m032-s2-44" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L174F1" dur="32" oct="3" pname="e">
-                              <accid xml:id="ue1937-I-accid-L174F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L175F1" dur="32" oct="4" pname="e" accid="f" />
+                           <beam xml:id="ue1937-I-beam-L174F1-L175F1">
+                              <note xml:id="ue1937-I-note-L174F1" dur="32" oct="3" pname="e" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L174F1" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L175F1" dur="32" oct="4" pname="e" accid="f" stem.dir="down" />
+                           </beam>
                            <clef xml:id="ue1937-I-clef-m032-s2-43" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L176F1" dur="32" oct="5" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L176F1" dur="32" oct="5" pname="f" accid="s" stem.dir="down" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L172F2-L173F2" staff="1" startid="#ue1937-I-note-L172F2" endid="#ue1937-I-chord-L173F2" />
+                     <slur xml:id="ue1937-I-slur-L175F2-L176F2" staff="1" startid="#ue1937-I-note-L175F2" endid="#ue1937-I-chord-L176F2" />
+                     <slur xml:id="ue1937-I-slur-L171F1-L172F1" staff="2" startid="#ue1937-I-chord-L171F1" endid="#ue1937-I-note-L172F1" />
+                     <slur xml:id="ue1937-I-slur-L174F1-L175F1" staff="2" startid="#ue1937-I-note-L174F1" endid="#ue1937-I-note-L175F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L176F1-L178F1" staff="2" plist="#ue1937-I-note-L176F1 #ue1937-I-note-L178F1" startid="#ue1937-I-note-L176F1" endid="#ue1937-I-note-L178F1" />
+                     <slur xml:id="ue1937-I-slur-L176F1-L178F1" staff="2" startid="#ue1937-I-note-L176F1" endid="#ue1937-I-note-L178F1" />
+                     <dynam xml:id="ue1937-I-dynam-L171F1" place="above" staff="2" startid="#ue1937-I-chord-L171F1">f</dynam>
+                     <dynam xml:id="ue1937-I-dynam-L174F1" place="above" staff="2" startid="#ue1937-I-note-L174F1">ff</dynam>
                   </measure>
                   <measure xml:id="ue1937-I-m033" n="33" facs="#zone-ue1937-I-m033">
                      <staff xml:id="ue1937-I-staff-L177F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L177F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L178F2" dur="32" oct="5" pname="c">
-                              <accid xml:id="ue1937-I-accid-L178F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L179F2" dur="32">
-                              <note xml:id="ue1937-I-note-L179F2S1" oct="5" pname="b" accid="f" />
-                              <note xml:id="ue1937-I-note-L179F2S2" oct="6" pname="d" accid="f" />
-                           </chord>
+                           <beam xml:id="ue1937-I-beam-L178F2-L179F2">
+                              <note xml:id="ue1937-I-note-L178F2" dur="32" oct="5" pname="c" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L178F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <chord xml:id="ue1937-I-chord-L179F2" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L179F2S1" oct="5" pname="b" accid="f" />
+                                 <note xml:id="ue1937-I-note-L179F2S2" oct="6" pname="d" accid="f" />
+                              </chord>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L180F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m033-s1-46" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L181F2" dur="32" oct="2" pname="b">
-                              <accid xml:id="ue1937-I-accid-L181F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L182F2" dur="32" oct="3" pname="f">
-                              <accid xml:id="ue1937-I-accid-L182F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L183F2" dur="32" oct="2" pname="b">
-                              <accid xml:id="ue1937-I-accid-L183F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L181F2-L183F2">
+                              <note xml:id="ue1937-I-note-L181F2" dur="32" oct="2" pname="b" stem.dir="down">
+                                 <artic xml:id="ue1937-I-artic-L181F2" artic="stacc" />
+                                 <accid xml:id="ue1937-I-accid-L181F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L182F2" dur="32" oct="3" pname="f" stem.dir="down">
+                                 <artic xml:id="ue1937-I-artic-L182F2" artic="stacc" />
+                                 <accid xml:id="ue1937-I-accid-L182F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L183F2" dur="32" oct="2" pname="b" stem.dir="down">
+                                 <artic xml:id="ue1937-I-artic-L183F2" artic="stacc" />
+                                 <accid xml:id="ue1937-I-accid-L183F2" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                            <clef xml:id="ue1937-I-clef-m033-s1-45" shape="G" line="2" />
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L177F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L177F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L178F1" dur="32" oct="4" pname="g">
+                           <note xml:id="ue1937-I-note-L178F1" dur="32" oct="4" pname="g" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L178F1" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L179F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m033-s2-47" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L180F1" dur="32" oct="4" pname="e" accid="f" />
-                           <note xml:id="ue1937-I-note-L181F1" dur="32" oct="3" pname="e">
-                              <accid xml:id="ue1937-I-accid-L181F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L180F1-L181F1">
+                              <note xml:id="ue1937-I-note-L180F1" dur="32" oct="4" pname="e" accid="f" stem.dir="down" />
+                              <note xml:id="ue1937-I-note-L181F1" dur="32" oct="3" pname="e" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L181F1" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L182F1" dur="32" />
-                           <note xml:id="ue1937-I-note-L183F1" dur="32" oct="3" pname="e">
+                           <note xml:id="ue1937-I-note-L183F1" dur="32" oct="3" pname="e" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L183F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L178F2-L179F2" staff="1" startid="#ue1937-I-note-L178F2" endid="#ue1937-I-chord-L179F2" />
+                     <slur xml:id="ue1937-I-slur-L180F1-L181F1" staff="2" startid="#ue1937-I-note-L180F1" endid="#ue1937-I-note-L181F1" />
+                     <slur xml:id="ue1937-I-slur-L183F1-L185F1" staff="2" startid="#ue1937-I-note-L183F1" endid="#ue1937-I-note-L185F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L183F1-L185F1" staff="2" plist="#ue1937-I-note-L183F1 #ue1937-I-note-L185F1" startid="#ue1937-I-note-L183F1" endid="#ue1937-I-note-L185F1" />
+                     <dynam xml:id="ue1937-I-dynam-L180F1" place="above" staff="2" startid="#ue1937-I-note-L180F1">p</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L180F1-L183F1-cres" staff="2" form="cres" place="above" startid="#ue1937-I-note-L180F1" endid="#ue1937-I-note-L183F1" />
                   </measure>
                   <pb xml:id="ue1937-I-pb-before-m034" facs="#surface-ue1937-p0003" n="5" />
                   <measure xml:id="ue1937-I-m034" n="34" facs="#zone-ue1937-I-m034">
                      <staff xml:id="ue1937-I-staff-L184F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L184F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L185F2" dur="32" />
-                           <chord xml:id="ue1937-I-chord-L186F2" dur="32">
-                              <note xml:id="ue1937-I-note-L186F2S1" oct="5" pname="b" accid="f" />
-                              <note xml:id="ue1937-I-note-L186F2S2" oct="6" pname="d" accid="f" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L187F2" dur="32" oct="5" pname="c">
-                              <accid xml:id="ue1937-I-accid-L187F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L188F2" dur="32">
-                              <note xml:id="ue1937-I-note-L188F2S1" oct="4" pname="d">
-                                 <accid xml:id="ue1937-I-accid-L188F2S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L186F2-L187F2">
+                              <chord xml:id="ue1937-I-chord-L186F2" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L186F2S1" oct="5" pname="b" accid="f" />
+                                 <note xml:id="ue1937-I-note-L186F2S2" oct="6" pname="d" accid="f" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L187F2" dur="32" oct="5" pname="c" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L187F2" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L188F2S2" oct="4" pname="g" accid="s" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L189F2" dur="32" oct="3" pname="a">
-                              <accid xml:id="ue1937-I-accid-L189F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
+                           <beam xml:id="ue1937-I-beam-L188F2-L189F2">
+                              <chord xml:id="ue1937-I-chord-L188F2" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L188F2S1" oct="4" pname="d">
+                                    <accid xml:id="ue1937-I-accid-L188F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L188F2S2" oct="4" pname="g" accid="s" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L189F2" dur="32" oct="3" pname="a" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L189F2" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L190F2" dur="32" />
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L184F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L184F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L185F1" dur="32" oct="4" pname="e" accid="f" />
+                           <note xml:id="ue1937-I-note-L185F1" dur="32" oct="4" pname="e" accid="f" stem.dir="down" />
                            <rest xml:id="ue1937-I-rest-L186F1" dur="32" />
                            <clef xml:id="ue1937-I-clef-m034-s2-48" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L187F1" dur="32" oct="4" pname="g">
-                              <accid xml:id="ue1937-I-accid-L187F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L188F1" dur="32" oct="5" pname="f" accid="s" />
+                           <beam xml:id="ue1937-I-beam-L187F1-L188F1">
+                              <note xml:id="ue1937-I-note-L187F1" dur="32" oct="4" pname="g" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L187F1" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L188F1" dur="32" oct="5" pname="f" accid="s" stem.dir="down" />
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L189F1" dur="16" />
                         </layer>
                      </staff>
+                     <dynam xml:id="ue1937-I-dynam-L186F2" place="below" staff="1" startid="#ue1937-I-chord-L186F2">ff</dynam>
+                     <slur xml:id="ue1937-I-slur-L186F2-L187F2" staff="1" startid="#ue1937-I-chord-L186F2" endid="#ue1937-I-note-L187F2" />
+                     <slur xml:id="ue1937-I-slur-L188F2-L189F2" staff="1" startid="#ue1937-I-chord-L188F2" endid="#ue1937-I-note-L189F2" />
+                     <slur xml:id="ue1937-I-slur-L187F1-L188F1" staff="2" startid="#ue1937-I-note-L187F1" endid="#ue1937-I-note-L188F1" />
+                     <hairpin xml:id="ue1937-I-hairpin-L187F2-L189F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-note-L187F2" endid="#ue1937-I-note-L189F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m035" n="35" facs="#zone-ue1937-I-m035">
                      <staff xml:id="ue1937-I-staff-L191F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L191F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L192F2" dur="32" />
-                           <chord xml:id="ue1937-I-chord-L193F2" dur="32">
-                              <note xml:id="ue1937-I-note-L193F2S1" oct="4" pname="b">
-                                 <accid xml:id="ue1937-I-accid-L193F2S1" type="caution" accid="n" func="caution" />
-                              </note>
-                              <note xml:id="ue1937-I-note-L193F2S2" oct="5" pname="e" accid="f" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L194F2" dur="32" oct="3" pname="b" accid="f" />
+                           <beam xml:id="ue1937-I-beam-L193F2-L194F2">
+                              <chord xml:id="ue1937-I-chord-L193F2" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L193F2S1" oct="4" pname="b">
+                                    <accid xml:id="ue1937-I-accid-L193F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L193F2S2" oct="5" pname="e" accid="f" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L194F2" dur="32" oct="3" pname="b" accid="f" stem.dir="up" />
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L195F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m035-s1-49" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L196F2" dur="32" oct="4" pname="d">
-                              <accid xml:id="ue1937-I-accid-L196F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <note xml:id="ue1937-I-note-L197F2" dur="32" oct="3" pname="c" accid="s" />
+                           <beam xml:id="ue1937-I-beam-L196F2-L197F2">
+                              <note xml:id="ue1937-I-note-L196F2" dur="32" oct="4" pname="d" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L196F2" type="caution" accid="n" func="caution" />
+                              </note>
+                              <note xml:id="ue1937-I-note-L197F2" dur="32" oct="3" pname="c" accid="s" stem.dir="down" />
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L191F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L191F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L192F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m035-s2-50" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L194F1" dur="32" oct="3" pname="f">
-                              <accid xml:id="ue1937-I-accid-L194F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L195F1" dur="32">
-                              <note xml:id="ue1937-I-note-L195F1S1" oct="4" pname="e">
-                                 <accid xml:id="ue1937-I-accid-L195F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L194F1-L195F1">
+                              <note xml:id="ue1937-I-note-L194F1" dur="32" oct="3" pname="f" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L194F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L195F1S2" oct="4" pname="g">
-                                 <accid xml:id="ue1937-I-accid-L195F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
+                              <chord xml:id="ue1937-I-chord-L195F1" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L195F1S1" oct="4" pname="e">
+                                    <accid xml:id="ue1937-I-accid-L195F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L195F1S2" oct="4" pname="g">
+                                    <accid xml:id="ue1937-I-accid-L195F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L196F1" dur="32" />
-                           <note xml:id="ue1937-I-note-L197F1" dur="32" oct="3" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L197F1" dur="32" oct="3" pname="f" accid="s" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L197F1" artic="stacc" />
+                           </note>
                         </layer>
                      </staff>
+                     <dir xml:id="ue1937-I-dir-rit-m035" place="above" staff="1" startid="#ue1937-I-rest-L192F2" endid="#ue1937-I-chord-L204F2" extender="true" lform="dashed" lsegs="15" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m035" fontstyle="normal">rit.</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L193F2" place="below" staff="1" startid="#ue1937-I-chord-L193F2">f</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L193F2-L196F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-chord-L193F2" endid="#ue1937-I-note-L196F2" />
+                     <dynam xml:id="ue1937-I-dynam-L196F2" place="below" staff="1" startid="#ue1937-I-note-L196F2">p</dynam>
+                     <slur xml:id="ue1937-I-slur-L193F2-L194F2" staff="1" startid="#ue1937-I-chord-L193F2" endid="#ue1937-I-note-L194F2" />
+                     <slur xml:id="ue1937-I-slur-L196F2-L197F2" staff="1" startid="#ue1937-I-note-L196F2" endid="#ue1937-I-note-L197F2" />
+                     <slur xml:id="ue1937-I-slur-L194F1-L195F1" staff="2" startid="#ue1937-I-note-L194F1" endid="#ue1937-I-chord-L195F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L197F1-L199F1-L200F1" staff="2" plist="#ue1937-I-note-L197F1 #ue1937-I-note-L199F1 #ue1937-I-note-L200F1" startid="#ue1937-I-note-L197F1" endid="#ue1937-I-note-L200F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m036" n="36" facs="#zone-ue1937-I-m036">
                      <staff xml:id="ue1937-I-staff-L198F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L198F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L199F2" dur="32" />
-                           <note xml:id="ue1937-I-note-L200F2" dur="32" oct="3" pname="c" accid="s" />
-                           <note xml:id="ue1937-I-note-L201F2" dur="32" oct="4" pname="d">
-                              <accid xml:id="ue1937-I-accid-L201F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           <beam xml:id="ue1937-I-beam-L200F2-L201F2">
+                              <note xml:id="ue1937-I-note-L200F2" dur="32" oct="3" pname="c" accid="s" stem.dir="down" />
+                              <note xml:id="ue1937-I-note-L201F2" dur="32" oct="4" pname="d" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L201F2" type="caution" accid="n" func="caution" />
+                              </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L202F2" dur="32" />
                            <clef xml:id="ue1937-I-clef-m036-s1-51" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L203F2" dur="32" oct="3" pname="b" accid="f" />
-                           <chord xml:id="ue1937-I-chord-L204F2" dur="32">
-                              <note xml:id="ue1937-I-note-L204F2S1" oct="4" pname="b">
-                                 <accid xml:id="ue1937-I-accid-L204F2S1" type="caution" accid="n" func="caution" />
-                              </note>
-                              <note xml:id="ue1937-I-note-L204F2S2" oct="5" pname="e" accid="f" />
-                           </chord>
+                           <beam xml:id="ue1937-I-beam-L203F2-L204F2">
+                              <note xml:id="ue1937-I-note-L203F2" dur="32" oct="3" pname="b" accid="f" stem.dir="up" />
+                              <chord xml:id="ue1937-I-chord-L204F2" dur="32" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L204F2S1" oct="4" pname="b">
+                                    <accid xml:id="ue1937-I-accid-L204F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L204F2S2" oct="5" pname="e" accid="f" />
+                              </chord>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L198F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L198F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L199F1" dur="32" oct="4" pname="c">
+                           <note xml:id="ue1937-I-note-L199F1" dur="32" oct="4" pname="c" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L199F1" artic="stacc" />
                               <accid xml:id="ue1937-I-accid-L199F1" type="caution" accid="n" func="caution" />
                            </note>
-                           <note xml:id="ue1937-I-note-L200F1" dur="32" oct="3" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L200F1" dur="32" oct="3" pname="f" accid="s" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L200F1" artic="stacc" />
+                           </note>
                            <rest xml:id="ue1937-I-rest-L201F1" dur="32" />
-                           <chord xml:id="ue1937-I-chord-L202F1" dur="32">
-                              <note xml:id="ue1937-I-note-L202F1S1" oct="4" pname="e">
-                                 <accid xml:id="ue1937-I-accid-L202F1S1" type="caution" accid="n" func="caution" />
-                              </note>
-                              <note xml:id="ue1937-I-note-L202F1S2" oct="4" pname="g">
-                                 <accid xml:id="ue1937-I-accid-L202F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L203F1" dur="32" oct="3" pname="f" accid="n" />
+                           <beam xml:id="ue1937-I-beam-L202F1-L203F1">
+                              <chord xml:id="ue1937-I-chord-L202F1" dur="32" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L202F1S1" oct="4" pname="e">
+                                    <accid xml:id="ue1937-I-accid-L202F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L202F1S2" oct="4" pname="g">
+                                    <accid xml:id="ue1937-I-accid-L202F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L203F1" dur="32" oct="3" pname="f" accid="n" stem.dir="down" />
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L204F1" dur="32" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L200F2-L201F2" staff="1" startid="#ue1937-I-note-L200F2" endid="#ue1937-I-note-L201F2" />
+                     <slur xml:id="ue1937-I-slur-L203F2-L204F2" staff="1" startid="#ue1937-I-note-L203F2" endid="#ue1937-I-chord-L204F2" />
+                     <slur xml:id="ue1937-I-slur-L202F1-L203F1" staff="2" startid="#ue1937-I-chord-L202F1" endid="#ue1937-I-note-L203F1" />
+                     <dynam xml:id="ue1937-I-dynam-L202F2" place="between" staff="1 2" startid="#ue1937-I-rest-L202F2">pp</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L199F1-L202F2-dim" staff="1 2" form="dim" place="between" startid="#ue1937-I-note-L199F1" endid="#ue1937-I-rest-L202F2" />
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m037" />
                   <measure xml:id="ue1937-I-m037" n="37" facs="#zone-ue1937-I-m037">
@@ -1470,13 +1726,13 @@
                         <layer xml:id="ue1937-I-layer-L205F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L206F2" dur="16" />
                            <rest xml:id="ue1937-I-rest-L207F2" dur="16" />
-                           <note xml:id="ue1937-I-note-L208F2" dur="16" oct="5" pname="e" accid="f" />
+                           <note xml:id="ue1937-I-note-L208F2" dur="16" oct="5" pname="e" accid="f" stem.dir="up" />
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L205F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L205F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L206F1" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L207F1" dur="8">
+                           <chord xml:id="ue1937-I-chord-L207F1" dur="8" stem.dir="down">
                               <note xml:id="ue1937-I-note-L207F1S1" oct="3" pname="a">
                                  <accid xml:id="ue1937-I-accid-L207F1S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1484,11 +1740,19 @@
                            </chord>
                         </layer>
                      </staff>
+                     <dir xml:id="ue1937-I-dir-tempo-L206F2" place="above" staff="1" startid="#ue1937-I-rest-L206F2" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L206F2" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L207F1" place="below" staff="1" startid="#ue1937-I-chord-L207F1">pp</dynam>
+                     <slur xml:id="ue1937-I-slur-L208F2-L210F2" staff="1" startid="#ue1937-I-note-L208F2" endid="#ue1937-I-chord-L210F2" />
+                     <slur xml:id="ue1937-I-slur-L207F1-L211F1" staff="2" startid="#ue1937-I-chord-L207F1" endid="#ue1937-I-note-L211F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L208F2-L210F2" staff="1" plist="#ue1937-I-note-L208F2 #ue1937-I-chord-L210F2" startid="#ue1937-I-note-L208F2" endid="#ue1937-I-chord-L210F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L207F1-L211F1" staff="2" plist="#ue1937-I-chord-L207F1 #ue1937-I-rest-L210F1 #ue1937-I-note-L211F1" startid="#ue1937-I-chord-L207F1" endid="#ue1937-I-note-L211F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m038" n="38" facs="#zone-ue1937-I-m038">
                      <staff xml:id="ue1937-I-staff-L209F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L209F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L210F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L210F2" dur="16" stem.dir="up">
                               <note xml:id="ue1937-I-note-L210F2S1" oct="3" pname="b" accid="f" />
                               <note xml:id="ue1937-I-note-L210F2S2" oct="4" pname="b">
                                  <accid xml:id="ue1937-I-accid-L210F2S2" type="caution" accid="n" func="caution" />
@@ -1501,7 +1765,7 @@
                      <staff xml:id="ue1937-I-staff-L209F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L209F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L210F1" dur="16" />
-                           <note xml:id="ue1937-I-note-L211F1" dur="16" oct="3" pname="f">
+                           <note xml:id="ue1937-I-note-L211F1" dur="16" oct="3" pname="f" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L211F1" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L212F1" dur="16" />
@@ -1511,7 +1775,7 @@
                   <measure xml:id="ue1937-I-m039" n="39" facs="#zone-ue1937-I-m039">
                      <staff xml:id="ue1937-I-staff-L213F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L213F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L214F2" dur="8">
+                           <chord xml:id="ue1937-I-chord-L214F2" dur="8" stem.dir="up">
                               <note xml:id="ue1937-I-note-L214F2S1" oct="4" pname="d">
                                  <accid xml:id="ue1937-I-accid-L214F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1524,26 +1788,32 @@
                         <layer xml:id="ue1937-I-layer-L213F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L214F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m039-s2-52" shape="G" line="2" />
-                           <note xml:id="ue1937-I-note-L215F1" dur="16" oct="4" pname="g">
-                              <accid xml:id="ue1937-I-accid-L215F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L216F1" dur="16">
-                              <note xml:id="ue1937-I-note-L216F1S1" oct="4" pname="e">
-                                 <accid xml:id="ue1937-I-accid-L216F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L215F1-L216F1">
+                              <note xml:id="ue1937-I-note-L215F1" dur="16" oct="4" pname="g" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L215F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L216F1S2" oct="5" pname="f" accid="s" />
-                           </chord>
+                              <chord xml:id="ue1937-I-chord-L216F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L216F1S1" oct="4" pname="e">
+                                    <accid xml:id="ue1937-I-accid-L216F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L216F1S2" oct="5" pname="f" accid="s" />
+                              </chord>
+                           </beam>
                         </layer>
                      </staff>
+                     <dynam xml:id="ue1937-I-dynam-L214F1" place="above" staff="2" startid="#ue1937-I-rest-L214F1">p</dynam>
+                     <slur xml:id="ue1937-I-slur-L215F1-L216F1" staff="2" startid="#ue1937-I-note-L215F1" endid="#ue1937-I-chord-L216F1" />
+                     <slur xml:id="ue1937-I-slur-L214F2-L218F2" staff="1" startid="#ue1937-I-chord-L214F2" endid="#ue1937-I-note-L218F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L214F2-L218F2" staff="1" place="below" plist="#ue1937-I-chord-L214F2 #ue1937-I-rest-L216F2 #ue1937-I-note-L218F2" startid="#ue1937-I-chord-L214F2" endid="#ue1937-I-note-L218F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m040" n="40" facs="#zone-ue1937-I-m040">
                      <staff xml:id="ue1937-I-staff-L217F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L217F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L218F2" dur="16" oct="5" pname="c">
+                           <note xml:id="ue1937-I-note-L218F2" dur="16" oct="5" pname="c" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L218F2" type="caution" accid="n" func="caution" />
                            </note>
                            <rest xml:id="ue1937-I-rest-L219F2" dur="16" />
-                           <note xml:id="ue1937-I-note-L220F2" dur="16" oct="5" pname="c">
+                           <note xml:id="ue1937-I-note-L220F2" dur="16" oct="5" pname="c" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L220F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
@@ -1553,14 +1823,16 @@
                            <mRest xml:id="ue1937-I-mrest-L218F1" />
                         </layer>
                      </staff>
-                     <tie xml:id="ue1937-I-tie-L220F2-L222F2" startid="#ue1937-I-note-L220F2" endid="#ue1937-I-note-L222F2" />
+                     <tie xml:id="ue1937-I-tie-L220F2-L222F2" staff="1" startid="#ue1937-I-note-L220F2" endid="#ue1937-I-note-L222F2" />
+                     <slur xml:id="ue1937-I-slur-L220F2-L224F2" staff="1" startid="#ue1937-I-note-L220F2" endid="#ue1937-I-chord-L224F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L220F2-L222F2-L224F2" staff="1" plist="#ue1937-I-note-L220F2 #ue1937-I-note-L222F2 #ue1937-I-rest-L223F2 #ue1937-I-chord-L224F2" startid="#ue1937-I-note-L220F2" endid="#ue1937-I-chord-L224F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m041" n="41" facs="#zone-ue1937-I-m041">
                      <staff xml:id="ue1937-I-staff-L221F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L221F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L222F2" dur="16" oct="5" pname="c" />
+                           <note xml:id="ue1937-I-note-L222F2" dur="16" oct="5" pname="c" stem.dir="down" breaksec="1" />
                            <rest xml:id="ue1937-I-rest-L223F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L224F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L224F2" dur="16" stem.dir="down">
                               <note xml:id="ue1937-I-note-L224F2S1" oct="4" pname="d">
                                  <accid xml:id="ue1937-I-accid-L224F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1570,19 +1842,23 @@
                      </staff>
                      <staff xml:id="ue1937-I-staff-L221F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L221F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L222F1" dur="16">
-                              <note xml:id="ue1937-I-note-L222F1S1" oct="4" pname="e">
-                                 <accid xml:id="ue1937-I-accid-L222F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L222F1-L223F1">
+                              <chord xml:id="ue1937-I-chord-L222F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L222F1S1" oct="4" pname="e">
+                                    <accid xml:id="ue1937-I-accid-L222F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L222F1S2" oct="5" pname="f" accid="s" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L223F1" dur="16" oct="4" pname="g" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L223F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L222F1S2" oct="5" pname="f" accid="s" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L223F1" dur="16" oct="4" pname="g">
-                              <accid xml:id="ue1937-I-accid-L223F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L224F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m041-s2-53" shape="F" line="4" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L222F1-L223F1" staff="2" startid="#ue1937-I-chord-L222F1" endid="#ue1937-I-note-L223F1" />
+                     <hairpin xml:id="ue1937-I-hairpin-L222F2-L224F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-note-L222F2" endid="#ue1937-I-chord-L224F2" />
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m042" />
                   <measure xml:id="ue1937-I-m042" n="42" facs="#zone-ue1937-I-m042">
@@ -1590,7 +1866,7 @@
                         <layer xml:id="ue1937-I-layer-L225F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L226F2" dur="16" />
                            <rest xml:id="ue1937-I-rest-L227F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L228F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L228F2" dur="16" stem.dir="up">
                               <note xml:id="ue1937-I-note-L228F2S1" oct="3" pname="b" accid="f" />
                               <note xml:id="ue1937-I-note-L228F2S2" oct="4" pname="b">
                                  <accid xml:id="ue1937-I-accid-L228F2S2" type="caution" accid="n" func="caution" />
@@ -1601,16 +1877,21 @@
                      <staff xml:id="ue1937-I-staff-L225F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L225F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L226F1" dur="16" />
-                           <note xml:id="ue1937-I-note-L227F1" dur="8" oct="3" pname="f">
+                           <note xml:id="ue1937-I-note-L227F1" dur="8" oct="3" pname="f" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L227F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
+                     <dynam xml:id="ue1937-I-dynam-L227F1" place="above" staff="2" startid="#ue1937-I-note-L227F1">pp</dynam>
+                     <slur xml:id="ue1937-I-slur-L228F2-L230F2" staff="1" startid="#ue1937-I-chord-L228F2" endid="#ue1937-I-note-L230F2" />
+                     <slur xml:id="ue1937-I-slur-L227F1-L231F1" staff="2" startid="#ue1937-I-note-L227F1" endid="#ue1937-I-chord-L231F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L228F2-L230F2" staff="1" plist="#ue1937-I-chord-L228F2 #ue1937-I-note-L230F2" startid="#ue1937-I-chord-L228F2" endid="#ue1937-I-note-L230F2" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L227F1-L231F1" staff="2" plist="#ue1937-I-note-L227F1 #ue1937-I-rest-L230F1 #ue1937-I-chord-L231F1" startid="#ue1937-I-note-L227F1" endid="#ue1937-I-chord-L231F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m043" n="43" facs="#zone-ue1937-I-m043">
                      <staff xml:id="ue1937-I-staff-L229F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L229F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L230F2" dur="16" oct="5" pname="e" accid="f" />
+                           <note xml:id="ue1937-I-note-L230F2" dur="16" oct="5" pname="e" accid="f" stem.dir="up" />
                            <rest xml:id="ue1937-I-rest-L231F2" dur="16" />
                            <rest xml:id="ue1937-I-rest-L232F2" dur="16" />
                         </layer>
@@ -1618,7 +1899,7 @@
                      <staff xml:id="ue1937-I-staff-L229F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L229F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L230F1" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L231F1" dur="16">
+                           <chord xml:id="ue1937-I-chord-L231F1" dur="16" stem.dir="down">
                               <note xml:id="ue1937-I-note-L231F1S1" oct="3" pname="a">
                                  <accid xml:id="ue1937-I-accid-L231F1S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1633,92 +1914,113 @@
                      <staff xml:id="ue1937-I-staff-L233F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L233F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L234F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L235F2" dur="16">
-                              <note xml:id="ue1937-I-note-L235F2S1" oct="3" pname="g" accid="s" />
-                              <note xml:id="ue1937-I-note-L235F2S2" oct="4" pname="g">
-                                 <accid xml:id="ue1937-I-accid-L235F2S2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L235F2-L236F2">
+                              <chord xml:id="ue1937-I-chord-L235F2" dur="16" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L235F2S1" oct="3" pname="g" accid="s" />
+                                 <note xml:id="ue1937-I-note-L235F2S2" oct="4" pname="g">
+                                    <accid xml:id="ue1937-I-accid-L235F2S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L236F2" dur="16" oct="4" pname="e" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L236F2" type="caution" accid="n" func="caution" />
                               </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L236F2" dur="16" oct="4" pname="e">
-                              <accid xml:id="ue1937-I-accid-L236F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L233F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L233F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L234F1" dur="16">
-                              <note xml:id="ue1937-I-note-L234F1S1" oct="3" pname="b" accid="f" />
-                              <note xml:id="ue1937-I-note-L234F1S2" oct="4" pname="a">
-                                 <accid xml:id="ue1937-I-accid-L234F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L235F1" dur="16" oct="5" pname="c" accid="s" />
+                           <beam xml:id="ue1937-I-beam-L234F1-L235F1">
+                              <chord xml:id="ue1937-I-chord-L234F1" dur="16" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L234F1S1" oct="3" pname="b" accid="f" />
+                                 <note xml:id="ue1937-I-note-L234F1S2" oct="4" pname="a">
+                                    <accid xml:id="ue1937-I-accid-L234F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L235F1" dur="16" oct="5" pname="c" accid="s" stem.dir="up" />
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L236F1" dur="16" />
                         </layer>
                      </staff>
+                     <dynam xml:id="ue1937-I-dynam-L234F1" place="above" staff="2" startid="#ue1937-I-chord-L234F1">p</dynam>
+                     <hairpin xml:id="ue1937-I-hairpin-L235F2-L236F2-cres" staff="1" form="cres" place="below" startid="#ue1937-I-chord-L235F2" endid="#ue1937-I-note-L236F2" />
+                     <slur xml:id="ue1937-I-slur-L235F2-L236F2" staff="1" startid="#ue1937-I-chord-L235F2" endid="#ue1937-I-note-L236F2" />
+                     <slur xml:id="ue1937-I-slur-L234F1-L235F1" staff="2" startid="#ue1937-I-chord-L234F1" endid="#ue1937-I-note-L235F1" curvedir="below" />
                   </measure>
                   <measure xml:id="ue1937-I-m045" n="45" facs="#zone-ue1937-I-m045">
                      <staff xml:id="ue1937-I-staff-L237F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L237F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L238F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L239F2" dur="16">
-                              <note xml:id="ue1937-I-note-L239F2S1" oct="4" pname="c">
-                                 <accid xml:id="ue1937-I-accid-L239F2S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L239F2-L240F2">
+                              <chord xml:id="ue1937-I-chord-L239F2" dur="16" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L239F2S1" oct="4" pname="c">
+                                    <accid xml:id="ue1937-I-accid-L239F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L239F2S2" oct="4" pname="f" accid="s" />
+                                 <note xml:id="ue1937-I-note-L239F2S3" oct="4" pname="b" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L240F2" dur="16" oct="5" pname="f" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L240F2" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L239F2S2" oct="4" pname="f" accid="s" />
-                              <note xml:id="ue1937-I-note-L239F2S3" oct="4" pname="b" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L240F2" dur="16" oct="5" pname="f">
-                              <accid xml:id="ue1937-I-accid-L240F2" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L237F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L237F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L238F1" dur="16">
-                              <note xml:id="ue1937-I-note-L238F1S1" oct="4" pname="f" accid="s" />
-                              <note xml:id="ue1937-I-note-L238F1S2" oct="5" pname="c">
-                                 <accid xml:id="ue1937-I-accid-L238F1S2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L238F1-L239F1">
+                              <chord xml:id="ue1937-I-chord-L238F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L238F1S1" oct="4" pname="f" accid="s" />
+                                 <note xml:id="ue1937-I-note-L238F1S2" oct="5" pname="c">
+                                    <accid xml:id="ue1937-I-accid-L238F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L238F1S3" oct="5" pname="f">
+                                    <accid xml:id="ue1937-I-accid-L238F1S3" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L239F1" dur="16" oct="5" pname="d" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L239F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L238F1S3" oct="5" pname="f">
-                                 <accid xml:id="ue1937-I-accid-L238F1S3" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L239F1" dur="16" oct="5" pname="d">
-                              <accid xml:id="ue1937-I-accid-L239F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L240F1" dur="16" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L239F2-L240F2" staff="1" startid="#ue1937-I-chord-L239F2" endid="#ue1937-I-note-L240F2" />
+                     <slur xml:id="ue1937-I-slur-L238F1-L239F1" staff="2" startid="#ue1937-I-chord-L238F1" endid="#ue1937-I-note-L239F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m046" n="46" facs="#zone-ue1937-I-m046">
                      <staff xml:id="ue1937-I-staff-L241F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L241F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L242F2" dur="16" />
-                           <note xml:id="ue1937-I-note-L243F2" dur="16" oct="5" pname="c" accid="s" />
-                           <chord xml:id="ue1937-I-chord-L244F2" dur="16">
-                              <note xml:id="ue1937-I-note-L244F2S1" oct="3" pname="b" accid="f" />
-                              <note xml:id="ue1937-I-note-L244F2S2" oct="4" pname="a">
-                                 <accid xml:id="ue1937-I-accid-L244F2S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
+                           <beam xml:id="ue1937-I-beam-L243F2-L244F2">
+                              <note xml:id="ue1937-I-note-L243F2" dur="16" oct="5" pname="c" accid="s" stem.dir="up" />
+                              <chord xml:id="ue1937-I-chord-L244F2" dur="16" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L244F2S1" oct="3" pname="b" accid="f" />
+                                 <note xml:id="ue1937-I-note-L244F2S2" oct="4" pname="a">
+                                    <accid xml:id="ue1937-I-accid-L244F2S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="ue1937-I-staff-L241F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L241F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L242F1" dur="16" oct="4" pname="e">
-                              <accid xml:id="ue1937-I-accid-L242F1" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L243F1" dur="16">
-                              <note xml:id="ue1937-I-note-L243F1S1" oct="3" pname="g" accid="s" />
-                              <note xml:id="ue1937-I-note-L243F1S2" oct="4" pname="g">
-                                 <accid xml:id="ue1937-I-accid-L243F1S2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L242F1-L243F1">
+                              <note xml:id="ue1937-I-note-L242F1" dur="16" oct="4" pname="e" stem.dir="up">
+                                 <accid xml:id="ue1937-I-accid-L242F1" type="caution" accid="n" func="caution" />
                               </note>
-                           </chord>
+                              <chord xml:id="ue1937-I-chord-L243F1" dur="16" stem.dir="up">
+                                 <note xml:id="ue1937-I-note-L243F1S1" oct="3" pname="g" accid="s" />
+                                 <note xml:id="ue1937-I-note-L243F1S2" oct="4" pname="g">
+                                    <accid xml:id="ue1937-I-accid-L243F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                           </beam>
                            <rest xml:id="ue1937-I-rest-L244F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m046-s2-55" shape="F" line="4" />
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L243F2-L244F2" staff="1" startid="#ue1937-I-note-L243F2" endid="#ue1937-I-chord-L244F2" />
+                     <slur xml:id="ue1937-I-slur-L242F1-L243F1" staff="2" startid="#ue1937-I-note-L242F1" endid="#ue1937-I-chord-L243F1" />
+                     <hairpin xml:id="ue1937-I-hairpin-L242F1-L244F2-dim" staff="2" form="dim" place="above" startid="#ue1937-I-note-L242F1" endid="#ue1937-I-chord-L244F2" />
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m047" />
                   <measure xml:id="ue1937-I-m047" n="47" facs="#zone-ue1937-I-m047">
@@ -1726,7 +2028,7 @@
                         <layer xml:id="ue1937-I-layer-L245F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L246F2" dur="16" />
                            <rest xml:id="ue1937-I-rest-L247F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L248F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L248F2" dur="16" stem.dir="up">
                               <note xml:id="ue1937-I-note-L248F2S1" oct="4" pname="e" accid="f" />
                               <note xml:id="ue1937-I-note-L248F2S2" oct="5" pname="d">
                                  <accid xml:id="ue1937-I-accid-L248F2S2" type="caution" accid="n" func="caution" />
@@ -1737,22 +2039,28 @@
                      <staff xml:id="ue1937-I-staff-L245F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L245F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L246F1" dur="16" />
-                           <note xml:id="ue1937-I-note-L247F1" dur="16" oct="3" pname="g" accid="s" />
-                           <chord xml:id="ue1937-I-chord-L248F1" dur="16">
-                              <note xml:id="ue1937-I-note-L248F1S1" oct="3" pname="c" accid="s" />
-                              <note xml:id="ue1937-I-note-L248F1S2" oct="4" pname="c">
-                                 <accid xml:id="ue1937-I-accid-L248F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
+                           <beam xml:id="ue1937-I-beam-L247F1-L248F1">
+                              <note xml:id="ue1937-I-note-L247F1" dur="16" oct="3" pname="g" accid="s" stem.dir="down" />
+                              <chord xml:id="ue1937-I-chord-L248F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L248F1S1" oct="3" pname="c" accid="s" />
+                                 <note xml:id="ue1937-I-note-L248F1S2" oct="4" pname="c">
+                                    <accid xml:id="ue1937-I-accid-L248F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                           </beam>
                         </layer>
                      </staff>
+                     <dynam xml:id="ue1937-I-dynam-L247F1" place="between" staff="1 2" startid="#ue1937-I-note-L247F1">p</dynam>
+                     <slur xml:id="ue1937-I-slur-L248F2-L250F2" staff="1" startid="#ue1937-I-chord-L248F2" endid="#ue1937-I-note-L250F2" />
+                     <slur xml:id="ue1937-I-slur-L247F1-L248F1" staff="2" startid="#ue1937-I-note-L247F1" endid="#ue1937-I-chord-L248F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L248F2-L250F2" staff="1" plist="#ue1937-I-chord-L248F2 #ue1937-I-note-L250F2" startid="#ue1937-I-chord-L248F2" endid="#ue1937-I-note-L250F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m048" n="48" facs="#zone-ue1937-I-m048">
                      <staff xml:id="ue1937-I-staff-L249F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L249F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L250F2" dur="16" oct="4" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L250F2" dur="16" oct="4" pname="f" accid="s" stem.dir="up" />
                            <rest xml:id="ue1937-I-rest-L251F2" dur="16" />
-                           <note xml:id="ue1937-I-note-L252F2" dur="16" oct="4" pname="e">
+                           <note xml:id="ue1937-I-note-L252F2" dur="16" oct="4" pname="e" stem.dir="up">
                               <accid xml:id="ue1937-I-accid-L252F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
@@ -1760,22 +2068,27 @@
                      <staff xml:id="ue1937-I-staff-L249F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L249F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L250F1" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L251F1" dur="16">
-                              <note xml:id="ue1937-I-note-L251F1S1" oct="2" pname="b" accid="f" />
-                              <note xml:id="ue1937-I-note-L251F1S2" oct="3" pname="a">
-                                 <accid xml:id="ue1937-I-accid-L251F1S2" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L251F1-L252F1">
+                              <chord xml:id="ue1937-I-chord-L251F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L251F1S1" oct="2" pname="b" accid="f" />
+                                 <note xml:id="ue1937-I-note-L251F1S2" oct="3" pname="a">
+                                    <accid xml:id="ue1937-I-accid-L251F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L252F1" dur="16" oct="3" pname="b" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L252F1" type="caution" accid="n" func="caution" />
                               </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L252F1" dur="16" oct="3" pname="b">
-                              <accid xml:id="ue1937-I-accid-L252F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L252F2-L254F2" staff="1" startid="#ue1937-I-note-L252F2" endid="#ue1937-I-chord-L254F2" />
+                     <slur xml:id="ue1937-I-slur-L251F1-L252F1" staff="2" startid="#ue1937-I-chord-L251F1" endid="#ue1937-I-note-L252F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L252F2-L254F2" staff="1" plist="#ue1937-I-note-L252F2 #ue1937-I-chord-L254F2" startid="#ue1937-I-note-L252F2" endid="#ue1937-I-chord-L254F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m049" n="49" facs="#zone-ue1937-I-m049">
                      <staff xml:id="ue1937-I-staff-L253F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L253F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L254F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L254F2" dur="16" stem.dir="up">
                               <note xml:id="ue1937-I-note-L254F2S1" oct="3" pname="f">
                                  <accid xml:id="ue1937-I-accid-L254F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1785,7 +2098,7 @@
                            </chord>
                            <rest xml:id="ue1937-I-rest-L255F2" dur="16" />
                            <clef xml:id="ue1937-I-clef-m049-s1-56" shape="F" line="4" />
-                           <note xml:id="ue1937-I-note-L256F2" dur="16" oct="3" pname="b">
+                           <note xml:id="ue1937-I-note-L256F2" dur="16" oct="3" pname="b" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L256F2" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
@@ -1793,24 +2106,30 @@
                      <staff xml:id="ue1937-I-staff-L253F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L253F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L254F1" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L255F1" dur="16">
-                              <note xml:id="ue1937-I-note-L255F1S1" oct="3" pname="f">
-                                 <accid xml:id="ue1937-I-accid-L255F1S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L255F1-L256F1">
+                              <chord xml:id="ue1937-I-chord-L255F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L255F1S1" oct="3" pname="f">
+                                    <accid xml:id="ue1937-I-accid-L255F1S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L255F1S2" oct="4" pname="g">
+                                    <accid xml:id="ue1937-I-accid-L255F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L256F1" dur="16" oct="4" pname="e" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L256F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L255F1S2" oct="4" pname="g">
-                                 <accid xml:id="ue1937-I-accid-L255F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L256F1" dur="16" oct="4" pname="e">
-                              <accid xml:id="ue1937-I-accid-L256F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L256F2-L258F2" staff="1" startid="#ue1937-I-note-L256F2" endid="#ue1937-I-chord-L258F2" />
+                     <slur xml:id="ue1937-I-slur-L255F1-L256F1" staff="2" startid="#ue1937-I-chord-L255F1" endid="#ue1937-I-note-L256F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L256F2-L258F2" staff="1" plist="#ue1937-I-note-L256F2 #ue1937-I-chord-L258F2" startid="#ue1937-I-note-L256F2" endid="#ue1937-I-chord-L258F2" />
+                     <hairpin xml:id="ue1937-I-hairpin-L256F2-L259F1-dim" staff="1" form="dim" place="below" startid="#ue1937-I-note-L256F2" endid="#ue1937-I-note-L259F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m050" n="50" facs="#zone-ue1937-I-m050">
                      <staff xml:id="ue1937-I-staff-L257F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L257F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L258F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L258F2" dur="16" stem.dir="down">
                               <note xml:id="ue1937-I-note-L258F2S1" oct="2" pname="a">
                                  <accid xml:id="ue1937-I-accid-L258F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1818,7 +2137,7 @@
                            </chord>
                            <rest xml:id="ue1937-I-rest-L259F2" dur="16" />
                            <clef xml:id="ue1937-I-clef-m050-s1-57" shape="G" line="2" />
-                           <chord xml:id="ue1937-I-chord-L260F2" dur="16">
+                           <chord xml:id="ue1937-I-chord-L260F2" dur="16" stem.dir="down">
                               <note xml:id="ue1937-I-note-L260F2S1" oct="5" pname="c">
                                  <accid xml:id="ue1937-I-accid-L260F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1829,21 +2148,30 @@
                      <staff xml:id="ue1937-I-staff-L257F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L257F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L258F1" dur="16" />
-                           <note xml:id="ue1937-I-note-L259F1" dur="16" oct="3" pname="f" accid="s" />
-                           <chord xml:id="ue1937-I-chord-L260F1" dur="16">
-                              <note xml:id="ue1937-I-note-L260F1S1" oct="3" pname="e" accid="f" />
-                              <note xml:id="ue1937-I-note-L260F1S2" oct="4" pname="d">
-                                 <accid xml:id="ue1937-I-accid-L260F1S2" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
+                           <beam xml:id="ue1937-I-beam-L259F1-L260F1">
+                              <note xml:id="ue1937-I-note-L259F1" dur="16" oct="3" pname="f" accid="s" stem.dir="down" />
+                              <chord xml:id="ue1937-I-chord-L260F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L260F1S1" oct="3" pname="e" accid="f" />
+                                 <note xml:id="ue1937-I-note-L260F1S2" oct="4" pname="d">
+                                    <accid xml:id="ue1937-I-accid-L260F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                           </beam>
                         </layer>
                      </staff>
+                     <dir xml:id="ue1937-I-dir-rit-m050" place="above" staff="1" startid="#ue1937-I-chord-L258F2" endid="#ue1937-I-chord-L264F1" extender="true" lform="dashed" lsegs="9" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m050" fontstyle="normal">rit.</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L259F1" place="below" staff="1" startid="#ue1937-I-note-L259F1">pp</dynam>
+                     <slur xml:id="ue1937-I-slur-L260F2-L262F2" staff="1" startid="#ue1937-I-chord-L260F2" endid="#ue1937-I-note-L262F2" />
+                     <slur xml:id="ue1937-I-slur-L259F1-L260F1" staff="2" startid="#ue1937-I-note-L259F1" endid="#ue1937-I-chord-L260F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L260F2-L262F2" staff="1" plist="#ue1937-I-chord-L260F2 #ue1937-I-note-L262F2" startid="#ue1937-I-chord-L260F2" endid="#ue1937-I-note-L262F2" />
                   </measure>
                   <sb xml:id="ue1937-I-sb-before-m051" />
                   <measure xml:id="ue1937-I-m051" n="51" facs="#zone-ue1937-I-m051">
                      <staff xml:id="ue1937-I-staff-L261F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L261F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L262F2" dur="16" oct="5" pname="g" accid="s" />
+                           <note xml:id="ue1937-I-note-L262F2" dur="16" oct="5" pname="g" accid="s" stem.dir="down" />
                            <rest xml:id="ue1937-I-rest-L263F2" dur="16" />
                            <rest xml:id="ue1937-I-rest-L264F2" dur="16" />
                         </layer>
@@ -1853,7 +2181,7 @@
                            <rest xml:id="ue1937-I-rest-L262F1" dur="16" />
                            <rest xml:id="ue1937-I-rest-L263F1" dur="16" />
                            <clef xml:id="ue1937-I-clef-m051-s2-58" shape="G" line="2" />
-                           <chord xml:id="ue1937-I-chord-L264F1" dur="16">
+                           <chord xml:id="ue1937-I-chord-L264F1" dur="16" stem.dir="down">
                               <note xml:id="ue1937-I-note-L264F1S1" oct="5" pname="d">
                                  <accid xml:id="ue1937-I-accid-L264F1S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1861,20 +2189,28 @@
                            </chord>
                         </layer>
                      </staff>
+                     <dir xml:id="ue1937-I-dir-tempo-L264F1" place="above" staff="1" startid="#ue1937-I-chord-L264F1" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-tempo-L264F1" fontstyle="normal">tempo</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L264F1" place="between" staff="1 2" startid="#ue1937-I-chord-L264F1">p</dynam>
+                     <slur xml:id="ue1937-I-slur-L264F1-L266F1" staff="2" startid="#ue1937-I-chord-L264F1" endid="#ue1937-I-note-L266F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L264F1-L266F1" staff="2" plist="#ue1937-I-chord-L264F1 #ue1937-I-note-L266F1" startid="#ue1937-I-chord-L264F1" endid="#ue1937-I-note-L266F1" />
                   </measure>
                   <measure xml:id="ue1937-I-m052" n="52" facs="#zone-ue1937-I-m052">
                      <staff xml:id="ue1937-I-staff-L265F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L265F2N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L266F2" dur="16">
-                              <note xml:id="ue1937-I-note-L266F2S1" oct="5" pname="e">
-                                 <accid xml:id="ue1937-I-accid-L266F2S1" type="caution" accid="n" func="caution" />
+                           <beam xml:id="ue1937-I-beam-L266F2-L267F2">
+                              <chord xml:id="ue1937-I-chord-L266F2" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L266F2S1" oct="5" pname="e">
+                                    <accid xml:id="ue1937-I-accid-L266F2S1" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L266F2S2" oct="6" pname="e" accid="f" />
+                              </chord>
+                              <note xml:id="ue1937-I-note-L267F2" dur="16" oct="5" pname="g" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L267F2" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L266F2S2" oct="6" pname="e" accid="f" />
-                           </chord>
-                           <note xml:id="ue1937-I-note-L267F2" dur="16" oct="5" pname="g">
-                              <accid xml:id="ue1937-I-accid-L267F2" type="caution" accid="n" func="caution" />
-                           </note>
-                           <chord xml:id="ue1937-I-chord-L268F2" dur="16">
+                           </beam>
+                           <chord xml:id="ue1937-I-chord-L268F2" dur="16" stem.dir="up">
                               <note xml:id="ue1937-I-note-L268F2S1" oct="4" pname="c">
                                  <accid xml:id="ue1937-I-accid-L268F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1889,26 +2225,33 @@
                      </staff>
                      <staff xml:id="ue1937-I-staff-L265F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L265F1N1" n="1">
-                           <note xml:id="ue1937-I-note-L266F1" dur="16" oct="5" pname="b" accid="f" />
-                           <chord xml:id="ue1937-I-chord-L267F1" dur="16">
-                              <note xml:id="ue1937-I-note-L267F1S1" oct="4" pname="f" accid="s" />
-                              <note xml:id="ue1937-I-note-L267F1S2" oct="4" pname="b">
-                                 <accid xml:id="ue1937-I-accid-L267F1S2" type="caution" accid="n" func="caution" />
+                           <note xml:id="ue1937-I-note-L266F1" dur="16" oct="5" pname="b" accid="f" stem.dir="down" />
+                           <beam xml:id="ue1937-I-beam-L267F1-L268F1">
+                              <chord xml:id="ue1937-I-chord-L267F1" dur="16" stem.dir="down">
+                                 <note xml:id="ue1937-I-note-L267F1S1" oct="4" pname="f" accid="s" />
+                                 <note xml:id="ue1937-I-note-L267F1S2" oct="4" pname="b">
+                                    <accid xml:id="ue1937-I-accid-L267F1S2" type="caution" accid="n" func="caution" />
+                                 </note>
+                                 <note xml:id="ue1937-I-note-L267F1S3" oct="5" pname="f">
+                                    <accid xml:id="ue1937-I-accid-L267F1S3" type="caution" accid="n" func="caution" />
+                                 </note>
+                              </chord>
+                              <note xml:id="ue1937-I-note-L268F1" dur="16" oct="5" pname="a" stem.dir="down">
+                                 <accid xml:id="ue1937-I-accid-L268F1" type="caution" accid="n" func="caution" />
                               </note>
-                              <note xml:id="ue1937-I-note-L267F1S3" oct="5" pname="f">
-                                 <accid xml:id="ue1937-I-accid-L267F1S3" type="caution" accid="n" func="caution" />
-                              </note>
-                           </chord>
-                           <note xml:id="ue1937-I-note-L268F1" dur="16" oct="5" pname="a">
-                              <accid xml:id="ue1937-I-accid-L268F1" type="caution" accid="n" func="caution" />
-                           </note>
+                           </beam>
                         </layer>
                      </staff>
+                     <slur xml:id="ue1937-I-slur-L266F2-L267F2" staff="1" startid="#ue1937-I-chord-L266F2" endid="#ue1937-I-note-L267F2" />
+                     <slur xml:id="ue1937-I-slur-L268F2-L270F2" staff="1" startid="#ue1937-I-chord-L268F2" endid="#ue1937-I-note-L270F2" />
+                     <slur xml:id="ue1937-I-slur-L267F1-L268F1" staff="2" startid="#ue1937-I-chord-L267F1" endid="#ue1937-I-note-L268F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L268F2-L270F2" staff="1" plist="#ue1937-I-chord-L268F2 #ue1937-I-note-L270F2" startid="#ue1937-I-chord-L268F2" endid="#ue1937-I-note-L270F2" />
+                     <hairpin xml:id="ue1937-I-hairpin-L268F2-L270F2-dim" staff="1" form="dim" place="below" startid="#ue1937-I-chord-L268F2" endid="#ue1937-I-note-L270F2" />
                   </measure>
                   <measure xml:id="ue1937-I-m053" n="53" facs="#zone-ue1937-I-m053">
                      <staff xml:id="ue1937-I-staff-L269F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L269F2N1" n="1">
-                           <note xml:id="ue1937-I-note-L270F2" dur="16" oct="4" pname="f" accid="s" />
+                           <note xml:id="ue1937-I-note-L270F2" dur="16" oct="4" pname="f" accid="s" stem.dir="up" />
                            <rest xml:id="ue1937-I-rest-L271F2" dur="16" />
                            <rest xml:id="ue1937-I-rest-L272F2" dur="16" />
                         </layer>
@@ -1917,17 +2260,24 @@
                         <layer xml:id="ue1937-I-layer-L269F1N1" n="1">
                            <rest xml:id="ue1937-I-rest-L270F1" dur="16" />
                            <rest xml:id="ue1937-I-rest-L271F1" dur="16" />
-                           <note xml:id="ue1937-I-note-L272F1" dur="16" oct="5" pname="g">
+                           <note xml:id="ue1937-I-note-L272F1" dur="16" oct="5" pname="g" stem.dir="down">
                               <accid xml:id="ue1937-I-accid-L272F1" type="caution" accid="n" func="caution" />
                            </note>
                         </layer>
                      </staff>
+                     <dir xml:id="ue1937-I-dir-rit-m053" place="above" staff="1" startid="#ue1937-I-note-L270F2" endid="#ue1937-I-chord-L275F2" extender="true" lform="dashed" lsegs="10" vgrp="1">
+                        <rend xml:id="ue1937-I-rend-rit-m053" fontstyle="normal">rit.</rend>
+                     </dir>
+                     <dynam xml:id="ue1937-I-dynam-L272F1" place="between" staff="1 2" startid="#ue1937-I-note-L272F1">pp</dynam>
+                     <slur xml:id="ue1937-I-slur-L272F1-L274F1" staff="2" startid="#ue1937-I-note-L272F1" endid="#ue1937-I-chord-L274F1" />
+                     <beamSpan xml:id="ue1937-I-beamSpan-L272F1-L274F1" staff="2" plist="#ue1937-I-note-L272F1 #ue1937-I-chord-L274F1" startid="#ue1937-I-note-L272F1" endid="#ue1937-I-chord-L274F1" />
                   </measure>
-                  <measure xml:id="ue1937-I-m054" right="invis" n="54" facs="#zone-ue1937-I-m054">
+                  <measure xml:id="ue1937-I-m054" right="end" n="54" facs="#zone-ue1937-I-m054">
                      <staff xml:id="ue1937-I-staff-L273F2N1" n="1">
                         <layer xml:id="ue1937-I-layer-L273F2N1" n="1">
                            <rest xml:id="ue1937-I-rest-L274F2" dur="16" />
-                           <chord xml:id="ue1937-I-chord-L275F2" dur="8">
+                           <chord xml:id="ue1937-I-chord-L275F2" dur="8" stem.dir="down">
+                              <artic xml:id="ue1937-I-artic-L275F2" artic="ten" />
                               <note xml:id="ue1937-I-note-L275F2S1" oct="5" pname="d">
                                  <accid xml:id="ue1937-I-accid-L275F2S1" type="caution" accid="n" func="caution" />
                               </note>
@@ -1938,7 +2288,7 @@
                      </staff>
                      <staff xml:id="ue1937-I-staff-L273F1N1" n="2">
                         <layer xml:id="ue1937-I-layer-L273F1N1" n="1">
-                           <chord xml:id="ue1937-I-chord-L274F1" dur="16">
+                           <chord xml:id="ue1937-I-chord-L274F1" dur="16" stem.dir="down">
                               <note xml:id="ue1937-I-note-L274F1S1" oct="5" pname="e">
                                  <accid xml:id="ue1937-I-accid-L274F1S1" type="caution" accid="n" func="caution" />
                               </note>

@@ -21,25 +21,61 @@ Oddities in Verovio and MEI found while encoding this edition, collected so they
 
 ### 2. `beamSpan` not drawn (to recheck)
 
-- **Status:** to recheck, probably limited to one case. Verovio 6.3.0 does draw a cross-staff `beamSpan` across a barline: movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) renders correctly once the stem directions are right. The case noted earlier is the one-note cross-staff beam in movement II, bars 2–3; find out whether that encoding is what Verovio skips before filing.
+- **Status:** to recheck, probably limited to one case. Verovio 6.3.0 does draw a cross-staff `beamSpan` across a barline: movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) is drawn once the stem directions are right (with one beam line too few at the start, see 2a). The case noted earlier is the one-note cross-staff beam in movement II, bars 2–3; find out whether that encoding is what Verovio skips before filing.
 - **Side note:** `beamSpan/@staff="1 2"` makes Verovio 6.3.0 draw the beam twice (once per staff). Give the staff of the first note only.
 
 ### 2a. `beamSpan` with opposite stem directions loses a secondary beam
 
-- **Status:** confirmed in Verovio 6.3.0 (rendered). Not found among the `beamSpan` issues on GitHub (search of 2026-10-11; #2893 was about cross-staff `beamSpan`s not working at all).
-- **Where:** movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`): 32nds B♭ (lower staff, stem up), E (upper staff, stem down), B♮ (lower staff, stem up), one beam between the staves. The print has three strokes throughout.
-- **What happens:** between the first note and the stem-down note, Verovio draws two strokes instead of three; from the stem-down note on it draws three. The same notes in a `<beam>`, with the E made cross-staff by `note/@staff="1"`, get three strokes throughout. It happens with the `beamSpan` inside one bar and across a barline. `beamSpan/@place="mixed"` changes nothing.
-- **Minimal example** (one bar of 3/32; replace the `beamSpan` by a `<beam>` around three notes in staff 2's layer, with `staff="1"` on the E, to see the correct result):
+- **Status:** confirmed in Verovio 6.3.0 (`6.3.0-425dd7b`, Python package), rechecked 2026-10-13 with the minimal example below. Ready to file; the editor files it. GitHub search of 2026-10-13: no matching issue. The open mixed-beam issues are about articulations (#3933), chords (#2631), rests (#3660) and spacing (#1955); #2893 was a broken encoding. No commit on `develop` since 6.3.0 touches `beam.cpp` or `beamspan.cpp`.
+- **Where:** movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`): 32nds B♭ (lower staff, stem up), E (upper staff, stem down), B♮ (lower staff, stem up), one beam between the staves. The print has three beam lines throughout. `beamSpan/@staff="1"` and `@place="mixed"` change nothing.
+- **Issue text** (title and body; attach a render of both files side by side):
 
-  ```xml
-  <measure n="1">
-    <staff n="1"><layer n="1"><space dur="32"/><note xml:id="e" dur="32" pname="e" oct="3" stem.dir="down"/><space dur="32"/></layer></staff>
-    <staff n="2"><layer n="1"><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><space dur="32"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></layer></staff>
-    <beamSpan staff="2" plist="#bb #e #bn" startid="#bb" endid="#bn"/>
-  </measure>
-  ```
+  > **beamSpan with mixed stem directions drops a secondary beam before the stem-down note**
+  >
+  > A `beamSpan` over three 32nd notes with stems up, down, up (the middle note in the other staff) draws two beam lines from the first to the second note and three from the second note on. The two segments also do not join at the second note's stem. The same three notes in a `<beam>`, with `@staff` on the middle note, get three beam lines throughout, as expected.
+  >
+  > The real case is a `beamSpan` across a barline (Webern, Variations Op. 27/I, bars 22–23); the minimal example has it inside one bar, with the same result. `beamSpan/@staff` set to the other staff and `beamSpan/@place="mixed"` make no difference.
+  >
+  > Verovio 6.3.0 (`6.3.0-425dd7b`). Not tested on `develop`, but no commit there since 6.3.0 touches `beam.cpp` or `beamspan.cpp`.
+  >
+  > With `beamSpan` (wrong: two lines up to the E):
+  >
+  > ```xml
+  > <?xml version="1.0" encoding="UTF-8"?>
+  > <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
+  >   <meiHead><fileDesc><titleStmt><title>beamSpan with mixed stems</title></titleStmt><pubStmt/></fileDesc></meiHead>
+  >   <music><body><mdiv><score>
+  >     <scoreDef meter.count="3" meter.unit="32">
+  >       <staffGrp symbol="brace" bar.thru="true">
+  >         <staffDef n="1" lines="5" clef.shape="F" clef.line="4"/>
+  >         <staffDef n="2" lines="5" clef.shape="F" clef.line="4"/>
+  >       </staffGrp>
+  >     </scoreDef>
+  >     <section>
+  >       <measure n="1">
+  >         <staff n="1"><layer n="1"><space dur="32"/><note xml:id="e" dur="32" pname="e" oct="3" stem.dir="down"/><space dur="32"/></layer></staff>
+  >         <staff n="2"><layer n="1"><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><space dur="32"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></layer></staff>
+  >         <beamSpan staff="2" plist="#bb #e #bn" startid="#bb" endid="#bn"/>
+  >       </measure>
+  >     </section>
+  >   </score></mdiv></body></music>
+  > </mei>
+  > ```
+  >
+  > With `<beam>` (correct: three lines throughout), the same file with this measure:
+  >
+  > ```xml
+  > <measure n="1">
+  >   <staff n="1"><layer n="1"><space dur="16" dots="1"/></layer></staff>
+  >   <staff n="2"><layer n="1"><beam><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><note xml:id="e" dur="32" pname="e" oct="3" staff="1" stem.dir="down"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></beam></layer></staff>
+  > </measure>
+  > ```
 
-- **Expected:** three strokes from the first to the last note, as with `<beam>`.
+- **Render for the issue:** load both files with `spacingLinear` and `spacingNonLinear` at `1.0` (the default spacing crowds the three notes too tightly to count the beam lines).
+
+### 2b. `@vgrp` does not line up a `tempo` with `dir`s (to recheck)
+
+- **Status:** observed in Verovio 6.3.0 on movement I, 2026-10-13: with the same `@vgrp` on every "rit." `dir` and "tempo" `dir`, Verovio sets them on one line per system. Making the "tempo"s `tempo` elements with the same `@vgrp` puts them on a line of their own. Check whether this is intended before filing; MEI does not limit `@vgrp` to one element type.
 
 ### 3. No page heading from `meiHead` (to recheck)
 

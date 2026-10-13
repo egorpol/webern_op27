@@ -26,3 +26,5 @@ The two edited files carry the same changes. The only difference is that the int
 Summary: page 1 of the UE print (printed p. 3, bars 1–18) is enriched with stems, beams, slurs, dynamics, hairpins and text directives. Clefs, page/system breaks and key signatures cover the whole movement. No pitches, durations or measure structure changed.
 
 Provenance note: the edited `projectDesc` says the clefs/keySig were "aligned to the UE print via the DCMLab reference". DCMLab `WebernNo1.mxl` is an export of MuseScore score 4917023, which was rejected as a base (license not PD), and `sources.json` records no license for it. For the edition, check each clef change against the UE scan and cite UE as the authority (proofreading layer: staff/cross-staff/clefs).
+
+Checked 2026-10-13: the editor compared every clef in movement I with the UE scan; all match the print.

@@ -40,8 +40,8 @@ The page and system breaks are checked once per page: `pb` before the first bar 
 ## Known places to check
 
 - **I, bars 1–18:** enriched from the print by hand (stems, beams, slurs, dynamics, hairpins, text). These have not yet been proofread layer by layer.
-- **I, bars 3–51:** clef changes were aligned "via the DCMLab reference", an export of a MuseScore score that may not be reused. Check every clef against the scan and keep only what the print shows.
-- **I, bar 1:** the tempo mark lacks `@mm`, `@mm.unit` and `@mm.dots`.
+- **I, bars 3–51:** clef changes were aligned "via the DCMLab reference", an export of a MuseScore score that may not be reused. Check every clef against the scan and keep only what the print shows. Done 2026-10-13: the editor checked every clef; all match the print.
+- **I, bar 1:** the tempo mark lacks `@mm`, `@mm.unit` and `@mm.dots`. Done 2026-10-13: `mm="40" mm.unit="8" mm.dots="1"`.
 - **II:** the Kern source is unfinished; expect gaps in every layer. Bars 10, 15 and 16 have one staff that holds only an `mSpace`.
 - **III:** tempo changes are missing.
 
