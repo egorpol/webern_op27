@@ -131,6 +131,46 @@
       <revisionDesc>
          <change isodate="2026-10-13" resp="#resp.editor">
             <changeDesc>
+               <p>Between-staff dynamics set clear of the cross-staff beams and stems, where the print has them: left of the stem with @ho on L64F3, L76F3, L97F3, L103F3, L124F3, L127F3, L131F3, L139F3 and L174F3; below the beam with @vo on L80F3, L85F3, L90F3, L92F3, L152F3, L155F3 and L158F3; above the beam on L133F3. The natural on L167F1 without the caution values, as the encoding profile asks for added accidentals.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>Bar 21: staff-1 rest L167F2 replaced with space (cross-staff E occupies that slot).</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>UE system 5 (bars 19–22, printed p. 6): dynamics L152F3, L155F3, L158F3, L165F3 and L174F3 anchored by @startid; accent place on L155F2 (above) and L157F1 (below); cross-bar beamSpan L155F2–L157F1; grace notes in bar 21 kept outside the principal beam (beamSpan L165F1–L167F1), with a written natural on L167F1.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>Bars 12–13 and 18 (follow-up to systems 3–4): beamSpan L108F1–L111F2 place="below" with stem.dir down on both L108F1 and L111F2; bar 18 graces L144F2 and L146F2 taken out of the beam, principal notes joined by beamSpan L145F2–L147F2.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>UE system 4 (bars 15–18, printed p. 6): dynamics L124F3, L127F3, L131F3, L133F3, L139F3 and L145F3 anchored by @startid; accent place on L124F1 (below) and L125F1 (above); stem.dir on L133F1 (up), L135F2 (down) and L145F2 (down); cross-bar beamSpan L131F1–L135F2 (C–F♯–D♭–F).</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>UE system 3 (bars 10–14, printed p. 6): dynamics L90F3, L92F3, L97F3, L103F3, L108F3, L113F3 and L118F3 anchored by @startid; stem.dir on L111F2 (up, for the cross-bar beam), L118F1 (up) and L119F2 (down); cross-bar beamSpans L90F2–L94F2 (C♯–F–C–F♯) and L108F1–L111F2 as printed.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>UE system 2 (bars 5–9, printed p. 6): dynamics L55F3, L58F3, L64F3, L70F3, L76F3, L80F3 and L85F3 anchored by @startid; stem.dir on L58F2 (down), L61F1 (up), L70F1 (up), L71F2 (down), L80F2 (down) and L83F1 (up); accent place on L80F2 (above) and L83F1 (below); cross-bar beamSpans L58F2–L61F1 and L80F2–L83F1 as printed.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
+               <p>UE system 1 (bars 0–4, printed p. 6): dynamics L22F3, L27F3, L33F3, L37F3, L44F3 and L50F3 anchored by @startid; stem.dir on the tenuto quarters L33F1 (up) and L34F2 (down) and on the grace L36F1 (up); accent place on the chords L44F1 (below) and L46F2 (above); cross-bar beamSpan L44F1–L46F2 for the printed beamed accented pair.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-13" resp="#resp.editor">
+            <changeDesc>
                <p>The opening tempo mark (printed "Sehr schnell", quarter note = ca 160) now carries the metronome mark as mm="160" mm.unit="4" and place="above", as in movement I.</p>
             </changeDesc>
          </change>
@@ -242,7 +282,7 @@
                         <tempo xml:id="ue1937-II-tempo-L10F1" place="above" staff="1" tstamp="1" mm="160" mm.unit="4">
                            <rend xml:id="ue1937-II-cpakwbu">Sehr schnell </rend>
                            <symbol xml:id="ue1937-II-d1efc9oq" glyph.auth="smufl" glyph.name="metNoteQuarterUp" fontsize="70%" /> = ca 160</tempo>
-                        <dynam xml:id="ue1937-II-dynam-L22F3" place="between" staff="1 2" tstamp="1">
+                        <dynam xml:id="ue1937-II-dynam-L22F3" place="between" staff="1 2" startid="#ue1937-II-note-L22F1">
                            <rend xml:id="ue1937-II-j499npu" halign="right" fontsize="large" fontweight="bold">f</rend>
                         </dynam>
                         <slur xml:id="ue1937-II-slur-L22F1-L23F1" staff="2" startid="#ue1937-II-note-L22F1" endid="#ue1937-II-note-L23F1" />
@@ -275,13 +315,13 @@
                               <clef xml:id="ue1937-II-clef-L31F1" shape="F" line="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L27F3" place="between" staff="1 2" tstamp="1.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L27F3" place="between" staff="1 2" startid="#ue1937-II-note-L27F1">p</dynam>
                      </measure>
                      <measure xml:id="ue1937-II-m002" n="2" facs="#zone-ue1937-II-m002">
                         <staff xml:id="ue1937-II-staff-L32F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L32F2N1" n="1">
                               <rest xml:id="ue1937-II-rest-L33F2" dur="8" />
-                              <note xml:id="ue1937-II-note-L34F2" dur="4" oct="5" pname="f">
+                              <note xml:id="ue1937-II-note-L34F2" dur="4" oct="5" pname="f" stem.dir="down">
                                  <accid xml:id="ue1937-II-accid-L34F2" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L34F2" artic="ten" />
                               </note>
@@ -290,11 +330,11 @@
                         </staff>
                         <staff xml:id="ue1937-II-staff-L32F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L32F1N1" n="1">
-                              <note xml:id="ue1937-II-note-L33F1" dur="4" oct="4" pname="c" accid="s">
+                              <note xml:id="ue1937-II-note-L33F1" dur="4" oct="4" pname="c" accid="s" stem.dir="up">
                                  <artic xml:id="ue1937-II-artic-L33F1" artic="ten" />
                               </note>
                               <rest xml:id="ue1937-II-rest-L35F1" dur="8" />
-                              <note xml:id="ue1937-II-note-L36F1" dur="8" oct="2" pname="b" grace="unacc">
+                              <note xml:id="ue1937-II-note-L36F1" dur="8" oct="2" pname="b" grace="unacc" stem.dir="up">
                                  <accid xml:id="ue1937-II-accid-L36F1" type="caution" accid="n" func="caution" />
                               </note>
                               <note xml:id="ue1937-II-note-L37F1" type="placed" dur="8" oct="3" pname="d" stem.dir="up">
@@ -303,8 +343,8 @@
                               </note>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L33F3" place="between" staff="1 2" tstamp="1">f</dynam>
-                        <dynam xml:id="ue1937-II-dynam-L37F3" place="between" staff="1 2" tstamp="2.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L33F3" place="between" staff="1 2" startid="#ue1937-II-note-L33F1">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L37F3" place="between" staff="1 2" startid="#ue1937-II-note-L37F1">p</dynam>
                         <slur xml:id="ue1937-II-slur-L36F1-L37F1" staff="2" startid="#ue1937-II-note-L36F1" endid="#ue1937-II-note-L37F1" />
                         <beamSpan xml:id="ue1937-II-beamSpan-L37F1-L40F2" staff="2" plist="#ue1937-II-note-L37F1 #ue1937-II-note-L40F2" startid="#ue1937-II-note-L37F1" endid="#ue1937-II-note-L40F2" />
                      </measure>
@@ -333,12 +373,13 @@
                                  <note xml:id="ue1937-II-note-L44F1S3" oct="5" pname="f">
                                     <accid xml:id="ue1937-II-accid-L44F1S3" type="caution" accid="n" func="caution" />
                                  </note>
-                                 <artic xml:id="ue1937-II-artic-L44F1" artic="acc" />
+                                 <artic xml:id="ue1937-II-artic-L44F1" artic="acc" place="below" />
                               </chord>
                            </layer>
                         </staff>
                         <slur xml:id="ue1937-II-slur-L39F2-L40F2" type="placed" staff="1" startid="#ue1937-II-note-L39F2" endid="#ue1937-II-note-L40F2" curvedir="above" />
-                        <dynam xml:id="ue1937-II-dynam-L44F3" place="between" staff="1 2" tstamp="2.5">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L44F3" place="between" staff="1 2" startid="#ue1937-II-chord-L44F1">f</dynam>
+                        <beamSpan xml:id="ue1937-II-beamSpan-L44F1-L46F2" staff="2" plist="#ue1937-II-chord-L44F1 #ue1937-II-chord-L46F2" startid="#ue1937-II-chord-L44F1" endid="#ue1937-II-chord-L46F2" />
                      </measure>
                      <measure xml:id="ue1937-II-m004" n="4" facs="#zone-ue1937-II-m004">
                         <staff xml:id="ue1937-II-staff-L45F2N1" n="1">
@@ -349,7 +390,7 @@
                                  <note xml:id="ue1937-II-note-L46F2S3" oct="5" pname="c">
                                     <accid xml:id="ue1937-II-accid-L46F2S3" type="caution" accid="n" func="caution" />
                                  </note>
-                                 <artic xml:id="ue1937-II-artic-L46F2" artic="acc" />
+                                 <artic xml:id="ue1937-II-artic-L46F2" artic="acc" place="above" />
                               </chord>
                               <rest xml:id="ue1937-II-rest-L47F2" dur="8" />
                               <clef xml:id="ue1937-II-clef-L48F2" shape="F" line="4" />
@@ -369,7 +410,7 @@
                               <space xml:id="ue1937-II-space-L50F1" dur="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L50F3" place="between" staff="1 2" tstamp="2">
+                        <dynam xml:id="ue1937-II-dynam-L50F3" place="between" staff="1 2" startid="#ue1937-II-note-L50F2">
                            <rend xml:id="ue1937-II-m2z9jzv" halign="right" fontsize="large" fontweight="bold">p</rend>
                         </dynam>
                         <slur xml:id="ue1937-II-slur-L50F2-L51F2" staff="2" startid="#ue1937-II-note-L50F2" endid="#ue1937-II-note-L51F2" />
@@ -384,7 +425,7 @@
                                  <note xml:id="ue1937-II-note-L56F2" type="placed" dur="8" staff="2" oct="5" pname="b" stem.dir="up" accid="f" />
                               </beam>
                               <clef xml:id="ue1937-II-clef-L57F2" shape="G" line="2" />
-                              <note xml:id="ue1937-II-note-L58F2" dur="8" oct="6" pname="g">
+                              <note xml:id="ue1937-II-note-L58F2" dur="8" oct="6" pname="g" stem.dir="down">
                                  <accid xml:id="ue1937-II-accid-L58F2" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L58F2" artic="stacc" />
                               </note>
@@ -398,9 +439,10 @@
                               <clef xml:id="ue1937-II-clef-L59F1" shape="F" line="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L55F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L55F3" place="between" staff="1 2" startid="#ue1937-II-note-L55F2">f</dynam>
                         <slur xml:id="ue1937-II-slur-L55F2-L56F2" staff="1" startid="#ue1937-II-note-L55F2" endid="#ue1937-II-note-L56F2" />
-                        <dynam xml:id="ue1937-II-dynam-L58F3" place="between" staff="1 2" tstamp="2.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L58F3" place="between" staff="1 2" startid="#ue1937-II-note-L58F2">p</dynam>
+                        <beamSpan xml:id="ue1937-II-beamSpan-L58F2-L61F1" staff="1" plist="#ue1937-II-note-L58F2 #ue1937-II-note-L61F1" startid="#ue1937-II-note-L58F2" endid="#ue1937-II-note-L61F1" />
                      </measure>
                      <measure xml:id="ue1937-II-m006" n="6" facs="#zone-ue1937-II-m006">
                         <staff xml:id="ue1937-II-staff-L60F2N1" n="1">
@@ -422,7 +464,7 @@
                         </staff>
                         <staff xml:id="ue1937-II-staff-L60F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L60F1N1" n="1">
-                              <note xml:id="ue1937-II-note-L61F1" dur="8" oct="2" pname="b">
+                              <note xml:id="ue1937-II-note-L61F1" dur="8" oct="2" pname="b" stem.dir="up">
                                  <accid xml:id="ue1937-II-accid-L61F1" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L61F1" artic="stacc" />
                               </note>
@@ -433,14 +475,14 @@
                            </layer>
                         </staff>
                         <slur xml:id="ue1937-II-slur-L63F2-L64F2" type="placed" staff="2" startid="#ue1937-II-note-L63F2" endid="#ue1937-II-note-L64F2" curvedir="above" />
-                        <dynam xml:id="ue1937-II-dynam-L64F3" place="between" staff="1 2" tstamp="2">ff</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L64F3" place="between" staff="1 2" startid="#ue1937-II-note-L64F2" ho="-3">ff</dynam>
                         <slur xml:id="ue1937-II-slur-L65F2-L66F2" type="placed" staff="1" startid="#ue1937-II-note-L65F2" endid="#ue1937-II-note-L66F2" curvedir="above" />
                      </measure>
                      <measure xml:id="ue1937-II-m007" n="7" facs="#zone-ue1937-II-m007">
                         <staff xml:id="ue1937-II-staff-L68F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L68F2N1" n="1">
                               <rest xml:id="ue1937-II-rest-L69F2" dur="4" />
-                              <note xml:id="ue1937-II-note-L71F2" dur="4" oct="5" pname="c">
+                              <note xml:id="ue1937-II-note-L71F2" dur="4" oct="5" pname="c" stem.dir="down">
                                  <accid xml:id="ue1937-II-accid-L71F2" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L71F2" artic="ten" />
                               </note>
@@ -449,21 +491,21 @@
                         <staff xml:id="ue1937-II-staff-L68F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L68F1N1" n="1">
                               <rest xml:id="ue1937-II-rest-L69F1" dur="8" />
-                              <note xml:id="ue1937-II-note-L70F1" dur="4" oct="4" pname="f" accid="s">
+                              <note xml:id="ue1937-II-note-L70F1" dur="4" oct="4" pname="f" accid="s" stem.dir="up">
                                  <artic xml:id="ue1937-II-artic-L70F1" artic="ten" />
                               </note>
                               <rest xml:id="ue1937-II-rest-L72F1" dur="8" />
                               <clef xml:id="ue1937-II-clef-L73F1" shape="F" line="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L70F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L70F3" place="between" staff="1 2" startid="#ue1937-II-note-L70F1">f</dynam>
                      </measure>
                      <measure xml:id="ue1937-II-m008" n="8" facs="#zone-ue1937-II-m008">
                         <staff xml:id="ue1937-II-staff-L74F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L74F2N1" n="1">
                               <space xml:id="ue1937-II-space-L76F2" dur="4" />
                               <rest xml:id="ue1937-II-rest-L79F2" dur="8" />
-                              <chord xml:id="ue1937-II-chord-L80F2" dur="8">
+                              <chord xml:id="ue1937-II-chord-L80F2" dur="8" stem.dir="down">
                                  <note xml:id="ue1937-II-note-L80F2S1" oct="4" pname="b">
                                     <accid xml:id="ue1937-II-accid-L80F2S1" type="caution" accid="n" func="caution" />
                                  </note>
@@ -471,7 +513,7 @@
                                     <accid xml:id="ue1937-II-accid-L80F2S2" type="caution" accid="n" func="caution" />
                                  </note>
                                  <note xml:id="ue1937-II-note-L80F2S3" oct="5" pname="b" accid="f" />
-                                 <artic xml:id="ue1937-II-artic-L80F2" artic="acc" />
+                                 <artic xml:id="ue1937-II-artic-L80F2" artic="acc" place="above" />
                               </chord>
                            </layer>
                         </staff>
@@ -497,10 +539,11 @@
                               <clef xml:id="ue1937-II-clef-L81F1" shape="G" line="2" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L76F3" place="between" staff="1 2" tstamp="1">p</dynam>
-                        <dynam xml:id="ue1937-II-dynam-L80F3" place="between" staff="1 2" tstamp="2.5">ff</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L76F3" place="between" staff="1 2" startid="#ue1937-II-note-L76F1" ho="-2">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L80F3" place="between" staff="1 2" startid="#ue1937-II-chord-L80F2" vo="-2">ff</dynam>
                         <slur xml:id="ue1937-II-slur-L75F1-L76F1" type="placed" staff="2" startid="#ue1937-II-note-L75F1" endid="#ue1937-II-note-L76F1" curvedir="above" />
                         <slur xml:id="ue1937-II-slur-L77F1-L78F1" type="placed" staff="1" startid="#ue1937-II-note-L77F1" endid="#ue1937-II-note-L78F1" curvedir="above" />
+                        <beamSpan xml:id="ue1937-II-beamSpan-L80F2-L83F1" staff="1" plist="#ue1937-II-chord-L80F2 #ue1937-II-chord-L83F1" startid="#ue1937-II-chord-L80F2" endid="#ue1937-II-chord-L83F1" />
                      </measure>
                      <measure xml:id="ue1937-II-m009" n="9" facs="#zone-ue1937-II-m009">
                         <staff xml:id="ue1937-II-staff-L82F2N1" n="1">
@@ -520,19 +563,19 @@
                         </staff>
                         <staff xml:id="ue1937-II-staff-L82F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L82F1N1" n="1">
-                              <chord xml:id="ue1937-II-chord-L83F1" dur="8">
+                              <chord xml:id="ue1937-II-chord-L83F1" dur="8" stem.dir="up">
                                  <note xml:id="ue1937-II-note-L83F1S1" oct="3" pname="g" accid="s" />
                                  <note xml:id="ue1937-II-note-L83F1S2" oct="4" pname="c" accid="s" />
                                  <note xml:id="ue1937-II-note-L83F1S3" oct="4" pname="g">
                                     <accid xml:id="ue1937-II-accid-L83F1S3" type="caution" accid="n" func="caution" />
                                  </note>
-                                 <artic xml:id="ue1937-II-artic-L83F1" artic="acc" />
+                                 <artic xml:id="ue1937-II-artic-L83F1" artic="acc" place="below" />
                               </chord>
                               <rest xml:id="ue1937-II-rest-L84F1" dur="8" />
                               <space xml:id="ue1937-II-space-L85F1" dur="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L85F3" place="between" staff="1 2" tstamp="2">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L85F3" place="between" staff="1 2" startid="#ue1937-II-note-L85F2" vo="-3">p</dynam>
                      </measure>
                      <sb xml:id="ue1937-II-sb-before-m010" />
                      <measure xml:id="ue1937-II-m010" n="10" facs="#zone-ue1937-II-m010">
@@ -554,9 +597,10 @@
                               <mSpace xml:id="ue1937-II-mrest-L89F1" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L90F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L90F3" place="between" staff="1 2" startid="#ue1937-II-note-L90F2" vo="-2">f</dynam>
                         <slur xml:id="ue1937-II-slur-L90F2-L91F2" staff="1" startid="#ue1937-II-note-L90F2" endid="#ue1937-II-note-L91F2" />
-                        <dynam xml:id="ue1937-II-dynam-L92F3" place="between" staff="1 2" tstamp="2.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L92F3" place="between" staff="1 2" startid="#ue1937-II-note-L92F2" vo="-2">p</dynam>
+                        <beamSpan xml:id="ue1937-II-beamSpan-L90F2-L94F2" staff="1" plist="#ue1937-II-note-L90F2 #ue1937-II-note-L91F2 #ue1937-II-note-L92F2 #ue1937-II-note-L94F2" startid="#ue1937-II-note-L90F2" endid="#ue1937-II-note-L94F2" />
                      </measure>
                      <measure xml:id="ue1937-II-m011" right="rptend" n="11" facs="#zone-ue1937-II-m011">
                         <staff xml:id="ue1937-II-staff-L93F2N1" n="1">
@@ -578,7 +622,7 @@
                               <space xml:id="ue1937-II-space-L97F1" dur="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L97F3" place="between" staff="1 2" tstamp="2">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L97F3" place="between" staff="1 2" startid="#ue1937-II-note-L97F2" ho="-2">f</dynam>
                         <slur xml:id="ue1937-II-slur-L97F2-L98F2" staff="2" startid="#ue1937-II-note-L97F2" endid="#ue1937-II-note-L98F2" />
                      </measure>
                   </section>
@@ -614,8 +658,9 @@
                               </note>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L103F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
-                        <dynam xml:id="ue1937-II-dynam-L108F3" place="below" staff="2" tstamp="2.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L103F3" place="between" staff="1 2" startid="#ue1937-II-note-L103F1" ho="-2">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L108F3" place="below" staff="2" startid="#ue1937-II-note-L108F1">p</dynam>
+                        <beamSpan xml:id="ue1937-II-beamSpan-L108F1-L111F2" staff="2" place="below" plist="#ue1937-II-note-L108F1 #ue1937-II-note-L111F2" startid="#ue1937-II-note-L108F1" endid="#ue1937-II-note-L111F2" />
                      </measure>
                      <measure xml:id="ue1937-II-m013" n="13" facs="#zone-ue1937-II-m013">
                         <staff xml:id="ue1937-II-staff-L110F2N1" n="1">
@@ -645,13 +690,13 @@
                               </beam>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L113F3" place="between" staff="1 2" tstamp="2">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L113F3" place="between" staff="1 2" startid="#ue1937-II-note-L113F1">p</dynam>
                      </measure>
                      <measure xml:id="ue1937-II-m014" n="14" facs="#zone-ue1937-II-m014">
                         <staff xml:id="ue1937-II-staff-L116F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L116F2N1" n="1">
                               <rest xml:id="ue1937-II-rest-L117F2" dur="4" />
-                              <note xml:id="ue1937-II-note-L119F2" dur="4" oct="5" pname="c">
+                              <note xml:id="ue1937-II-note-L119F2" dur="4" oct="5" pname="c" stem.dir="down">
                                  <accid xml:id="ue1937-II-accid-L119F2" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L119F2" artic="ten" />
                               </note>
@@ -660,14 +705,14 @@
                         <staff xml:id="ue1937-II-staff-L116F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L116F1N1" n="1">
                               <rest xml:id="ue1937-II-rest-L117F1" dur="8" />
-                              <note xml:id="ue1937-II-note-L118F1" dur="4" oct="4" pname="f" accid="s">
+                              <note xml:id="ue1937-II-note-L118F1" dur="4" oct="4" pname="f" accid="s" stem.dir="up">
                                  <artic xml:id="ue1937-II-artic-L118F1" artic="ten" />
                               </note>
                               <rest xml:id="ue1937-II-rest-L120F1" dur="8" />
                               <clef xml:id="ue1937-II-clef-L121F1" shape="F" line="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L118F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L118F3" place="between" staff="1 2" startid="#ue1937-II-note-L118F1">f</dynam>
                      </measure>
                      <sb xml:id="ue1937-II-sb-before-m015" />
                      <measure xml:id="ue1937-II-m015" n="15" facs="#zone-ue1937-II-m015">
@@ -685,7 +730,7 @@
                                     <note xml:id="ue1937-II-note-L124F1S3" oct="4" pname="d">
                                        <accid xml:id="ue1937-II-accid-L124F1S3" type="caution" accid="n" func="caution" />
                                     </note>
-                                    <artic xml:id="ue1937-II-artic-L124F1" artic="acc" />
+                                    <artic xml:id="ue1937-II-artic-L124F1" artic="acc" place="below" />
                                  </chord>
                                  <chord xml:id="ue1937-II-chord-L125F1" type="placed" dur="8" staff="1" stem.dir="down">
                                     <note xml:id="ue1937-II-note-L125F1S1" oct="5" pname="e">
@@ -693,7 +738,7 @@
                                     </note>
                                     <note xml:id="ue1937-II-note-L125F1S2" oct="5" pname="b" accid="f" />
                                     <note xml:id="ue1937-II-note-L125F1S3" oct="6" pname="e" accid="f" />
-                                    <artic xml:id="ue1937-II-artic-L125F1" artic="acc" />
+                                    <artic xml:id="ue1937-II-artic-L125F1" artic="acc" place="above" />
                                  </chord>
                               </beam>
                               <clef xml:id="ue1937-II-clef-L126F1" shape="G" line="2" />
@@ -707,8 +752,8 @@
                               </beam>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L124F3" place="between" staff="1 2" tstamp="1">ff</dynam>
-                        <dynam xml:id="ue1937-II-dynam-L127F3" place="between" staff="1 2" tstamp="2">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L124F3" place="between" staff="1 2" startid="#ue1937-II-chord-L124F1" ho="-3">ff</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L127F3" place="between" staff="1 2" startid="#ue1937-II-note-L127F1" ho="-2">p</dynam>
                         <slur xml:id="ue1937-II-slur-L127F1-L128F1" staff="2" startid="#ue1937-II-note-L127F1" endid="#ue1937-II-note-L128F1" />
                      </measure>
                      <measure xml:id="ue1937-II-m016" n="16" facs="#zone-ue1937-II-m016">
@@ -724,19 +769,20 @@
                                  <accid xml:id="ue1937-II-accid-L131F1" type="caution" accid="n" func="caution" />
                               </note>
                               <note xml:id="ue1937-II-note-L132F1" type="placed" dur="8" staff="1" oct="4" pname="f" stem.dir="down" accid="s" />
-                              <note xml:id="ue1937-II-note-L133F1" dur="8" oct="4" pname="d" accid="f">
+                              <note xml:id="ue1937-II-note-L133F1" dur="8" oct="4" pname="d" accid="f" stem.dir="up">
                                  <artic xml:id="ue1937-II-artic-L133F1" artic="stacc" />
                               </note>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L131F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
-                        <dynam xml:id="ue1937-II-dynam-L133F3" place="between" staff="1 2" tstamp="2.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L131F3" place="between" staff="1 2" startid="#ue1937-II-note-L131F1" ho="-2">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L133F3" place="between" staff="1 2" startid="#ue1937-II-note-L133F1" vo="1">p</dynam>
                         <slur xml:id="ue1937-II-slur-L131F1-L132F1" staff="2" startid="#ue1937-II-note-L131F1" endid="#ue1937-II-note-L132F1" />
+                        <beamSpan xml:id="ue1937-II-beamSpan-L131F1-L135F2" staff="2" plist="#ue1937-II-note-L131F1 #ue1937-II-note-L132F1 #ue1937-II-note-L133F1 #ue1937-II-note-L135F2" startid="#ue1937-II-note-L131F1" endid="#ue1937-II-note-L135F2" />
                      </measure>
                      <measure xml:id="ue1937-II-m017" n="17" facs="#zone-ue1937-II-m017">
                         <staff xml:id="ue1937-II-staff-L134F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L134F2N1" n="1">
-                              <note xml:id="ue1937-II-note-L135F2" dur="8" oct="5" pname="f">
+                              <note xml:id="ue1937-II-note-L135F2" dur="8" oct="5" pname="f" stem.dir="down">
                                  <accid xml:id="ue1937-II-accid-L135F2" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L135F2" artic="stacc" />
                               </note>
@@ -764,7 +810,7 @@
                               </beam>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L139F3" place="between" staff="1 2" tstamp="2">ff</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L139F3" place="between" staff="1 2" startid="#ue1937-II-note-L139F1" ho="-3">ff</dynam>
                         <slur xml:id="ue1937-II-slur-L138F1-L139F1" type="placed" staff="2" startid="#ue1937-II-note-L138F1" endid="#ue1937-II-note-L139F1" curvedir="above" />
                         <slur xml:id="ue1937-II-slur-L140F1-L141F1" type="placed" staff="1" startid="#ue1937-II-note-L140F1" endid="#ue1937-II-note-L141F1" curvedir="above" />
                      </measure>
@@ -773,7 +819,7 @@
                            <layer xml:id="ue1937-II-layer-L142F2N1" n="1">
                               <rest xml:id="ue1937-II-rest-L143F2" dur="8" />
                               <note xml:id="ue1937-II-note-L144F2" type="placed" dur="8" oct="5" pname="b" grace="unacc" stem.dir="down" accid="f" />
-                              <note xml:id="ue1937-II-note-L145F2" dur="8" oct="5" pname="c">
+                              <note xml:id="ue1937-II-note-L145F2" dur="8" oct="5" pname="c" stem.dir="down">
                                  <accid xml:id="ue1937-II-accid-L145F2" type="caution" accid="n" func="caution" />
                                  <artic xml:id="ue1937-II-artic-L145F2" artic="stacc" />
                               </note>
@@ -792,8 +838,9 @@
                            </layer>
                         </staff>
                         <slur xml:id="ue1937-II-slur-L144F2-L145F2" type="placed" staff="1" startid="#ue1937-II-note-L144F2" endid="#ue1937-II-note-L145F2" curvedir="above" />
-                        <dynam xml:id="ue1937-II-dynam-L145F3" place="between" staff="1 2" tstamp="1.5">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L145F3" place="between" staff="1 2" startid="#ue1937-II-note-L145F2">f</dynam>
                         <slur xml:id="ue1937-II-slur-L146F2-L147F2" type="placed" staff="1" startid="#ue1937-II-note-L146F2" endid="#ue1937-II-note-L147F2" curvedir="above" />
+                        <beamSpan xml:id="ue1937-II-beamSpan-L145F2-L147F2" staff="1" plist="#ue1937-II-note-L145F2 #ue1937-II-note-L147F2" startid="#ue1937-II-note-L145F2" endid="#ue1937-II-note-L147F2" />
                      </measure>
                      <sb xml:id="ue1937-II-sb-before-m019" />
                      <measure xml:id="ue1937-II-m019" n="19" facs="#zone-ue1937-II-m019">
@@ -818,7 +865,7 @@
                                  <note xml:id="ue1937-II-note-L155F2S3" oct="5" pname="f">
                                     <accid xml:id="ue1937-II-accid-L155F2S3" type="caution" accid="n" func="caution" />
                                  </note>
-                                 <artic xml:id="ue1937-II-artic-L155F2" artic="acc" />
+                                 <artic xml:id="ue1937-II-artic-L155F2" artic="acc" place="above" />
                               </chord>
                            </layer>
                         </staff>
@@ -828,8 +875,9 @@
                               <rest xml:id="ue1937-II-rest-L154F1" dur="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L152F3" place="between" staff="1 2" tstamp="1">p</dynam>
-                        <dynam xml:id="ue1937-II-dynam-L155F3" place="between" staff="1 2" tstamp="2.5">ff</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L152F3" place="between" staff="1 2" startid="#ue1937-II-note-L152F2" vo="-4">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L155F3" place="between" staff="1 2" startid="#ue1937-II-chord-L155F2" vo="-2">ff</dynam>
+                        <beamSpan xml:id="ue1937-II-beamSpan-L155F2-L157F1" staff="1" plist="#ue1937-II-chord-L155F2 #ue1937-II-chord-L157F1" startid="#ue1937-II-chord-L155F2" endid="#ue1937-II-chord-L157F1" />
                      </measure>
                      <measure xml:id="ue1937-II-m020" n="20" facs="#zone-ue1937-II-m020">
                         <staff xml:id="ue1937-II-staff-L156F2N1" n="1">
@@ -856,45 +904,45 @@
                                  <note xml:id="ue1937-II-note-L157F1S3" oct="5" pname="c">
                                     <accid xml:id="ue1937-II-accid-L157F1S3" type="caution" accid="n" func="caution" />
                                  </note>
-                                 <artic xml:id="ue1937-II-artic-L157F1" artic="acc" />
+                                 <artic xml:id="ue1937-II-artic-L157F1" artic="acc" place="below" />
                               </chord>
                               <space xml:id="ue1937-II-space-L158F1" dur="4" />
                               <rest xml:id="ue1937-II-rest-L160F1" dur="8" />
                               <clef xml:id="ue1937-II-clef-L161F1" shape="F" line="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L158F3" place="between" staff="1 2" tstamp="1.5">p</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L158F3" place="between" staff="1 2" startid="#ue1937-II-note-L158F2" vo="-4">p</dynam>
                         <slur xml:id="ue1937-II-slur-L158F2-L159F2" staff="1" startid="#ue1937-II-note-L158F2" endid="#ue1937-II-note-L159F2" />
                      </measure>
                      <measure xml:id="ue1937-II-m021" n="21" facs="#zone-ue1937-II-m021">
                         <staff xml:id="ue1937-II-staff-L162F2N1" n="1">
                            <layer xml:id="ue1937-II-layer-L162F2N1" n="1">
                               <space xml:id="ue1937-II-space-L165F2" dur="8" />
-                              <rest xml:id="ue1937-II-rest-L167F2" dur="8" />
+                              <space xml:id="ue1937-II-space-L167F2" dur="8" />
                               <rest xml:id="ue1937-II-rest-L168F2" dur="4" />
                            </layer>
                         </staff>
                         <staff xml:id="ue1937-II-staff-L162F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L162F1N1" n="1">
                               <note xml:id="ue1937-II-note-L163F1" type="placed" dur="8" oct="4" pname="e" grace="unacc" stem.dir="down" accid="f" />
-                              <beam xml:id="ue1937-II-beam-L165F1-L167F1">
-                                 <note xml:id="ue1937-II-note-L165F1" type="placed" dur="8" oct="3" pname="d" stem.dir="up">
-                                    <accid xml:id="ue1937-II-accid-L165F1" type="caution" accid="n" func="caution" />
-                                    <artic xml:id="ue1937-II-artic-L165F1" artic="stacc" />
-                                 </note>
-                                 <note xml:id="ue1937-II-note-L166F1" type="placed" dur="8" staff="1" oct="5" pname="d" grace="unacc" stem.dir="down" accid="s" />
-                                 <note xml:id="ue1937-II-note-L167F1" dur="8" staff="1" oct="6" pname="e" stem.dir="down">
-                                    <artic xml:id="ue1937-II-artic-L167F1" artic="stacc" />
-                                 </note>
-                              </beam>
+                              <note xml:id="ue1937-II-note-L165F1" type="placed" dur="8" oct="3" pname="d" stem.dir="up">
+                                 <accid xml:id="ue1937-II-accid-L165F1" type="caution" accid="n" func="caution" />
+                                 <artic xml:id="ue1937-II-artic-L165F1" artic="stacc" />
+                              </note>
+                              <note xml:id="ue1937-II-note-L166F1" type="placed" dur="8" staff="1" oct="5" pname="d" grace="unacc" stem.dir="down" accid="s" />
+                              <note xml:id="ue1937-II-note-L167F1" dur="8" staff="1" oct="6" pname="e" stem.dir="down">
+                                 <accid xml:id="ue1937-II-accid-L167F1" accid="n" />
+                                 <artic xml:id="ue1937-II-artic-L167F1" artic="stacc" />
+                              </note>
                               <rest xml:id="ue1937-II-rest-L168F1" dur="4" />
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L165F3" place="between" staff="1 2" tstamp="1">
+                        <dynam xml:id="ue1937-II-dynam-L165F3" place="between" staff="1 2" startid="#ue1937-II-note-L165F1">
                            <rend xml:id="ue1937-II-lkas2lw" halign="right" fontsize="large" fontweight="bold">ff</rend>
                         </dynam>
                         <slur xml:id="ue1937-II-slur-L163F1-L165F1" type="placed" staff="2" startid="#ue1937-II-note-L163F1" endid="#ue1937-II-note-L165F1" curvedir="above" />
                         <slur xml:id="ue1937-II-slur-L166F1-L167F1" type="placed" staff="1" startid="#ue1937-II-note-L166F1" endid="#ue1937-II-note-L167F1" curvedir="above" />
+                        <beamSpan xml:id="ue1937-II-beamSpan-L165F1-L167F1" staff="2" plist="#ue1937-II-note-L165F1 #ue1937-II-note-L167F1" startid="#ue1937-II-note-L165F1" endid="#ue1937-II-note-L167F1" />
                      </measure>
                      <measure xml:id="ue1937-II-m022" right="rptend" n="22" facs="#zone-ue1937-II-m022">
                         <staff xml:id="ue1937-II-staff-L170F2N1" n="1">
@@ -914,7 +962,7 @@
                               </beam>
                            </layer>
                         </staff>
-                        <dynam xml:id="ue1937-II-dynam-L174F3" place="between" staff="1 2" tstamp="2">f</dynam>
+                        <dynam xml:id="ue1937-II-dynam-L174F3" place="between" staff="1 2" startid="#ue1937-II-note-L174F1" ho="-2">f</dynam>
                         <slur xml:id="ue1937-II-slur-L174F1-L175F1" staff="2" startid="#ue1937-II-note-L174F1" endid="#ue1937-II-note-L175F1" />
                      </measure>
                   </section>

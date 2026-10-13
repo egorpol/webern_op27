@@ -77,6 +77,13 @@ Oddities in Verovio and MEI found while encoding this edition, collected so they
 
 - **Status:** observed in Verovio 6.3.0 on movement I, 2026-10-13: with the same `@vgrp` on every "rit." `dir` and "tempo" `dir`, Verovio sets them on one line per system. Making the "tempo"s `tempo` elements with the same `@vgrp` puts them on a line of their own. Check whether this is intended before filing; MEI does not limit `@vgrp` to one element type.
 
+### 2c. A beam's distance from its notes cannot be set
+
+- **Status:** confirmed in Verovio 6.3.0 (rendered and source read) and on `develop` at `ca26508`, 2026-10-12 (source read). Already filed as [#932](https://github.com/rism-digital/verovio/issues/932), "@stem.len for notes/chords in beams" (open since 2018, no comments). Add this case there as a comment; no new issue.
+- **Where:** movement II, bars 12–13 (`ue1937-II-beamSpan-L108F1-L111F2`): G above the lower staff and B in the upper staff (bass clef), both stems down, one beam below. In the print the beam runs through the lower staff, from its second line up to just above its top line. Verovio sets it the standard 3.5 staff spaces below the G, above the lower staff.
+- **Cause:** `BeamSegment::CalcBeamStemLength` and `BeamElementCoord::CalculateStemLength` in `src/beam.cpp` take a beamed stem's length from the note's position and duration only. `@stem.len` is read in `src/stem.cpp` for unbeamed stems only. `beamSpan` parses `@slope` and `@beam.with`, but the layout uses neither. `@stem.len` on both notes and `beamSpan/@staff="1"` change nothing.
+- **Effect here:** the encoding (stem directions, `@place="below"`) is right, and only the beam's height differs from the print. The MEI records no stem length.
+
 ### 3. No page heading from `meiHead` (to recheck)
 
 - **Status:** to recheck. With Verovio 6.3, the edition headers draw no title or composer, so each movement repeats the printed head in a `pgHead`. Check which header fields Verovio reads for its automatic heading before filing.
