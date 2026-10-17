@@ -2,6 +2,8 @@
 
 An MEI 5.1 (CMN) encoding of Anton Webern's Variations for Piano, Op. 27, based on the Universal Edition print, plate U.E. 10881 (first edition Vienna, 1937), in the copy scanned as IMSLP file 28271, which was printed in 1965 or later. The aim is to encode all printed detail, including notes, stems and beams, slurs, articulations, dynamics, tempo and text, and to link every bar to its region on the printed page. The edition is built for [CAMAT](https://github.com/egorpol/camat_v2).
 
+View it in the browser: https://egorpol.github.io/webern_op27/
+
 ## Status
 
 Proofread against the print, system by system; corrections welcome before 1.0.
@@ -44,7 +46,7 @@ The encodings work without the images; only the facsimile view needs them.
 
 ## Viewer
 
-`site/` is a static page with no build step. Verovio 6.3.0 renders each movement in the browser with the encoded page and system breaks, so each rendered page is one printed page. Hovering shows a symbol's bar and `xml:id`, the editorial notes highlight the elements they refer to, and `#III/42` links to a bar. The scan is not published: visitors open their own copy of the IMSLP PDF, which pdf.js renders beside the score with the bar regions from the MEI. Its SHA-256 is checked against `pages.json`. The file is read in the browser, never uploaded, and kept in the browser's storage until "Close PDF".
+The viewer is published at https://egorpol.github.io/webern_op27/ (for example [movement III, bar 42](https://egorpol.github.io/webern_op27/#III/42)). `site/` is a static page with no build step. Verovio 6.3.0 renders each movement in the browser with the encoded page and system breaks, so each rendered page is one printed page. Hovering shows a symbol's bar and `xml:id`, the editorial notes highlight the elements they refer to, and `#III/42` links to a bar. The scan is not published: visitors open their own copy of the IMSLP PDF, which pdf.js renders beside the score with the bar regions from the MEI. Its SHA-256 is checked against `pages.json`. The file is read in the browser, never uploaded, and kept in the browser's storage until "Close PDF".
 
 `.github/workflows/pages.yml` publishes the viewer with GitHub Pages; `scripts/build_site.py` copies only the viewer, the MEI files and `pages.json`. To preview it locally:
 
