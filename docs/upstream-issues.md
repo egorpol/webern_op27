@@ -1,105 +1,147 @@
 # Upstream issues
 
-Oddities in Verovio and MEI found while encoding this edition, collected so they can be filed on [rism-digital/verovio](https://github.com/rism-digital/verovio/issues) or [music-encoding/music-encoding](https://github.com/music-encoding/music-encoding/issues). Each entry says what was checked and on which version. "Confirmed" means reproduced here; "to recheck" means it was observed earlier and needs a minimal example before filing.
+Verovio problems found while encoding this edition, collected so they can be filed on [rism-digital/verovio](https://github.com/rism-digital/verovio/issues). Every entry was rechecked on 2026-10-17 against Verovio 6.3.0 (`6.3.0-425dd7b`, the latest release) and the development version (`6.4.0-dev-3c322ca`, 2026-10-16). No commit on `develop` since 6.3.0 touches the beam, `beamSpan`, slur, page-header or vertical-group code. "To file" means a new issue is ready; the link replaces the note once it is posted.
 
 ## Verovio
 
 ### 1. Text extenders ignore `@lform`, `@lsegs` and `@lwidth`
 
-- **Status:** confirmed in Verovio 6.3.0 (the latest release, rendered) and on `develop` at `2788fea`, 2026-10-08 (source read). A feature request, not a regression.
+- **Status:** confirmed on 6.3.0 and `develop`. To file as a feature request. [#3646](https://github.com/rism-digital/verovio/issues/3646) ("@extender enhancements", closed 2024) is related, not the same.
 - **Where:** movement I, "rit." in bars 17–18 and 19–20 (`ue1937-I-dir-rit-m017`, `ue1937-I-dir-rit-m019`).
-- **What happens:** a `dir` with `@extender="true"` is drawn with the same dashed line whatever its line attributes say. Rendering the bar 17 "rit." with `lsegs="5"`, `lsegs="13"`, no `@lsegs`, `lform="dotted"` and `lwidth="narrow"` gives identical SVG: a dash 120 units long every 1200 units.
-- **Cause:** `View::DrawControlElementConnector` in `src/view_control.cpp`, used for `dir`, `dynam` and `tempo`, hard-codes the pattern: the dash length is 4/3 of a drawing unit (2/3 of a staff space), the period is 5/3 of the staff height (6 2/3 staff spaces), and the thickness comes from the `lyricLineThickness` option. The code comment reads "the length of the dash and the space between them - can be made a parameter". No toolkit option sets them; `extenderLineMinSpace` only suppresses short lines.
-- **Print for comparison:** UE 10881, p. 3, bars 17–18: 11 dashes about 0.8 staff spaces long, one every 4.1 staff spaces (16–17 px every 80 px at a staff space of 19.6 px, 300 dpi). The print is about 1.6 times as dense as Verovio's line.
+- **What happens:** a `dir` with `@extender="true"` is drawn with the same dashed line whatever its line attributes say. Ten variants (`lform="dashed" lsegs="11"`, `lsegs="5"`, `lsegs="30"`, none, `lform` dotted, solid and wavy, `lwidth` narrow, wide and `3vu`) give identical SVG: dashes 120 units long and 22 thick, one every 1200 units.
+- **Cause:** [`View::DrawControlElementConnector`](https://github.com/rism-digital/verovio/blob/version-6.3.0/src/view_control.cpp#L1269-L1276), used for `dir`, `dynam` and `tempo`, hard-codes the pattern: the dash is 2/3 of a staff space long, the period is 5/3 of the staff height, and the thickness comes from `lyricLineThickness`. The code comment reads "the length of the dash and the space between them - can be made a parameter". `extenderLineMinSpace` only suppresses short lines. Other line-like elements already honour these attributes: `@lform` on `hairpin`, `octave`, `bracketSpan`, `slur` and `tie`; `@lwidth` on `octave`, `bracketSpan` and `gliss`.
+- **Print for comparison:** UE 10881, p. 3, bars 17–18: 11 dashes about 0.8 staff spaces long, one every 4.1 staff spaces. The print is about 1.6 times as dense as Verovio's line.
 - **Minimal example:**
 
   ```xml
-  <dir staff="1" tstamp="1" tstamp2="1m+4" extender="true" lform="dashed" lsegs="11">rit.</dir>
+  <dir staff="1" place="above" tstamp="1" tstamp2="1m+4" extender="true" lform="dashed" lsegs="11">rit.</dir>
   ```
 
-- **Request:** honour `att.lineRend.base` on text extenders: `@lsegs` as the number of dashes, `@lform` (`dotted`, `solid`), `@lwidth`. Failing that, expose the dash length and gap as options, as the code comment suggests.
+- **Request:** honour `att.lineRend.base` on extender lines: `@lform` (solid, dashed, dotted), `@lwidth`, and `@lsegs` as the number of dashes. Failing that, add options for the dash length and the gap.
 
 ### 2. `beamSpan` not drawn (not reproduced)
 
-- **Status:** not reproduced; nothing to file. Rechecked 2026-10-13: rendered with encoded breaks, each of the 41 `beamSpan`s in the three files (I: 39, II: 1, III: 1) has beam polygons in Verovio 6.3.0's SVG. That includes movement II, bars 2–3 (`ue1937-II-beamSpan-L37F1-L40F2`), the case noted earlier, which was a one-note `beam` until the repair in `54e2992`. Movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`) is drawn once the stem directions are right, with one beam line too few at the start (2a).
-- **Side note:** `beamSpan/@staff="1 2"` makes Verovio 6.3.0 draw the beam twice (once per staff). Give the staff of the first note only.
+- **Status:** nothing to file. All 53 `beamSpan`s in the three files (I: 39, II: 10, III: 4) are drawn on 6.3.0 and `develop`. The case noted earlier, movement II bars 2–3, was a one-note `beam` until the repair in `54e2992`.
 
 ### 2a. `beamSpan` with opposite stem directions loses a secondary beam
 
-- **Status:** confirmed in Verovio 6.3.0 (`6.3.0-425dd7b`, Python package), rechecked 2026-10-13 with the minimal example below. Ready to file; the editor files it. GitHub search of 2026-10-13: no matching issue. The open mixed-beam issues are about articulations (#3933), chords (#2631), rests (#3660) and spacing (#1955); #2893 was a broken encoding. No commit on `develop` since 6.3.0 touches `beam.cpp` or `beamspan.cpp`.
-- **Where:** movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`): 32nds B♭ (lower staff, stem up), E (upper staff, stem down), B♮ (lower staff, stem up), one beam between the staves. The print has three beam lines throughout. `beamSpan/@staff="1"` and `@place="mixed"` change nothing.
-- **Issue text** (title and body; attach a render of both files side by side):
+- **Status:** confirmed on 6.3.0 and `develop`. To file. No matching issue: the open mixed-beam issues are about articulations (#3933), chords (#2631), rests (#3660), spacing (#1955) and #2895; #2893 was a broken encoding.
+- **Where:** movement I, bars 22–23 (`ue1937-I-beamSpan-L113F1-L114F2-L116F1`): 32nds B♭ (lower staff, stem up), E (upper staff, stem down), B♮ (lower staff, stem up), one beam between the staves. The print has three beam lines throughout.
+- **What happens:** Verovio draws two beam lines from the first note to the second and three from the second note on. The segments do not join at the second note's stem, and the first note's stem overshoots the top line by about half a staff space. The missing segments are computed but misplaced: the `beamSpan`'s SVG group has five polygons, two full-length lines, one segment from the second note to the third, and two segments from the first note to the second that lie exactly on top of the full-length lines. The same notes in a `<beam>`, with `@staff` on the middle note, get three lines throughout. `beamSpan/@staff` set to the other staff and `beamSpan/@place="mixed"` change nothing.
+- **Minimal example** (render with `spacingLinear` and `spacingNonLinear` at 1.0 so the lines can be counted):
 
-  > **beamSpan with mixed stem directions drops a secondary beam before the stem-down note**
-  >
-  > A `beamSpan` over three 32nd notes with stems up, down, up (the middle note in the other staff) draws two beam lines from the first to the second note and three from the second note on. The two segments also do not join at the second note's stem. The same three notes in a `<beam>`, with `@staff` on the middle note, get three beam lines throughout, as expected.
-  >
-  > The real case is a `beamSpan` across a barline (Webern, Variations Op. 27/I, bars 22–23); the minimal example has it inside one bar, with the same result. `beamSpan/@staff` set to the other staff and `beamSpan/@place="mixed"` make no difference.
-  >
-  > Verovio 6.3.0 (`6.3.0-425dd7b`). Not tested on `develop`, but no commit there since 6.3.0 touches `beam.cpp` or `beamspan.cpp`.
-  >
-  > With `beamSpan` (wrong: two lines up to the E):
-  >
-  > ```xml
-  > <?xml version="1.0" encoding="UTF-8"?>
-  > <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
-  >   <meiHead><fileDesc><titleStmt><title>beamSpan with mixed stems</title></titleStmt><pubStmt/></fileDesc></meiHead>
-  >   <music><body><mdiv><score>
-  >     <scoreDef meter.count="3" meter.unit="32">
-  >       <staffGrp symbol="brace" bar.thru="true">
-  >         <staffDef n="1" lines="5" clef.shape="F" clef.line="4"/>
-  >         <staffDef n="2" lines="5" clef.shape="F" clef.line="4"/>
-  >       </staffGrp>
-  >     </scoreDef>
-  >     <section>
-  >       <measure n="1">
-  >         <staff n="1"><layer n="1"><space dur="32"/><note xml:id="e" dur="32" pname="e" oct="3" stem.dir="down"/><space dur="32"/></layer></staff>
-  >         <staff n="2"><layer n="1"><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><space dur="32"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></layer></staff>
-  >         <beamSpan staff="2" plist="#bb #e #bn" startid="#bb" endid="#bn"/>
-  >       </measure>
-  >     </section>
-  >   </score></mdiv></body></music>
-  > </mei>
-  > ```
-  >
-  > With `<beam>` (correct: three lines throughout), the same file with this measure:
-  >
-  > ```xml
-  > <measure n="1">
-  >   <staff n="1"><layer n="1"><space dur="16" dots="1"/></layer></staff>
-  >   <staff n="2"><layer n="1"><beam><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><note xml:id="e" dur="32" pname="e" oct="3" staff="1" stem.dir="down"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></beam></layer></staff>
-  > </measure>
-  > ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
+    <meiHead><fileDesc><titleStmt><title>beamSpan with mixed stems</title></titleStmt><pubStmt/></fileDesc></meiHead>
+    <music><body><mdiv><score>
+      <scoreDef meter.count="3" meter.unit="32">
+        <staffGrp symbol="brace" bar.thru="true">
+          <staffDef n="1" lines="5" clef.shape="F" clef.line="4"/>
+          <staffDef n="2" lines="5" clef.shape="F" clef.line="4"/>
+        </staffGrp>
+      </scoreDef>
+      <section>
+        <measure n="1">
+          <staff n="1"><layer n="1"><space dur="32"/><note xml:id="e" dur="32" pname="e" oct="3" stem.dir="down"/><space dur="32"/></layer></staff>
+          <staff n="2"><layer n="1"><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><space dur="32"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></layer></staff>
+          <beamSpan staff="2" plist="#bb #e #bn" startid="#bb" endid="#bn"/>
+        </measure>
+      </section>
+    </score></mdiv></body></music>
+  </mei>
+  ```
 
-- **Render for the issue:** load both files with `spacingLinear` and `spacingNonLinear` at `1.0` (the default spacing crowds the three notes too tightly to count the beam lines).
+  For comparison, the same measure with a `<beam>` (correct):
 
-### 2b. `@vgrp` does not line up a `tempo` with `dir`s (to recheck)
+  ```xml
+  <measure n="1">
+    <staff n="1"><layer n="1"><space dur="16" dots="1"/></layer></staff>
+    <staff n="2"><layer n="1"><beam><note xml:id="bb" dur="32" pname="b" oct="2" accid="f" stem.dir="up"/><note xml:id="e" dur="32" pname="e" oct="3" staff="1" stem.dir="down"/><note xml:id="bn" dur="32" pname="b" oct="1" stem.dir="up"/></beam></layer></staff>
+  </measure>
+  ```
 
-- **Status:** observed in Verovio 6.3.0 on movement I, 2026-10-13: with the same `@vgrp` on every "rit." `dir` and "tempo" `dir`, Verovio sets them on one line per system. Making the "tempo"s `tempo` elements with the same `@vgrp` puts them on a line of their own. Check whether this is intended before filing; MEI does not limit `@vgrp` to one element type.
+### 2b. `@vgrp` does not line up a `tempo` with `dir`s
 
-### 2c. A beam's distance from its notes cannot be set
+- **Status:** known upstream; nothing to file. Verovio ignores `@vgrp` on `tempo` altogether, even between two `tempo`s: its `Tempo` class has no vertical-group attribute, and `@vgrp` is aligned only within {`dynam`, `hairpin`}, {`dir`}, {`pedal`}, {`harm`} and {`ending`}. Covered by the open issue [#1151](https://github.com/rism-digital/verovio/issues/1151) and the draft [PR #4407](https://github.com/rism-digital/verovio/pull/4407).
+- **Edition workaround:** the return "tempo" in movement I is a `dir` with the same `@vgrp` as the "rit."s (for example `ue1937-I-dir-tempo-L110F2`), which lines up in 6.3.0.
 
-- **Status:** confirmed in Verovio 6.3.0 (rendered and source read) and on `develop` at `ca26508`, 2026-10-12 (source read). Already filed as [#932](https://github.com/rism-digital/verovio/issues/932), "@stem.len for notes/chords in beams" (open since 2018, no comments). Add this case there as a comment; no new issue.
-- **Where:** movement II, bars 12–13 (`ue1937-II-beamSpan-L108F1-L111F2`): G above the lower staff and B in the upper staff (bass clef), both stems down, one beam below. In the print the beam runs through the lower staff, from its second line up to just above its top line. Verovio sets it the standard 3.5 staff spaces below the G, above the lower staff.
-- **Cause:** `BeamSegment::CalcBeamStemLength` and `BeamElementCoord::CalculateStemLength` in `src/beam.cpp` take a beamed stem's length from the note's position and duration only. `@stem.len` is read in `src/stem.cpp` for unbeamed stems only. `beamSpan` parses `@slope` and `@beam.with`, but the layout uses neither. `@stem.len` on both notes and `beamSpan/@staff="1"` change nothing.
-- **Effect here:** the encoding (stem directions, `@place="below"`) is right, and only the beam's height differs from the print. The MEI records no stem length.
+### 2c. `@stem.len` is ignored on `beamSpan` notes
 
-### 3. No page heading from `meiHead` (to recheck)
+- **Status:** confirmed on 6.3.0 and `develop`. Already filed as [#932](https://github.com/rism-digital/verovio/issues/932), "@stem.len for notes/chords in beams" (open since 2018, no comments). To add as a comment there.
+- **Where:** movement II, bars 12–13 (`ue1937-II-beamSpan-L108F1-L111F2`): G6 on the lower staff (treble clef) beamed to B2 on the upper staff (bass clef), both stems down, one beam below. In the print the G6 has a long stem and the beam runs through the lower staff. Verovio sets the beam the standard distance below the G6, above the lower staff.
+- **What happens:** with `stem.len="2"`, `"12"` or no `@stem.len` on both notes, the beam polygon is identical. Without the `beamSpan`, `stem.len="12"` lengthens the stem as expected. `BeamSegment::CalcBeamStemLength` and `BeamElementCoord::CalculateStemLength` in `src/beam.cpp` take a beamed stem's length from the note's position and duration only.
+- **Effect here:** the encoding (stem directions, `@place="below"`) is right; only the beam's height differs from the print. The MEI records no stem length.
 
-- **Status:** to recheck. With Verovio 6.3, the edition headers draw no title or composer, so each movement repeats the printed head in a `pgHead`. Check which header fields Verovio reads for its automatic heading before filing.
+### 2d. Grace-note slur to a chord member attaches beneath the whole chord
+
+- **Status:** confirmed on 6.3.0 and `develop`. Already reported as [#4313, Grace note slur attaches to lowest note in chord instead of target note](https://github.com/rism-digital/verovio/issues/4313) (open); its comment of 2026-09-24 shows the same pitched-note, direct-MEI case. Optionally, add this case there as a comment.
+- **Where:** movement III, bars 15 and 18. E♮4 grace to G♮4 above G♯3 (bar 15); G♯4 grace to B♭4 above B♮3 (bar 18). The print has short lower curves ending at the upper chord notes, separate from the longer cross-staff slurs.
+- **What happens:** with `endid` on the upper note and `curvedir="below"`, both slurs end about 4.5 staff spaces below their target, beneath the lower chord note. In bar 15, removing the longer slur or isolating the measure does not cure it. The same slur to a single note is fine, and `curvedir="above"` ends at the upper note.
+- **Encoding:** a rendering limitation, not a missing MEI mechanism. [MEI #367](https://github.com/music-encoding/music-encoding/issues/367#issuecomment-269642627) uses note-specific `@startid`/`@endid` for slurs to chord notes.
+- **Edition workaround:** the two slurs use `@curvedir="above"`; the note-specific endpoints remain encoded, and an `encoding-note` at each case records the printed lower curve. Bar 42, a grace slur to a single note, is printed above and is unchanged.
+- **Minimal example:** the lower curve should end at G4 inside the chord, not below G♯3.
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+    <meiHead><fileDesc><titleStmt><title>Grace slur to upper chord note</title></titleStmt><pubStmt/></fileDesc></meiHead>
+    <music><body><mdiv><score>
+      <scoreDef meter.count="1" meter.unit="4">
+        <staffGrp><staffDef n="1" lines="5"><clef shape="G" line="2"/></staffDef></staffGrp>
+      </scoreDef>
+      <section><measure n="1">
+        <staff n="1"><layer n="1">
+          <note xml:id="grace" dur="8" pname="e" oct="4" accid="n" grace="unacc" stem.dir="up"/>
+          <chord xml:id="chord" dur="4" stem.dir="up">
+            <note xml:id="lower" pname="g" oct="3" accid="s"/>
+            <note xml:id="upper" pname="g" oct="4" accid="n"/>
+          </chord>
+        </layer></staff>
+        <slur xml:id="graceSlur" staff="1" startid="#grace" endid="#upper" curvedir="below"/>
+      </measure></section>
+    </score></mdiv></body></music>
+  </mei>
+  ```
+
+### 2e. `beamSpan` does not avoid rests in its `@plist`
+
+- **Status:** confirmed on 6.3.0 and `develop`. To file. No matching issue (it was first filed here under 2c).
+- **Where:** movement III, bars 51–52 (`ue1937-III-beamSpan-L478F2-L482F2`): the beam continues across a system break over the eighth rest `ue1937-III-rest-L481F2` at the start of bar 52. The print keeps the rest in place and draws the beam lower.
+- **What happens:** with a `beamSpan`, Verovio leaves the rest at its default position and draws the beam through it, inside one bar, across a barline and across a system break alike. The same notes in a `<beam>` are handled: without an explicit rest position the rest moves clear of the beam, and with `rest/@ploc="b" @oloc="4"` the beam drops below the rest, which is the printed layout. `@stem.len` cannot be used as a workaround (2c). MEI 5.1 does not allow `@vo` on `beamSpan`.
+- **Minimal example** (wrapping the three events in `<beam>` instead avoids the rest):
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
+    <meiHead><fileDesc><titleStmt><title>beamSpan over a rest</title></titleStmt><pubStmt/></fileDesc></meiHead>
+    <music><body><mdiv><score>
+      <scoreDef meter.count="3" meter.unit="8">
+        <staffGrp><staffDef n="1" lines="5" clef.shape="G" clef.line="2"/></staffGrp>
+      </scoreDef>
+      <section>
+        <measure n="1">
+          <staff n="1"><layer n="1">
+            <note xml:id="e" dur="8" pname="e" oct="5" accid="f" stem.dir="down"/>
+            <rest xml:id="r" dur="8"/>
+            <note xml:id="d" dur="8" pname="d" oct="6" stem.dir="down"/>
+          </layer></staff>
+          <beamSpan staff="1" startid="#e" endid="#d" plist="#e #r #d"/>
+        </measure>
+      </section>
+    </score></mdiv></body></music>
+  </mei>
+  ```
+
+### 3. Page header from `meiHead` omits a composer wrapped in `persName`
+
+- **Status:** confirmed on 6.3.0 and `develop`; a regression since 4.4.0. To file.
+- **What happens:** with no encoded `pgHead`, Verovio builds a page header from `fileDesc/titleStmt`. The edition's header gives the titles ("Variations for Piano, Op. 27", "I") but no composer, because the composer is `<composer><persName>Anton Webern</persName></composer>`. `arranger`, `lyricist` and `respStmt/persName[@role]` are never used, and a `title` loses any text inside a `rend`. Verovio 4.3.1 drew `respStmt/persName[@role]`, but also a `persName` without `@role`: it printed the edition's editor where the composer goes.
+- **Cause:** [`src/pghead.cpp`](https://github.com/rism-digital/verovio/blob/version-6.3.0/src/pghead.cpp#L89-L106). The XPath `//fileDesc/titleStmt/composer|arranger|lyricist|respStmt/persName[…]` is a union of four paths of which only the first is anchored, so the other three never match (since a3078921b, first released in 4.4.0). The name is read with `node.text()`, which returns only the first direct text child; the node's string value would fix both the `persName` and the `rend` case.
+- **Edition workaround:** each movement repeats its printed head in a `pgHead` in the first `scoreDef`.
 
 ### Known behaviour, not issues
 
 - Verovio's MEI output is MEI 6.0-dev; it has no MEI 5 writer. Its MEI Basic output drops the facsimile, the header and many IDs. This is why the MEI files are edited as text.
+- `beamSpan/@staff="1 2"` makes Verovio draw the beam once per staff, as it does for any control event with several staves. Give the staff of the first note only.
 - The Humdrum import copies a layout group name (`!!LO:LB:g=z`) into `sb/@type`. The group name is arbitrary in Humdrum and means nothing in MEI; this edition drops it.
-
-## MEI
-
-### 4. No way to encode dash length or spacing
-
-- **Status:** observation for the Guidelines; low priority.
-- `att.lineRend.base` offers `@lform`, `@lwidth` and `@lsegs` (the number of segments). A print's dash density can only be recorded as a count, not as dash length or gap. For this edition the count plus the facsimile zone is enough.
-
-### 5. `application` content model in 5.1 (to recheck)
-
-- **Status:** to recheck against the 5.1 schema and the current development version. In MEI 5.1, `application` takes either `ptr`/`ref` children or `p`s, not both, which makes it awkward to give a tool both a link and a description.

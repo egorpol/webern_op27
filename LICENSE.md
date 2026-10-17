@@ -1,6 +1,6 @@
 # Licenses
 
-- **Encodings and documentation** (`mei/`, `docs/`, `proofreading/`, `provenance/`, `sources/sources.json`, `facsimiles/**/pages.json`, this README): [Creative Commons Attribution 4.0 International](LICENSES/CC-BY-4.0.txt) (CC BY 4.0).
+- **Encodings and documentation** (`mei/`, `docs/`, `provenance/`, `sources/sources.json`, `facsimiles/**/pages.json`, this README): [Creative Commons Attribution 4.0 International](LICENSES/CC-BY-4.0.txt) (CC BY 4.0).
 - **Scripts** (`scripts/`, `tests/`): [MIT License](LICENSES/MIT.txt).
 
 Third-party material is not covered by these licenses and is not included in the repository:

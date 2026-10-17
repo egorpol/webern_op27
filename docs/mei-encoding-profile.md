@@ -35,9 +35,9 @@ The header follows the [MEI metadata guidelines](https://music-encoding.org/guid
 | `fileDesc/sourceDesc` | `src.ue1937`: the copy actually used (IMSLP 28271, a reprint from 1965 or later of U.E. 10881), printed page range, transcribed paratext, image rights. `src.kern.sapp`: the base encoding, with URL, version and SHA-256 |
 | `encodingDesc` | `appInfo` (Verovio Humdrum import, the scripts used), `editorialDecl` summarising the editorial policy |
 | `workList/work` | `work.op27`: Webern, Variations for Piano, Op. 27; the movement as `work.op27.<mvt>` in its `componentList`, with meter and tempo heading. `mdiv/@decls` points to the movement |
-| `revisionDesc` | Significant events, newest first, each `change/@resp` pointing to a `respStmt` |
+| `revisionDesc` | Optional history, where retained: significant events, newest first, each `change/@resp` pointing to a `respStmt` |
 
-`sourceDesc` transcribes the page paratext of the movement's pages (page numbers, title, movement numeral, composer line, copyright lines, plate number, printer). `encodingDesc/projectDesc` names the DFG grant (PF 669/18-1) that funds the CAMAT corpus. `appInfo` also lists Claude Code, the AI assistant used under the editor's direction; responsibility stays with `resp.editor`. Add a `revisionDesc/change` for every significant change to a file, such as a proofreading pass over a page, newest first.
+`sourceDesc` transcribes the page paratext of the movement's pages (page numbers, title, movement numeral, composer line, copyright lines, plate number, printer). `encodingDesc/projectDesc` names the DFG grant (PF 669/18-1) that funds the CAMAT corpus. `appInfo` also lists Claude Code, the AI assistant used under the editor's direction; responsibility stays with `resp.editor`. Revision histories are optional. At the editor's request, all three movements omit `revisionDesc` and use the edition version in `editionStmt`; do not add change records to those files. Repairs are recorded in the commit history; editorial notes are `annot`s in the files (see the [editorial policy](editorial-policy.md)).
 
 ## Score structure
 
@@ -46,7 +46,7 @@ The header follows the [MEI metadata guidelines](https://music-encoding.org/guid
 - Repeats are encoded as printed with `@left="rptstart"` and `@right="rptend"`. Movement II's sections are `section` elements with one `expansion` giving the printed repeat order (I A A B B); CAMAT skips `expansion` when it flattens sections.
 - A staff with no printed content in a bar holds an `mSpace` (not an invisible rest).
 - Meter signatures and clefs go where they are printed, including mid-bar clefs (`clef` inside the layer).
-- The `pgHead` of the first `scoreDef` repeats the printed head of the movement's first page for display: "VARIATIONEN", "I" and "Anton Webern, Op. 27" in movement I; only the numeral in II and III. Verovio 6.3 shows no heading without it. The header's `sourceDesc` holds the transcription of all paratext.
+- The `pgHead` of the first `scoreDef` repeats the printed head of the movement's first page for display: "VARIATIONEN", "I" and "Anton Webern, Op. 27" in movement I; only the numeral in II and III. Without it, Verovio 6.3 draws the titles from the header but not the composer ([upstream issue 3](upstream-issues.md#3-page-header-from-meihead-omits-a-composer-wrapped-in-persname)). The header's `sourceDesc` holds the transcription of all paratext.
 
 ## Notation conventions
 
@@ -57,6 +57,8 @@ The header follows the [MEI metadata guidelines](https://music-encoding.org/guid
 **Stems and beams.** Every note and chord carries the printed `@stem.dir`. Beams within one bar and one layer are `beam` elements. A beam that crosses a barline or joins layers is a `beamSpan` placed in the bar where it starts, with `@staff`, `@plist`, `@startid` and `@endid`. Secondary-beam breaks use `@breaksec`. Verovio 6.3 draws `beamSpan`, but with opposite stem directions it drops a secondary beam before the first stem change (`docs/upstream-issues.md`, 2a). That is a rendering fault, not one in the file.
 
 **Ties and slurs.** Use `tie` and `slur` elements with `@startid` and `@endid`, and `@curvedir` where the print's direction should be fixed.
+
+**Grace-slur exception (movement III).** In bars 15 and 18, `slur/@endid` identifies the upper note within the receiving chord, not the chord itself. Verovio 6.3.0 nevertheless places a lower grace-note slur beneath the whole chord. These two slurs use the editor-approved `@curvedir="above"` workaround; each has an `annot` labelled `encoding-note` recording the printed lower curve, the exact endpoint, and the renderer behaviour. This is a display compromise, not a change of musical attachment. The third grace-note slur, in bar 42, already curves above to a single note as printed; it is annotated but unchanged. Other slurs retain the existing/source directions and default engraving. See [upstream issue 2d](upstream-issues.md#2d-grace-note-slur-to-a-chord-member-attaches-beneath-the-whole-chord).
 
 **Articulations.** Use `artic` children of the note or chord (`stacc`, `ten`, `acc`, `marc`, …) with `@place` when the print puts them against the default side.
 
@@ -90,4 +92,4 @@ It must pass the required checks (XML references, RELAX NG, the embedded Schemat
 
 The RELAX NG pass alone is not enough: on 2026-10-11 it accepted five broken `@startid` references in movement III and a beam with one note in movement II, which the full run caught.
 
-Passing validation does not show that the notation matches the print; the [proofreading checklist](proofreading-checklist.md) covers that.
+Passing validation does not show that the notation matches the print; only the comparison with the scan does (see [Proofreading](editorial-policy.md#proofreading) in the editorial policy).

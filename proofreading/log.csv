@@ -1,3 +1,0 @@
-date,movement,bar,staff,layer,ids,print,encoded,action,commit,note
-2026-10-11,II,3,1,pitch,ue1937-II-note-L39F2,grace note G6 with natural,G flat 6 (Kern),repair,54e2992,"printed page 6 (page-0004.png), zone-ue1937-II-m003"
-2026-10-11,II,2-3,2 1,stems_beams,ue1937-II-note-L37F1 ue1937-II-note-L40F2,"one beam from d3 (bar 2, staff 2) across the barline to e6 (bar 3, staff 1); e6 stem down","one-note beam on e6, d3 unbeamed",repair,54e2992,now a beamSpan; Verovio 6.3 does not draw it

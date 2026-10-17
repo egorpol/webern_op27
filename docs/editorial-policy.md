@@ -20,9 +20,15 @@ Encode everything the print shows in the music: notes, rests, accidentals, durat
 
 The page paratext belongs in the MEI header, not the musical text: page numbers, the title "VARIATIONEN", movement numerals, "Anton Webern, Op. 27", the copyright lines and the plate number. Specks and other scan artifacts are not encoded.
 
+## Proofreading
+
+Each movement was compared with the scan one printed system at a time, against a Verovio rendering with the encoded breaks, so that rendering and print agree system by system (`scripts/render_page.py --scan` sets each printed page beside its rendering). Each system was checked for pitches and written accidentals; durations, rests and grace notes; staff, cross-staff writing and clefs; stems and beams; ties and slurs; articulations; dynamics and hairpins; tempo marks, "rit." and "tempo" with their extenders; fermatas; repeats, the pickup and meter; and other printed text. Kern and the cross-check encodings only pointed to places to re-read.
+
+Repairs were made as targeted edits to the MEI text and checked with `scripts/validate.py`. After each movement, `scripts/check_movement.py` swept it for layers that do not fill the bar, control events without `@staff`, `@place` or a note anchor, hairpins that stop short of a dynamic, extenders without `@lsegs` and notes without `@stem.dir`; `scripts/count_dashes.py` counted the printed dashes of each extender. Routine repairs are recorded in the commit history; cases that need explaining have an `annot` (see below).
+
 ## Correction categories
 
-1. **Encoding repair.** The encoding is brought into agreement with the print, whatever caused the difference (Kern, conversion, or an earlier hand edit). Record it in the proofreading log and the commit message; it needs no annotation.
+1. **Encoding repair.** The encoding is brought into agreement with the print, whatever caused the difference (Kern, conversion, or an earlier hand edit). Record it in the commit message; it needs no annotation.
 2. **Retained source reading** (`label="source-reading"`). The print is kept, although it looks wrong: a pitch that contradicts the row, a missing accidental, an inconsistent duration. Annotate the printed reading, the reading that seems intended, and the reasoning. An argument from the row may motivate the note but does not change the encoding.
 3. **Encoding note** (`label="encoding-note"`). The reading is certain, but its representation needs explaining or has a known renderer limitation. Example: a cross-staff `beamSpan` with opposite stem directions, which Verovio 6.3 draws with a secondary beam missing.
 4. **Unresolved reading** (`label="unresolved-reading"`). The print cannot be read with confidence: a broken or blurred sign, or an accidental that is hard to make out. Encode the likeliest reading, annotate the alternatives and the zone, and mark the uncertainty. Release review must address each one.

@@ -12,18 +12,17 @@ Work in progress; not yet proofread.
 | II — Sehr schnell | pickup + 22 | 6 | Kern base (unfinished in the source encoding) | 23 zones |
 | III — Ruhig fließend | 66 | 7–11 | Kern base (no tempo changes) | 66 zones |
 
-The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`. Each file has an edition header (version 0.1.0): sources, transcribed page paratext, editorial declaration and revision history.
+The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`. Each file has an edition header (version 0.1.0): sources, transcribed page paratext and editorial declaration. All three movements use edition versioning without an embedded revision history.
 
 ## Layout
 
 - `mei/` — one MEI file per movement. Measure IDs are `ue1937-<movement>-m<NNN>`; the pickup in II is bar 0.
 - `facsimiles/ue1937/pages.json` — the nine scan pages: hashes, size, printed page numbers and the bars on each system. The images themselves are not in the repository (see below).
 - `sources/sources.json` — source records (URLs, SHA-256, credits, stated rights) for the print, the Kern base encoding and the two cross-check encodings. None of these files is in the repository; `local_path` names the git-ignored place of a local copy.
-- `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), layout review, the bar-to-zone alignment, and a record of the hand edits to movement I.
+- `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), the layout review and the bar-to-zone alignment.
 - `schemas/` — the MEI CMN 5.1 schema used for validation.
 - `scripts/` — maintenance scripts (MIT): `fetch_sources.py` downloads the sources and makes the page images, checking every hash; `validate.py` runs the validation gate; `check_movement.py` sweeps a movement for consistency; `render_page.py` renders the printed pages as encoded, optionally beside the scan; `render_variants.py` compares alternative encodings of a few bars; `count_dashes.py` counts the printed dashes of each extender against `@lsegs`; `set_breaks.py` and `migrate_mei51.py` made the breaks and the 5.1 files.
-- `docs/` — [editorial policy](docs/editorial-policy.md), [MEI encoding profile](docs/mei-encoding-profile.md) and [proofreading checklist](docs/proofreading-checklist.md).
-- `proofreading/` — progress by system and layer (`progress.csv`) and the log of differences found (`log.csv`).
+- `docs/` — [editorial policy](docs/editorial-policy.md), including how the edition was proofread, and [MEI encoding profile](docs/mei-encoding-profile.md).
 
 ## Facsimile images
 

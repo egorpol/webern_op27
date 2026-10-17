@@ -66,9 +66,6 @@
                   <identifier type="file">webern-op27n2.krn</identifier>
                   <identifier type="SHA-256">79fb9a2c859e97eac5a959c28e21d177dc471d7d2c90312359a4201a644a5d1a</identifier>
                   <ref target="https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n2.krn&amp;l=users/craig/classical/webern&amp;format=kern">KernScores</ref>
-                  <annot>
-                     <p>Base encoding for notes and rhythms, converted with Verovio; a starting point, not a witness. Its header notes: “encoding not finished”. Retrieved 2026-09-26 through kern.ccarh.org; not redistributed.</p>
-                  </annot>
                </bibl>
             </source>
          </sourceDesc>
@@ -97,7 +94,7 @@
             <p>The print is not corrected. A suspected engraving error is kept and documented in an annot with type="editorial" and label "source-reading"; uncertain readings are labelled "unresolved-reading", and notes on the representation "encoding-note". Repairs that bring the encoding into agreement with the print are recorded in the repository's proofreading log.</p>
             <p>Every printed accidental is encoded as a written accidental (@accid); an alteration without a printed sign is encoded with @accid.ges. The values func="caution" and type="caution" left by the Kern conversion carry no editorial claim.</p>
             <p>Measure/@n is the printed bar number; the pickup of movement II is bar 0. Each measure points to its zone on the facsimile page; pb/@n is the printed page number. Page paratext is transcribed in sourceDesc; the pgHead repeats the printed head of the movement's first page for display only.</p>
-            <p>The extent of proofreading is recorded in revisionDesc and in the repository's proofreading/progress.csv.</p>
+            <p>Edition versions are recorded in editionStmt; repairs are recorded in the repository's commit history.</p>
          </editorialDecl>
          <projectDesc>
             <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
@@ -128,83 +125,6 @@
             </componentList>
          </work>
       </workList>
-      <revisionDesc>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>Between-staff dynamics set clear of the cross-staff beams and stems, where the print has them: left of the stem with @ho on L64F3, L76F3, L97F3, L103F3, L124F3, L127F3, L131F3, L139F3 and L174F3; below the beam with @vo on L80F3, L85F3, L90F3, L92F3, L152F3, L155F3 and L158F3; above the beam on L133F3. The natural on L167F1 without the caution values, as the encoding profile asks for added accidentals.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>Bar 21: staff-1 rest L167F2 replaced with space (cross-staff E occupies that slot).</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>UE system 5 (bars 19–22, printed p. 6): dynamics L152F3, L155F3, L158F3, L165F3 and L174F3 anchored by @startid; accent place on L155F2 (above) and L157F1 (below); cross-bar beamSpan L155F2–L157F1; grace notes in bar 21 kept outside the principal beam (beamSpan L165F1–L167F1), with a written natural on L167F1.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>Bars 12–13 and 18 (follow-up to systems 3–4): beamSpan L108F1–L111F2 place="below" with stem.dir down on both L108F1 and L111F2; bar 18 graces L144F2 and L146F2 taken out of the beam, principal notes joined by beamSpan L145F2–L147F2.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>UE system 4 (bars 15–18, printed p. 6): dynamics L124F3, L127F3, L131F3, L133F3, L139F3 and L145F3 anchored by @startid; accent place on L124F1 (below) and L125F1 (above); stem.dir on L133F1 (up), L135F2 (down) and L145F2 (down); cross-bar beamSpan L131F1–L135F2 (C–F♯–D♭–F).</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>UE system 3 (bars 10–14, printed p. 6): dynamics L90F3, L92F3, L97F3, L103F3, L108F3, L113F3 and L118F3 anchored by @startid; stem.dir on L111F2 (up, for the cross-bar beam), L118F1 (up) and L119F2 (down); cross-bar beamSpans L90F2–L94F2 (C♯–F–C–F♯) and L108F1–L111F2 as printed.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>UE system 2 (bars 5–9, printed p. 6): dynamics L55F3, L58F3, L64F3, L70F3, L76F3, L80F3 and L85F3 anchored by @startid; stem.dir on L58F2 (down), L61F1 (up), L70F1 (up), L71F2 (down), L80F2 (down) and L83F1 (up); accent place on L80F2 (above) and L83F1 (below); cross-bar beamSpans L58F2–L61F1 and L80F2–L83F1 as printed.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>UE system 1 (bars 0–4, printed p. 6): dynamics L22F3, L27F3, L33F3, L37F3, L44F3 and L50F3 anchored by @startid; stem.dir on the tenuto quarters L33F1 (up) and L34F2 (down) and on the grace L36F1 (up); accent place on the chords L44F1 (below) and L46F2 (above); cross-bar beamSpan L44F1–L46F2 for the printed beamed accented pair.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-13" resp="#resp.editor">
-            <changeDesc>
-               <p>The opening tempo mark (printed "Sehr schnell", quarter note = ca 160) now carries the metronome mark as mm="160" mm.unit="4" and place="above", as in movement I.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-11" resp="#resp.editor">
-            <changeDesc>
-               <p>The sb elements no longer carry @type="z", the name of the Humdrum layout group (!!LO:LB:g=z) that the Kern conversion copied into @type; the breaks follow the UE print (scripts/set_breaks.py).</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-11" resp="#resp.editor">
-            <changeDesc>
-               <p>Page and system breaks written from facsimiles/ue1937/pages.json by scripts/set_breaks.py, in the form of movement I: a pb with the printed page number (@n) and the page surface (@facs) before the first bar of each page, an sb before the first bar of every other system. The breaks of the Kern conversion stood at the same bars; its pb had no @n or @facs.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-11" resp="#resp.editor">
-            <changeDesc>
-               <p>Edition header: MEI 5.1 CMN declarations, responsibility, edition, source and work metadata, editorial declaration and this revision history. It replaces the metadata written by Verovio's Humdrum import and the study's project note. The page head in the score (pgHead) now shows the printed head instead of the import's composer line and life dates.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-11" resp="#resp.editor">
-            <changeDesc>
-               <p>Validation repairs (commit 54e2992): the pickup is bar 0 with metcon="false"; the one-note beam in bars 2–3 became a cross-staff beamSpan with the printed downward stem; the grace note in bar 3 has its printed natural (the Kern encoding had a flat).</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-10-11" resp="#resp.editor">
-            <changeDesc>
-               <p>Converted from MEI 6.0-dev to MEI 5.1 by scripts/migrate_mei51.py (commit 9572be9): the repeat structure became one expansion in printed order (I A A B B); three hidden rests became mSpace.</p>
-            </changeDesc>
-         </change>
-         <change isodate="2026-09-27" resp="#resp.editor">
-            <changeDesc>
-               <p>Study (CAMAT PDF-facsimile workflow): converted the Kern encoding with Verovio, gave all IDs the movement prefix and linked each bar to its zone on the UE page images. Provenance: provenance/ in the repository.</p>
-            </changeDesc>
-         </change>
-      </revisionDesc>
    </meiHead>
    <music>
       <facsimile>
@@ -330,7 +250,7 @@
                         </staff>
                         <staff xml:id="ue1937-II-staff-L32F1N1" n="2">
                            <layer xml:id="ue1937-II-layer-L32F1N1" n="1">
-                              <note xml:id="ue1937-II-note-L33F1" dur="4" oct="4" pname="c" accid="s" stem.dir="up">
+                              <note xml:id="ue1937-II-note-L33F1" dur="4" oct="4" pname="c" accid="s" stem.dir="down">
                                  <artic xml:id="ue1937-II-artic-L33F1" artic="ten" />
                               </note>
                               <rest xml:id="ue1937-II-rest-L35F1" dur="8" />
@@ -839,7 +759,7 @@
                         </staff>
                         <slur xml:id="ue1937-II-slur-L144F2-L145F2" type="placed" staff="1" startid="#ue1937-II-note-L144F2" endid="#ue1937-II-note-L145F2" curvedir="above" />
                         <dynam xml:id="ue1937-II-dynam-L145F3" place="between" staff="1 2" startid="#ue1937-II-note-L145F2">f</dynam>
-                        <slur xml:id="ue1937-II-slur-L146F2-L147F2" type="placed" staff="1" startid="#ue1937-II-note-L146F2" endid="#ue1937-II-note-L147F2" curvedir="above" />
+                        <slur xml:id="ue1937-II-slur-L146F2-L147F2" type="placed" staff="2" startid="#ue1937-II-note-L146F2" endid="#ue1937-II-note-L147F2" curvedir="above" />
                         <beamSpan xml:id="ue1937-II-beamSpan-L145F2-L147F2" staff="1" plist="#ue1937-II-note-L145F2 #ue1937-II-note-L147F2" startid="#ue1937-II-note-L145F2" endid="#ue1937-II-note-L147F2" />
                      </measure>
                      <sb xml:id="ue1937-II-sb-before-m019" />
@@ -966,6 +886,9 @@
                         <slur xml:id="ue1937-II-slur-L174F1-L175F1" staff="2" startid="#ue1937-II-note-L174F1" endid="#ue1937-II-note-L175F1" />
                      </measure>
                   </section>
+                  <annot xml:id="ue1937-II-annot-m012-013-beam-height" type="editorial" label="encoding-note" plist="#ue1937-II-beamSpan-L108F1-L111F2 #ue1937-II-note-L108F1 #ue1937-II-note-L111F2" facs="#zone-ue1937-II-m012 #zone-ue1937-II-m013" resp="#resp.editor" source="#src.ue1937">
+                     <p>The source joins G6 on the lower staff in bar 12 to B2 on the upper staff in bar 13 with a beam running through the lower staff. Both stems point down. The encoded beamSpan retains this grouping and below placement, but Verovio 6.3.0-425dd7b draws the beam above the lower staff. The previously tested stem-length controls do not lower it. See <ref target="../docs/upstream-issues.md">upstream notes, section 2c (beam height; Verovio issue 932)</ref>.</p>
+                  </annot>
                </section>
             </score>
          </mdiv>
