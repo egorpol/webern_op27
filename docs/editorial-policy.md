@@ -2,7 +2,7 @@
 
 This edition encodes Anton Webern's Variations for Piano, Op. 27, as printed by Universal Edition, plate U.E. 10881 (first edition 1937). It records what the print shows. Every printed sign belongs to the musical text, including stems, beams and the placement of marks. The edition does not correct the print: a suspected engraving error stays in the encoding and is annotated.
 
-The policy was set on 2026-10-11, before proofreading began. It does not claim that the current files already meet it; the README status table records how far each movement has been checked.
+The policy was set on 2026-10-11, before proofreading began; all three movements have since been proofread against it.
 
 ## Sources and their roles
 

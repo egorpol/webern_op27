@@ -16,7 +16,7 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition, not yet proofread</edition>
+            <edition n="0.9.0">Digital edition, proofread against the print; pre-release</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
@@ -92,7 +92,7 @@
          </appInfo>
          <editorialDecl>
             <p>This edition encodes the music as printed by Universal Edition, plate U.E. 10881 (src.ue1937), including stems, beams, clefs, the placement of marks, and page and system breaks. The Kern encoding (src.kern.sapp) supplied notes and rhythms as a starting point; it has no authority where it differs from the print.</p>
-            <p>The print is not corrected. A suspected engraving error is kept and documented in an annot with type="editorial" and label "source-reading"; uncertain readings are labelled "unresolved-reading", and notes on the representation "encoding-note". Repairs that bring the encoding into agreement with the print are recorded in the repository's proofreading log.</p>
+            <p>The print is not corrected. A suspected engraving error is kept and documented in an annot with type="editorial" and label "source-reading"; uncertain readings are labelled "unresolved-reading", and notes on the representation "encoding-note". Repairs that bring the encoding into agreement with the print are recorded in the repository's commit history.</p>
             <p>Rendering exception: the grace-to-chord slurs in bars 15 and 18 use curvedir="above" instead of the printed lower curve. Their note-specific endpoints are preserved; encoding-note annotations record the source direction and the Verovio 6.3.0 attachment limitation.</p>
             <p>Every printed accidental is encoded as a written accidental (@accid); an alteration without a printed sign is encoded with @accid.ges. The values func="caution" and type="caution" left by the Kern conversion carry no editorial claim.</p>
             <p>Measure/@n is the printed bar number; the pickup of movement II is bar 0. Each measure points to its zone on the facsimile page; pb/@n is the printed page number. Page paratext is transcribed in sourceDesc; the pgHead repeats the printed head of the movement's first page for display only.</p>

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this edition, please cite it as below."
 type: dataset
 title: "Anton Webern, Variations for Piano, Op. 27: MEI edition after Universal Edition (U.E. 10881)"
-version: 0.1.0
+version: 0.9.0
 authors:
   - family-names: Polyakov
     given-names: Egor
@@ -11,7 +11,7 @@ repository-code: "https://github.com/egorpol/webern_op27"
 abstract: >-
   An MEI 5.1 (CMN) encoding of Webern's Variations for Piano, Op. 27, after the
   Universal Edition print (plate U.E. 10881, first edition 1937), with every bar
-  linked to its region on the printed page. Working edition, not yet proofread.
+  linked to its region on the printed page. Proofread against the print.
 keywords:
   - MEI
   - music encoding
