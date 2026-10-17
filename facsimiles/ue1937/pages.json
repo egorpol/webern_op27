@@ -4,7 +4,7 @@
   "renderer": "pdftoppm version 26.08.0",
   "resolution_dpi": 300,
   "coordinate_system": "rendered-image pixels; origin top-left; x right, y down",
-  "note": "Images are not redistributed. Rasterize the IMSLP PDF (sha256 above) at 300 dpi with pdftoppm and check each page hash.",
+  "note": "Images are not in this repository. Rasterize the IMSLP PDF (sha256 above) at 300 dpi with pdftoppm and check each page hash, or, where the print is in the public domain, use the copies at https://egorpol.github.io/webern_op27-facsimile/ue1937/.",
   "pages": [
     {
       "file": "page-0001.png",

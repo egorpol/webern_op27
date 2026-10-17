@@ -41,7 +41,9 @@
     <section class="pane facs" id="facs" aria-label="Facsimile">
       <div id="facs-intro" class="intro">
         <h2>Facsimile</h2>
-        <p>The scan of the first edition is not shown here: the print is still protected in the United States. If you may use it, download the PDF from <a href="https://imslp.org/wiki/Special:ImagefromIndex/28271">IMSLP (file 28271)</a> and open it here. It is read in your browser and not uploaded anywhere.</p>
+        <p class="warning">The first edition is in the public domain in the EU and wherever copyright lasts 70 years after the author’s death or less (Webern died in 1945). In the United States it is protected until the end of 2032. Show the scan only if it is in the public domain where you are.</p>
+        <button type="button" id="scan-show" class="button">Show the scan (public domain where I am)</button>
+        <p>Or open your own copy of the PDF from <a href="https://imslp.org/wiki/Special:ImagefromIndex/28271">IMSLP (file 28271)</a>. It is read in your browser and not uploaded anywhere.</p>
         <label class="button">Open the IMSLP PDF… <input type="file" id="pdf-input" accept="application/pdf,.pdf"></label>
         <p class="hint">Or drop the file on this panel.</p>
       </div>
@@ -50,7 +52,7 @@
           <canvas id="facs-canvas"></canvas>
           <svg id="zones" class="zones" preserveAspectRatio="none" aria-hidden="true"></svg>
         </div>
-        <p class="facs-meta"><span id="facs-label"></span> <button type="button" id="pdf-close" class="link">Close PDF</button></p>
+        <p class="facs-meta"><span id="facs-label"></span> <button type="button" id="scan-close" class="link">Hide the scan</button></p>
         <p id="facs-warning" class="warning" hidden></p>
       </div>
       <p id="facs-error" class="error" hidden></p>
@@ -58,7 +60,7 @@
   </main>
 
   <footer>
-    <p>Encoding: CC BY 4.0. Viewer: MIT. Rendered in your browser with <a href="https://www.verovio.org/">Verovio</a> <span id="verovio-version"></span>; the scan with <a href="https://mozilla.github.io/pdf.js/">pdf.js</a> 6.3.289. Links: <code>#III/42</code> opens movement III at bar 42; arrow keys turn pages.</p>
+    <p>Encoding: CC BY 4.0. Viewer: MIT. Rendered in your browser with <a href="https://www.verovio.org/">Verovio</a> <span id="verovio-version"></span>; your PDF with <a href="https://mozilla.github.io/pdf.js/">pdf.js</a> 6.3.289. Page images: <a href="https://github.com/egorpol/webern_op27-facsimile">webern_op27-facsimile</a>. Links: <code>#III/42</code> opens movement III at bar 42; arrow keys turn pages.</p>
   </footer>
 </body>
 </html>

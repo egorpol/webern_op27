@@ -59,7 +59,7 @@ Use `annot/@source` only for a source that actually shows the reading in questio
 
 The MEI files, documentation and source records are licensed under CC BY 4.0 (see `LICENSE.md`). That licence covers this edition's own contributions, not the musical work or the print. Webern died in 1945, so the work is in the public domain in countries with a term of 70 years after death, including the EU. IMSLP lists this edition as not public domain in the US, and the printed 1965 renewal notice is consistent with that. Users outside the EU should check the status where they are.
 
-The page images and the PDF are not redistributed. They are cited by URL and SHA-256, and anyone can reproduce them from IMSLP (see the README).
+The PDF and the page images are not part of this repository. They are cited by URL and SHA-256, and anyone can reproduce them from IMSLP (see the README). For use where the print is in the public domain, the page images are also published in a separate repository, [egorpol/webern_op27-facsimile](https://github.com/egorpol/webern_op27-facsimile); the viewer shows them after the visitor confirms that status.
 
 ## Release review
 

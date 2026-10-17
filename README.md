@@ -42,11 +42,11 @@ Without the source id it also fetches the Kern and cross-check encodings; if a h
 3. Rasterize it at 300 dpi: `pdftoppm -r 300 -png imslp-28271-universal-1937.pdf page`, then rename the pages to `page-0001.png` … `page-0009.png`.
 4. Check each page hash against `pages.json`. The hashes come from Poppler 26.08.0; another version may give different pixels (the script then warns). The zones stay valid as long as the page sizes match.
 
-The encodings work without the images; only the facsimile view needs them.
+The encodings work without the images; only the facsimile view needs them. The same images are published in [egorpol/webern_op27-facsimile](https://github.com/egorpol/webern_op27-facsimile) for use where the print is in the public domain; it is still protected in the US until the end of 2032.
 
 ## Viewer
 
-The viewer is published at https://egorpol.github.io/webern_op27/ (for example [movement III, bar 42](https://egorpol.github.io/webern_op27/#III/42)). `site/` is a static page with no build step. Verovio 6.3.0 renders each movement in the browser with the encoded page and system breaks, so each rendered page is one printed page. Hovering shows a symbol's bar and `xml:id`, the editorial notes highlight the elements they refer to, and `#III/42` links to a bar. The scan is not published: visitors open their own copy of the IMSLP PDF, which pdf.js renders beside the score with the bar regions from the MEI. Its SHA-256 is checked against `pages.json`. The file is read in the browser, never uploaded, and kept in the browser's storage until "Close PDF".
+The viewer is published at https://egorpol.github.io/webern_op27/ (for example [movement III, bar 42](https://egorpol.github.io/webern_op27/#III/42)). `site/` is a static page with no build step. Verovio 6.3.0 renders each movement in the browser with the encoded page and system breaks, so each rendered page is one printed page. Hovering shows a symbol's bar and `xml:id`, the editorial notes highlight the elements they refer to, and `#III/42` links to a bar. The scan is shown beside the score with the bar regions from the MEI. Visitors who confirm that the print is in the public domain where they are see the page images from [webern_op27-facsimile](https://github.com/egorpol/webern_op27-facsimile), each checked against its hash in `pages.json`; the browser remembers the confirmation. Others can open their own copy of the IMSLP PDF, which pdf.js renders; its SHA-256 is checked against `pages.json`. The file is read in the browser, never uploaded, and kept in the browser's storage until "Hide the scan".
 
 `.github/workflows/pages.yml` publishes the viewer with GitHub Pages; `scripts/build_site.py` copies only the viewer, the MEI files and `pages.json`. To preview it locally:
 

@@ -1,6 +1,8 @@
 // Webern Op. 27 viewer: the MEI rendered by Verovio with the encoded page and
-// system breaks, the editorial notes, and the scan from the visitor's own copy
-// of the IMSLP PDF. The scan is never hosted here; zones come from the MEI.
+// system breaks, the editorial notes, and the scan: the page images of
+// webern_op27-facsimile, once the visitor confirms that the print is in the
+// public domain where they are, or their own copy of the IMSLP PDF. Zones come
+// from the MEI.
 
 const VEROVIO_URL = 'https://cdn.jsdelivr.net/npm/verovio@6.3.0/dist/verovio-toolkit-wasm.js';
 const VEROVIO_SRI = 'sha384-7oICD/hf52uWdE8X0lMFqe7iIspaUj3aQjeZUnBQZpxjrZcHtqlRd3C78cje2e19';
@@ -8,6 +10,9 @@ const VEROVIO_SRI = 'sha384-7oICD/hf52uWdE8X0lMFqe7iIspaUj3aQjeZUnBQZpxjrZcHtqlR
 // cdnjs does not carry; jsDelivr serves the whole npm package.
 const PDFJS_URL = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@6.3.289/';
 const REPO_BLOB = 'https://github.com/egorpol/webern_op27/blob/main/';
+// The page images live in their own repository: the print is still protected in the US.
+const SCAN_URL = 'https://egorpol.github.io/webern_op27-facsimile/ue1937/';
+const SCAN_CONFIRMED = 'webern-op27-scan-confirmed';
 // The layout of camat_v2's facsimile notebook: one rendered page per printed page.
 const VEROVIO_OPTIONS = {
   breaks: 'encoded', adjustPageHeight: true, footer: 'none', svgViewBox: true, condense: 'none',
@@ -28,6 +33,7 @@ const pagesReady = fetch('facsimiles/ue1937/pages.json').then((r) => {
 });
 let toolkit = null;
 let pdf = null;
+let scanImages = null; // file → Promise<ImageBitmap>, while the hosted scan is shown
 let mvtToken = 0;
 let facsToken = 0;
 let renderTask = null;
@@ -78,10 +84,13 @@ function readModel(key, text, pages) {
   for (const surface of doc.getElementsByTagName('surface')) {
     const graphic = surface.getElementsByTagName('graphic')[0];
     const file = graphic.getAttribute('target').split('/').pop();
+    const page = pages.pages.find((p) => p.file === file);
     model.surfaces.set(xmlId(surface), {
+      file,
+      sha256: page?.sha256,
       width: Number(graphic.getAttribute('width')),
       height: Number(graphic.getAttribute('height')),
-      pdfPage: pages.pages.find((p) => p.file === file)?.pdf_page_number,
+      pdfPage: page?.pdf_page_number,
       printed: surface.getAttribute('n'),
     });
     for (const zone of surface.getElementsByTagName('zone')) {
@@ -271,12 +280,53 @@ function showFacsError(text) {
   $('facs-error').hidden = !text;
 }
 
+const sha256 = async (bytes) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
+  .map((b) => b.toString(16).padStart(2, '0')).join('');
+
+function showScan({ remember = true } = {}) {
+  showFacsError('');
+  if (pdf) {
+    pdf.loadingTask.destroy();
+    pdf = null;
+    forgetPdf();
+  }
+  scanImages = new Map();
+  if (remember) {
+    try { localStorage.setItem(SCAN_CONFIRMED, '1'); } catch { /* not remembered */ }
+  }
+  $('facs-warning').hidden = true;
+  $('facs-intro').hidden = true;
+  $('facs-view').hidden = false;
+  renderFacsimile();
+}
+
+const forgetConfirmation = () => {
+  try { localStorage.removeItem(SCAN_CONFIRMED); } catch { /* nothing stored */ }
+};
+
+// Each page image is checked against its hash in pages.json before it is drawn.
+function scanImage(surface) {
+  const images = scanImages;
+  if (!images.has(surface.file)) {
+    images.set(surface.file, (async () => {
+      const response = await fetch(SCAN_URL + surface.file);
+      if (!response.ok) throw new Error(`${surface.file}: HTTP ${response.status}`);
+      const bytes = await response.arrayBuffer();
+      if (await sha256(bytes) !== surface.sha256) throw new Error(`${surface.file} differs from the page image the zones were measured on.`);
+      return createImageBitmap(new Blob([bytes], { type: 'image/png' }));
+    })().catch((error) => {
+      images.delete(surface.file);
+      throw error;
+    }));
+  }
+  return images.get(surface.file);
+}
+
 async function openPdf(bytes, name, { remember = true } = {}) {
   showFacsError('');
   try {
     const pages = await pagesReady;
-    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
-    const hash = [...digest].map((b) => b.toString(16).padStart(2, '0')).join('');
+    const hash = await sha256(bytes);
     const pdfjs = await import(`${PDFJS_URL}build/pdf.min.mjs`);
     pdfjs.GlobalWorkerOptions.workerSrc = `${PDFJS_URL}build/pdf.worker.min.mjs`;
     // pdf.js transfers the buffer it is given to its worker; keep our copy.
@@ -286,6 +336,8 @@ async function openPdf(bytes, name, { remember = true } = {}) {
       throw new Error(`“${name}” has ${doc.numPages} page${doc.numPages === 1 ? '' : 's'}; the IMSLP file has ${pages.pages.length}. Is it the right PDF?`);
     }
     pdf = doc;
+    scanImages = null;
+    forgetConfirmation();
     const warning = $('facs-warning');
     warning.hidden = hash === pages.pdf_sha256;
     warning.textContent = `This PDF differs from the IMSLP file the zones were measured on (SHA-256 ${hash.slice(0, 12)}…, expected ${pages.pdf_sha256.slice(0, 12)}…). The bar outlines may not line up.`;
@@ -300,27 +352,21 @@ async function openPdf(bytes, name, { remember = true } = {}) {
 
 async function renderFacsimile() {
   const model = current();
-  if (!pdf || !model) return;
+  if (!(pdf || scanImages) || !model) return;
   const token = ++facsToken;
   const surface = model.surfaces.get(model.pages[state.page - 1]?.surface);
   if (!surface?.pdfPage) return;
-  const page = await pdf.getPage(surface.pdfPage);
-  if (token !== facsToken) return;
   const canvas = $('facs-canvas');
-  const cssWidth = canvas.parentElement.clientWidth || 600;
-  const viewport = page.getViewport({ scale: (cssWidth / page.getViewport({ scale: 1 }).width) * (window.devicePixelRatio || 1) });
-  renderTask?.cancel();
-  const scratch = document.createElement('canvas');
-  scratch.width = Math.round(viewport.width);
-  scratch.height = Math.round(viewport.height);
-  renderTask = page.render({ canvas: scratch, viewport });
+  const pixels = (canvas.parentElement.clientWidth || 600) * (window.devicePixelRatio || 1);
+  let scratch;
   try {
-    await renderTask.promise;
+    scratch = scanImages ? await drawScanImage(surface, pixels) : await drawPdfPage(surface, pixels, token);
   } catch (error) {
-    if (error?.name === 'RenderingCancelledException') return;
-    throw error;
+    if (token === facsToken) showFacsError(error.message);
+    return;
   }
-  if (token !== facsToken) return;
+  if (!scratch || token !== facsToken) return;
+  showFacsError('');
   canvas.width = scratch.width;
   canvas.height = scratch.height;
   canvas.getContext('2d').drawImage(scratch, 0, 0);
@@ -335,14 +381,46 @@ async function renderFacsimile() {
       rect.dataset.measure = z.measure;
       return rect;
     }));
-  $('facs-label').textContent = `Printed page ${surface.printed} (PDF page ${surface.pdfPage})`;
+  $('facs-label').textContent = scanImages ? `Printed page ${surface.printed}` : `Printed page ${surface.printed} (PDF page ${surface.pdfPage})`;
   applyHighlights();
 }
 
-function closePdf() {
+// Both return an off-screen canvas `pixels` wide, or null when a newer render has taken over.
+async function drawPdfPage(surface, pixels, token) {
+  const page = await pdf.getPage(surface.pdfPage);
+  if (token !== facsToken) return null;
+  const viewport = page.getViewport({ scale: pixels / page.getViewport({ scale: 1 }).width });
+  renderTask?.cancel();
+  const scratch = document.createElement('canvas');
+  scratch.width = Math.round(viewport.width);
+  scratch.height = Math.round(viewport.height);
+  renderTask = page.render({ canvas: scratch, viewport });
+  try {
+    await renderTask.promise;
+  } catch (error) {
+    if (error?.name === 'RenderingCancelledException') return null;
+    throw error;
+  }
+  return scratch;
+}
+
+async function drawScanImage(surface, pixels) {
+  const image = await scanImage(surface);
+  const scratch = document.createElement('canvas');
+  scratch.width = Math.round(pixels);
+  scratch.height = Math.round((image.height * pixels) / image.width);
+  const context = scratch.getContext('2d');
+  context.imageSmoothingQuality = 'high';
+  context.drawImage(image, 0, 0, scratch.width, scratch.height);
+  return scratch;
+}
+
+function closeScan() {
   pdf?.loadingTask.destroy();
   pdf = null;
+  scanImages = null;
   forgetPdf();
+  forgetConfirmation();
   $('facs-view').hidden = true;
   $('facs-intro').hidden = false;
   $('pdf-input').value = '';
@@ -368,6 +446,12 @@ async function restorePdf() {
     const saved = await withStore('readonly', (s) => s.get(STORE.key));
     if (saved?.bytes) await openPdf(saved.bytes, saved.name, { remember: false });
   } catch { /* storage unavailable: the visitor opens the file again */ }
+}
+function restoreScan() {
+  let confirmed = false;
+  try { confirmed = localStorage.getItem(SCAN_CONFIRMED) === '1'; } catch { /* storage blocked */ }
+  if (confirmed) showScan({ remember: false });
+  else restorePdf();
 }
 
 // ---------------------------------------------------------------- wiring
@@ -419,7 +503,8 @@ function bindUi() {
 
   const pickFile = async (file) => { if (file) await openPdf(await file.arrayBuffer(), file.name); };
   $('pdf-input').addEventListener('change', (e) => pickFile(e.target.files[0]));
-  $('pdf-close').addEventListener('click', closePdf);
+  $('scan-show').addEventListener('click', () => showScan());
+  $('scan-close').addEventListener('click', closeScan);
   const facs = $('facs');
   facs.addEventListener('dragover', (e) => { e.preventDefault(); facs.classList.add('is-dragover'); });
   facs.addEventListener('dragleave', () => facs.classList.remove('is-dragover'));
@@ -446,7 +531,7 @@ async function main() {
     scoreMessage(error.message);
     return;
   }
-  restorePdf();
+  restoreScan();
 }
 
 main();
