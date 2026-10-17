@@ -20,3 +20,6 @@ __pycache__/
 
 # Validation run outputs.
 /validation/runs/
+
+# Assembled GitHub Pages site (scripts/build_site.py).
+/_site/

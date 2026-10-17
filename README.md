@@ -21,7 +21,8 @@ The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were 
 - `sources/sources.json` — source records (URLs, SHA-256, credits, stated rights) for the print, the Kern base encoding and the two cross-check encodings. None of these files is in the repository; `local_path` names the git-ignored place of a local copy.
 - `provenance/` — how the facsimile links were made: measure-detector responses (Edirom DOMD), the layout review and the bar-to-zone alignment.
 - `schemas/` — the MEI CMN 5.1 schema used for validation.
-- `scripts/` — maintenance scripts (MIT): `fetch_sources.py` downloads the sources and makes the page images, checking every hash; `validate.py` runs the validation gate; `check_movement.py` sweeps a movement for consistency; `render_page.py` renders the printed pages as encoded, optionally beside the scan; `render_variants.py` compares alternative encodings of a few bars; `count_dashes.py` counts the printed dashes of each extender against `@lsegs`; `set_breaks.py` and `migrate_mei51.py` made the breaks and the 5.1 files.
+- `site/` — the web viewer (MIT); see below.
+- `scripts/` — maintenance scripts (MIT): `fetch_sources.py` downloads the sources and makes the page images, checking every hash; `validate.py` runs the validation gate; `check_movement.py` sweeps a movement for consistency; `render_page.py` renders the printed pages as encoded, optionally beside the scan; `render_variants.py` compares alternative encodings of a few bars; `count_dashes.py` counts the printed dashes of each extender against `@lsegs`; `build_site.py` assembles the viewer for GitHub Pages; `set_breaks.py` and `migrate_mei51.py` made the breaks and the 5.1 files.
 - `docs/` — [editorial policy](docs/editorial-policy.md), including how the edition was proofread, and [MEI encoding profile](docs/mei-encoding-profile.md).
 
 ## Facsimile images
@@ -40,6 +41,16 @@ Without the source id it also fetches the Kern and cross-check encodings; if a h
 4. Check each page hash against `pages.json`. The hashes come from Poppler 26.08.0; another version may give different pixels (the script then warns). The zones stay valid as long as the page sizes match.
 
 The encodings work without the images; only the facsimile view needs them.
+
+## Viewer
+
+`site/` is a static page with no build step. Verovio 6.3.0 renders each movement in the browser with the encoded page and system breaks, so each rendered page is one printed page. Hovering shows a symbol's bar and `xml:id`, the editorial notes highlight the elements they refer to, and `#III/42` links to a bar. The scan is not published: visitors open their own copy of the IMSLP PDF, which pdf.js renders beside the score with the bar regions from the MEI. Its SHA-256 is checked against `pages.json`. The file is read in the browser, never uploaded, and kept in the browser's storage until "Close PDF".
+
+`.github/workflows/pages.yml` publishes the viewer with GitHub Pages; `scripts/build_site.py` copies only the viewer, the MEI files and `pages.json`. To preview it locally:
+
+```
+python scripts/build_site.py && python -m http.server -d _site
+```
 
 ## Sources and credits
 
