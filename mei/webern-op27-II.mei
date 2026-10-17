@@ -887,7 +887,7 @@
                      </measure>
                   </section>
                   <annot xml:id="ue1937-II-annot-m012-013-beam-height" type="editorial" label="encoding-note" plist="#ue1937-II-beamSpan-L108F1-L111F2 #ue1937-II-note-L108F1 #ue1937-II-note-L111F2" facs="#zone-ue1937-II-m012 #zone-ue1937-II-m013" resp="#resp.editor" source="#src.ue1937">
-                     <p>The source joins G6 on the lower staff in bar 12 to B2 on the upper staff in bar 13 with a beam running through the lower staff. Both stems point down. The encoded beamSpan retains this grouping and below placement, but Verovio 6.3.0-425dd7b draws the beam above the lower staff. The previously tested stem-length controls do not lower it. See <ref target="../docs/upstream-issues.md">upstream notes, section 2c (beam height; Verovio issue 932)</ref>.</p>
+                     <p>The source joins G6 on the lower staff in bar 12 to B2 on the upper staff in bar 13 with a beam running through the lower staff. Both stems point down. The encoded beamSpan retains this grouping and below placement, but Verovio 6.3.0-425dd7b draws the beam above the lower staff. The previously tested stem-length controls do not lower it. See <ref target="https://github.com/rism-digital/verovio/issues/932#issuecomment-6235455597">Verovio issue 932, comment of 2026-10-17</ref>.</p>
                   </annot>
                </section>
             </score>
