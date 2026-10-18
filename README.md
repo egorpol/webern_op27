@@ -56,9 +56,9 @@ python scripts/build_site.py && python -m http.server -d _site
 
 ## Sources and credits
 
-- **Base source:** Universal Edition, Vienna 1937, plate U.E. 10881. Scan from IMSLP, uploaded by JacopoTore; scanner unknown.
-- **Base encoding:** Craig Stuart Sapp, KernScores, `webern-op27n1–3.krn` (encoded 2008, revised 2020-11-23). Converted to MEI with Verovio and enriched from the print.
-- **Cross-check encodings:** Maja Hartwig's MEI of movement II, pickup and bars 1–11 (MEI Sample Collection, 2011), and Wendy Czajkowsky's Kern of movement III (1995). They only point to places to re-read in the print; see the [editorial policy](docs/editorial-policy.md).
+- **Base source:** Universal Edition, Vienna 1937, plate U.E. 10881, in the copy scanned as [IMSLP file 28271](https://imslp.org/wiki/Special:ImagefromIndex/28271) ([work page](https://imslp.org/wiki/Variations_for_Piano,_Op.27_(Webern,_Anton))). Uploaded by JacopoTore; scanner unknown.
+- **Base encoding:** Craig Stuart Sapp, KernScores, `webern-op27n1–3.krn` ([I](https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n1.krn&l=users/craig/classical/webern&format=kern), [II](https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n2.krn&l=users/craig/classical/webern&format=kern), [III](https://kern.humdrum.org/cgi-bin/ksdata?file=webern-op27n3.krn&l=users/craig/classical/webern&format=kern); encoded 2008, revised 2020-11-23). Converted to MEI with [Verovio](https://www.verovio.org/) and enriched from the print.
+- **Cross-check encodings:** Maja Hartwig's MEI of movement II, pickup and bars 1–11 ([MEI Sample Collection](https://github.com/music-encoding/sample-encodings/blob/f3f1baba02e32279b25dad660b82c834bac034b4/MEI_5.1/Music/Complete_examples/Webern_Variations_for_Piano_Op27_No2.mei), 2011), and Wendy Czajkowsky's Kern of movement III ([shanahdt/corpus-studies-class](https://github.com/shanahdt/corpus-studies-class/blob/623de96416ad336b445844639a079b77e2af9f9a/data/humdrum_scores/Webern/opus27c.krn), 1995). They only point to places to re-read in the print; see the [editorial policy](docs/editorial-policy.md).
 - **Measure regions:** Edirom [Deep Optical Measure Detector](https://measure-detector.edirom.de/).
 
 ## License

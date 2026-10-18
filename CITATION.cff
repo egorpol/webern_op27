@@ -3,6 +3,7 @@ message: "If you use this edition, please cite it as below."
 type: dataset
 title: "Anton Webern, Variations for Piano, Op. 27: MEI edition after Universal Edition (U.E. 10881)"
 version: 0.9.0
+date-released: 2026-10-18
 authors:
   - family-names: Polyakov
     given-names: Egor
