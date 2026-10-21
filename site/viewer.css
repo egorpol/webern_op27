@@ -8,6 +8,8 @@
   --active: #c2410c;
   --hover: #2563eb;
   --annot: #7c3aed;
+  --noted: #a855f7;
+  --box: #64748b;
   --warn-bg: #fff4d6;
   --warn-text: #6b4a00;
   color-scheme: light;
@@ -46,6 +48,7 @@ body {
 }
 a { color: var(--accent); }
 h1, h2 { font-weight: 600; line-height: 1.25; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 .masthead, .toolbar, .panes, footer { padding-inline: 16px; max-width: 1600px; margin-inline: auto; }
 .masthead { padding-top: 18px; }
@@ -78,6 +81,9 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .tabs button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
 .pager { display: flex; align-items: center; gap: 6px; }
 #page-label { min-width: 8.5em; text-align: center; font-variant-numeric: tabular-nums; }
+.settings { display: flex; flex-wrap: wrap; gap: 4px 14px; border: 0; margin: 0; padding: 0; font-size: 0.9rem; }
+.settings label { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.settings input { accent-color: var(--annot); margin: 0; }
 #status {
   flex: 1 1 18em;
   min-width: 0;
@@ -108,11 +114,18 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .score svg { display: block; width: 100%; height: auto; }
 .message { color: #555; padding: 1rem; margin: 0; }
 
-/* Verovio SVG: hover, pinned bar, editorial-note targets. */
+/* Verovio SVG: hover, pinned bar, editorial-note targets (all, or the selected note). */
 .score g.measure { cursor: pointer; }
 .score .is-pinned, .score .is-pinned * { fill: var(--active); stroke: var(--active); }
 .score .is-hover, .score .is-hover * { fill: var(--hover); stroke: var(--hover); }
+.score.mark-notes .is-noted, .score.mark-notes .is-noted * { fill: var(--noted); stroke: var(--noted); }
 .score .is-annot, .score .is-annot * { fill: var(--annot) !important; stroke: var(--annot) !important; }
+
+/* Bar boxes: every bar with "Bar boxes", annotated bars with "Mark all notes". */
+.score rect.measure-box { fill: none !important; stroke: none !important; pointer-events: none; }
+.score.show-boxes rect.measure-box { stroke: var(--box) !important; stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.score.mark-notes rect.measure-box.has-note { stroke: var(--annot) !important; stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.score.show-boxes .is-pinned > rect.measure-box, .score.mark-notes .is-pinned > rect.measure-box.has-note { stroke: var(--active) !important; }
 
 @media (min-width: 901px) {
   .facs { position: sticky; top: 64px; max-height: calc(100vh - 72px); overflow: auto; }
@@ -135,7 +148,9 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .facs-page canvas { display: block; width: 100%; height: auto; }
 .zones { position: absolute; inset: 0; width: 100%; height: 100%; }
 .zones rect { fill: transparent; stroke: transparent; stroke-width: 2; vector-effect: non-scaling-stroke; cursor: pointer; pointer-events: all; }
-.zones rect:hover, .zones rect.is-hover { fill: rgba(37, 99, 235, 0.12); stroke: rgba(37, 99, 235, 0.7); }
+.show-boxes .zones rect { stroke: rgba(100, 116, 139, 0.75); stroke-width: 1; }
+.mark-notes .zones rect.has-note { fill: rgba(124, 58, 237, 0.08); stroke: rgba(124, 58, 237, 0.85); stroke-width: 2; }
+.zones rect:hover, .zones rect.is-hover { fill: rgba(37, 99, 235, 0.12); stroke: rgba(37, 99, 235, 0.7); stroke-width: 2; }
 .zones rect.is-pinned { fill: rgba(194, 65, 12, 0.14); stroke: rgba(194, 65, 12, 0.85); stroke-width: 3; }
 .facs-meta { color: var(--muted); font-size: 0.85rem; margin: 6px 0; }
 button.link { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; }

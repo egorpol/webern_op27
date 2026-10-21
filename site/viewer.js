@@ -19,13 +19,16 @@ const VEROVIO_OPTIONS = {
   scale: 35, spacingLinear: 0.25, spacingNonLinear: 0.6, minLastJustification: 0,
 };
 const XML_NS = 'http://www.w3.org/XML/1998/namespace';
+const SVG_NS = 'http://www.w3.org/2000/svg';
 const STORE = { db: 'webern-op27-viewer', store: 'files', key: 'imslp-pdf' };
+const SETTINGS = { markNotes: 'webern-op27-mark-notes', measureBoxes: 'webern-op27-measure-boxes' };
 
 const $ = (id) => document.getElementById(id);
 const xmlId = (el) => el.getAttributeNS(XML_NS, 'id');
 const refs = (value) => (value || '').split(/\s+/).filter(Boolean).map((v) => v.replace(/^#/, ''));
 
 const state = { mvt: null, model: null, page: 1, pinned: null, annot: null };
+const settings = { markNotes: false, measureBoxes: false };
 const models = new Map();
 const pagesReady = fetch('facsimiles/ue1937/pages.json').then((r) => {
   if (!r.ok) throw new Error(`facsimiles/ue1937/pages.json: HTTP ${r.status}`);
@@ -76,7 +79,7 @@ function readModel(key, text, pages) {
   if (doc.getElementsByTagName('parsererror').length) throw new Error(`Movement ${key}: the MEI is not well-formed.`);
   const model = {
     key, text, ids: new Map(), measures: new Map(), byN: new Map(), pages: [],
-    surfaces: new Map(), zones: new Map(), annots: [], svg: new Map(), pageCount: 0,
+    surfaces: new Map(), zones: new Map(), annots: [], noted: new Set(), svg: new Map(), pageCount: 0,
   };
   const edition = doc.querySelector('editionStmt > edition');
   model.edition = edition ? `${edition.textContent.trim()} (version ${edition.getAttribute('n')})` : '';
@@ -118,6 +121,7 @@ function readModel(key, text, pages) {
     const bars = [...new Set([xmlId(el), ...targets].map((t) => model.ids.get(t)?.measure).filter(Boolean))]
       .map((m) => model.measures.get(m))
       .sort((a, b) => Number(a.n) - Number(b.n));
+    bars.forEach((bar) => model.noted.add(bar.id));
     return { id: xmlId(el), label: el.getAttribute('label') || el.getAttribute('type'), targets, bars, paras: [...el.getElementsByTagName('p')] };
   });
   return model;
@@ -161,12 +165,42 @@ function showPage(page) {
   if (!model.svg.has(page)) model.svg.set(page, toolkit.renderToSVG(page));
   $('score').innerHTML = model.svg.get(page);
   state.page = page;
+  decorate();
   const printed = model.pages[page - 1]?.n;
   $('page-label').textContent = `${printed ? `p. ${printed}` : 'page'} (${page}/${model.pageCount})`;
   $('prev').disabled = page <= 1;
   $('next').disabled = page >= model.pageCount;
   applyHighlights();
   renderFacsimile();
+}
+
+function svgElement(name, attributes = {}) {
+  const el = document.createElementNS(SVG_NS, name);
+  Object.entries(attributes).forEach(([k, v]) => el.setAttribute(k, v));
+  return el;
+}
+
+// A box behind every rendered bar, shown by the display settings. It covers
+// the bar's staves only: Verovio draws a spanner in the bar where it starts,
+// so a rit. extender or a beam across the barline would stretch the box over
+// the next bars. An empty text draws nothing, but Chrome counts it as a point
+// at (0, 0) in getBBox and stretches the box to the page corner; hide it first.
+function decorate() {
+  const model = current();
+  for (const text of $('score').querySelectorAll('g.measure text')) {
+    if (!text.textContent.trim()) text.setAttribute('display', 'none');
+  }
+  for (const g of $('score').querySelectorAll('g.measure')) {
+    const staves = [...g.querySelectorAll(':scope > g.staff')].map((s) => s.getBBox());
+    if (!model.measures.has(g.id) || !staves.length) continue;
+    const x = Math.min(...staves.map((b) => b.x));
+    const y = Math.min(...staves.map((b) => b.y));
+    const width = Math.max(...staves.map((b) => b.x + b.width)) - x;
+    const height = Math.max(...staves.map((b) => b.y + b.height)) - y;
+    const rect = svgElement('rect', { x, y, width, height, class: 'measure-box' });
+    if (model.noted.has(g.id)) rect.classList.add('has-note');
+    g.prepend(rect);
+  }
 }
 
 // Every rendered fragment of an element: the element itself and the
@@ -176,12 +210,23 @@ function svgNodes(id) {
 }
 
 function applyHighlights() {
-  document.querySelectorAll('.is-pinned, .is-annot').forEach((n) => n.classList.remove('is-pinned', 'is-annot'));
+  const model = current();
+  document.querySelectorAll('.is-pinned, .is-annot, .is-noted').forEach((n) => n.classList.remove('is-pinned', 'is-annot', 'is-noted'));
+  if (!model) return;
   if (state.pinned) svgNodes(state.pinned).forEach((n) => n.classList.add('is-pinned'));
-  const annot = state.annot && current().annots.find((a) => a.id === state.annot);
+  if (settings.markNotes) model.annots.forEach((a) => a.targets.forEach((t) => svgNodes(t).forEach((n) => n.classList.add('is-noted'))));
+  const annot = state.annot && model.annots.find((a) => a.id === state.annot);
   annot?.targets.forEach((t) => svgNodes(t).forEach((n) => n.classList.add('is-annot')));
   for (const rect of $('zones').children) rect.classList.toggle('is-pinned', rect.dataset.measure === state.pinned);
   document.querySelectorAll('.notes li > button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.annot === state.annot)));
+}
+
+function applySettings() {
+  for (const el of [$('score'), document.querySelector('.facs-page')]) {
+    el.classList.toggle('mark-notes', settings.markNotes);
+    el.classList.toggle('show-boxes', settings.measureBoxes);
+  }
+  applyHighlights();
 }
 
 function pin(measureId, { hash = true } = {}) {
@@ -376,9 +421,9 @@ async function renderFacsimile() {
   zones.replaceChildren(...[...model.zones.values()]
     .filter((z) => model.surfaces.get(z.surface) === surface && z.measure)
     .map((z) => {
-      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      Object.entries({ x: z.x, y: z.y, width: z.w, height: z.h }).forEach(([k, v]) => rect.setAttribute(k, v));
+      const rect = svgElement('rect', { x: z.x, y: z.y, width: z.w, height: z.h });
       rect.dataset.measure = z.measure;
+      if (model.noted.has(z.measure)) rect.classList.add('has-note');
       return rect;
     }));
   $('facs-label').textContent = scanImages ? `Printed page ${surface.printed}` : `Printed page ${surface.printed} (PDF page ${surface.pdfPage})`;
@@ -466,10 +511,26 @@ async function applyHash() {
   else setStatus(`Movement ${state.mvt} has no bar ${bar}.`);
 }
 
+function readSettings() {
+  for (const [name, key] of Object.entries(SETTINGS)) {
+    try { settings[name] = localStorage.getItem(key) === '1'; } catch { /* storage blocked: defaults */ }
+  }
+  $('mark-notes').checked = settings.markNotes;
+  $('measure-boxes').checked = settings.measureBoxes;
+}
+
+function changeSetting(name, value) {
+  settings[name] = value;
+  try { localStorage.setItem(SETTINGS[name], value ? '1' : '0'); } catch { /* not remembered */ }
+  applySettings();
+}
+
 function bindUi() {
   document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => { location.hash = `#${b.dataset.mvt}`; }));
   $('prev').addEventListener('click', () => showPage(state.page - 1));
   $('next').addEventListener('click', () => showPage(state.page + 1));
+  $('mark-notes').addEventListener('change', (e) => changeSetting('markNotes', e.target.checked));
+  $('measure-boxes').addEventListener('change', (e) => changeSetting('measureBoxes', e.target.checked));
   document.addEventListener('keydown', (e) => {
     if (!current() || e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, textarea')) return;
     if (e.key === 'ArrowLeft') showPage(state.page - 1);
@@ -521,7 +582,9 @@ function bindUi() {
 }
 
 async function main() {
+  readSettings();
   bindUi();
+  applySettings();
   try {
     toolkit = await loadVerovio();
     toolkit.setOptions(VEROVIO_OPTIONS);
