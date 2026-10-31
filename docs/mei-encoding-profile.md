@@ -90,6 +90,8 @@ The script exits with 0 only if the required checks and both consumer checks pas
 
 It must pass the required checks (XML references, RELAX NG, the embedded Schematron, image resources, input hashes), Verovio rendering and the CAMAT parse. Schematron needs CAMAT's `validation` extra (`saxonche`); a run where it is skipped is not a pass. Run outputs go to `validation/runs/`, which is not committed. `run.json` records the tool versions and input hashes.
 
+Warnings do not fail the run. A passing run currently reports two, `layer_duration_underfull` on both staves of movement II bar 0: the printed pickup (`metcon="false"`), which CAMAT reports for review by design. Any other warning means the run output needs reading; the exit code does not catch it.
+
 The RELAX NG pass alone is not enough: on 2026-10-11 it accepted five broken `@startid` references in movement III and a beam with one note in movement II, which the full run caught.
 
 Passing validation does not show that the notation matches the print; only the comparison with the scan does (see [Proofreading](editorial-policy.md#proofreading) in the editorial policy).
