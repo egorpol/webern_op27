@@ -402,10 +402,13 @@ async function renderFacsimile() {
   const surface = model.surfaces.get(model.pages[state.page - 1]?.surface);
   if (!surface?.pdfPage) return;
   const canvas = $('facs-canvas');
-  const pixels = (canvas.parentElement.clientWidth || 600) * (window.devicePixelRatio || 1);
+  // The page fixes the canvas's shape, so its layout does not depend on the bitmap size.
+  canvas.style.aspectRatio = `${surface.width} / ${surface.height}`;
+  const [width, height] = await devicePixelSize(canvas);
+  if (token !== facsToken || !width) return;
   let scratch;
   try {
-    scratch = scanImages ? await drawScanImage(surface, pixels) : await drawPdfPage(surface, pixels, token);
+    scratch = scanImages ? await drawScanImage(surface, width, height) : await drawPdfPage(surface, width, height, token);
   } catch (error) {
     if (token === facsToken) showFacsError(error.message);
     return;
@@ -430,15 +433,42 @@ async function renderFacsimile() {
   applyHighlights();
 }
 
-// Both return an off-screen canvas `pixels` wide, or null when a newer render has taken over.
-async function drawPdfPage(surface, pixels, token) {
+// A bitmap the size of the canvas box in device pixels is shown 1:1; any other size is
+// resampled by the browser, which blurs the scan at fractional scales such as 1.25 or 1.5.
+function devicePixelSize(canvas) {
+  return new Promise((resolve) => {
+    const observer = new ResizeObserver(([entry]) => {
+      observer.disconnect();
+      resolve(entryPixels(entry));
+    });
+    observeDevicePixels(observer, canvas);
+  });
+}
+
+function entryPixels(entry) {
+  const box = entry.devicePixelContentBoxSize?.[0];
+  if (box) return [box.inlineSize, box.blockSize];
+  const ratio = window.devicePixelRatio || 1;
+  return [Math.round(entry.contentRect.width * ratio), Math.round(entry.contentRect.height * ratio)];
+}
+
+function observeDevicePixels(observer, element) {
+  try {
+    observer.observe(element, { box: 'device-pixel-content-box' });
+  } catch {
+    observer.observe(element); // no device-pixel box (Safari): fall back to CSS pixels × ratio
+  }
+}
+
+// Both return an off-screen canvas `width` × `height`, or null when a newer render has taken over.
+async function drawPdfPage(surface, width, height, token) {
   const page = await pdf.getPage(surface.pdfPage);
   if (token !== facsToken) return null;
-  const viewport = page.getViewport({ scale: pixels / page.getViewport({ scale: 1 }).width });
+  const viewport = page.getViewport({ scale: width / page.getViewport({ scale: 1 }).width });
   renderTask?.cancel();
   const scratch = document.createElement('canvas');
-  scratch.width = Math.round(viewport.width);
-  scratch.height = Math.round(viewport.height);
+  scratch.width = width;
+  scratch.height = height;
   renderTask = page.render({ canvas: scratch, viewport });
   try {
     await renderTask.promise;
@@ -449,11 +479,11 @@ async function drawPdfPage(surface, pixels, token) {
   return scratch;
 }
 
-async function drawScanImage(surface, pixels) {
+async function drawScanImage(surface, width, height) {
   const image = await scanImage(surface);
   const scratch = document.createElement('canvas');
-  scratch.width = Math.round(pixels);
-  scratch.height = Math.round((image.height * pixels) / image.width);
+  scratch.width = width;
+  scratch.height = height;
   const context = scratch.getContext('2d');
   context.imageSmoothingQuality = 'high';
   context.drawImage(image, 0, 0, scratch.width, scratch.height);
@@ -574,11 +604,11 @@ function bindUi() {
     facs.classList.remove('is-dragover');
     pickFile(e.dataTransfer.files[0]);
   });
-  let lastWidth = 0;
-  new ResizeObserver(([entry]) => {
-    const width = Math.round(entry.contentRect.width);
-    if (width !== lastWidth) { lastWidth = width; renderFacsimile(); }
-  }).observe(facs);
+  const canvas = $('facs-canvas');
+  observeDevicePixels(new ResizeObserver(([entry]) => {
+    const [width, height] = entryPixels(entry);
+    if (width && (width !== canvas.width || height !== canvas.height)) renderFacsimile();
+  }), canvas);
 }
 
 async function main() {
