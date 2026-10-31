@@ -26,6 +26,8 @@ Each movement was compared with the scan one printed system at a time, against a
 
 Repairs were made as targeted edits to the MEI text and checked with `scripts/validate.py`. After each movement, `scripts/check_movement.py` swept it for layers that do not fill the bar, control events without `@staff`, `@place` or a note anchor, hairpins that stop short of a dynamic, extenders without `@lsegs` and notes without `@stem.dir`; `scripts/count_dashes.py` counted the printed dashes of each extender. Routine repairs are recorded in the commit history; cases that need explaining have an `annot` (see below).
 
+The 143 bar boxes on the scan are the measure detector's output, not adjusted. The editor checked each against the scan with the viewer's "Bar boxes" setting (`provenance/layout-review.json`).
+
 ## Correction categories
 
 1. **Encoding repair.** The encoding is brought into agreement with the print, whatever caused the difference (Kern, conversion, or an earlier hand edit). Record it in the commit message; it needs no annotation.

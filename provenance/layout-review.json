@@ -2,7 +2,10 @@
   "reviewer": "Codex assistant",
   "reviewed_at": "2026-09-27T11:26:42.404707+00:00",
   "scope": "All nine page overlays inspected against visible printed measure numbers and system boundaries. Not a human musical collation or exact boundary certification.",
-  "human_editorial_review": "pending",
+  "human_editorial_review": "done",
+  "human_reviewer": "Egor Polyakov",
+  "human_reviewed_at": "2026-10",
+  "human_review_scope": "All 143 bar boxes checked against the scan with the viewer's \"Bar boxes\" setting: each covers its printed bar. None adjusted.",
   "pages": {
     "1": {
       "image_sha256": "f3a8c3debd43f1de39c09540310d2eb336e30bf8a1c300f5a01c1ff03a3f75a9",
