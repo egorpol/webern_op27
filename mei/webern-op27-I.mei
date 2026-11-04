@@ -196,7 +196,7 @@
       <body>
          <mdiv xml:id="ue1937-I-rsecszr" n="1" label="Webern Op. 27 / I" decls="#work.op27.I">
             <score xml:id="ue1937-I-s1qg2493">
-               <scoreDef xml:id="ue1937-I-t94houq" midi.bpm="40" tempo.dist="3vu" spacing.staff="14">
+               <scoreDef xml:id="ue1937-I-t94houq" midi.bpm="30" tempo.dist="3vu" spacing.staff="14">
                   <pgHead xml:id="ue1937-I-d1dpkbk2" func="first">
                      <rend xml:id="ue1937-I-ex8o5lc" halign="center" valign="middle">
                         <rend xml:id="ue1937-I-pgHead-title" fontsize="x-large">VARIATIONEN</rend>
@@ -245,7 +245,7 @@
                            </note>
                         </layer>
                      </staff>
-                     <tempo xml:id="ue1937-I-tempo-L10F1" place="above" staff="1" tstamp="1" mm="40" mm.unit="8" mm.dots="1">
+                     <tempo xml:id="ue1937-I-tempo-L10F1" place="above" staff="1" tstamp="1" mm="40" mm.unit="8" mm.dots="1" midi.bpm="30">
                         <rend xml:id="ue1937-I-fszmwo8">Sehr mäßig </rend>
                         <symbol xml:id="ue1937-I-g14kx1am" glyph.auth="smufl" glyph.name="metNote8thUp" fontsize="70%" />
                         <symbol xml:id="ue1937-I-iq1k6p8" glyph.auth="smufl" glyph.name="metAugmentationDot" fontsize="70%" /> = ca 40</tempo>

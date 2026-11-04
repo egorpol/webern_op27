@@ -1,6 +1,6 @@
 # Upstream issues
 
-Verovio problems found while encoding this edition. Each was confirmed on 2026-10-17 with Verovio 6.3.0 (`6.3.0-425dd7b`, the latest release) and the development version (`6.4.0-dev-3c322ca`, 2026-10-16), then filed on [rism-digital/verovio](https://github.com/rism-digital/verovio/issues) or added to an existing issue. Minimal examples and analysis are in the linked issues.
+Verovio problems found while encoding this edition. Unless its entry says otherwise, each was confirmed on 2026-10-17 with Verovio 6.3.0 (`6.3.0-425dd7b`, the latest release) and the development version (`6.4.0-dev-3c322ca`, 2026-10-16), then filed on [rism-digital/verovio](https://github.com/rism-digital/verovio/issues) or added to an existing issue. Minimal examples and analysis are in the linked issues.
 
 ## Verovio
 
@@ -11,6 +11,7 @@ Verovio problems found while encoding this edition. Each was confirmed on 2026-1
 - **Grace-note slur to a chord member attaches beneath the whole chord.** Movement III, bars 15 and 18. [#4313](https://github.com/rism-digital/verovio/issues/4313); this case was added as a [comment](https://github.com/rism-digital/verovio/issues/4313#issuecomment-6239248129). Edition workaround: the two slurs use `@curvedir="above"`; the note-specific endpoints stay encoded, and an `encoding-note` at each records the printed lower curve.
 - **`beamSpan` does not avoid rests in its `@plist`.** Movement III, bars 51–52: the beam runs through the eighth rest at the start of bar 52. [#4511](https://github.com/rism-digital/verovio/issues/4511).
 - **Page header from `meiHead` omits a composer wrapped in `persName`.** All movements; a regression since 4.4.0. [#4512](https://github.com/rism-digital/verovio/issues/4512), closed 2026-10-20 without a fix: the maintainer replied that the generated header is meant for simple cases and that a `pgHead` should be encoded instead. This edition does so: each movement repeats its printed head in a `pgHead` in the first `scoreDef`.
+- **`@mm.dots` scales the tempo by 4/3 instead of 3/2.** Movement I, "♪. = ca 40": the mark means 30 quarter notes per minute, but Verovio takes it as 26.667. The formula dates from [#3215](https://github.com/rism-digital/verovio/pull/3215), which fixed [#3214](https://github.com/rism-digital/verovio/issues/3214). Confirmed on 2026-11-04 with 6.3.0; `src/tempo.cpp` is unchanged on develop (`bb1e28b`). Not filed yet. Edition workaround: `midi.bpm="30"` on the `tempo`, which overrides the calculation.
 
 ## Known behaviour, not issues
 
