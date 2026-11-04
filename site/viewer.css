@@ -10,6 +10,7 @@
   --annot: #7c3aed;
   --noted: #a855f7;
   --box: #64748b;
+  --playing: #008477;
   --warn-bg: #fff4d6;
   --warn-text: #6b4a00;
   color-scheme: light;
@@ -22,6 +23,7 @@
     --muted: #a3a29d;
     --line: #3a3b40;
     --accent: #7fb0ec;
+    --playing: #00a894;
     --warn-bg: #3b3218;
     --warn-text: #f2d58a;
     color-scheme: dark;
@@ -34,6 +36,7 @@
   --muted: #a3a29d;
   --line: #3a3b40;
   --accent: #7fb0ec;
+  --playing: #00a894;
   --warn-bg: #3b3218;
   --warn-text: #f2d58a;
   color-scheme: dark;
@@ -92,6 +95,16 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
   overflow-wrap: anywhere;
 }
 #status code { color: var(--text); }
+.player { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; min-width: 0; max-width: 100%; font-size: 0.9rem; }
+.player[hidden] { display: none; }
+#player-position { min-width: 7em; font-variant-numeric: tabular-nums; }
+.tempo { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.tempo input[type="range"] { width: 100px; max-width: 100%; accent-color: var(--playing); }
+.tempo-number { white-space: nowrap; font-variant-numeric: tabular-nums; }
+#tempo-number { width: 4.2em; padding: 2px 3px; font: inherit; }
+#tempo-base, #player-note { color: var(--muted); }
+#player-note { flex-basis: 100%; margin: 0; font-size: 0.8rem; }
+#repeats-label { cursor: pointer; }
 
 .panes {
   display: grid;
@@ -114,12 +127,14 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .score svg { display: block; width: 100%; height: auto; }
 .message { color: #555; padding: 1rem; margin: 0; }
 
-/* Verovio SVG: hover, pinned bar, editorial-note targets (all, or the selected note). */
+/* Verovio SVG: hover, pinned bar, editorial-note targets (all, or the selected note), sounding notes. */
 .score g.measure { cursor: pointer; }
 .score .is-pinned, .score .is-pinned * { fill: var(--active); stroke: var(--active); }
 .score .is-hover, .score .is-hover * { fill: var(--hover); stroke: var(--hover); }
 .score.mark-notes .is-noted, .score.mark-notes .is-noted * { fill: var(--noted); stroke: var(--noted); }
 .score .is-annot, .score .is-annot * { fill: var(--annot) !important; stroke: var(--annot) !important; }
+.score .is-playing, .score .is-playing * { fill: var(--playing) !important; stroke: var(--playing) !important; }
+.score .is-pinned .is-playing, .score .is-pinned .is-playing *, .score .is-pinned.is-playing, .score .is-pinned.is-playing * { fill: var(--active) !important; stroke: var(--active) !important; }
 
 /* Bar boxes: every bar with "Bar boxes", annotated bars with "Mark all notes". */
 .score rect.measure-box { fill: none !important; stroke: none !important; pointer-events: none; }
@@ -152,6 +167,7 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .mark-notes .zones rect.has-note { fill: rgba(124, 58, 237, 0.08); stroke: rgba(124, 58, 237, 0.85); stroke-width: 2; }
 .zones rect:hover, .zones rect.is-hover { fill: rgba(37, 99, 235, 0.12); stroke: rgba(37, 99, 235, 0.7); stroke-width: 2; }
 .zones rect.is-pinned { fill: rgba(194, 65, 12, 0.14); stroke: rgba(194, 65, 12, 0.85); stroke-width: 3; }
+.zones rect.is-playing { fill: transparent; stroke: var(--playing); stroke-width: 4; }
 .facs-meta { color: var(--muted); font-size: 0.85rem; margin: 6px 0; }
 button.link { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; }
 

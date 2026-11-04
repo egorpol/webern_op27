@@ -28,9 +28,19 @@
     </div>
     <fieldset class="settings">
       <legend class="visually-hidden">Display</legend>
+      <label><input type="checkbox" id="playback"> Playback</label>
       <label><input type="checkbox" id="mark-notes"> Mark all notes</label>
       <label><input type="checkbox" id="measure-boxes"> Bar boxes</label>
     </fieldset>
+    <div id="player" hidden class="player" role="group" aria-label="MIDI playback" data-state="idle" data-position="0" data-bpm="" data-midi-notes="" data-midi-renders="0" data-follow="false" data-measure="" data-movement="" data-repeats="true">
+      <button type="button" id="play" disabled>Play</button>
+      <button type="button" id="stop" disabled>Stop</button>
+      <output id="player-position" aria-label="Playback bar">–</output>
+      <span class="tempo"><label for="tempo">Tempo</label> <input id="tempo" type="range" min="25" max="200" value="100" step="1"> <span class="tempo-number"><input id="tempo-number" type="number" min="25" max="200" step="1" value="100" aria-label="Tempo % (type a value)"> %</span></span>
+      <span id="tempo-base"></span>
+      <label id="repeats-label" hidden title="Play each repeated section twice, as printed"><input type="checkbox" id="repeats" checked> Repeats</label>
+      <p id="player-note">Flat playback: one loudness, one tempo. Dynamics, articulation, tempo changes and the fermata are in the score but are not played.</p>
+    </div>
     <output id="status" aria-live="polite">Hover a bar or a symbol to see its bar number and xml:id.</output>
   </nav>
 
@@ -65,7 +75,7 @@
   </main>
 
   <footer>
-    <p>Encoding: CC BY 4.0. Viewer: MIT. Rendered in your browser with <a href="https://www.verovio.org/">Verovio</a> <span id="verovio-version"></span>; your PDF with <a href="https://mozilla.github.io/pdf.js/">pdf.js</a> 6.3.289. Page images: <a href="https://github.com/egorpol/webern_op27-facsimile">webern_op27-facsimile</a>. Links: <code>#III/42</code> opens movement III at bar 42; arrow keys turn pages.</p>
+    <p>Encoding: CC BY 4.0. Viewer: MIT. Rendered in your browser with <a href="https://www.verovio.org/">Verovio</a> <span id="verovio-version"></span>; your PDF with <a href="https://mozilla.github.io/pdf.js/">pdf.js</a> 6.3.289. Page images: <a href="https://github.com/egorpol/webern_op27-facsimile">webern_op27-facsimile</a>. Playback with <a href="https://github.com/Tonejs/Tone.js">Tone.js</a>, <a href="https://github.com/Tonejs/Midi">@tonejs/midi</a> and <a href="https://github.com/danigb/smplr">smplr</a> (MIT); piano sound: FluidR3_GM by Frank Wen (<a href="https://github.com/musescore/MuseScore/blob/main/share/sound/FluidR3Mono_License.md">MIT</a>), rendered as <a href="https://github.com/gleitz/midi-js-soundfonts">midi-js-soundfonts</a> by Benjamin Gleitzman (<a href="https://creativecommons.org/licenses/by/3.0/us/">CC BY 3.0</a>), loaded from jsDelivr when you press Play. Links: <code>#III/42</code> opens movement III at bar 42; arrow keys turn pages; Space plays and pauses while Playback is on.</p>
   </footer>
 </body>
 </html>

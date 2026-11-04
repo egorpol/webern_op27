@@ -2,7 +2,7 @@
 // system breaks, the editorial notes, and the scan: the page images of
 // webern_op27-facsimile, once the visitor confirms that the print is in the
 // public domain where they are, or their own copy of the IMSLP PDF. Zones come
-// from the MEI.
+// from the MEI. Playback runs Verovio's MIDI through player.js, off by default.
 
 const VEROVIO_URL = 'https://cdn.jsdelivr.net/npm/verovio@6.3.0/dist/verovio-toolkit-wasm.js';
 const VEROVIO_SRI = 'sha384-7oICD/hf52uWdE8X0lMFqe7iIspaUj3aQjeZUnBQZpxjrZcHtqlRd3C78cje2e19';
@@ -21,14 +21,28 @@ const VEROVIO_OPTIONS = {
 const XML_NS = 'http://www.w3.org/XML/1998/namespace';
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const STORE = { db: 'webern-op27-viewer', store: 'files', key: 'imslp-pdf' };
-const SETTINGS = { markNotes: 'webern-op27-mark-notes', measureBoxes: 'webern-op27-measure-boxes' };
+const SETTINGS = { playback: 'webern-op27-playback', markNotes: 'webern-op27-mark-notes', measureBoxes: 'webern-op27-measure-boxes' };
+const PLAYBACK_SETTINGS = { tempo: 'webern-op27-tempo', repeats: 'webern-op27-repeats' };
+const SOUNDFONT_ROOT = 'https://cdn.jsdelivr.net/gh/gleitz/midi-js-soundfonts@044fab8e1456bfafc5776e86dfd6bb8697149aef/FluidR3_GM/';
+const SAMPLE_FILES = {
+  0: { url: `${SOUNDFONT_ROOT}acoustic_grand_piano-mp3.js`, integrity: 'sha384-Oe49rvfDnHMSSNlo8V6a4XyotASwNvpbHFgo0IOcyk8OFIXv8byikUYK2I3ONEfa' },
+};
+// Verovio writes both staves to channel 0 without a program change: GM 0, the piano.
+const PARTS = [{ channel: 0, program: 0 }];
+const MM_UNITS = { 2: 'half', 4: 'quarter', 8: 'eighth' };
 
 const $ = (id) => document.getElementById(id);
 const xmlId = (el) => el.getAttributeNS(XML_NS, 'id');
 const refs = (value) => (value || '').split(/\s+/).filter(Boolean).map((v) => v.replace(/^#/, ''));
+const STATUS_HINT = $('status').textContent;
 
 const state = { mvt: null, model: null, page: 1, pinned: null, annot: null };
-const settings = { markNotes: false, measureBoxes: false };
+const settings = { playback: false, markNotes: false, measureBoxes: false };
+const playback = {
+  engine: null, ready: null, context: null, token: 0, state: 'idle', loadingMovement: true,
+  percent: 100, repeats: true, engineModel: null, renders: 0, q: 0, start: null, pinAtPlay: null,
+  follow: false, active: new Set(), event: 0, measure: null,
+};
 const models = new Map();
 const pagesReady = fetch('facsimiles/ue1937/pages.json').then((r) => {
   if (!r.ok) throw new Error(`facsimiles/ue1937/pages.json: HTTP ${r.status}`);
@@ -83,6 +97,11 @@ function readModel(key, text, pages) {
   };
   const edition = doc.querySelector('editionStmt > edition');
   model.edition = edition ? `${edition.textContent.trim()} (version ${edition.getAttribute('n')})` : '';
+  // Movement II plays its printed repeats from an explicit <expansion>.
+  model.hasRepeats = doc.getElementsByTagName('expansion').length > 0;
+  // The printed mark, not a MIDI number: "ca" and the unit are what the print gives.
+  const tempo = doc.querySelector('music tempo[mm]');
+  model.tempoMark = `${tempo.hasAttribute('mm.dots') ? 'dotted ' : ''}${MM_UNITS[tempo.getAttribute('mm.unit')]} ca ${tempo.getAttribute('mm')}`;
 
   for (const surface of doc.getElementsByTagName('surface')) {
     const graphic = surface.getElementsByTagName('graphic')[0];
@@ -116,6 +135,8 @@ function readModel(key, text, pages) {
     if (el.localName === 'annot') annots.push(el);
     if (id) model.ids.set(id, { name: el.localName, measure: enclosingMeasure(el) });
   }
+  // Not measures.size: movement II counts its pickup as bar 0.
+  model.lastBar = [...model.measures.values()].at(-1).n;
   model.annots = annots.map((el) => {
     const targets = refs(el.getAttribute('plist'));
     const bars = [...new Set([xmlId(el), ...targets].map((t) => model.ids.get(t)?.measure).filter(Boolean))]
@@ -145,14 +166,30 @@ function setStatus(text, id = '') {
 }
 
 async function showMovement(key) {
-  if (state.mvt === key) return;
   const token = ++mvtToken;
+  if (state.mvt === key) {
+    // Returning to the displayed movement also cancels an intervening load.
+    if (playback.loadingMovement) {
+      playback.loadingMovement = false;
+      playerState('idle');
+      showPage(state.page);
+    }
+    return;
+  }
+  stopPlayback(true);
+  playback.loadingMovement = true;
+  playerState('idle');
   scoreMessage(`Loading movement ${key}…`);
   const model = await getModel(key);
   if (token !== mvtToken) return;
   toolkit.loadData(model.text);
   model.pageCount = toolkit.getPageCount();
   Object.assign(state, { mvt: key, model, pinned: null, annot: null });
+  playback.loadingMovement = false;
+  $('repeats-label').hidden = !model.hasRepeats;
+  $('player').dataset.movement = key;
+  playerState('idle');
+  updateTempo();
   document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mvt === key)));
   $('edition').textContent = model.edition;
   renderAnnots(model);
@@ -171,7 +208,39 @@ function showPage(page) {
   $('prev').disabled = page <= 1;
   $('next').disabled = page >= model.pageCount;
   applyHighlights();
+  applyPlaying();
   renderFacsimile();
+}
+
+let nextPageJob = null;
+function preRenderNextPage() {
+  // One job at a time, replacing an obsolete target after another turn/Play.
+  if (nextPageJob) {
+    clearTimeout(nextPageJob.delay);
+    if (nextPageJob.idle !== undefined) {
+      if (window.cancelIdleCallback) window.cancelIdleCallback(nextPageJob.idle);
+      else clearTimeout(nextPageJob.idle);
+    }
+  }
+  const model = current(), page = state.page + 1;
+  nextPageJob = null;
+  if (!model || page > model.pageCount || model.svg.has(page)) return;
+  const job = {};
+  nextPageJob = job;
+  const render = () => {
+    if (nextPageJob !== job) return;
+    nextPageJob = null;
+    // getModel awaits while current() can still be the old model. The loading
+    // guard also covers that interval: the toolkit holds just one movement's data.
+    if (model === current() && !playback.loadingMovement && !model.svg.has(page)) {
+      model.svg.set(page, toolkit.renderToSVG(page));
+    }
+  };
+  // Let Tone refill its horizon for two update intervals before another block.
+  // This task renders only SVG; insertion/decoration wait for the actual turn.
+  job.delay = setTimeout(() => {
+    job.idle = window.requestIdleCallback ? window.requestIdleCallback(render) : setTimeout(render, 0);
+  }, 50);
 }
 
 function svgElement(name, attributes = {}) {
@@ -226,6 +295,7 @@ function applySettings() {
     el.classList.toggle('mark-notes', settings.markNotes);
     el.classList.toggle('show-boxes', settings.measureBoxes);
   }
+  $('player').hidden = !settings.playback;
   applyHighlights();
 }
 
@@ -233,6 +303,7 @@ function pin(measureId, { hash = true } = {}) {
   const model = current();
   const measure = model.measures.get(measureId);
   if (!measure) return;
+  stopFollowing();
   state.pinned = measureId;
   if (hash) history.replaceState(null, '', `#${model.key}/${measure.n}`);
   if (measure.page !== state.page) showPage(measure.page);
@@ -267,6 +338,237 @@ function inspect(target) {
   const measure = model.measures.get(info.measure);
   hover(id, info.measure);
   setStatus(measure ? `Bar ${measure.n}, ${info.name}` : info.name, id);
+}
+
+// ---------------------------------------------------------------- playback
+
+// The player and its samples are the same as in the DdT 1/11 edition. Verovio's MIDI
+// carries the notes at one velocity and one tempo: see the note in the player.
+function playerState(value) {
+  playback.state = value;
+  $('player').dataset.state = value;
+  $('play').textContent = value === 'loading' ? 'Loading…' : value === 'playing' ? 'Pause' : 'Play';
+  $('play').disabled = playback.loadingMovement || !current() || value === 'loading';
+  $('stop').disabled = playback.loadingMovement || !current() || value === 'idle';
+}
+
+function stopFollowing() {
+  playback.follow = false;
+  $('player').dataset.follow = 'false';
+}
+
+function clearPlaying() {
+  for (const root of [$('score'), $('zones')]) {
+    root.querySelectorAll('.is-playing').forEach((n) => n.classList.remove('is-playing'));
+  }
+}
+
+function applyPlaying() {
+  clearPlaying();
+  if (playback.state !== 'playing') return;
+  const model = current();
+  for (const raw of playback.active) {
+    const id = model.playingIds.get(raw);
+    if (id) svgNodes(id).forEach((n) => n.classList.add('is-playing'));
+  }
+  for (const rect of $('zones').children) rect.classList.toggle('is-playing', rect.dataset.measure === playback.measure);
+}
+
+function showPosition(q, measureId = playback.measure) {
+  playback.q = q;
+  playback.measure = measureId;
+  const model = current();
+  const measure = model?.measures.get(measureId);
+  Object.assign($('player').dataset, { position: q, measure: measure?.n || '' });
+  const text = measure ? `Bar ${measure.n} / ${model.lastBar}` : '–';
+  if ($('player-position').textContent !== text) $('player-position').textContent = text;
+}
+
+function advanceCursor(q) {
+  const model = current();
+  if (!model?.playbackMap) return;
+  let changed = false;
+  while (playback.event < model.playbackMap.length && model.playbackMap[playback.event].qstamp <= q + 1 / model.midi.header.ppq + 1e-9) {
+    const event = model.playbackMap[playback.event++];
+    for (const id of event.off) playback.active.delete(id);
+    for (const id of event.on) playback.active.add(id);
+    if (event.measure) playback.measure = event.measure;
+    changed = true;
+  }
+  showPosition(q);
+  const measure = model.measures.get(playback.measure);
+  if (playback.follow && measure && measure.page !== state.page) {
+    showPage(measure.page);
+    preRenderNextPage();
+  } else if (changed) applyPlaying();
+}
+
+function resetCursor(q, measure) {
+  clearPlaying();
+  playback.active.clear();
+  playback.event = 0;
+  playback.measure = measure;
+  advanceCursor(q);
+}
+
+function stopPlayback(movementSwitch = false) {
+  ++playback.token; // Pending imports/sample loads may finish, but cannot start.
+  const start = !movementSwitch && playback.start;
+  playback.engine?.stop(start?.q || 0);
+  if (movementSwitch) playback.engineModel = null;
+  stopFollowing();
+  playerState('idle');
+  clearPlaying();
+  playback.active.clear();
+  if (movementSwitch) {
+    playback.start = null;
+    playback.pinAtPlay = null;
+  }
+  showPosition(start?.q || 0, start?.id || null);
+  const measure = current()?.measures.get(start?.id);
+  if (measure && measure.page !== state.page) showPage(measure.page);
+  if (movementSwitch) setStatus(STATUS_HINT);
+  else if (measure) setStatus(`Stopped at bar ${measure.n}`);
+}
+
+async function getPlayer() {
+  if (!playback.ready) {
+    playback.ready = import('./player.js').then(({ createPlayer }) => createPlayer({
+      context: playback.context, samples: SAMPLE_FILES,
+      onTempo: (tempo) => { if (playback.engineModel === current()) showTempo(tempo); },
+      onPosition: advanceCursor, onEnd: () => stopPlayback(),
+    })).then((engine) => { playback.engine = engine; return engine; }).catch((error) => {
+      playback.ready = null;
+      throw error;
+    });
+  }
+  return playback.ready;
+}
+
+function cachePlayback(model, engine) {
+  if (model.midi && model.timemap) return;
+  // This toolkit still holds model.text: movement/token checked immediately before this call.
+  model.midi = engine.parseMidi(toolkit.renderToMIDI());
+  ++playback.renders;
+  $('player').dataset.midiRenders = playback.renders;
+  model.timemap = toolkit.renderToTimemap().sort((a, b) => a.qstamp - b.qstamp);
+  model.playingIds = new Map();
+  function notated(id) {
+    if (!id) return null;
+    if (model.playingIds.has(id)) return model.playingIds.get(id);
+    const stripped = id.replace(/-rend\d+$/, '');
+    const mapped = model.ids.has(id) ? id : model.ids.has(stripped) ? stripped : toolkit.getNotatedIdForElement(id);
+    const result = model.ids.has(mapped) ? mapped : null;
+    model.playingIds.set(id, result);
+    return result;
+  }
+  model.playbackMap = model.timemap.map((event) => {
+    const on = (event.on || []).filter((id) => notated(id));
+    const off = (event.off || []).filter((id) => notated(id));
+    return { qstamp: event.qstamp, on, off, measure: model.ids.get(notated(on[0] || ''))?.measure };
+  });
+  model.measureQ = new Map();
+  for (const measure of model.measures.values()) {
+    const ms = toolkit.getTimeForElement(measure.id);
+    // Find by the measured millisecond time; never key or equate qstamp floats.
+    let low = 0, high = model.timemap.length;
+    while (low < high) {
+      const mid = (low + high) >>> 1;
+      if (model.timemap[mid].tstamp < ms) low = mid + 1;
+      else high = mid;
+    }
+    let i = Math.min(low, model.timemap.length - 1);
+    if (i > 0 && Math.abs(model.timemap[i - 1].tstamp - ms) < Math.abs(model.timemap[i].tstamp - ms)) --i;
+    model.measureQ.set(measure.id, model.timemap[i].qstamp);
+    model.playbackMap[i].measure = measure.id;
+  }
+}
+
+const PLAYBACK_CACHE = ['midi', 'timemap', 'playingIds', 'playbackMap', 'measureQ'];
+
+// Repeats off = Verovio's expandNever: MIDI and timemap play the written order once. Verovio applies
+// it at loadData, so a movement with repeats reloads; the score drawing and the page cache do not change.
+function setRepeats(value) {
+  playback.repeats = value;
+  try { localStorage.setItem(PLAYBACK_SETTINGS.repeats, value ? '1' : '0'); } catch { /* not remembered */ }
+  if (!toolkit) return;
+  toolkit.setOptions({ expandNever: !value });
+  $('player').dataset.repeats = String(value);
+  const forget = (model) => { for (const key of PLAYBACK_CACHE) delete model[key]; };
+  for (const ready of models.values()) ready.then(forget, () => {});
+  const model = current();
+  if (!model?.hasRepeats || playback.loadingMovement) return;
+  stopPlayback();
+  playback.engineModel = null;
+  forget(model);
+  if (!toolkit.loadData(model.text)) scoreMessage(`Verovio could not load movement ${model.key}.`);
+}
+
+function showTempo({ bpm }) {
+  if ($('player').dataset.bpm !== String(bpm)) $('player').dataset.bpm = bpm;
+}
+
+function updateTempo() {
+  const model = current(), bpm = model?.midi?.header.tempos[0]?.bpm;
+  if (document.activeElement !== $('tempo-number')) $('tempo-number').value = playback.percent;
+  $('tempo-base').textContent = model ? `100 % = ${model.tempoMark}` : '';
+  if (model && playback.engineModel === model) playback.engine.setTempo(playback.percent);
+  else showTempo({ bpm: bpm ? bpm * playback.percent / 100 : '' });
+}
+
+function setGlobalTempo(value) {
+  playback.percent = value;
+  $('tempo').value = $('tempo-number').value = value;
+  updateTempo();
+  try { localStorage.setItem(PLAYBACK_SETTINGS.tempo, playback.percent); } catch { /* not remembered */ }
+}
+
+async function togglePlayback() {
+  if (!settings.playback || !current() || playback.loadingMovement || playback.state === 'loading') return;
+  const newPin = state.pinned && state.pinned !== playback.pinAtPlay;
+  if (playback.state === 'playing' && !newPin) {
+    showPosition(playback.engine.pause());
+    playerState('paused');
+    clearPlaying();
+    setStatus(`Paused at bar ${current().measures.get(playback.measure)?.n}`);
+    return;
+  }
+  const model = current(), token = ++playback.token;
+  const resume = playback.state === 'paused' && !newPin;
+  // Before the first await: preserve the native user gesture on Safari as well.
+  try {
+    playback.context ||= new (window.AudioContext || window.webkitAudioContext)();
+    const resumed = playback.context.resume();
+    playback.engine?.stop();
+    playerState('loading');
+    clearPlaying();
+    const [engine] = await Promise.all([getPlayer(), resumed]);
+    if (token !== playback.token || model !== current()) return;
+    cachePlayback(model, engine);
+    $('player').dataset.midiNotes = model.midi.tracks.reduce((n, t) => n + t.notes.length, 0);
+    updateTempo();
+    const prepared = await engine.prepare(model.midi, PARTS);
+    if (token !== playback.token || model !== current()) return;
+    const id = state.pinned || [...model.measures.values()].find((m) => m.page === state.page)?.id || model.measures.keys().next().value;
+    const q = resume ? playback.q : model.measureQ.get(id) || 0;
+    if (!resume) playback.start = { id, q };
+    playback.pinAtPlay = state.pinned;
+    playback.follow = true;
+    $('player').dataset.follow = 'true';
+    playerState('playing');
+    resetCursor(q, resume ? playback.measure : id);
+    playback.engineModel = model;
+    engine.play(prepared, q, playback.percent);
+    preRenderNextPage();
+    setStatus(`Playing from bar ${model.measures.get(playback.measure)?.n}`);
+  } catch (error) {
+    if (token !== playback.token || model !== current()) return;
+    playback.engine?.stop();
+    clearPlaying();
+    playerState('error');
+    const reason = /[.!?]$/.test(error.message) ? error.message : `${error.message}.`;
+    setStatus(`Playback could not start: ${reason} Press Play to retry.`);
+  }
 }
 
 // ---------------------------------------------------------------- notes
@@ -431,6 +733,7 @@ async function renderFacsimile() {
     }));
   $('facs-label').textContent = scanImages ? `Printed page ${surface.printed}` : `Printed page ${surface.printed} (PDF page ${surface.pdfPage})`;
   applyHighlights();
+  applyPlaying();
 }
 
 // A bitmap the size of the canvas box in device pixels is shown 1:1; any other size is
@@ -545,26 +848,48 @@ function readSettings() {
   for (const [name, key] of Object.entries(SETTINGS)) {
     try { settings[name] = localStorage.getItem(key) === '1'; } catch { /* storage blocked: defaults */ }
   }
+  try {
+    const percent = Number(localStorage.getItem(PLAYBACK_SETTINGS.tempo));
+    if (percent >= 25 && percent <= 200) playback.percent = percent;
+    playback.repeats = localStorage.getItem(PLAYBACK_SETTINGS.repeats) !== '0';
+  } catch { /* storage blocked: defaults */ }
+  $('playback').checked = settings.playback;
   $('mark-notes').checked = settings.markNotes;
   $('measure-boxes').checked = settings.measureBoxes;
+  $('tempo').value = $('tempo-number').value = playback.percent;
+  $('repeats').checked = playback.repeats;
 }
 
 function changeSetting(name, value) {
   settings[name] = value;
+  if (name === 'playback' && !value) stopPlayback();
   try { localStorage.setItem(SETTINGS[name], value ? '1' : '0'); } catch { /* not remembered */ }
   applySettings();
 }
 
 function bindUi() {
   document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => { location.hash = `#${b.dataset.mvt}`; }));
-  $('prev').addEventListener('click', () => showPage(state.page - 1));
-  $('next').addEventListener('click', () => showPage(state.page + 1));
+  $('prev').addEventListener('click', () => { stopFollowing(); showPage(state.page - 1); });
+  $('next').addEventListener('click', () => { stopFollowing(); showPage(state.page + 1); });
+  $('play').addEventListener('click', togglePlayback);
+  $('stop').addEventListener('click', () => stopPlayback());
+  $('tempo').addEventListener('input', (e) => setGlobalTempo(Number(e.target.value)));
+  // Applied on Enter, leaving the box or the spin arrows; out-of-range values are clamped.
+  $('tempo-number').addEventListener('change', (e) => {
+    const v = Math.round(Number(e.target.value));
+    setGlobalTempo(e.target.value === '' || !Number.isFinite(v) ? playback.percent : Math.max(25, Math.min(200, v)));
+  });
+  $('repeats').addEventListener('change', (e) => setRepeats(e.target.checked));
+  $('playback').addEventListener('change', (e) => changeSetting('playback', e.target.checked));
   $('mark-notes').addEventListener('change', (e) => changeSetting('markNotes', e.target.checked));
   $('measure-boxes').addEventListener('change', (e) => changeSetting('measureBoxes', e.target.checked));
   document.addEventListener('keydown', (e) => {
     if (!current() || e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, textarea')) return;
-    if (e.key === 'ArrowLeft') showPage(state.page - 1);
-    if (e.key === 'ArrowRight') showPage(state.page + 1);
+    if (settings.playback && e.code === 'Space' && !e.target.closest('button')) { e.preventDefault(); togglePlayback(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      stopFollowing();
+      showPage(state.page + (e.key === 'ArrowLeft' ? -1 : 1));
+    }
   });
   window.addEventListener('hashchange', () => applyHash().catch((e) => scoreMessage(e.message)));
 
@@ -572,6 +897,7 @@ function bindUi() {
   score.addEventListener('mouseover', (e) => inspect(e.target));
   score.addEventListener('mouseleave', () => hover(null));
   score.addEventListener('click', (e) => {
+    stopFollowing();
     const id = current() && sourceElement(e.target);
     const measure = id && current().ids.get(id).measure;
     if (measure) pin(measure);
@@ -590,7 +916,10 @@ function bindUi() {
     setStatus(`Bar ${measure.n}, zone`, measure.zone);
   });
   zones.addEventListener('mouseleave', () => hover(null));
-  zones.addEventListener('click', (e) => { if (e.target.dataset?.measure) pin(e.target.dataset.measure); });
+  zones.addEventListener('click', (e) => {
+    stopFollowing();
+    if (e.target.dataset?.measure) pin(e.target.dataset.measure);
+  });
 
   const pickFile = async (file) => { if (file) await openPdf(await file.arrayBuffer(), file.name); };
   $('pdf-input').addEventListener('change', (e) => pickFile(e.target.files[0]));
@@ -617,7 +946,8 @@ async function main() {
   applySettings();
   try {
     toolkit = await loadVerovio();
-    toolkit.setOptions(VEROVIO_OPTIONS);
+    toolkit.setOptions({ ...VEROVIO_OPTIONS, expandNever: !playback.repeats });
+    $('player').dataset.repeats = String(playback.repeats);
     $('verovio-version').textContent = toolkit.getVersion();
     await applyHash();
   } catch (error) {

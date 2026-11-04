@@ -22,6 +22,7 @@ FILES = [
     ("site/index.html", "index.html"),
     ("site/viewer.css", "viewer.css"),
     ("site/viewer.js", "viewer.js"),
+    ("site/player.js", "player.js"),
     ("facsimiles/ue1937/pages.json", "facsimiles/ue1937/pages.json"),
 ] + [(f"mei/webern-op27-{mvt}.mei", f"mei/webern-op27-{mvt}.mei") for mvt in ("I", "II", "III")]
 
