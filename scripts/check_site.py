@@ -5,6 +5,8 @@ Drives the real page: Verovio, the player libraries, the piano samples and the
 scan come from the network. The expected tempo is worked out from the printed
 mark (@mm, @mm.unit, @mm.dots), not from @midi.bpm, so a wrong MIDI tempo fails.
 An analyser on the audio output checks that sound comes out; nobody has listened.
+The grace-note timing the viewer reports is worked out again here from Verovio's
+own MIDI and time map, by a different route from the viewer's.
 
 Needs Playwright and its browsers. Exit code 1 if any check fails.
 
@@ -14,8 +16,10 @@ Usage: python scripts/check_site.py [--site DIR] [--browser chromium|firefox] [-
 from __future__ import annotations
 
 import argparse
+import base64
 import functools
 import http.server
+import io
 import re
 import subprocess
 import sys
@@ -24,15 +28,20 @@ import threading
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+import mido
+import verovio
 from playwright.sync_api import TimeoutError as PlaywrightTimeout
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 MEI = "{http://www.music-encoding.org/ns/mei}"
+XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 MOVEMENTS = ("I", "II", "III")
 UNIT_WORDS = {"2": "half", "4": "quarter", "8": "eighth"}
 MIDI_NOTES = {"I": 311, "II": 178, "III": 364}
 MIDI_NOTES_NO_REPEATS = 90
+GRACE_MS = 70  # GRACE_MS in site/viewer.js
+GRACE_KEYS = ("graces", "graceMains", "graceCuts", "graceSkipped")
 # Heard-from-the-output floor: well above the silence of a muted build (0), well below a piano note.
 SOUND_PEAK = 0.01
 # Every node that reaches the speakers also feeds one analyser, sampled for its peak.
@@ -97,6 +106,65 @@ def printed_tempo(movement: str) -> tuple[float, str, str]:
     return mm * 4 / int(unit) * (2 - 2 ** -dots), mark, bars[-1]
 
 
+def expected_graces(movement: str, repeats: bool = True) -> dict[str, str]:
+    """The viewer's data-grace* values, from Verovio 6.3's MIDI and time map.
+
+    The viewer finds bar starts in the MEI layers and main notes by id; here a bar
+    start is a time-map measureOn and the main notes are the notes that start where
+    Verovio's grace ends. Every grace then lasts GRACE_MS and ends on the beat.
+    """
+    path = ROOT / f"mei/webern-op27-{movement}.mei"
+    verovio.enableLog(False)
+    toolkit = verovio.toolkit()
+    toolkit.setOptions({"expandNever": not repeats})
+    toolkit.loadFile(str(path))
+    midi = mido.MidiFile(file=io.BytesIO(base64.b64decode(toolkit.renderToMIDI())))
+    ppq, notes, tempos = midi.ticks_per_beat, [], []
+    for track in midi.tracks:
+        tick, sounding = 0, {}
+        for message in track:
+            tick += message.time
+            if message.type == "set_tempo":
+                tempos.append(message.tempo)
+            elif message.type == "note_on" and message.velocity:
+                sounding.setdefault(message.note, []).append(tick)
+            elif message.type in ("note_on", "note_off") and sounding.get(message.note):
+                start = sounding[message.note].pop(0)
+                notes.append([start, tick - start, message.note])
+    assert len(set(tempos)) == 1, tempos  # one tempo per movement in this edition
+    length = round(GRACE_MS * 60e6 / tempos[0] * ppq / 60000)
+    timemap = toolkit.renderToTimemap({"includeMeasures": True})
+    bar_starts = {e["qstamp"] for e in timemap if "measureOn" in e}
+    ids = {n.get(XML_ID) for n in ET.parse(path).iter(f"{MEI}note") if n.get("grace")}
+    found = []
+    for event in timemap:
+        for raw in event.get("on", []):
+            if raw.split("-rend")[0] in ids:
+                pitch = toolkit.getMIDIValuesForElement(raw.split("-rend")[0])["pitch"]
+                [note] = [n for n in notes if n[2] == pitch and abs(n[0] - event["qstamp"] * ppq) < 1]
+                found.append((note, event["qstamp"] in bar_starts))
+    graces = [n for n, _ in found]
+    others = [n for n in notes if all(n is not g for g in graces)]
+    result = {key: [] for key in GRACE_KEYS[:3]}
+    for note, bar_start in found:
+        end = note[0] + note[1]
+        mains = [n for n in others if end <= n[0] <= end + 1]
+        beat = note[0] if bar_start else min(n[0] for n in mains)
+        result["graces"].append((beat - length, length, note[2]))
+        if bar_start:
+            result["graceMains"] += [(beat, n[0] + n[1] - beat, n[2]) for n in mains]
+        held = [n for n in others if n[2] == note[2] and n[0] < beat - length < n[0] + n[1]]
+        result["graceCuts"] += [(n[0], beat - length - n[0], n[2]) for n in held]
+    out = {key: " ".join(f"{t}/{d}/{p}" for t, d, p in sorted(value)) for key, value in result.items()}
+    return {**out, "graceSkipped": "0"}
+
+
+def check_graces(view: Viewer, check: Checks, label: str, expected: dict[str, str]) -> None:
+    for key in GRACE_KEYS:
+        got = view.data(key)
+        check(f"{label}: {key} as worked out from Verovio", got == expected[key], f"{got!r}, expected {expected[key]!r}")
+
+
 class Checks:
     def __init__(self) -> None:
         self.failed: list[str] = []
@@ -159,6 +227,7 @@ def check_movement(view: Viewer, check: Checks, movement: str) -> None:
         return
     check(f"{movement}: MIDI tempo is the printed tempo", abs(float(view.data("bpm")) - bpm) < 0.01, f"{view.data('bpm')}, printed {bpm:g}")
     check(f"{movement}: MIDI note count", view.data("midiNotes") == str(MIDI_NOTES[movement]), view.data("midiNotes"))
+    check_graces(view, check, movement, expected_graces(movement))
     first = page.inner_text("#player-position")
     check(f"{movement}: position counts to the last printed bar", first.endswith(f" / {last}"), first)
     if view.wait(f"{movement}: notes light up", "() => document.querySelector('#score .is-playing')"):
@@ -188,6 +257,7 @@ def check_repeats(view: Viewer, check: Checks) -> None:
         view.state("playing", 60000)
         label = "with repeats" if repeats else "without repeats"
         check(f"II {label}: note count", view.data("midiNotes") == str(notes), view.data("midiNotes"))
+        check_graces(view, check, f"II {label}", expected_graces("II", repeats))
         check(f"II {label}: double tempo applies", abs(float(view.data("bpm")) - 320) < 0.01, view.data("bpm"))
         view.state("idle", 40000)  # the end of the movement stops by itself
         bars = page.evaluate("() => window.__bars")

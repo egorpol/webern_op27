@@ -30,6 +30,8 @@ const SAMPLE_FILES = {
 // Verovio writes both staves to channel 0 without a program change: GM 0, the piano.
 const PARTS = [{ channel: 0, program: 0 }];
 const MM_UNITS = { 2: 'half', 4: 'quarter', 8: 'eighth' };
+// Target sounding length for each unaccented grace note in MIDI playback.
+const GRACE_MS = 70;
 
 const $ = (id) => document.getElementById(id);
 const xmlId = (el) => el.getAttributeNS(XML_NS, 'id');
@@ -145,6 +147,24 @@ function readModel(key, text, pages) {
     bars.forEach((bar) => model.noted.add(bar.id));
     return { id: xmlId(el), label: el.getAttribute('label') || el.getAttribute('type'), targets, bars, paras: [...el.getElementsByTagName('p')] };
   });
+  // Consecutive grace events before a main note/chord per layer; barStart if nothing sounded earlier in the layer.
+  const SOUND = new Set(['note', 'chord', 'rest', 'space', 'mRest', 'mSpace', 'multiRest']);
+  const idsOf = (el) => el.localName === 'chord'
+    ? [...el.children].filter((c) => c.localName === 'note').map(xmlId) : [xmlId(el)];
+  const grace = (el) => (el.localName === 'note' || el.localName === 'chord')
+    && (el.hasAttribute('grace') || el.closest('graceGrp'));
+  model.graceGroups = [];
+  for (const layer of doc.getElementsByTagName('layer')) {
+    const ev = [];
+    (function walk(p) { for (const el of p.children) SOUND.has(el.localName) ? ev.push(el) : walk(el); })(layer);
+    for (let i = 0; i < ev.length;) {
+      if (!grace(ev[i])) { i++; continue; }
+      const from = i;
+      while (i < ev.length && grace(ev[i])) i++;
+      const next = ev[i], main = next && (next.localName === 'note' || next.localName === 'chord') ? idsOf(next) : [];
+      model.graceGroups.push({ graces: ev.slice(from, i).map(idsOf), main, barStart: from === 0 });
+    }
+  }
   return model;
 }
 
@@ -479,12 +499,89 @@ function cachePlayback(model, engine) {
     }
     let i = Math.min(low, model.timemap.length - 1);
     if (i > 0 && Math.abs(model.timemap[i - 1].tstamp - ms) < Math.abs(model.timemap[i].tstamp - ms)) --i;
+    // Play-from-bar keeps this qstamp: do not pull it back to a lengthened bar-start grace.
     model.measureQ.set(measure.id, model.timemap[i].qstamp);
     model.playbackMap[i].measure = measure.id;
   }
+  adjustGraceNotes(model, notated);
 }
 
-const PLAYBACK_CACHE = ['midi', 'timemap', 'playingIds', 'playbackMap', 'measureQ'];
+// Verovio plays each unaccented grace for ~27ms, ending on the main beat (or taking the beat
+// when the main is first in the bar). Stretch every grace group to GRACE_MS and, in the
+// bar-start case, pull the main note back onto the beat; leave measureQ where Verovio put it.
+function adjustGraceNotes(model, notated) {
+  const fmt = (list) => list.sort((a, b) => a.ticks - b.ticks || a.midi - b.midi)
+    .map((n) => `${n.ticks}/${n.durationTicks}/${n.midi}`).join(' ');
+  if (!model.graceGroups?.length) {
+    model.graceReport = { graces: '', mains: '', cuts: '', skipped: 0 };
+    return;
+  }
+  const { ppq, tempos } = model.midi.header;
+  const notes = model.midi.tracks.flatMap((t) => t.notes);
+  const onsets = new Map();
+  for (const event of model.timemap) {
+    for (const raw of event.on || []) {
+      const id = notated(raw);
+      if (!id) continue;
+      (onsets.get(id) || onsets.set(id, []).get(id)).push(event.qstamp);
+    }
+  }
+  const match = (id, q) => {
+    const p = toolkit.getMIDIValuesForElement(id).pitch, t = q * ppq;
+    const hits = notes.filter((n) => n.midi === p && Math.abs(n.ticks - t) < 1);
+    return hits.length === 1 ? hits[0] : null;
+  };
+  const graces = [], mains = [], cuts = [];
+  let skipped = 0;
+  for (const group of model.graceGroups) {
+    const n = group.graces.length, gIds = group.graces.flat(), count = gIds.length;
+    const all = [...gIds, ...group.main], times = onsets.get(gIds[0])?.length || 0;
+    if (!group.main.length || !times || all.some((id) => (onsets.get(id) || []).length !== times)) {
+      skipped += count; continue;
+    }
+    const passes = [];
+    let ok = true;
+    for (let p = 0; p < times && ok; p++) {
+      const gNotes = group.graces.map((ids) => ids.map((id) => match(id, onsets.get(id)[p])));
+      const mNotes = group.main.map((id) => match(id, onsets.get(id)[p]));
+      if (gNotes.some((ev) => ev.some((x) => !x)) || mNotes.some((x) => !x)) ok = false;
+      else passes.push({ gNotes, mNotes });
+    }
+    if (!ok) { skipped += count; continue; }
+    const edits = [];
+    for (const { gNotes, mNotes } of passes) {
+      const B = group.barStart ? Math.min(...gNotes[0].map((x) => x.ticks)) : Math.min(...mNotes.map((x) => x.ticks));
+      const L = Math.max(1, Math.round(GRACE_MS * (tempos.filter((t) => t.ticks <= B).at(-1)?.bpm ?? 120) * ppq / 60000));
+      if (B - n * L < 0) { edits.length = 0; break; }
+      edits.push({ gNotes, mNotes, B, L });
+    }
+    if (!edits.length) { skipped += count; continue; }
+    for (const { gNotes, mNotes, B, L } of edits) {
+      const moved = new Set(gNotes.flat());
+      for (let k = 0; k < n; k++) {
+        const ticks = B - (n - k) * L;
+        for (const note of gNotes[k]) {
+          for (const other of notes) {
+            if (moved.has(other) || other.midi !== note.midi) continue;
+            if (other.ticks < ticks && other.ticks + other.durationTicks > ticks) {
+              other.durationTicks = ticks - other.ticks;
+              cuts.push(other);
+            }
+          }
+          note.ticks = ticks; note.durationTicks = L; graces.push(note);
+        }
+      }
+      if (group.barStart) {
+        for (const note of mNotes) {
+          note.durationTicks += note.ticks - B; note.ticks = B; mains.push(note);
+        }
+      }
+    }
+  }
+  model.graceReport = { graces: fmt(graces), mains: fmt(mains), cuts: fmt(cuts), skipped };
+}
+
+const PLAYBACK_CACHE = ['midi', 'timemap', 'playingIds', 'playbackMap', 'measureQ', 'graceReport'];
 
 // Repeats off = Verovio's expandNever: MIDI and timemap play the written order once. Verovio applies
 // it at loadData, so a movement with repeats reloads; the score drawing and the page cache do not change.
@@ -546,6 +643,10 @@ async function togglePlayback() {
     if (token !== playback.token || model !== current()) return;
     cachePlayback(model, engine);
     $('player').dataset.midiNotes = model.midi.tracks.reduce((n, t) => n + t.notes.length, 0);
+    const g = model.graceReport || { graces: '', mains: '', cuts: '', skipped: 0 };
+    Object.assign($('player').dataset, {
+      graces: g.graces, graceMains: g.mains, graceCuts: g.cuts, graceSkipped: g.skipped,
+    });
     updateTempo();
     const prepared = await engine.prepare(model.midi, PARTS);
     if (token !== playback.token || model !== current()) return;
