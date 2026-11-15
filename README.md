@@ -14,7 +14,7 @@ Proofread against the print, system by system; corrections welcome before 1.0.
 | II — Sehr schnell | pickup + 22 | 6 | Kern base, enriched from the print by hand in all bars (stems, beams, slurs, dynamics, hairpins, text); clefs checked against the print | 23 zones |
 | III — Ruhig fließend | 66 | 7–11 | Kern base, enriched from the print by hand in all bars (stems, beams, slurs, dynamics, hairpins, text); clefs checked against the print | 66 zones |
 
-The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`. Each file has an edition header (version 0.9.0): sources, transcribed page paratext and editorial declaration. All three movements use edition versioning without an embedded revision history.
+The files are MEI 5.1 and validate against `schemas/mei-CMN-5.1.rng`. They were converted from Verovio's MEI 6.0-dev output by `scripts/migrate_mei51.py`. Each file has an edition header (version 0.10.0): sources, transcribed page paratext and editorial declaration. All three movements use edition versioning without an embedded revision history.
 
 ## Layout
 
