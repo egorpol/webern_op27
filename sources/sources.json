@@ -1,7 +1,7 @@
 {
   "created_at": "2026-10-10T23:58:52+00:00",
   "work": "Anton Webern, Variations for Piano, Op. 27",
-  "policy": "Sources are cited by URL and SHA-256; no source file (the PDF, the Kern files or the cross-check encodings) is committed. local_path names the git-ignored place where scripts/fetch_sources.py keeps a local copy.",
+  "policy": "Sources are cited by URL and SHA-256; no source file (the PDF, the Kern files or the cross-check encodings) is committed. local_path names the git-ignored place where scripts/fetch_sources.py keeps a local copy. The reference recording is the exception: it has no download_url and is cited by SHA-256 and description only; its local copy is obtained by hand, and fetch_sources.py only checks it.",
   "sources": [
     {
       "requested_url": "https://imslp.eu/files/imglnks/euimg/4/4d/IMSLP28271-PMLP04634-Webern_-_Variations,_Op._27.pdf",
@@ -269,6 +269,36 @@
         "\"6/2/95\" in the header is preserved as stated; the day/month order is not given."
       ],
       "role": "cross-check encoding: a difference prompts re-reading the print; never evidence for a reading",
+      "redistributed": false
+    },
+    {
+      "bytes": 12698618,
+      "sha256": "30a5873008c3af53cd2fb2ec8c45c4e4eebbefc782aa1841e57492cc4ff9a1e8",
+      "local_path": "sources/recordings/loriod-1961.mp3",
+      "id": "loriod-1961-reference-copy",
+      "composer": "Anton Webern",
+      "work": "Variations for Piano, Op. 27",
+      "format": "MP3, 320 kbps, 44.1 kHz stereo; all three movements in one file, 317.31 s as decoded by ffmpeg",
+      "scope": "recording",
+      "movements": [
+        1,
+        2,
+        3
+      ],
+      "recording": {
+        "performer": "Yvonne Loriod",
+        "year": 1961,
+        "label": "Véga C 30 A 309",
+        "transfer": "a rip of a Decca reissue (\"The Vega Recordings, Vol. 6\")"
+      },
+      "repository": "Internet Archive, item 20220513-webern-o-variations-op.-27-yvonne-loriod-pierre-boulez",
+      "rights_as_stated": "No licence stated on the item.",
+      "notes": [
+        "Local reference copy for the offline score alignment (docs/audio-sync-plan.md). The viewer never plays or links it; readers hear the recording through the label's YouTube uploads.",
+        "No download_url on purpose: the file is an unlicensed upload of a commercial recording, so the repository offers no download link.",
+        "The item's metadata and the MP3 header give 96.89 s, which is wrong; libsndfile trusts the header and decodes only 96.86 s. Decode with ffmpeg."
+      ],
+      "role": "alignment reference: the published bar times are measured on this file; never evidence for a reading",
       "redistributed": false
     }
   ]

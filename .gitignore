@@ -15,8 +15,10 @@ __pycache__/
 /facsimiles/**/*.pdf
 
 # Source encodings (KernScores, cross-check encodings) are cited by URL + SHA-256, never committed.
+# The reference recording (sources/recordings/) is cited by SHA-256 only and obtained by hand.
 /sources/kern/
 /sources/crosscheck/
+/sources/recordings/
 
 # Validation run outputs.
 /validation/runs/

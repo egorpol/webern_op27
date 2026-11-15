@@ -6,6 +6,7 @@ Status: plan, 2026-11-15. Nothing is built yet. This repo is the study; the sync
 
 - **Audience: score readers first.** One recording per movement, and the current bar lights up while it plays. The timing format takes more recordings later, for comparing performances.
 - **Route: align offline, play YouTube.** The viewer plays Yvonne Loriod's 1961 recording (Véga C 30 A 309) from the label's official YouTube "Topic" uploads, one video per movement. Bar times come from an automatic offline alignment of a local reference copy of the same performance, corrected by ear. The reference copy never goes into the repo or the viewer.
+- **Reference copy in `sources/sources.json`: SHA-256 and description only** (decided 2026-11-15). The record `loriod-1961-reference-copy` has no `download_url` and `redistributed: false`; `fetch_sources.py` reports it as `manual` when the file is missing.
 - **No audio in the MEI.** Timing data is a separate JSON file, as velocity (`@vel`) is kept out of the MEI for the expression layer.
 - A second opinion (Cursor auto, 2026-11-15) picked the same route; its main risk is drift between transfers (see Facts).
 
@@ -19,7 +20,8 @@ Status: plan, 2026-11-15. Nothing is built yet. This repo is the study; the sync
 | Onset span, Cook & Sapp transfer | 91.39 s | 34.77 s | 177.55 s |
 
 - **Reference copy:** Internet Archive item `20220513-webern-o-variations-op.-27-yvonne-loriod-pierre-boulez`, one MP3 of all three movements. It runs 317.3 s at 320 kbps, 44.1 kHz stereo, SHA-256 `30a5873008c3af53cd2fb2ec8c45c4e4eebbefc782aa1841e57492cc4ff9a1e8`. Its metadata gives 96.89 s, which is wrong. It is a rip of a Decca reissue ("The Vega Recordings, Vol. 6"), and the item states no licence.
-  - Movement breaks: I ends about 90.8 s, II starts 96.95 s, II ends about 131.7 s, III starts 136.07 s.
+  - Movement breaks: I ends about 90.8 s, II starts 96.95 s, II ends about 131.7 s, III starts 136.07 s. The aligner finds them with ffmpeg `silencedetect` (−30 dB, at least 1.5 s) and cuts at the gap midpoints, 93.86 and 133.86 s. The longest silence inside a movement is 3.0 s (III).
+  - Decode with ffmpeg (317.31 s). libsndfile, and so `soundfile` and `librosa.load`, trusts the wrong header and stops at 96.86 s.
   - archive.org serves the file with `Access-Control-Allow-Origin: *` and answers range requests. The viewer does not use this; it only matters for the dev tools below.
 - **Legal status** (research report, not re-checked; no legal advice):
   - The report reads Directive 2011/77/EU's 70-year term as applying only to rights still alive on 1 Nov 2013. A 1961 publication's 50-year term ended in 2011, so on that reading the recording is public domain in the EU.
@@ -34,7 +36,9 @@ Status: plan, 2026-11-15. Nothing is built yet. This repo is the study; the sync
   - The bar and note highlight runs on Verovio's expanded score position. `player.js` calls `onPosition(q)`, which goes to `advanceCursor(q)` in `site/viewer.js`, and `advanceCursor` lights notes and the bar box together.
   - The MIDI path is `parseMidi` → `prepare(midi, PARTS)` → `play(prepared, q, percent)` (`site/player.js:413`; `togglePlayback` in `site/viewer.js`).
   - Repeats on uses the `<expansion>`. In Verovio 6.3.0's `renderToTimemap({includeMeasures: true})` for II, the 45 `measureOn` events have 45 distinct ids, and the 22 second-pass bars are `<id>-rend2` (probe 2026-11-15). The viewer currently calls `renderToTimemap()` without `includeMeasures`.
-- **Tools:** ffmpeg and fluidsynth are installed. There is no SoundFont on the system (no `.sf2` or `.sf3` file), and no librosa, synctoolbox or madmom in any venv. partitura 1.9.0 is in the camat_v2 venv.
+- **Score side** (Verovio 6.3.0, repeats on): 165 played bars (I 54, II 45, III 66). Each movement's MIDI has one tempo (I 30 bpm, II and III 160 bpm), so the rit. and tempo words do not reach it. 57 bars start without a note-on (I 8, II 18, III 31).
+- **Aligner probe** (build session 1, `scripts/align_recording.py`; outputs git-ignored in `validation/runs/audio-sync-2026-11-15/`): 165 anchors. Variant B wins every movement by the note-on proxy. Over downbeats that are real attacks, the anchor lies within 100 ms of a detected recording onset in I 86% (38/44), II 96% (26/27) and III 88% (23/26); a linear spread gets 39 / 56 / 20% of sounding downbeats. 68 bars (57 rests, 11 tied downbeats) are timed by interpolation, which no proxy checks. In movement I the reference copy starts on the first note, so bar 1 would begin at −0.32 s; its anchor is clipped to 0.
+- **Tools:** ffmpeg and fluidsynth are installed. There is no SoundFont on the system (no `.sf2` or `.sf3` file). The aligner's venv `.venv/` (git-ignored; pins in `scripts/requirements-align.txt`) has Python 3.13, synctoolbox 1.4.2, librosa 0.11.0 and verovio 6.3.0. partitura 1.9.0 is in the camat_v2 venv.
 - **Cook & Sapp data:** onset times for 62–63 recordings per movement (Loriod: 177, 122 and 256 events). No licence is stated. It is not used here. Asking permission is a later, researcher-facing step.
 
 ## Design
@@ -95,7 +99,8 @@ Status: plan, 2026-11-15. Nothing is built yet. This repo is the study; the sync
 - Features:
   - Chroma plus onset features on both sides. Synchronisation toolbox style: multi-resolution DTW with chroma and onset features.
   - Score-side features come straight from the MIDI note list, since no SoundFont is installed. The fallback is synthesising with the viewer's piano samples.
-  - The build probes both and keeps whichever scores better.
+  - The build runs both. Each movement keeps the variant with the larger share of MIDI note-ons within 50 ms of a detected recording onset (librosa), with one parameter set for all three.
+  - Bar times are interpolated between aligned note onsets, so bars that start in a rest follow the performed tempo. The opening rest is extrapolated back from the first onsets at the local rate.
 - Output: a bar anchor for every played bar (about 165), with `how: "dtw"`. It also writes a click-track WAV (reference audio plus a click at each anchor) for the listening check.
 - Writes outputs to `validation/runs/` (git-ignored). Only the corrected JSON enters `site/recordings/`.
 
@@ -111,7 +116,7 @@ Status: plan, 2026-11-15. Nothing is built yet. This repo is the study; the sync
 
 ## Build sessions (one deliverable each)
 
-1. **Aligner probe.** Set up the venv, write the fetch step for the reference copy (checked against the SHA-256), segment it, run the DTW and write the click track. Deliverable: bar anchors for all three movements and a short report. Hand off after the report. (Delegable: the script from this spec.)
+1. **Aligner probe** (done 2026-11-15, see Facts). Set up the venv, write the fetch step for the reference copy (checked against the SHA-256), segment it, run the DTW and write the click track. Deliverable: bar anchors for all three movements and a short report. Hand off after the report. (Delegable: the script from this spec.)
 2. **Tap/correct page plus ground truth.** You tap the reference copy (about 165 bars, roughly 30–45 minutes). Then score the aligner and correct the anchors. Deliverable: the corrected `loriod-1961.json` without sources, and the accuracy numbers.
 3. **Viewer integration.** `recording-sync.js`, the YouTube adapter, the source switch, click-to-load and the calibration mode. You tap 5–10 anchors per video, then the offset and rate are fitted. Deliverable: recording mode working locally. (Delegable: the module and adapters.)
 4. **Tests, docs, release.**
@@ -124,12 +129,9 @@ Status: plan, 2026-11-15. Nothing is built yet. This repo is the study; the sync
 
 - IFrame API: how often `getCurrentTime()` updates during playback, and what it reports during a pre-roll ad.
 - Whether the Topic transfer matches the reference copy (the calibration fit shows it: rate ≈ 1.000 means same transfer).
-- Whether DTW holds through Webern's long rests and sparse texture, especially II at "Sehr schnell".
+- Whether DTW holds through Webern's long rests and sparse texture, especially II at "Sehr schnell". Answered by the probe (2026-11-15): yes by the proxies, and II is the best movement (see Facts).
 
 ## Open decisions (each a picker in its session)
 
-- Whether `sources/sources.json` cites the reference copy by URL and SHA-256, or records only its SHA-256 and description.
-  - Precedent: `sources.json` already cites a cross-check encoding with no licence (`opus27c.krn`, "No license in the repository…") by URL and SHA-256, without redistributing it.
-  - MuseScore and DCMLab are "not used" at all, because their readings may not enter the encoding (`docs/editorial-policy.md:15`).
 - The licence for the timing data: CC BY 4.0 like the encoding, or CC0.
 - Whether to ask Nicholas Cook and Craig Sapp for permission to use their onset data (researcher phase).

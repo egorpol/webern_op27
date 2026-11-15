@@ -10,7 +10,9 @@ Without options the script checks the local copies against their SHA-256.
 --download fetches each missing file from its download_url; --from DIR copies
 it from a directory of earlier copies (matched by file name) instead, for when
 a host is down. New bytes are hashed before anything is written, and an
-existing file is never replaced.
+existing file is never replaced. A record without download_url (the reference
+recording) is obtained by hand: when missing it is reported as manual, which
+does not fail the run.
 
 --pages rasterizes the PDF as pages.json records it (300 dpi, pdftoppm) into
 facsimiles/ue1937/page-NNNN.png, missing pages only, and checks every page:
@@ -61,7 +63,7 @@ def download(url: str, timeout: float) -> bytes:
 
 
 def fetch(entry: dict, args) -> tuple[str, str]:
-    """Return (status, detail) for one source: ok, fetched, missing, failed or mismatch."""
+    """Return (status, detail) for one source: ok, fetched, manual, missing, failed or mismatch."""
     path = local_path(entry)
     if path.exists():
         digest = file_sha256(path)
@@ -71,8 +73,10 @@ def fetch(entry: dict, args) -> tuple[str, str]:
     if args.from_dir:
         origin = args.from_dir / path.name
         if not origin.is_file():
-            return "missing", f"not in {args.from_dir}"
+            return ("manual" if "download_url" not in entry else "missing"), f"not in {args.from_dir}"
         data = origin.read_bytes()
+    elif "download_url" not in entry:
+        return "manual", "no download_url: obtain the file by hand (see its notes in sources.json)"
     elif args.download:
         origin = entry["download_url"]
         try:
@@ -149,15 +153,21 @@ def main(argv=None) -> int:
         raise SystemExit(f"unknown source id(s): {', '.join(sorted(unknown))}")
     selected = [entry for entry in entries if not args.ids or entry["id"] in args.ids]
 
-    passed = True
+    passed, manual = True, []
     for entry in selected:
         status, detail = fetch(entry, args)
-        passed &= status in ("ok", "fetched")
+        if status == "manual":
+            manual.append(entry["id"])
+        passed &= status in ("ok", "fetched", "manual")
         print(f"  {status:8} {entry['id']:28} {entry['local_path']}" + (f"  {detail}" if detail else ""))
     if args.pages:
         pdf = next(local_path(entry) for entry in entries if entry["id"] == json.loads(PAGES.read_text())["source"])
         passed &= make_pages(pdf)
-    print("all present and verified" if passed else "incomplete: see above")
+    if not passed:
+        print("incomplete: see above")
+    else:
+        print(f"all downloadable sources present and verified; obtain by hand: {', '.join(manual)}" if manual
+              else "all present and verified")
     return 0 if passed else 1
 
 
